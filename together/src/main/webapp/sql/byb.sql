@@ -11,7 +11,7 @@ create table party(
  mem_num number not null,
  party_hobby number not null,
  constraint party_pk primary key (party_num),
- constraint party_fk1 foreign key (mem_num) 
+ constraint party_fk1 foreign key (mem_num)
                           references member (mem_num)
 
 );
