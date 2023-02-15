@@ -13,7 +13,7 @@ public class PartyVO {
 	private byte[] party_photo;
 	private String party_photo_name;
 	private int mem_num;
-	private int party_hobby;
+	private int party_hobby; 
 	
 	@Override
 	public String toString() {
