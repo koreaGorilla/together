@@ -22,7 +22,9 @@
 	
 	<c:if test="${!empty user}">
 	<a href="${pageContext.request.contextPath}/member/logout.do">로그아웃</a>
+	<a href="#" id="chat" title="채팅">채팅</a>
 	</c:if>
+	<a href="#" id="chat" title="채팅">채팅 test</a>
 	
 	<c:if test="${empty user}">
 	<a href="${pageContext.request.contextPath}/member/registerUser.do">회원가입</a>
@@ -37,6 +39,12 @@
 	<a href="${pageContext.request.contextPath}/main/admin.do">관리자메인</a>
 	</c:if>
 </div>
+<script>
+	$("#chat").on('click',function(e){
+		e.preventDefault();
+		window.open("/chat/chatList.do", "chat", "width=500, height=800, top=200, left=200");
+	})
+</script>
 <!-- 상단 끝 -->
 
 
