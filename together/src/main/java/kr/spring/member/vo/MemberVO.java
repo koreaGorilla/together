@@ -2,10 +2,13 @@ package kr.spring.member.vo;
 
 import java.sql.Date;
 
+import javax.validation.constraints.Pattern;
+
 public class MemberVO {
 	private int mem_num;
 	private String mem_id;
 	private int mem_auth;
+	private String mem_name;
 	private String mem_pw;
 	private String mem_cell;
 	private String mem_email;
@@ -34,6 +37,12 @@ public class MemberVO {
 	}
 	public void setMem_auth(int mem_auth) {
 		this.mem_auth = mem_auth;
+	}
+	public String getMem_name() {
+		return mem_name;
+	}
+	public void setMem_name(String mem_name) {
+		this.mem_name = mem_name;
 	}
 	public String getMem_pw() {
 		return mem_pw;
@@ -103,11 +112,11 @@ public class MemberVO {
 	}
 	@Override
 	public String toString() {
-		return "MemberVO [mem_num=" + mem_num + ", mem_id=" + mem_id + ", mem_auth=" + mem_auth + ", mem_pw=" + mem_pw
-				+ ", mem_cell=" + mem_cell + ", mem_email=" + mem_email + ", mem_zipcode=" + mem_zipcode
-				+ ", mem_address1=" + mem_address1 + ", mem_address2=" + mem_address2 + ", hobby=" + hobby
-				+ ", photo_name=" + photo_name + ", reg_date=" + reg_date + ", modify_date=" + modify_date + "]";
+		return "MemberVO [mem_num=" + mem_num + ", mem_id=" + mem_id + ", mem_auth=" + mem_auth + ", mem_name="
+				+ mem_name + ", mem_pw=" + mem_pw + ", mem_cell=" + mem_cell + ", mem_email=" + mem_email
+				+ ", mem_zipcode=" + mem_zipcode + ", mem_address1=" + mem_address1 + ", mem_address2=" + mem_address2
+				+ ", hobby=" + hobby + ", photo_name=" + photo_name + ", reg_date=" + reg_date + ", modify_date="
+				+ modify_date + "]";
 	}
-	
 	
 }
