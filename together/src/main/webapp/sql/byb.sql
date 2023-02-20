@@ -3,7 +3,6 @@ create table party(
  party_num number,
  party_name varchar2(40) not null,
  party_content clob not null,
- party_filename varchar2(150),
  party_reg_date date default sysdate not null, 
  party_reg_type number(1)not null,
  party_photo blob,

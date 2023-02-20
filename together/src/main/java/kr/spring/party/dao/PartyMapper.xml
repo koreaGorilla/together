@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper   
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+<mapper namespace="kr.spring.party.dao.PartyMapper">  
+  	<!-- sql 태그와 include 태그를 이용해 SQL문을 재사용 -->
+  	<sql id="partySearch">
+  		<where>
+  			<if test="keyword != null and keyword != ''">
+  				<if test="keyfield == 1">
+  					p.party_name LIKE '%' || #{keyword} || '%'
+  				</if>
+  				<if test="keyfield == 2">
+  					m.mem_id LIKE '%' || #{keyword} || '%' OR
+  					d.mem_nick_name LIKE '%' || #{keyword} || '%'
+  				</if>
+  				<if test="keyfield == 3">
+  					p.party_content LIKE '%' || #{keyword} || '%'
+  				</if>
+  				<if test="keyfield == 4">
+  					p.party_name LIKE '%' || #{keyword} || '%' OR
+  					p.party_content LIKE '%' || #{keyword} || '%'
+  				</if>
+  			</if>
+  		</where>
+  	</sql>
+  	
+  	<select id="selectRowCount" parameterType="map"
+  	                            resultType="integer">
+  		SELECT
+  		  COUNT(*)
+  		FROM party p JOIN member m
+  		ON p.mem_num = m.mem_num
+  		<include refid="partySearch"></include>                            
+  	</select>
+  	
+  	<select id="selectList" parameterType="map"
+  	                         resultType="partyVO">
+  		SELECT
+  		   *
+  		FROM (SELECT
+  		        a.*,
+  		        rownum rnum
+  		      FROM (SELECT
+  		              p.party_num,
+  		              <![CDATA[
+  		              REPLACE(REPLACE(p.party_name,'<','&lt;'),'>','&gt;') party_name,
+  		              ]]>
+  		              
+  		              
+  		              p.party_reg_date,
+  		              p.mem_num,
+  		              m.mem_id,
+  		              d.mem_name
+  		            FROM party p JOIN member m 
+  		            
+  		            ON p.mem_num = m.mem_num
+  		            join member_detail d
+  		            on m.mem_num =d.mem_num
+  		            <include refid="partySearch"></include>
+  		            ORDER BY p.party_num DESC)a)                         
+  		<![CDATA[
+  		WHERE rnum >= #{start} AND rnum <= #{end}
+  		]]>
+  	</select>
+  	
+  	
+  
+  	
+  	
+  	
+</mapper>
+
+
+
+
+
+
+

@@ -5,10 +5,15 @@
        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
 
 <tiles-definitions>
-    <definition name="" extends="main">
-    	<put-attribute name="title" value="회원가입"/>
+    <definition name="partyList" extends="main">
+    	<put-attribute name="title" value="파티목록"/>
     	<put-attribute name="body"
-    	  value="/WEB-INF/views/member/memberRegister.jsp"/>        
+    	  value="/WEB-INF/views/party/partyList.jsp"/>        
+    </definition>
+    <definition name="partyWrite" extends="main">
+    	<put-attribute name="title" value="글쓰기"/>
+    	<put-attribute name="body"
+    	  value="/WEB-INF/views/party/partyWrite.jsp"/>        
     </definition>
 </tiles-definitions>
 

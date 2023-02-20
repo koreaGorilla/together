@@ -1,7 +1,10 @@
 package kr.spring.party.vo;
 
+import java.io.IOException;
 import java.sql.Date;
 import java.util.Arrays;
+
+import org.springframework.web.multipart.MultipartFile;
 
 public class PartyVO {
 	private int party_num;
@@ -14,14 +17,16 @@ public class PartyVO {
 	private String party_photo_name;
 	private int mem_num;
 	private int party_hobby; 
-	
-	@Override
-	public String toString() {
-		return "PartyVO [party_num=" + party_num + ", party_name=" + party_name + ", party_content=" + party_content
-				+ ", party_filename=" + party_filename + ", party_reg_date=" + party_reg_date + ", party_reg_type="
-				+ party_reg_type + ", party_photo=" + Arrays.toString(party_photo) + ", party_photo_name="
-				+ party_photo_name + ", mem_num=" + mem_num + ", party_hobby=" + party_hobby + "]";
+
+	//파일 업로드 처리
+	public void setUpload(MultipartFile upload)
+			throws IOException{
+		//MultipartFile -> byte[] 변환
+		setParty_photo(upload.getBytes());
+		//파일명 구하기
+		setParty_photo_name(upload.getOriginalFilename());
 	}
+
 	public int getParty_num() {
 		return party_num;
 	}
@@ -82,6 +87,11 @@ public class PartyVO {
 	public void setParty_hobby(int party_hobby) {
 		this.party_hobby = party_hobby;
 	}
-	
-
+	@Override
+	public String toString() {
+		return "PartyVO [party_num=" + party_num + ", party_name=" + party_name + ", party_content=" + party_content
+				+ ", party_filename=" + party_filename + ", party_reg_date=" + party_reg_date + ", party_reg_type="
+				+ party_reg_type + ", party_photo_name=" + party_photo_name + ", mem_num=" + mem_num + ", party_hobby="
+				+ party_hobby + "]";
+	}
 }
