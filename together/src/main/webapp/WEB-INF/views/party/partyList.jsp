@@ -19,7 +19,7 @@ let result = '${result}';
 	});
 	</script>
 <div class="page-main">
-	<h2>게시판 목록</h2>
+	<h2>파티 목록</h2>
 	<form action="list.do" id="search_form" method="get">
 		<ul class="search">
 			<li>
@@ -60,7 +60,7 @@ let result = '${result}';
 		<tr>
 			
 			<td>
-				<a href="detail.do?board_num=${party.party_num}">${party.party_name}</a>
+				<a href="detail.do?party_num=${party.party_num}">${party.party_name}</a>
 			</td>
 			<td>${party.party_hobby}</td>
 	
