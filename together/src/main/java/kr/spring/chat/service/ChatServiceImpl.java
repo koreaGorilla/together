@@ -8,41 +8,47 @@ import org.springframework.stereotype.Service;
 
 import kr.spring.chat.dao.ChatMapper;
 import kr.spring.chat.vo.ChatVO;
+import kr.spring.party.vo.PartyVO;
 
 	@Service
 	public class ChatServiceImpl implements ChatService{
 		
-	    @Autowired
-	    private ChatMapper chatMapper;
-	
-	
+		@Autowired
+		private ChatMapper chatMapper;
+
 		@Override
-		public ChatVO getPartyNum(int mem_num) {
-			 return chatMapper.getPartyNum(mem_num);
+		public List<PartyVO> selectChatRoomList(Map<String, Object> map) {
+			return chatMapper.selectChatRoomList(map);
 		}
-	
+
 		@Override
-		public List<ChatVO> getChatRoomList(int party_num) {
-			return chatMapper.getChatRoomList(party_num);
+		public PartyVO selectChatRoom(Integer party_num) {
+			return chatMapper.selectChatRoom(party_num);
 		}
-	
+
 		@Override
-		public List<ChatVO> selectChatMember(Integer chat_num) {
-			// TODO Auto-generated method stub
-			return null;
-		}
-	
-		@Override
-		public ChatVO selectChatRoom(int party_num) {
-			// TODO Auto-generated method stub
-			return null;
-		}
-	
-		@Override
-		public void insertChat(ChatVO chat) {
-			// TODO Auto-generated method stub
+		public void insertChat(ChatVO chatVO) {
+			chatVO.setChat_num(chatMapper.selectChatNum());
+			//채팅 메시지 등록
+			chatMapper.insertChat(chatVO);
+			for(ChatVO vo : chatMapper.selectChatMember(chatVO.getParty_num())) {
+				chatMapper.insertChatRead(chatVO.getParty_num(), chatVO.getChat_num(), vo.getMem_num());
+			}
 			
 		}
+
+		@Override
+		public List<ChatVO> selectChatDetail(Map<String, Integer> map) {
+			chatMapper.deleteChatRead(map);
+			return chatMapper.selectChatDetail(map.get("party_num"));
+		}
+
+		@Override
+		public List<ChatVO> selectChatMember(Integer party_num) {
+			return chatMapper.selectChatMember(party_num);
+		}
+
+
 	
 	
 	

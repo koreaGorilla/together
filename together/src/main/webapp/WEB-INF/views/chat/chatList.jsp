@@ -1,33 +1,28 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="UTF-8">
-	<title>채팅방 목록</title>
-</head>
-<body>
-	<h1>채팅방 목록</h1>
-	
-	<table>
-		<tbody>
-		<c:if test="${not empty chatRooms}">		
-	      <c:forEach var="chatRoom" items="${chatRooms}">
-	        <c:if test="${chatRoom.party_num == party_num}">
-	          <tr>
-	            <td>
-	            	<a href="chatDetail.do?party_num=${chatRoom.party_num}">${chatRoom.party_name}</a>
-	            </td>
-	            <td>${chatRoom.party_name}</td>
-	          </tr>
-	        </c:if>
-	      </c:forEach>
-		</c:if>
-	     <c:if test="${empty chatRooms}" >
-	     	파티를 가입해주세요
-	     </c:if>
-		</tbody>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<!-- 채팅목록 시작 -->
+<div class="page-main">
+	<h2>채팅목록</h2>
+	<c:if test="${empty list}">
+	<div class="result-display">표시할 채팅방이 없습니다.</div>
+	</c:if>
+	<c:if test="${!empty list}">
+	<table class="striped-table">
+		<c:forEach var="chat" items="${list}">
+		<tr>
+			<td style="text-align:left">
+				<a href="chatDetail.do?party_num=${chat.party_num}">					<br>
+					<span>${chat.party_name}</span>
+				</a>
+			</td>
+			<td>
+				<span>${chat.party_reg_date}</span>
+			</td>
+		</tr>
+		</c:forEach>
 	</table>
-	
-</body>
-</html>
+	</c:if>
+</div>
+<!-- 채팅목록 끝 -->

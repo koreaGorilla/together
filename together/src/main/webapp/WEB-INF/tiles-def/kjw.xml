@@ -5,10 +5,20 @@
        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
 
 <tiles-definitions>
-    <definition name="" extends="main">
-    	<put-attribute name="title" value="회원가입"/>
+    <definition name="memberLogin" extends="main">
+    	<put-attribute name="title" value="회원로그인"/>
     	<put-attribute name="body"
-    	  value="/WEB-INF/views/member/memberRegister.jsp"/>        
+    	  value="/WEB-INF/views/member/memberLogin.jsp"/>        
+    </definition>
+    <definition name="chatList" extends="chat">
+    	<put-attribute name="title" value="채팅목록"/>
+    	<put-attribute name="body"
+    	  value="/WEB-INF/views/chat/chatList.jsp"/>        
+    </definition>
+    <definition name="chatDetail" extends="chat">
+    	<put-attribute name="title" value="채팅상세"/>
+    	<put-attribute name="body"
+    	  value="/WEB-INF/views/chat/chatDetail.jsp"/>        
     </definition>
 </tiles-definitions>
 
