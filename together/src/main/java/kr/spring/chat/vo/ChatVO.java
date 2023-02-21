@@ -11,7 +11,7 @@ public class ChatVO {
 	private int mem_num;
 	
 	private int read_count;
-	private String mem_id;
+	private String mem_name;
 	
 	public int getChat_num() {
 		return chat_num;
@@ -31,8 +31,8 @@ public class ChatVO {
 	public int getRead_count() {
 		return read_count;
 	}
-	public String getMem_id() {
-		return mem_id;
+	public String getMem_name() {
+		return mem_name;
 	}
 	public void setChat_num(int chat_num) {
 		this.chat_num = chat_num;
@@ -52,10 +52,17 @@ public class ChatVO {
 	public void setRead_count(int read_count) {
 		this.read_count = read_count;
 	}
-	public void setMem_id(String mem_id) {
-		this.mem_id = mem_id;
+	public void setMem_name(String mem_name) {
+		this.mem_name = mem_name;
 	}
-
+	@Override
+	public String toString() {
+		return "ChatVO [chat_num=" + chat_num + ", message=" + message + ", timestamp=" + timestamp + ", party_num="
+				+ party_num + ", mem_num=" + mem_num + ", read_count=" + read_count + ", mem_name=" + mem_name + "]";
+	}
+	
+	
+	
 
 
 	

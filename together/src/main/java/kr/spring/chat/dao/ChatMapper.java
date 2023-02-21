@@ -41,7 +41,6 @@ public interface ChatMapper {
 		public void insertChat(ChatVO chatVO);
 		
 		//채팅 메시지 읽기
-		@Select("SELECT * FROM party_chat WHERE party_num=#{party_num}")
 		public List<ChatVO> selectChatDetail(
 				                   Integer party_num);
 		

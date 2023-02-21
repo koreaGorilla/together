@@ -99,7 +99,6 @@ public class ChatController {
 			
 			mapAjax.put("result", "success");
 			mapAjax.put("list", list);
-			logger.debug("<<오류체크용>> : " + mapAjax);
 		}
 		
 		return mapAjax;
