@@ -12,4 +12,5 @@ public interface PartyService {
 	public void insertParty(PartyVO party);
 	public PartyVO selectParty(Integer party_num);
 
+	public PartyVO selectPartyDetail(Integer party_num);
 }

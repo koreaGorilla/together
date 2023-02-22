@@ -38,4 +38,9 @@ public class PartyServiceimpl implements PartyService {
 		return partyMapper.selectParty(party_num);
 	}
 
+	@Override
+	public PartyVO selectPartyDetail(Integer party_num) {
+		return partyMapper.selectPartyDetail(party_num);
+	}
+
 }

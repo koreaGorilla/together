@@ -22,5 +22,11 @@ public interface PartyMapper {
 		public PartyVO selectParty(Integer party_num);
 	
 	
+	@Select("select b.partymem_num,p.party_num, p.party_name,p.party_content,m.mem_name,m.photo,m.photo_name,p.party_photo,p.party_photo_name,b.party_auth from party p join party_member b "
+			+ " on p.party_num = b.party_num "
+			+ " join member_detail m "
+			+ " on b.mem_num=m.mem_num where p.party_num=#{party_num}")
+	public PartyVO selectPartyDetail(Integer party_num);
+	
 
 }
