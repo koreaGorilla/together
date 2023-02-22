@@ -65,8 +65,5 @@ public interface ChatMapper {
 			  + "mem_num=#{mem_num}")
 		public void deleteChatRead(
 				                 Map<String,Integer> map);
-		
-		//채팅 메시지 삭제
-		@Delete("DELETE FROM party_chat WHERE party_num=#{party_num}")
-		public void deletechat(Integer party_num);
+
 }

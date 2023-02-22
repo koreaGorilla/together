@@ -10,19 +10,19 @@
   		<select id="selectChatDetail" parameterType="integer"
   										resultType="chatVO">
 		  SELECT
-			    chat_num,
+			    c.chat_num,
 			    c.party_num,
-			    mem_num,
-			    message,
-			    timestamp,
+			    c.mem_num,
+			    c.message,
+			    c.timestamp,
 			    m.mem_name
 		  FROM
 			    party_chat c
-			    JOIN member m ON c.mem_num = m.mem_num
+			    JOIN member_detail m ON c.mem_num = m.mem_num
 		  WHERE
 		    	party_num = #{party_num}
 		  ORDER BY
-		    	timestamp
+		    	c.timestamp
 		</select>
 </mapper>
 

@@ -44,7 +44,7 @@
 <script>
 	$("#chat").on('click',function(e){
 		e.preventDefault();
-		window.open("/chat/chatList.do", "chat", "width=500, height=800, top=200, left=200");
+		window.open("/chat/chatList.do", "chat", "width=800, height=800, top=200, left=200");
 	})
 </script>
 <!-- 상단 끝 -->

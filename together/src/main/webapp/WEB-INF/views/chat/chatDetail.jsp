@@ -6,8 +6,10 @@
 <div id="chatDetail" class="page-main">
 	<h2>${partyVO.party_name} 채팅방</h2>
 	<div class="align-right">
+	<div class="listButton">
 		<input type="button" value="목록"
 		       onclick="location.href='chatList.do'">     
+	</div>
 	</div>
 	<div id="chatting_message"></div>
 	<form method="post" id="detail_form">
@@ -18,7 +20,7 @@
 		        id="mem_num" value="${user.mem_num}">
 		<ul>
 			<li>
-				<label for="message">내용</label>
+				<label for="message"></label>
 				<textarea rows="5" cols="40"
 				  name="message" id="message"></textarea>
 				<input type="submit" value="전송">  

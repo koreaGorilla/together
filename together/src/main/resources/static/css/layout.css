@@ -345,6 +345,146 @@ form#mre_form{
 	margin:5px;
 }
 
+
+/* 채팅방
+---------------------------*/
+form#talk_form{
+	width:620px;
+}
+table.chat-table {
+  border-collapse: collapse;
+  text-align: left;
+  line-height: 1.5;
+  border: 1px solid #ccc;
+  margin: 20px 10px;
+}
+table.chat-table thead {
+  border-right: 1px solid #ccc;
+  border-left: 1px solid #ccc;
+  background: #ffab23;
+}
+table.chat-table thead th {
+  padding: 10px;
+  font-weight: bold;
+  vertical-align: top;
+  color: #fff;
+}
+table.chat-table tbody th {
+  width: 620px;
+  padding: 10px;
+  font-weight: bold;
+  vertical-align: top;
+  border-bottom: 1px solid #ccc;
+  background: #fcf1f4;
+}
+table.chat-table td {
+  width: 620px;
+  padding: 10px;
+  vertical-align: top;
+  border-bottom: 1px solid #ccc;
+}
+
+/* 채팅하기
+---------------------------*/
+#chatting_message{
+	border:1px solid black;
+	width:660px;
+	height:400px;
+	margin:0 auto;
+	padding:10px;
+	overflow:auto;
+}
+.date-position{
+	text-align:center;
+}
+.date-position span{
+	display:inline-block;
+	width:300px;
+	height:20px;
+	border-radius:10px;
+	background-color:#f2efef;
+}
+.from-position{
+	width:300px;
+	margin:10px 0 10px 330px;
+}
+.from-position .item{
+	background-color:yellow;
+	padding:10px;
+	min-height:50px;
+	border-radius:20px;
+	border-top-right-radius:0;
+}
+.to-position{
+	width:300px;
+	margin:10px 0 10px 0;
+}
+.to-position .item{
+	background-color:pink;
+	padding:10px;
+	min-height:50px;
+	border-radius:20px;
+	border-top-left-radius:0;
+}
+.to-position div.space-photo{
+	float:left;
+	width:15%;
+}
+.to-position div.space-message{
+	float:left;
+	width:85%;
+}
+.to-position div.space-clear{
+	clear:both;
+}
+
+form#detail_form{
+	width:640px;
+}
+#detail_form #message{
+	width: 80%;
+	height: 50px;
+	padding: 10px;
+	box-sizing: border-box;
+	border: solid 2px gray;
+	border-radius: 5px;
+	font-size: 16px;
+	resize: both;
+}
+#detail_form input, .listButton input{
+	box-shadow:inset 0px 1px 0px 0px #fff6af;
+	background:linear-gradient(to bottom, #ffec64 5%, #ffab23 100%);
+	background-color:#ffec64;
+	border-radius:6px;
+	border:1px solid #ffaa22;
+	display:inline-block;
+	cursor:pointer;
+	color:#333333;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	font-style:italic;
+	padding:15px 24px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #ffee66;
+	position: relative;
+    bottom: 20px;
+	
+}
+#detail_form input:hover {
+	background:linear-gradient(to bottom, #ffab23 5%, #ffec64 100%);
+	background-color:#ffab23;
+}
+#detail_form input:active {
+	position:relative;
+	top:1px;
+}
+
+#chatDetail h2 {
+  text-align: center;
+  font-size: 2.7rem;
+}
+
 /* 상품
 ---------------------------*/
 
