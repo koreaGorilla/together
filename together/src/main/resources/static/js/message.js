@@ -1,7 +1,5 @@
 $(function(){
 	let message_socket;//웹소켓 식별자
-	//채팅방 채팅 멤버 저장 배열
-	let member_list = [$('#user').attr('data-id')];
 	
 	//웹소켓 연결
 	function alarm_connect(){
@@ -62,20 +60,22 @@ $(function(){
 							//일반 메시지 처리
 							if(item.mem_num == $('#mem_num').val()){
 								//본인 메시지
-								output += '<div class="from-position">'+item.id;
+								output += '<div class="from-position">'+item.mem_name;
 								output += '<div>';
 							}else{
 								//타인 메시지
 								output += '<div class="to-position">';
 								output += '<div class="space-photo">';
-								output += '<img src="../member/viewProfile.do?mem_num='+item.mem_num+'" width="40" height="40" class="my-photo">';
+								//output += '<img src="../member/viewProfile.do?mem_num='+item.mem_num+'" width="40" height="40" class="my-photo">';
 								output += '</div><div class="space-message">';
-								output += item.id;
+								output += item.mem_name;
 							}
 							output += '<div class="item">';
 							output += item.read_count + '<span>' + item.message.replace(/\r\n/g,'<br>').replace(/\r/,'<br>').replace(/\n/,'<br>') + '</span>';
 							//시간 표시
-							output += '<div class="align-right">' + item.timestamp.split(' ')[1] + '</div>'; 
+							if (item.timestamp && item.timestamp !== '') {
+  								output += '<div class="align-right">' + item.timestamp.split(' ')[1] + '</div>';
+								}							
 							output += '</div>';
 							output += '</div><div class="space-clear"></div>';
 							output += '</div>';

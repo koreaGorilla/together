@@ -6,7 +6,7 @@ import java.sql.Date;
 public class ChatVO {
 	private int chat_num;
 	private String message;
-	private Date timestamp;
+	private String timestamp;
 	private int party_num;
 	private int mem_num;
 	
@@ -19,7 +19,7 @@ public class ChatVO {
 	public String getMessage() {
 		return message;
 	}
-	public Date getTimestamp() {
+	public String getTimestamp() {
 		return timestamp;
 	}
 	public int getParty_num() {
@@ -40,7 +40,7 @@ public class ChatVO {
 	public void setMessage(String message) {
 		this.message = message;
 	}
-	public void setTimestamp(Date timestamp) {
+	public void setTimestamp(String timestamp) {
 		this.timestamp = timestamp;
 	}
 	public void setParty_num(int party_num) {

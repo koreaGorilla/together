@@ -10,14 +10,18 @@
 	</c:if>
 	<c:if test="${!empty list}">
 	<table class="striped-table">
+		<tr class="menu">
+			<td style="text-align:left">파티 이름</td>
+			<td style="text-align:right">파티 생성일자</td>
+		</tr>
 		<c:forEach var="chat" items="${list}">
 		<tr>
 			<td style="text-align:left">
-				<a href="chatDetail.do?party_num=${chat.party_num}">					<br>
+				<a href="chatDetail.do?party_num=${chat.party_num}"><br>
 					<span>${chat.party_name}</span>
 				</a>
 			</td>
-			<td>
+			<td style="text-align:right">
 				<span>${chat.party_reg_date}</span>
 			</td>
 		</tr>
