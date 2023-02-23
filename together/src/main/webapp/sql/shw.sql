@@ -4,6 +4,7 @@ create table review(
  r_date date default sysdate not null,
  r_modfiy_date date,
  party_num number not null,
+ party_name varchar2(100) not null,
  r_content varchar2(4000) not null,
  r_photo blob,
  r_photoname varchar2(100),
