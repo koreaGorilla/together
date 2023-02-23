@@ -78,4 +78,9 @@
 	<hr size="1" width="100%">
 	</c:forEach>
 	</c:if>
+	
+	<div class="align-center">
+		${page}
+	</div>
+	
 </div>
