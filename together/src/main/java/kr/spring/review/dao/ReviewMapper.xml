@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper   
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+<mapper namespace="kr.spring.review.dao.ReviewMapper">  
+  	<!-- sql 태그와 include 태그를 이용해 sql문을 재사용 -->
+  	<sql id="reviewSearch">
+  		<where>
+  			<if test="keyword != null and keyword != ''">
+  				<!-- 작성자 -->
+  				<if test="keyfield==1">
+  					m.mem_name like '%' || #{keyword} || '%'
+  				</if>
+  				<!-- 내용 -->
+  				<if test="keyfield==2">
+  					r.r_content like '%' || #{keyword} || '%'
+  				</if>
+  				<!-- 작성자 + 내용 -->
+  				<if test="keyfield==3">
+  					m.mem_name like '%' || #{keyword} || '%' or
+  					r.r_content like '%' || #{keyword} || '%'
+  				</if>
+  			</if>
+  		</where>
+  	</sql>
+  	
+  	<select id="selectRowCount" parameterType="map" resultType="integer">
+  		select
+  		  count(*)
+  		from review r join member_detail m
+  		on r.mem_num = m.mem_num
+  		<include refid="reviewSearch"></include> <!-- 위에 적은 sql문장이 들어와서 동적으로 실행 됨 -->
+  	</select>
+  	
+  	<select id="selectList" parameterType="map" resultType="reviewVO">
+  		select 
+  		  * 
+  		from ( select 
+  				 a.* , 
+  		 	     rownum rnum
+   		 	from (select 
+   		 			*
+   		 		  from review r join member_detail m
+        		  on r.mem_num =m.mem_num
+        		  <include refid="reviewSearch"></include>
+        		  order by r.r_num desc)a)
+    <![CDATA[
+    where rnum>= #{start} and rnum<= #{end}
+  	]]>		 
+  	</select>
+  	
+  	
+  	
+</mapper>
