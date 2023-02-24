@@ -62,7 +62,12 @@ let result = '${result}';
 			<td>
 				<a href="detail.do?party_num=${party.party_num}">${party.party_name}</a>
 			</td>
-			<td>${party.party_hobby}</td>
+			<td>
+			<c:if test="${party.party_hobby == 1}">운동</c:if>
+			<c:if test="${party.party_hobby == 2}">독서</c:if>
+			<c:if test="${party.party_hobby == 3}">음주</c:if>
+			<c:if test="${party.party_hobby == 4}">문화</c:if>
+			</td>
 	
 		</tr>
 		</c:forEach>

@@ -49,6 +49,7 @@
   		              
   		              
   		              p.party_reg_date,
+  		               p.party_hobby,
   		              p.mem_num,
   		              m.mem_id,
   		              d.mem_name

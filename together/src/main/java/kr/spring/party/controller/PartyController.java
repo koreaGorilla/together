@@ -24,6 +24,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import kr.spring.member.vo.MemberVO;
 import kr.spring.party.service.PartyService;
 import kr.spring.party.vo.PartyVO;
+import kr.spring.partymember.vo.PartyMemberVO;
 import kr.spring.review.vo.ReviewVO;
 import kr.spring.util.PagingUtil;
 import kr.spring.util.StringUtil;
@@ -92,22 +93,20 @@ public class PartyController {
 
 	//등록 폼에서 전송된 데이터 처리
 	@PostMapping("/party/write.do")
-	public String submit(@Valid PartyVO partyVO,
+	public String submit(@Valid PartyVO partyVO,PartyMemberVO member,
 			BindingResult result,
 			HttpServletRequest request,
 			RedirectAttributes redirect,
 			HttpSession session) {
 		logger.debug("<<게시판 글쓰기>> : " + partyVO);
 
-
 		MemberVO user = (MemberVO)session.getAttribute("user");
 		//로그인 처리가 되면 아래 코드 사용
-		//partyVO.setMem_num(user.getMem_num());
-		//로그인 처리가 안 되어 있을 때는
-		partyVO.setMem_num(100);
+		partyVO.setMem_num(user.getMem_num());
+		member.setMem_num(user.getMem_num());
 
 		//글쓰기
-		partyService.insertParty(partyVO);
+		partyService.insertParty(partyVO, member);
 
 		return "redirect:/party/list.do";
 	}

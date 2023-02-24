@@ -7,8 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import kr.spring.member.vo.MemberVO;
 import kr.spring.party.dao.PartyMapper;
 import kr.spring.party.vo.PartyVO;
+import kr.spring.partymember.vo.PartyMemberVO;
 
 @Service
 @Transactional
@@ -27,8 +29,11 @@ public class PartyServiceimpl implements PartyService {
 	}
 
 	@Override
-	public void insertParty(PartyVO party) {
+	public void insertParty(PartyVO party,PartyMemberVO member) {
+		party.setParty_num(partyMapper.selectPartyNum());
+		member.setParty_num(party.getParty_num());
 		partyMapper.insertParty(party);
+		partyMapper.insertParty_Member(member);
 
 	}
 
@@ -42,5 +47,6 @@ public class PartyServiceimpl implements PartyService {
 	public PartyVO selectPartyDetail(Integer party_num) {
 		return partyMapper.selectPartyDetail(party_num);
 	}
+
 
 }

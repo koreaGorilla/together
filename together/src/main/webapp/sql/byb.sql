@@ -15,17 +15,3 @@ create table party(
 
 );
 create sequence party_seq;
---파티회원 관리
-create table party_member(
- partymem_num number,
- party_auth number(1) default 0 not null,
- party_num number not null,
- mem_num number not null,
- partymem_reg_date date default sysdate not null,
- constraint party_member_pk primary key (partymem_num),
- constraint party_member_fk1 foreign key (party_num)
-                          references party (party_num)
- constraint party_member_fk2 foreign key (mem_num)
-                          references member (mem_num)
-);
-create sequence party_member_seq;
