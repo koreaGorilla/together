@@ -1,0 +1,23 @@
+@charset "UTF-8";
+
+/*파티*/
+.item-space .horizontal-area{
+	margin:2px;
+	padding:3px;
+	width:200px;
+	height:220px;
+	float:left;
+	overflow:hidden;
+	text-align:center;
+}
+.item-space .horizontal-area span{
+	padding:5px;
+	margin:5px;
+}
+.item-space .horizontal-area img{
+	width:195px;
+	height:175px;
+}
+.item-space .float-clear{
+	clear:both;
+}

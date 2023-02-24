@@ -44,6 +44,8 @@
 					<option value="4">문화</option>
 				</select>
 			</li>
+			
+			
 			<li>
 			    <label for="reg_type">회원가입방식</label>
 				<select name="party_reg_type" id="party_reg_type">

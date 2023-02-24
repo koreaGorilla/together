@@ -16,4 +16,6 @@ public interface PartyService {
 
 	public PartyVO selectPartyDetail(Integer party_num);
 	
+	
+	
 }

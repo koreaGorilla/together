@@ -88,7 +88,6 @@ public class PartyController {
 	@GetMapping("/party/write.do")
 	public String form() {
 		return "partyWrite";
-
 	}
 
 	//등록 폼에서 전송된 데이터 처리
@@ -100,8 +99,12 @@ public class PartyController {
 			HttpSession session) {
 		logger.debug("<<게시판 글쓰기>> : " + partyVO);
 
+
 		MemberVO user = (MemberVO)session.getAttribute("user");
 		//로그인 처리가 되면 아래 코드 사용
+		partyVO.setMem_num(user.getMem_num());
+		//로그인 처리가 안 되어 있을 때는
+		//partyVO.setMem_num(100);
 		partyVO.setMem_num(user.getMem_num());
 		member.setMem_num(user.getMem_num());
 
@@ -127,20 +130,15 @@ public class PartyController {
 
 	//======이미지 출력======//
 	@RequestMapping("/party/imageView.do")
-	public ModelAndView viewImage(@RequestParam int party_num, @RequestParam int party_type) {
+	public ModelAndView viewImage(@RequestParam int party_num) {
 
 		PartyVO party = partyService.selectPartyDetail(party_num);
 
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("imageView");
 
-		if(party_type==1) {//파티 이미지 가져오기
-			mav.addObject("imageFile",party.getParty_photo());
-			mav.addObject("filename",party.getParty_photo_name());
-		}else if(party_type==2) {//프로필 이미지 가져오기
-			mav.addObject("imageFile",party.getPhoto());
-			mav.addObject("filename",party.getPhoto_name());
-		}
+		mav.addObject("imageFile",party.getParty_photo());
+		mav.addObject("filename",party.getParty_photo_name());
 
 		return mav;
 	}

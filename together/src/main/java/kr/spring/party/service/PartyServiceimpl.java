@@ -34,6 +34,7 @@ public class PartyServiceimpl implements PartyService {
 		member.setParty_num(party.getParty_num());
 		partyMapper.insertParty(party);
 		partyMapper.insertParty_Member(member);
+		
 
 	}
 
