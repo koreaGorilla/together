@@ -51,16 +51,15 @@ $(function(){
 						}
 						
 						if(item.message.indexOf('@{exit}@')>=0){
-							//탈퇴 메시지 처리
+							//탈퇴 메시지 처리 불필요 refactor 가능
 							output += '<div class="exit-message">';
-							output += item.message.substring(0,
-							       item.message.indexOf('@{exit}@'));
+							output += item.message.substring(0,item.message.indexOf('@{exit}@'));
 							output += '</div>';
 						}else{
 							//일반 메시지 처리
 							if(item.mem_num == $('#mem_num').val()){
 								//본인 메시지
-								output += '<div class="from-position">'+item.mem_name;
+								output += '<div class="from-position">' + item.mem_name;
 								output += '<div>';
 							}else{
 								//타인 메시지
@@ -71,7 +70,7 @@ $(function(){
 								output += item.mem_name;
 							}
 							output += '<div class="item">';
-							output += item.read_count + '<span>' + item.message.replace(/\r\n/g,'<br>').replace(/\r/,'<br>').replace(/\n/,'<br>') + '</span>';
+							output += '<span>' + item.message.replace(/\r\n/g,'<br>').replace(/\r/,'<br>').replace(/\n/,'<br>') + '</span>';
 							//시간 표시
 							if (item.timestamp && item.timestamp !== '') {
   								output += '<div class="align-right">' + item.timestamp.split(' ')[1] + '</div>';
@@ -119,8 +118,8 @@ $(function(){
 		}
 		
 		//글자수 체크
-		if($('#message').val().length>1333){
-			alert('메시지는 1333자까지만 입력 가능합니다.');
+		if($('#message').val().length>300){
+			alert('메시지는 300자까지만 입력 가능합니다.');
 			return false;
 		}
 		
