@@ -4,6 +4,7 @@
 <!-- 상단 시작 -->
 <h2 class="align-center">SpringPage</h2>
 <div class="align-right">
+	<a href="${pageContext.request.contextPath}/partymember/partymemberlist.do">파티멤버</a>
         <a href="${pageContext.request.contextPath}/party/list.do">파티</a>
 	<a href="${pageContext.request.contextPath}/review/list.do">리뷰</a>
 	<a href="${pageContext.request.contextPath}/board/list.do">게시판</a>
