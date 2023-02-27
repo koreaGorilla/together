@@ -37,5 +37,8 @@ public interface PartyMapper {
 	@Select("select * from party where party_num=#{party_num}")
 	public PartyVO selectPartyDetail(Integer party_num);
 	
+	@Select("SELECT * FROM (SELECT * FROM party ORDER BY party_reg_date DESC) WHERE ROWNUM <= 4")
+	public List<PartyVO> selectMainPartyList();
+	
 
 }

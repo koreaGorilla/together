@@ -49,5 +49,11 @@ public class PartyServiceimpl implements PartyService {
 		return partyMapper.selectPartyDetail(party_num);
 	}
 
+	//메인페이지 파티목록 호출
+	@Override
+	public List<PartyVO> selectMainPartyList() {
+		return partyMapper.selectMainPartyList();
+	}
+
 
 }

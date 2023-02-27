@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/party.css"> 
 <!-- 메인 시작 -->
 <!-- 메인 시작 -->
 <div id="page-main">
@@ -62,4 +64,17 @@
 		</script>
 	</section>
 </div>
+	<div class="item-space">
+		<c:forEach var="party" items="${list}">
+		<div class="horizontal-area">
+			<a href="detail.do?party_num=${party.party_num}">
+				<img src="imageView.do?party_num=${party.party_num}">
+				<span>${party.party_name}</span>
+			</a>
+		</div>
+		</c:forEach>
+		<div class="float-clear">
+			<hr width="100%" size="1" noshade="noshade">
+		</div>
+	</div>
 <!-- 메인 끝 -->
