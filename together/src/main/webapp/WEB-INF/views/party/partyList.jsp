@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>  
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/party.css">
 <script type="text/javascript">
 let result = '${result}';
 	if(!location.hash && result == 'success'){
@@ -41,37 +42,34 @@ let result = '${result}';
 	</form>
 	
 	<div class="align-right">
-		<input type="button" value="글쓰기" 
+		<input type="button" value="파티 생성" 
 		    onclick="location.href='write.do'">
 	</div>
 	
 	<c:if test="${count == 0}">
-	<div class="result-display">표시할 게시물이 없습니다.</div>
+	<div class="result-display">표시할 파티 정보가 없습니다.</div>
 	</c:if>	
 	<c:if test="${count > 0}">
-	<table class="striped-table">
-		<tr>
-			
-			<th>제목</th>
-			<th>카테고리</th>
-		
-		</tr>
+	<div class="item-space">
 		<c:forEach var="party" items="${list}">
-		<tr>
-			
-			<td>
-				<a href="detail.do?party_num=${party.party_num}">${party.party_name}</a>
-			</td>
-			<td>
-			<c:if test="${party.party_hobby == 1}">운동</c:if>
-			<c:if test="${party.party_hobby == 2}">독서</c:if>
-			<c:if test="${party.party_hobby == 3}">음주</c:if>
-			<c:if test="${party.party_hobby == 4}">문화</c:if>
-			</td>
-	
-		</tr>
+		<div class="horizontal-area">
+			<a href="detail.do?party_num=${party.party_num}">
+				<img src="imageView.do?party_num=${party.party_num}">
+				<span>${party.party_name}</span>
+				<br>
+				<b>
+				<c:if test="${party.party_hobby == 1}">운동</c:if>
+				<c:if test="${party.party_hobby == 2}">독서</c:if>
+				<c:if test="${party.party_hobby == 3}">음주</c:if>
+				<c:if test="${party.party_hobby == 4}">문화</c:if>
+				</b>
+			</a>
+		</div>
 		</c:forEach>
-	</table>
+		<div class="float-clear">
+			<hr width="100%" size="1" noshade="noshade">
+		</div>
+	</div>
 	<div class="align-center">${page}</div>
 	</c:if>
 </div>
