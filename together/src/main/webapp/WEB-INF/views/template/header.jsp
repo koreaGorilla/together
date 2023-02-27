@@ -10,11 +10,11 @@
 	<a href="${pageContext.request.contextPath}/board/list.do">게시판</a>
 	
 	<c:if test="${!empty user && user.mem_auth == 2}">
-	<a href="${pageContext.request.contextPath}/member/myPage.do">MY페이지</a>
+	<a href="${pageContext.request.contextPath}/mypage/myPage.do">MY페이지</a>
 	</c:if>
 	
 	<c:if test="${!empty user}">
-	<img src="${pageContext.request.contextPath}/member/photoView.do" width="25" height="25" class="my-photo">
+	<img src="${pageContext.request.contextPath}/mypage/photoView.do" width="25" height="25" class="my-photo">
 	</c:if>
 	<c:if test="${!empty user && !empty user.mem_name}">
 	[<span class="user_name">${user.mem_name}</span>]
