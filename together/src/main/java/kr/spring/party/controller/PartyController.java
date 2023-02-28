@@ -139,7 +139,7 @@ public class PartyController {
 
 		mav.addObject("imageFile",party.getParty_photo());
 		mav.addObject("filename",party.getParty_photo_name());
-
+		
 		return mav;
 	}
 
