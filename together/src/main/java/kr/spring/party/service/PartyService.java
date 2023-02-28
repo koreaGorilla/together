@@ -15,8 +15,9 @@ public interface PartyService {
 	public PartyVO selectParty(Integer party_num);
 
 	public PartyVO selectPartyDetail(Integer party_num);
+	public List<PartyVO> selectMainPartyList();
 	
-	 public List<PartyVO> selectMainPartyList();
+	
 	
 	
 	

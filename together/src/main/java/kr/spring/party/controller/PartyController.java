@@ -12,6 +12,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -26,6 +27,7 @@ import kr.spring.party.service.PartyService;
 import kr.spring.party.vo.PartyVO;
 import kr.spring.partymember.vo.PartyMemberVO;
 import kr.spring.review.vo.ReviewVO;
+import kr.spring.util.FileUtil;
 import kr.spring.util.PagingUtil;
 import kr.spring.util.StringUtil;
 
@@ -81,6 +83,20 @@ public class PartyController {
 
 		return mav;
 	}
+	//======이미지 출력======//
+		@RequestMapping("/party/imageView.do")
+		public ModelAndView viewImage(@RequestParam int party_num) {
+
+			PartyVO party = partyService.selectPartyDetail(party_num);
+
+			ModelAndView mav = new ModelAndView();
+			mav.setViewName("imageView");
+
+			mav.addObject("imageFile",party.getParty_photo());
+			mav.addObject("filename",party.getParty_photo_name());
+
+			return mav;
+		}
 
 	//파티생성
 	//=======글쓰기=========//
@@ -113,6 +129,27 @@ public class PartyController {
 
 		return "redirect:/party/list.do";
 	}
+	//===== 사진 출력====//
+		/*@RequestMapping("/party/photoView.do")
+		public String getProfile(HttpSession session,
+				          HttpServletRequest request,
+				          Model model) {
+			
+			PartyVO party = 
+				(PartyVO)session.getAttribute("party");
+			
+			logger.debug("<<photoView>> : " + party);
+			
+			
+				PartyVO partyVO = partyService.insertParty(
+						                     party.getParty_photo());
+				logger.debug("<<partyVO>> : " + partyVO);
+				
+			
+			
+			
+			return "imageView";
+		}*/
 
 
 	//======파티 상세======//
@@ -128,20 +165,7 @@ public class PartyController {
 		return new ModelAndView("partyDetail","party",party);
 	}
 
-	//======이미지 출력======//
-	@RequestMapping("/party/imageView.do")
-	public ModelAndView viewImage(@RequestParam int party_num) {
-
-		PartyVO party = partyService.selectPartyDetail(party_num);
-
-		ModelAndView mav = new ModelAndView();
-		mav.setViewName("imageView");
-
-		mav.addObject("imageFile",party.getParty_photo());
-		mav.addObject("filename",party.getParty_photo_name());
-
-		return mav;
-	}
+	
 
 }
 
