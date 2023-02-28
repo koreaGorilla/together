@@ -1,6 +1,8 @@
 package kr.spring.main.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -26,9 +28,14 @@ public class MainController {
 	@RequestMapping("/main/main.do")
 	public String main(Model model) {
 		
-	    List<PartyVO> list = partyService.selectMainPartyList(); // 파티 정보를 가져오는 서비스 메서드 호출
-	    model.addAttribute("list", list); // 파티 정보를 Model 객체에 담아 전달
+		Map<String,Object> map = new HashMap<String,Object>();
+		map.put("start", 1);
+		map.put("end", 10);
 
+		List<PartyVO> list = partyService.selectList(map);
+
+		 model.addAttribute("list", list); 
+		
 		return "main";//타일스 설정값
 	}
 	

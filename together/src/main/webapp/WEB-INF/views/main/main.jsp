@@ -70,6 +70,10 @@
 			<a href="detail.do?party_num=${party.party_num}">
 				<img src="imageView.do?party_num=${party.party_num}">
 				<span>${party.party_name}</span>
+				<c:if test="${party.party_hobby == 1}">운동</c:if>
+				<c:if test="${party.party_hobby == 2}">독서</c:if>
+				<c:if test="${party.party_hobby == 3}">음주</c:if>
+				<c:if test="${party.party_hobby == 4}">문화</c:if>
 			</a>
 		</div>
 		</c:forEach>
