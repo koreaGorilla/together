@@ -100,7 +100,7 @@ public class ReviewController {
 	}
 	
 	//=====리뷰쓰기=====//
-	//등록폼
+	//리뷰 작성 폼
 	@GetMapping("/review/write.do")
 	public ModelAndView form(HttpSession session) {
 		
