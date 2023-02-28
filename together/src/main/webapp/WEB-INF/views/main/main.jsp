@@ -67,7 +67,7 @@
 	<div class="item-space">
 		<c:forEach var="party" items="${list}">
 		<div class="horizontal-area">
-			<a href="detail.do?party_num=${party.party_num}">
+			<a href="${pageContext.request.contextPath}/party/detail.do?party_num=${party.party_num}">
 				<img src="imageView.do?party_num=${party.party_num}">
 				<span>${party.party_name}</span>
 				<c:if test="${party.party_hobby == 1}">운동</c:if>
