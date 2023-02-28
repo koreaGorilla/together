@@ -70,11 +70,14 @@ $(function(){
 								output += item.mem_name;
 							}
 							output += '<div class="item">';
-							output += '<span>' + item.message.replace(/\r\n/g,'<br>').replace(/\r/,'<br>').replace(/\n/,'<br>') + '</span>';
+							output +=  '<span>' + item.message.replace(/\r\n/g,'<br>').replace(/\r/,'<br>').replace(/\n/,'<br>') + '</span>';
 							//시간 표시
 							if (item.timestamp && item.timestamp !== '') {
   								output += '<div class="align-right">' + item.timestamp.split(' ')[1] + '</div>';
 								}							
+							output += '</div>';
+							output += '<div class="read_count">';
+							output += item.read_count;
 							output += '</div>';
 							output += '</div><div class="space-clear"></div>';
 							output += '</div>';

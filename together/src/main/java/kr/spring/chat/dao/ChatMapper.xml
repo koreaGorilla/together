@@ -7,23 +7,26 @@
   		<result property="chatVO.message" column="message"/>
   		<result property="chatVO.timestamp" column="timestamp"/>
   	</resultMap>
-  		<select id="selectChatDetail" parameterType="integer"
-  										resultType="chatVO">
-		  SELECT
-			    c.chat_num,
-			    c.party_num,
-			    c.mem_num,
-			    c.message,
-			    c.timestamp,
-			    m.mem_name
-		  FROM
-			    party_chat c
-			    JOIN member_detail m ON c.mem_num = m.mem_num
-		  WHERE
-		    	party_num = #{party_num}
-		  ORDER BY
-		    	c.timestamp
-		</select>
+		 <select id="selectChatDetail" 
+  	                          parameterType="integer"
+  	                              resultType="chatVO">
+  		SELECT
+  		  <![CDATA[
+  		  REPLACE(REPLACE(message,'<','&lt;'),'>','&gt;') message,
+  		  ]]>
+  		  timestamp,
+  		  read_count,
+  		  mem_num,
+  		  mem_name
+  		FROM party_chat t LEFT OUTER JOIN (SELECT
+  		                                 chat_num,
+  		                                 COUNT(*) read_count
+  		                               FROM party_chat_read
+  		                               GROUP BY chat_num) r USING(chat_num)
+  		              JOIN member_detail m USING(mem_num)
+  		WHERE party_num=#{party_num}
+  		ORDER BY timestamp ASC                               
+  	</select>
 </mapper>
 
 
