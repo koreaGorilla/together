@@ -15,7 +15,7 @@ public class FileUtil {
 		try {
 			fis = new FileInputStream(path);
 			readbyte = new byte[fis.available()];
-			fis.read(readbyte);
+			fis.read(readbyte); 
 		}catch(Exception e) {
 			logger.error(e.toString());
 		}finally {
