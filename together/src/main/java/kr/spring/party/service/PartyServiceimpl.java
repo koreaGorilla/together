@@ -55,5 +55,10 @@ public class PartyServiceimpl implements PartyService {
 		return partyMapper.selectMainPartyList();
 	}
 
+	@Override
+	public List<String> selectPartyMember(Integer party_num) {
+		return partyMapper.selectPartyMember(party_num);
+	}
+	
 
 }

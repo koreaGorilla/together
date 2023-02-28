@@ -83,20 +83,29 @@ public class PartyController {
 
 		return mav;
 	}
+	
+
 	//======이미지 출력======//
-		@RequestMapping("/party/imageView.do")
-		public ModelAndView viewImage(@RequestParam int party_num) {
+	@RequestMapping("/party/imageView.do")
+	public ModelAndView viewImage(@RequestParam int party_num, @RequestParam int party_type) {
 
-			PartyVO party = partyService.selectPartyDetail(party_num);
+		PartyVO party = partyService.selectPartyDetail(party_num);
+		
 
-			ModelAndView mav = new ModelAndView();
-			mav.setViewName("imageView");
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("imageView");
 
+		if(party_type==1) { //프로필 이미지 가져오기
+			mav.addObject("imageFile",party.getPhoto());
+			mav.addObject("filename",party.getPhoto_name());
+		}else if(party_type==2) { //파티 이미지 가져오기
 			mav.addObject("imageFile",party.getParty_photo());
 			mav.addObject("filename",party.getParty_photo_name());
-
-			return mav;
 		}
+
+		return mav;
+	}
+
 
 	//파티생성
 	//=======글쓰기=========//
@@ -130,24 +139,24 @@ public class PartyController {
 		return "redirect:/party/list.do";
 	}
 	//===== 사진 출력====//
-		/*@RequestMapping("/party/photoView.do")
+	/*@RequestMapping("/party/photoView.do")
 		public String getProfile(HttpSession session,
 				          HttpServletRequest request,
 				          Model model) {
-			
+
 			PartyVO party = 
 				(PartyVO)session.getAttribute("party");
-			
+
 			logger.debug("<<photoView>> : " + party);
-			
-			
+
+
 				PartyVO partyVO = partyService.insertParty(
 						                     party.getParty_photo());
 				logger.debug("<<partyVO>> : " + partyVO);
-				
-			
-			
-			
+
+
+
+
 			return "imageView";
 		}*/
 
@@ -160,11 +169,16 @@ public class PartyController {
 		//한 건의 데이터 가져오기
 		PartyVO party = partyService.selectPartyDetail(party_num);
 
-		party.setParty_name(StringUtil.useNoHtml(party.getParty_name()));
-
-		return new ModelAndView("partyDetail","party",party);
+		//party.setParty_name(StringUtil.useNoHtml(party.getParty_name()));
+		
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("partyDetail");
+		mav.addObject("party",party);
+		mav.addObject("partyMember",partyService.selectPartyMember(party_num));
+		
+		return mav;
 	}
 
-	
+
 
 }

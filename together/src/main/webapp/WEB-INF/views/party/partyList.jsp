@@ -54,7 +54,12 @@ let result = '${result}';
 		<c:forEach var="party" items="${list}">
 		<div class="horizontal-area">
 			<a href="detail.do?party_num=${party.party_num}">
-				<img src="imageView.do?party_num=${party.party_num}">
+				<c:if test="${!empty party.party_photo_name}">
+				<img src="imageView.do?party_num=${party.party_num}&party_type=2">
+				</c:if>
+				<c:if test="${empty party.party_photo_name}">
+				<img src="${pageContext.request.contextPath}/images/face.png">
+				</c:if>
 				<span>${party.party_name}</span>
 				<br>
 				<b>

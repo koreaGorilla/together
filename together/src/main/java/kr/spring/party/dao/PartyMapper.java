@@ -34,11 +34,17 @@ public interface PartyMapper {
 		public PartyVO selectParty(Integer party_num);
 	
 	
-	@Select("select * from party where party_num=#{party_num}")
+	//@Select("select * from party where party_num=#{party_num}")
+	//public PartyVO selectPartyDetail(Integer party_num);
+	
+	
+	@Select("select * from party p join member_detail d using(mem_num) where p.party_num=#{party_num}")
 	public PartyVO selectPartyDetail(Integer party_num);
 	
 	@Select("SELECT * FROM (SELECT * FROM party ORDER BY party_reg_date DESC) WHERE ROWNUM <= 4")
 	public List<PartyVO> selectMainPartyList();
 	
+	@Select("select * from party_member p join member_detail d using(mem_num) where p.party_num=#{party_num}")
+	public List<String> selectPartyMember(Integer party_num); //파티에 가입되어 있는 회원 정보 가져오기
 
 }

@@ -52,7 +52,9 @@
   		               p.party_hobby,
   		              p.mem_num,
   		              m.mem_id,
-  		              d.mem_name
+  		              d.mem_name,
+  		              p.party_photo,
+  		              p.party_photo_name
   		            FROM party p JOIN member m 
   		            
   		            ON p.mem_num = m.mem_num

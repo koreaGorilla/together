@@ -7,20 +7,42 @@
 		<img src="${pageContext.request.contextPath}/images/togetherLogo.jpg" width="100%" height="200" class="party-photo">
 		</c:if>
 		<c:if test="${!empty party.party_photo_name }">
-		<img src="imageView.do?party_num=${party.party_num}&party_type=1" width="100%" height="200" class="party-photo">
+		<img src="imageView.do?party_num=${party.party_num}&party_type=2" width="100%" height="200" class="party-photo">
 		</c:if>
 	</div>
-	<form action="partyRegister.do" id="partyView"></form>
-	<div class="party-info">
-		<ul class="party-info">
-			<li>
-				<h2>${party.party_name }</h2>
-				<span>${party.mem_name }</span>
-			</li>
-		</ul>	
-	</div>
-	<div class="party-register">
-		<input type="button" value="가입하기" onclick="location.href='partyRegister.do'">
-	</div>
-
+	<form action="partyRegister.do" id="partyView">
+		<div class="party-info">
+			<ul class="party-info">
+				
+				<li class="party-top">
+					<c:if test="${empty party.photo_name}">
+					<img src="${pageContext.request.contextPath}/images/face.png" width="40" height="40" class="my-photo">
+					</c:if>
+					<c:if test="${!empty party.photo_name}">
+					<img src="imageView.do?party_num=${party.party_num}&party_type=1" width="40" height="40" class="my-photo">
+					</c:if>
+					<b style="font-size:20px;">${party.party_name }</b>
+					<b>파티장 : </b>
+					<span>${party.mem_name }</span>
+					<b>파티 개설일 : </b>
+					<span>${party.party_reg_date }</span>
+					
+				</li>
+				<li class="party-content">
+					<span>${party.party_content}</span>
+				</li>
+				<li class="party-member">
+					<b>가입멤버</b>
+					<br>
+					<span>함께 소통하며 활동하고 있어요</span>
+					${list.mem_name }
+				</li>
+			</ul>	
+		</div>
+		<div class="party-register">
+			<input type="button" value="가입하기" onclick="location.href='partyRegister.do'">
+		</div>
+	</form>
+	
+	
 </div>
