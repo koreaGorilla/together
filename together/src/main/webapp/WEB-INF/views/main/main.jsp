@@ -37,8 +37,10 @@
 	<div class="party_menu">
 		<nav>
 			<ul>
-				<li><a href="#"><img src="../image_bundle/face.png"><br>카테고리1</a></li>
-				<li><a href="#"><img src="../image_bundle/face.png"><br>카테고리2</a></li>
+				<li><a href="#"><img src="../images/exercise.png"><br>운동</a></li>
+				<li><a href="#"><img src="../images/book.png"><br>독서</a></li>
+				<li><a href="#"><img src="../images/beer.png"><br>음주</a></li>
+				<li><a href="#"><img src="../images/culture.png"><br>문화</a></li>
 			</ul>
 		</nav>
 	</div>
