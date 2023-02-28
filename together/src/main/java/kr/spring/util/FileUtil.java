@@ -21,7 +21,7 @@ public class FileUtil {
 		}finally {
 			if(fis!=null)try {fis.close();}catch(IOException e) {}
 		}
-		return readbyte;
+		return readbyte; 
 	}
 	
 }
