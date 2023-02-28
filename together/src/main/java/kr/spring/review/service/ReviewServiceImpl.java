@@ -39,7 +39,7 @@ public class ReviewServiceImpl implements ReviewService{
 
 	@Override
 	public void updateReview(ReviewVO review) {
-		// TODO Auto-generated method stub
+		reviewMapper.updateReview(review);
 		
 	}
 
@@ -51,8 +51,7 @@ public class ReviewServiceImpl implements ReviewService{
 
 	@Override
 	public void deletePhoto(Integer r_num) {
-		// TODO Auto-generated method stub
-		
+		reviewMapper.deletePhoto(r_num);
 	}
 
 	@Override

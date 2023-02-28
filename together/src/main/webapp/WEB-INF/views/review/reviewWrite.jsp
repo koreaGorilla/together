@@ -18,14 +18,16 @@
 		<ul>
 		    <li>
 				<label for="party_name">파티명</label>
-					<c:forEach var="party_name" items="${list}">
+					
 						<%--<c:if test="${!empty party_name}"> --%>
 							<form:select path="party_name">
-								<option value="${party_name}">${party_name}</option>
+								<c:forEach var="party_name" items="${list}">
+									<option value="${party_name}">${party_name}</option>
+								</c:forEach>
 							</form:select>
 						<%--</c:if> --%>
 						
-					</c:forEach>
+					
 					<%-- 
 					<c:if test="${empty party_name}">
 						<span>가입하신 파티가 없습니다!</span>
@@ -57,7 +59,7 @@
              </script> 
          </li>
          <li>
-				<label for="upload">파일업로드</label>
+				<label for="upload">이미지 업로드</label>
 				<input type="file" name="upload" id="upload" accept="image/gif,image/jpeg,image/png">
 			</li>
 		</ul>

@@ -6,6 +6,7 @@ import java.util.Map;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import kr.spring.review.vo.ReviewVO;
 
@@ -20,6 +21,7 @@ public interface ReviewMapper {
 	public ReviewVO selectReview(Integer r_num);
 	public void updateReview(ReviewVO review);
 	public void deleteReview(Integer r_num);
+	@Update("update review set r_photo='',r_photoname='' where r_num=#{r_num}")
 	public void deletePhoto(Integer r_num);
 	
 	@Select("select party_name from party p join party_member b on p.party_num=b.party_num where b.mem_num=#{mem_num}")

@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -165,6 +166,45 @@ public class ReviewController {
 		
 		return new ModelAndView("reviewView","review",review);
 	}
+	
+	
+	//======게시판 글수정======//
+	//수정폼 호출
+	@GetMapping("/review/update.do")
+	public String formUpdate(@RequestParam int r_num, Model model) {
+		
+		ReviewVO reviewVO = reviewService.selectReview(r_num);
+		
+		model.addAttribute("reviewVO",reviewVO);
+		return "reviewModify";
+	}	
+	
+	//======업로드한 리뷰 이미지 파일 삭제======//
+	@RequestMapping("/review/deleteFile.do")
+	@ResponseBody
+	public Map<String,String> processFile(
+			                   int r_num,
+			                   HttpSession session){
+		Map<String,String> mapJson = 
+				new HashMap<String,String>();
+		
+		MemberVO user = 
+			 (MemberVO)session.getAttribute("user");
+		if(user==null) {
+			mapJson.put("result", "logout");
+		}else {
+			reviewService.deletePhoto(r_num);
+			
+			mapJson.put("result", "success");
+		}
+		
+		return mapJson;
+	}
+	
+	
+	
+	
+	
 	
 	
 	
