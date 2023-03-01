@@ -176,7 +176,7 @@ public class PartyController {
 		mav.addObject("party",party);
 		mav.addObject("partyMember",partyService.selectPartyMember(party_num));
 		
-		return mav;
+		return mav; 
 	}
 
 

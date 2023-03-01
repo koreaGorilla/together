@@ -20,5 +20,5 @@ public interface PartyService {
 	 
 	 public List<String> selectPartyMember(Integer party_num);
 	
-	
+	 
 }

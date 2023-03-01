@@ -53,7 +53,7 @@ public class PartyServiceimpl implements PartyService {
 	@Override
 	public List<PartyVO> selectMainPartyList() {
 		return partyMapper.selectMainPartyList();
-	}
+	} 
 
 	@Override
 	public List<String> selectPartyMember(Integer party_num) {

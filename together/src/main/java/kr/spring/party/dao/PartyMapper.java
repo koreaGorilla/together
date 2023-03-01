@@ -47,4 +47,4 @@ public interface PartyMapper {
 	@Select("select * from party_member p join member_detail d using(mem_num) where p.party_num=#{party_num}")
 	public List<String> selectPartyMember(Integer party_num); //파티에 가입되어 있는 회원 정보 가져오기
 
-}
+} 
