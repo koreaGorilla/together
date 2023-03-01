@@ -44,5 +44,12 @@
 		</div>
 	</form>
 	
+	<div class="party-info">
+		<a href="${pageContext.request.contextPath}/partymember/partyMemberList.do?party_num=${party.party_num}">파티멤버</a>
+		<ul class="party-info">
+		<li>
+		</li>
+		</ul>
+	</div>
 	
 </div>
