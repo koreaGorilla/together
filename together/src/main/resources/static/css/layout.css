@@ -94,6 +94,74 @@ div#main_menu ul li{
 /* 메인
 ---------------------------*/
 
+
+/*메인페이지 파티목록
+---------------------------*/
+.item-space{
+	padding-left: 120px;
+}
+.item-space .horizontal-area{
+	margin:2px;
+	padding:3px;
+	width:200px;
+	height:220px;
+	float:left;
+	overflow:hidden;
+	text-align:center;
+}
+.item-space .horizontal-area span{
+	padding:5px;
+	margin:5px;
+}
+.item-space .horizontal-area img{
+	width:195px;
+	height:175px;
+}
+.item-space .float-clear{
+	clear:both;
+}
+
+/*슬라이드 쇼 시작
+-----------------------*/
+.slideshow {
+  position: block;
+  margin: auto;
+}
+
+
+/* 슬라이드 쇼 하단 점 */
+.dot {
+  height: 15px;
+  width: 15px;
+  margin: 0 7px;
+  background-color: skyblue;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+.Slides img {
+  width: 100%;
+  height: 300px;
+}
+.active {
+  background-color: #717171;
+}
+
+/* 애니메이션 페딩 */
+.fade {
+  animation-name: fade;
+  animation-duration: 2s;
+}
+
+@keyframes fade {
+  from {opacity: .10} 
+  to {opacity: 1}
+}
+
+/* 슬라이드 쇼 끝 */
+
+
+
 /* 공통 등록, 수정 폼
 ---------------------------*/
 form{
@@ -145,44 +213,8 @@ li.paging-current{
 	padding:10px;
 }
 
-/*슬라이드 쇼 시작
------------------------*/
-.slideshow {
-  position: block;
-  margin: auto;
-}
 
 
-/* dot */
-.dot {
-  height: 15px;
-  width: 15px;
-  margin: 0 7px;
-  background-color: skyblue;
-  border-radius: 50%;
-  display: inline-block;
-  transition: background-color 0.6s ease;
-}
-.Slides img {
-  width: 100%;
-  height: 300px;
-}
-.active {
-  background-color: #717171;
-}
-
-/* 애니메이션 페딩 */
-.fade {
-  animation-name: fade;
-  animation-duration: 2s;
-}
-
-@keyframes fade {
-  from {opacity: .10} 
-  to {opacity: 1}
-}
-
-/* 슬라이드 쇼 끝 */
 /*메뉴 추가 */
 .party_menu{
 	margin:0;

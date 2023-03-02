@@ -30,7 +30,7 @@ public class MainController {
 		
 		Map<String,Object> map = new HashMap<String,Object>();
 		map.put("start", 1);
-		map.put("end", 10);
+		map.put("end", 8);
 
 		List<PartyVO> list = partyService.selectList(map);
 
