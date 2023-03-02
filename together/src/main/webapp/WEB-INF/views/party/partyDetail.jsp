@@ -40,7 +40,7 @@
 			</ul>	
 		</div>
 		<div class="party-register">
-			<input type="button" value="가입하기" onclick="location.href='partyRegister.do'">
+			<input type="submit" value="가입하기" onclick="location.href='partyRegister.do'">
 		</div>
 	</form>
 	
