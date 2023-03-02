@@ -22,10 +22,10 @@
   		        rownum rnum
   		      FROM (SELECT
   		              p.partymem_num,
-
   		              p.partymem_reg_date,
   		              p.mem_num,
   		              m.mem_id,
+  		              p.party_auth,
   		              d.mem_name
   		            FROM party_member p JOIN member m 
   		            
