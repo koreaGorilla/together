@@ -5,13 +5,27 @@
        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
 
 <tiles-definitions>
-    <definition name="" extends="main">
-    	<put-attribute name="title" value="게시판목록"/>
-    	<put-attribute name="body"
-    	  value="/WEB-INF/views/board/boardList.jsp"/>        
-    </definition>
+	<definition name="calendar" template="/WEB-INF/views/template/layout_calendar.jsp">
+		<put-attribute name="title" value="Calendar"/>
+		<put-attribute name="header" value="/WEB-INF/views/template/header.jsp"/>
+		<put-attribute name="nav" value="/WEB-INF/views/template/calendar_nav.jsp"/>
+		<put-attribute name="body" value="/WEB-INF/views/calendar/calendar.jsp"/>
+		<put-attribute name="content" value="/WEB-INF/views/calendar/empty.jsp"/>
+		<put-attribute name="footer" value="/WEB-INF/views/template/footer.jsp"/>
+	</definition>
+	
+	<definition name="calendarWrite" extends="calendar">
+		<put-attribute name="title" value="Calendar"/>
+		<put-attribute name="content" value="/WEB-INF/views/calendar/calendarWrite.jsp"/>
+	</definition>
+	
+	<definition name="calendarDetail" extends="calendar">
+		<put-attribute name="title" value="Calendar"/>
+		<put-attribute name="content" value="/WEB-INF/views/calendar/calendarDetail.jsp"/>
+	</definition>
+	
+	<definition name="calendarModify" extends="calendar">
+		<put-attribute name="title" value="Calendar"/>
+		<put-attribute name="content" value="/WEB-INF/views/calendar/calendarModify.jsp"/>
+	</definition>
 </tiles-definitions>
-
-
-
-

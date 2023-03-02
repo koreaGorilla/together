@@ -1,0 +1,59 @@
+@charset "UTF-8";
+.fc a{
+	color: #000;
+}
+
+.fc-day-sat a {
+	color: blue;
+	text-decoration: none;
+}
+
+.fc-day-sun a {
+  color: red;
+  text-decoration: none;
+}
+
+.fc-event{
+	cursor: pointer;
+}
+
+h5{
+	cursor: pointer;
+}
+
+h5:hover{
+	text-decoration: underline;
+	font-weight: bold;
+}
+
+div#page_content{
+	width:75%;
+	float:left;
+}
+
+#add_schedule{
+	width: 75%;
+}
+
+#calendarWrite, #calendarDetail, #calendarModify{
+	width: 100%;
+	margin-left: 250px;
+}
+
+a.ui-corner-all{
+	border-radius: 0%;
+}
+
+a.ui-corner-all:hover{
+	border-radius: 0%;
+	background: #ccc;
+	border: 1px solid #000;
+	color: #000;
+}
+
+a#ui-active-item{
+	border-radius: 0%;
+	background: #ccc;
+	border: 1px solid #000;
+	color: #000;
+}
