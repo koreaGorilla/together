@@ -9,6 +9,10 @@ public class PartyMemberVO {
 	private int party_num;
 	private int mem_num;
 	
+	
+	private String mem_id;
+	private String mem_name;
+	
 	public int getPartymem_num() {
 		return partymem_num;
 	}
@@ -39,11 +43,24 @@ public class PartyMemberVO {
 	public void setMem_num(int mem_num) {
 		this.mem_num = mem_num;
 	}
-	
+	public String getMem_id() {
+		return mem_id;
+	}
+	public void setMem_id(String mem_id) {
+		this.mem_id = mem_id;
+	}
+	public String getMem_name() {
+		return mem_name;
+	}
+	public void setMem_name(String mem_name) {
+		this.mem_name = mem_name;
+	}
 	@Override
 	public String toString() {
 		return "PartyMemberVO [partymem_num=" + partymem_num + ", party_auth=" + party_auth + ", partymem_reg_date="
-				+ partymem_reg_date + ", party_num=" + party_num + ", mem_num=" + mem_num + "]";
+				+ partymem_reg_date + ", party_num=" + party_num + ", mem_num=" + mem_num + ", mem_id=" + mem_id
+				+ ", mem_name=" + mem_name + "]";
 	}
+	
 	
 }

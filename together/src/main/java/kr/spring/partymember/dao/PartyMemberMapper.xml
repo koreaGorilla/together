@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper   
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+<mapper namespace="kr.spring.partymember.dao.PartyMemberMapper">  
+
+	<select id="selectRowCount" parameterType="map"
+  	                            resultType="integer">
+		SELECT
+		  COUNT(*)
+		FROM party_member p JOIN member m
+		ON p.mem_num=m.mem_num
+  		where p.party_num=#{party_num}  
+	</select>
+
+ 	<select id="selectList" parameterType="map"
+  	                         resultType="PartyMemberVO">
+  		SELECT
+  		   *
+  		FROM (SELECT
+  		        a.*,
+  		        rownum rnum
+  		      FROM (SELECT
+  		              p.partymem_num,
+
+  		              p.partymem_reg_date,
+  		              p.mem_num,
+  		              m.mem_id,
+  		              d.mem_name
+  		            FROM party_member p JOIN member m 
+  		            
+  		            ON p.mem_num = m.mem_num
+  		            join member_detail d
+  		            on m.mem_num =d.mem_num
+  		            where p.party_num=#{party_num}
+  		            ORDER BY p.party_num DESC)a)                         
+  		<![CDATA[
+  		WHERE rnum >= #{start} AND rnum <= #{end}
+  		]]>
+  	</select>
+</mapper>
+
+
+
+
+
+
+

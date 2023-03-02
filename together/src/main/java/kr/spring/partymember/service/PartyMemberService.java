@@ -3,6 +3,10 @@ package kr.spring.partymember.service;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.ibatis.annotations.Delete;
+import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Update;
+
 import kr.spring.partymember.vo.PartyMemberVO;
 
 public interface PartyMemberService {
@@ -14,9 +18,12 @@ public interface PartyMemberService {
 	//가입신청
 	public void insertPartyMember(PartyMemberVO partyMemberVO);
 
+	//가입승인
+	public void approvePartyMember(PartyMemberVO partyMemberVO);
 	//가입거부
-	public void updateByPartyAdmin(PartyMemberVO PartyMemberVO);
-	//가입초대
+	public void rejectPartyMember(PartyMemberVO PartyMemberVO);
+	//가입추방
+	public void banPartyMember(PartyMemberVO partyMemberVO);
 
 	//나가기
 	public void deletePartyMember(Integer mem_num);
