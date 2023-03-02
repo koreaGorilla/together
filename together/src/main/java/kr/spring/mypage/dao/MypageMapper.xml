@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper   
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+<mapper namespace="kr.spring.mypage.dao.MypageMapper">  
+
+  	<!-- 리뷰 -->
+  	<sql id="reviewSearchByMem_num">
+  		WHERE mem_num =#{mem_num}
+  		<if test="keyword !=null and keyword != ''">
+  			<if test="keyfield ==1">
+  				AND r_num =#{keyword}
+  			</if>
+  			<if test="keyfield ==2">
+  				AND r_content LIKE '%' || #{keyword} || '%'
+  			</if>
+  		</if>
+  	</sql>
+  	<!-- 여까지 -->
+
+  	<!-- 마이페이지 표시 내가 쓴 리뷰 정보-->
+  	<select id="selectListReviewByMem_num" parameterType="map" resultType="reviewVO">
+  		SELECT
+  		   *
+  		FROM (SELECT
+  		          a.*,
+  		          rownum rnum
+  		          FROM (SELECT
+  		                   *
+  		                 FROM review
+  		                 <include refid="reviewSearchByMem_num"></include>
+  		                 ORDER BY r_num DESC)a)
+  		  <![CDATA[
+  		  WHERE rnum >= #{start} AND rnum <= #{end}
+  		  ]]>
+  	</select>
+  	
+  	<select id="selectReviewCountByMem_num" parameterType="map" resultType="integer">
+  	SELECT
+  		COUNT(*)
+  	FROM review
+  	<include refid="reviewSearchByMem_num"></include>
+  	</select>
+  	
+  		<!-- 파티 -->
+  	<sql id="partySearchByMem_num">
+  		WHERE mem_num =#{mem_num}
+  		<if test="keyword !=null and keyword != ''">
+  			<if test="keyfield ==1">
+  				AND party_num =#{keyword}
+  			</if>
+  			<if test="keyfield ==2">
+  				AND party_name LIKE '%' || #{keyword} || '%'
+  			</if>
+  		</if>
+  	</sql>
+  	<!-- 여까지 -->
+
+  	<!-- 마이페이지 표시 가입한 파티 정보-->
+  	<select id="selectListPartyByMem_num" parameterType="map" resultType="partyVO">
+  		SELECT
+  		   *
+  		FROM (SELECT
+  		          a.*,
+  		          rownum rnum
+  		          FROM (SELECT
+  		                   *
+  		                 FROM party
+  		                 <include refid="partySearchByMem_num"></include>
+  		                 ORDER BY party_num DESC)a)
+  		  <![CDATA[
+  		  WHERE rnum >= #{start} AND rnum <= #{end}
+  		  ]]>
+  	</select>
+  	
+  	<select id="selectPartyCountByMem_num" parameterType="map" resultType="integer">
+  	SELECT
+  		COUNT(*)
+  	FROM party
+  	<include refid="partySearchByMem_num"></include>
+  	</select>
+  	
+</mapper>
+
+
+
+
+
+
+
