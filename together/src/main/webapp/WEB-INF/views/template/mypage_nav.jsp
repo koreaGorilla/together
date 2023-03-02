@@ -2,11 +2,11 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <!-- MyPage 메뉴 시작 -->
-<script type="text/javascript" src="${pageContext.request.contextPath}/js/member.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/mypage.js"></script>
 <div class="side-bar">
 	<ul>
 		<li>
-			<img src="${pageContext.request.contextPath}/member/photoView.do" width="200" 
+			<img src="${pageContext.request.contextPath}/mypage/photoView.do" width="200" 
 			           height="200" class="my-photo">
 		</li>
 		<li>
@@ -23,12 +23,12 @@
 		<li>
 			<input type="button" class="menu-btn" 
 			  value="비밀번호변경" 
-			  onclick="location.href='${pageContext.request.contextPath}/member/changePassword.do'">
+			  onclick="location.href='${pageContext.request.contextPath}/mypage/changePassword.do'">
 		</li>
 		<li>
 			<input type="button" class="menu-btn" 
 			  value="회원탈퇴" 
-			  onclick="location.href='${pageContext.request.contextPath}/member/delete.do'">
+			  onclick="location.href='${pageContext.request.contextPath}/mypage/delete.do'">
 		</li>
 	</ul>
 </div>
