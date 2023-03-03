@@ -10,10 +10,9 @@
 		<img src="imageView.do?party_num=${party.party_num}&party_type=2" width="100%" height="200" class="party-photo">
 		</c:if>
 	</div>
-	<form action="partyRegister.do" id="partyView">
+	<form id="partyView">
 		<div class="party-info">
 			<ul class="party-info">
-				
 				<li class="party-top">
 					<c:if test="${empty party.photo_name}">
 					<img src="${pageContext.request.contextPath}/images/face.png" width="40" height="40" class="my-photo">
@@ -40,7 +39,7 @@
 			</ul>	
 		</div>
 		<div class="party-register">
-			<input type="submit" value="가입하기" onclick="location.href='partyRegister.do'">
+			<input type="button" value="가입하기" onclick="location.href='${pageContext.request.contextPath}/partymember/partyMemberCheck.do?party_num=${party.party_num}'">
 		</div>
 	</form>
 	
