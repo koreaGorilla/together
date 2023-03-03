@@ -12,7 +12,7 @@
 <script src="${pageContext.request.contextPath}/js/ckeditor.js"></script>
 <script src="${pageContext.request.contextPath}/js/uploadAdapter.js"></script>
 <div class="page-main">
-	<h2>글쓰기</h2>
+	<h2>파티생성</h2>
 	<form:form action="write.do" id="register_form" 
 	                   modelAttribute="partyVO"
 	                   enctype="multipart/form-data">              
@@ -33,6 +33,8 @@
 			</li>
 			<li>
 				<label for="upload">사진</label>
+				<img src="${pageContext.request.contextPath}/images/blank.png" id="party_photo" width="100" 
+			           height="100">
 				<input type="file" name="upload" id="upload">
 			</li>
 			<li>
@@ -62,4 +64,32 @@
 		</div>	                   
 	</form:form>
 </div>
+<script>
+$(function(){
+    // 이미지 미리보기
+    let photo_path = $('#party_photo').attr('src'); // 처음 화면에 보여지는 이미지 읽기
+    let my_photo;
+    $('#upload').change(function(){
+       my_photo = this.files[0];
+       if(!my_photo){
+          $('#party_photo').attr('src',photo_path);
+          return; // 선택한 이미지가 없으니 다시 선택하게끔
+       }
+       
+       // 파일 용량 체크
+       if(my_photo.size>1024*1024){
+          alert(Math.round(my_photo.size/1024) + 'kbytes(1024kbytes까지만 업로드 가능)');
+          $('#party_photo').attr('src',photo_path); // 용량이 너무 크면 처음 이미지를 보여준다.
+          $(this).val(''); // 선택한 파일 정보 지우기
+       }
+       
+       let reader = new FileReader();
+       reader.readAsDataURL(my_photo);
+       
+       reader.onload = function(){
+          $('#party_photo').attr('src',reader.result);
+       };
+    }); // end of change
+});    
+</script>
 <!-- 중앙 컨텐츠 끝 -->

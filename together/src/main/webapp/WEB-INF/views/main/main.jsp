@@ -36,10 +36,10 @@
 	<div class="party_menu">
 		<nav>
 			<ul>
-				<li><a href="#"><img src="../images/exercise.png"><br>운동</a></li>
-				<li><a href="#"><img src="../images/book.png"><br>독서</a></li>
-				<li><a href="#"><img src="../images/beer.png"><br>음주</a></li>
-				<li><a href="#"><img src="../images/culture.png"><br>문화</a></li>
+				<li><a href="${pageContext.request.contextPath}/party/list.do?party_hobby=1"><img src="../images/exercise.png"><br>운동</a></li>
+				<li><a href="${pageContext.request.contextPath}/party/list.do?party_hobby=2"><img src="../images/book.png"><br>독서</a></li>
+				<li><a href="${pageContext.request.contextPath}/party/list.do?party_hobby=3"><img src="../images/beer.png"><br>음주</a></li>
+				<li><a href="${pageContext.request.contextPath}/party/list.do?party_hobby=4"><img src="../images/culture.png"><br>문화</a></li>
 			</ul>
 		</nav>
 	</div>

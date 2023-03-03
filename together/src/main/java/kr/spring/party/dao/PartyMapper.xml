@@ -25,13 +25,19 @@
   		</where>
   	</sql>
   	
+  	
   	<select id="selectRowCount" parameterType="map"
   	                            resultType="integer">
   		SELECT
   		  COUNT(*)
   		FROM party p JOIN member m
   		ON p.mem_num = m.mem_num
-  		<include refid="partySearch"></include>                            
+  		<if test="party_hobby==0">
+  		<include refid="partySearch"></include> 
+  		</if>
+  		<if test="party_hobby==1 or party_hobby==2 or party_hobby==3 or party_hobby==4">
+  		WHERE party_hobby = #{party_hobby}
+  		</if>                          
   	</select>
   	
   	<select id="selectList" parameterType="map"
@@ -49,7 +55,7 @@
   		              
   		              
   		              p.party_reg_date,
-  		               p.party_hobby,
+  		              p.party_hobby,
   		              p.mem_num,
   		              m.mem_id,
   		              d.mem_name,
@@ -60,7 +66,12 @@
   		            ON p.mem_num = m.mem_num
   		            join member_detail d
   		            on m.mem_num =d.mem_num
-  		            <include refid="partySearch"></include>
+  		            <if test="party_hobby==0">
+			  		<include refid="partySearch"></include> 
+			  		</if>
+			  		<if test="party_hobby==1 or party_hobby==2 or party_hobby==3 or party_hobby==4">
+			  		WHERE party_hobby = #{party_hobby}
+			  		</if> 
   		            ORDER BY p.party_num DESC)a)                         
   		<![CDATA[
   		WHERE rnum >= #{start} AND rnum <= #{end}

@@ -20,7 +20,16 @@ let result = '${result}';
 	});
 	</script>
 <div class="page-main">
-	<h2>파티 목록</h2>
+	<h2>파티목록  
+	<c:if test="${!empty param.party_hobby  and (param.party_hobby>=1 and param.party_hobby<=4)}">
+		>
+		<c:if test="${param.party_hobby == 1}">운동</c:if>
+		<c:if test="${param.party_hobby == 2}">독서</c:if>
+		<c:if test="${param.party_hobby == 3}">음주</c:if>
+		<c:if test="${param.party_hobby == 4}">문화</c:if>
+	</c:if>
+	</h2>
+	<c:if test="${empty param.party_hobby  or (param.party_hobby<1 or param.party_hobby>4)}">
 	<form action="list.do" id="search_form" method="get">
 		<ul class="search">
 			<li>
@@ -40,12 +49,13 @@ let result = '${result}';
 			</li>
 		</ul>
 	</form>
-	
+	</c:if>
+	<c:if test="${!empty user}">
 	<div class="align-right">
 		<input type="button" value="파티 생성" 
 		    onclick="location.href='write.do'">
 	</div>
-	
+	</c:if>
 	<c:if test="${count == 0}">
 	<div class="result-display">표시할 파티 정보가 없습니다.</div>
 	</c:if>	

@@ -50,12 +50,15 @@ public class PartyController {
 	public ModelAndView process(
 			@RequestParam(value="pageNum",defaultValue="1") 
 			int currentPage,
+			@RequestParam(value="party_hobby",defaultValue="0") 
+			int party_hobby,
 			String keyfield,String keyword) {
 
 		Map<String,Object> map = 
 				new HashMap<String,Object>();
 		map.put("keyfield", keyfield);
 		map.put("keyword", keyword);
+		map.put("party_hobby", party_hobby);
 
 		//글의 총개수 또는 검색된 글의 개수
 		int count = partyService.selectRowCount(map);
@@ -138,27 +141,7 @@ public class PartyController {
 
 		return "redirect:/party/list.do";
 	}
-	//===== 사진 출력====//
-	/*@RequestMapping("/party/photoView.do")
-		public String getProfile(HttpSession session,
-				          HttpServletRequest request,
-				          Model model) {
-
-			PartyVO party = 
-				(PartyVO)session.getAttribute("party");
-
-			logger.debug("<<photoView>> : " + party);
-
-
-				PartyVO partyVO = partyService.insertParty(
-						                     party.getParty_photo());
-				logger.debug("<<partyVO>> : " + partyVO);
-
-
-
-
-			return "imageView";
-		}*/
+	
 
 
 	//======파티 상세======//
