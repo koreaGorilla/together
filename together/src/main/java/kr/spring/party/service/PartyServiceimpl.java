@@ -48,6 +48,11 @@ public class PartyServiceimpl implements PartyService {
 	public PartyVO selectPartyDetail(Integer party_num) {
 		return partyMapper.selectPartyDetail(party_num);
 	}
+	
+	@Override
+	public PartyMemberVO selectPartyDetailForAuth(Integer party_num, Integer mem_num) {
+		return partyMapper.selectPartyDetailForAuth(party_num, mem_num);
+	}
 
 	//메인페이지 파티목록 호출
 	@Override
@@ -59,6 +64,12 @@ public class PartyServiceimpl implements PartyService {
 	public List<String> selectPartyMember(Integer party_num) {
 		return partyMapper.selectPartyMember(party_num);
 	}
-	
 
+	@Override
+	public void deleteParty(Integer party_num) {
+		partyMapper.deleteParty_Member(party_num);
+		partyMapper.deleteParty(party_num);
+		
+		
+	}
 }

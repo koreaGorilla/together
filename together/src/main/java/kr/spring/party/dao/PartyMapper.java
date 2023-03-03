@@ -3,6 +3,7 @@ package kr.spring.party.dao;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
@@ -37,9 +38,17 @@ public interface PartyMapper {
 	//@Select("select * from party where party_num=#{party_num}")
 	//public PartyVO selectPartyDetail(Integer party_num);
 	
+	@Delete("DELETE FROM party WHERE party_num=#{party_num}")
+	public void deleteParty(Integer party_num);
+	@Delete("DELETE FROM party_member WHERE party_num=#{party_num}")
+	public void deleteParty_Member(Integer party_num);
+	
 	
 	@Select("select * from party p join member_detail d using(mem_num) where p.party_num=#{party_num}")
 	public PartyVO selectPartyDetail(Integer party_num);
+	
+	@Select("select * from party_member where party_num=#{party_num} AND mem_num=#{mem_num}")
+	public PartyMemberVO selectPartyDetailForAuth(Integer party_num, Integer mem_num);
 	
 	@Select("SELECT * FROM (SELECT * FROM party ORDER BY party_reg_date DESC) WHERE ROWNUM <= 4")
 	public List<PartyVO> selectMainPartyList();

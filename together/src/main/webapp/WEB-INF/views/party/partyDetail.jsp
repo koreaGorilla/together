@@ -41,6 +41,22 @@
 		<div class="party-register">
 			<input type="button" value="가입하기" onclick="location.href='${pageContext.request.contextPath}/partymember/partyMemberCheck.do?party_num=${party.party_num}'">
 		</div>
+		<div class="align-right">
+		
+		<c:if test="${pMember.party_auth==9}">
+		<input type="button" value="삭제" id="delete_btn"> 
+		<script type="text/javascript">
+			let delete_btn = document.getElementById('delete_btn');
+			delete_btn.onclick=function(){
+				let choice = confirm('삭제하시겠습니까?');
+				if(choice){
+					location.replace('delete.do?party_num=${party.party_num}');
+					
+				}
+			};
+		</script> 
+		 </c:if>		
+	</div>
 	</form>
 	
 	<div class="party-info">

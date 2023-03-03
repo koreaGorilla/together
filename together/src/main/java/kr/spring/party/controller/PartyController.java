@@ -146,21 +146,41 @@ public class PartyController {
 
 	//======파티 상세======//
 	@RequestMapping("/party/detail.do")
-	public ModelAndView process(@RequestParam int party_num) {
+	public ModelAndView process(@RequestParam int party_num,HttpSession session) {
 		logger.debug("<<party_num>> : " + party_num);
 
 		//한 건의 데이터 가져오기
 		PartyVO party = partyService.selectPartyDetail(party_num);
+		
+		
+		MemberVO user = (MemberVO)session.getAttribute("user");
+		PartyMemberVO pMember = partyService.selectPartyDetailForAuth(party_num, user.getMem_num());
 
 		//party.setParty_name(StringUtil.useNoHtml(party.getParty_name()));
 		
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("partyDetail");
 		mav.addObject("party",party);
+		mav.addObject("pMember", pMember);
 		mav.addObject("partyMember",partyService.selectPartyMember(party_num));
 		
 		return mav; 
 	}
+	//=====파티 글삭제=======//
+		@RequestMapping("/party/delete.do")
+		public String partyDelete(
+				@RequestParam int party_num,
+				Model model,
+				HttpServletRequest request) {
+			
+			logger.debug("<<게시판 글삭제>> : " + party_num);
+			
+			//글삭제
+			partyService.deleteParty(party_num);
+			
+			
+			return "redirect:/party/list.do";
+		}
 
 
 
