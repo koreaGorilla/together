@@ -1,4 +1,4 @@
-package kr.spring.mail.controller;
+package kr.spring.msg.controller;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import kr.spring.mail.service.SmsService;
+import kr.spring.msg.service.SmsService;
 import lombok.AllArgsConstructor;
 import net.nurigo.java_sdk.exceptions.CoolsmsException;
 
@@ -20,17 +20,12 @@ public class SmsController {
 	@Autowired
     private final SmsService smsService;
     
- // coolSMS 테스트 화면
-    @GetMapping("/sms")
-    public String mySms() {
-    	return "message/sms";
-    }
     
     // coolSMS 구현 로직 연결  
-    @PostMapping("/sms")
-    public @ResponseBody String sendSMS(@RequestParam(value="to") String to, String message, HttpServletRequest request) throws CoolsmsException {  	
-    	 String url = request.getRequestURL().toString();
+    @PostMapping("/party/detail.do")
+    public @ResponseBody String sendSMS(@RequestParam(value="to") String to,String partyName, String url) throws CoolsmsException {  	
     	
-    	return smsService.PhoneNumberCheck(to, message, url);
+    	
+    	return smsService.PhoneNumberCheck(to, partyName, url);
     }
 }
