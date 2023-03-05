@@ -64,7 +64,7 @@ public class MemberController {
 			memberService.insertMember(memberVO);
 			
 			model.addAttribute("accessMsg", 
-					     "회원가입이 완료되었습니다.");
+					     "가입이 완료되었습니다.");
 			
 			return "common/notice";
 		}		
