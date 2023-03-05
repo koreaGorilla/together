@@ -10,6 +10,7 @@ import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
 import kr.spring.member.vo.MemberVO;
+import kr.spring.party.vo.PartyFavVO;
 import kr.spring.party.vo.PartyVO;
 import kr.spring.partymember.vo.PartyMemberVO;
 
@@ -49,11 +50,29 @@ public interface PartyMapper {
 	
 	@Select("select * from party_member where party_num=#{party_num} AND mem_num=#{mem_num}")
 	public PartyMemberVO selectPartyDetailForAuth(Integer party_num, Integer mem_num);
-	
+	 
 	@Select("SELECT * FROM (SELECT * FROM party ORDER BY party_reg_date DESC) WHERE ROWNUM <= 4")
 	public List<PartyVO> selectMainPartyList();
 	
-	@Select("select * from party_member p join member_detail d using(mem_num) where p.party_num=#{party_num}")
-	public List<String> selectPartyMember(Integer party_num); //파티에 가입되어 있는 회원 정보 가져오기
-
+	@Select("select * from party_member p join member_detail d using(mem_num) join member using(mem_num) where p.party_num=#{party_num}")
+	public List<PartyMemberVO> selectPartyMember(Integer party_num); //파티에 가입되어 있는 회원 정보 가져오기
+	
+	@Select("select count(*) from party_member where party_num=#{party_num} and mem_num=#{mem_num}")
+	public int selectmemcount(Integer party_num,Integer mem_num);
+	
+	
+	//파티 좋아요
+	@Select("select * from party_fav where party_num=#{party_num} and mem_num=#{mem_num}")  
+	public PartyFavVO selectFav(PartyFavVO fav);
+	@Insert("insert into party_fav(p_fav_num,party_num,mem_num) values(partyfav_seq.nextval,#{party_num},#{mem_num})")
+	public void insertFav(PartyFavVO fav);
+	@Delete("delete from party_fav where p_fav_num=#{p_fav_num}")
+	public void deleteFav(Integer p_fav_num);
+	@Delete("delete from party_fav where party_num=#{party_num}")
+	public void deleteFavByPartyNum(Integer party_num); //부모글 삭제하기 전에 좋아요 먼저 삭제
+	
+	
+	
+	
+	
 } 

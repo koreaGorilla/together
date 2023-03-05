@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import kr.spring.member.vo.MemberVO;
 import kr.spring.party.dao.PartyMapper;
+import kr.spring.party.vo.PartyFavVO;
 import kr.spring.party.vo.PartyVO;
 import kr.spring.partymember.vo.PartyMemberVO;
 
@@ -61,15 +62,41 @@ public class PartyServiceimpl implements PartyService {
 	} 
 
 	@Override
-	public List<String> selectPartyMember(Integer party_num) {
+	public List<PartyMemberVO> selectPartyMember(Integer party_num) {
 		return partyMapper.selectPartyMember(party_num);
 	}
 
 	@Override
 	public void deleteParty(Integer party_num) {
+		partyMapper.deleteFavByPartyNum(party_num); //좋아요 삭제
 		partyMapper.deleteParty_Member(party_num);
 		partyMapper.deleteParty(party_num);
 		
 		
 	}
+	//파티 좋아요
+	
+	@Override
+	public PartyFavVO selectFav(PartyFavVO fav) {
+		return partyMapper.selectFav(fav);
+	}
+
+	@Override
+	public void insertFav(PartyFavVO fav) {
+		partyMapper.insertFav(fav);
+	}
+
+	@Override
+	public void deleteFav(Integer fav_num) {
+		partyMapper.deleteFav(fav_num);
+	}
+
+	@Override
+	public int selectmemcount(Integer party_num, Integer mem_num) {
+		return partyMapper.selectmemcount(party_num, mem_num);
+	}
+
+	
+
+	
 }
