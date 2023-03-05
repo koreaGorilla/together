@@ -71,6 +71,7 @@ public class FindmemController {
 		} else {
 			model.addAttribute("check", 0);
 	        model.addAttribute("cell", cell);
+	        logger.debug("사용자 전화번호: " + cell);
 	        model.addAttribute("password", mem_pw);
 		}
 		

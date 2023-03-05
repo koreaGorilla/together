@@ -14,19 +14,21 @@
 
 <form method="post" class="findPw" action="findMyPw" name="findMyPw">
 	<c:if test="${check == null || check == 1}">
+	
+	<h1>개인정보 확인</h1>
 		<div class="inputName">
+			<label for="mem_name">아이디</label>
 			<input type="text" id="mem_name" name="mem_name" class="form-control"/>
-			<label for="mem_name">name</label>
 		</div>
 		
 		<div class="inputCell">
+			<label for="mem_phone">전화번호</label>
 			<input type="text" id="mem_cell" name="mem_cell" class="form-control"/>
-			<label for="mem_phone">phone</label>
 		</div>
 		
 			<div class="findpw-btn">
 				<input class="findId-submit-btn"
-					type="submit" value="check">
+					type="submit" value="확인">
 			</div>
 	</c:if>
 		
@@ -36,7 +38,7 @@
 		</c:if>
 
 		<!-- 이름과 비밀번호가 일치할때 -->
-		<c:if test="${check == 0 && mem_cell == cell}">
+		<c:if test="${check == 0 && cell !=null}">
 		<div id="contents"> 
 			초대할 번호 : <input type="text" id="to" name="to"/>  
 			<button type="button" id="send">전송</button><br> <!-- 문자보내는 전송버튼 -->
