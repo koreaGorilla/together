@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/partyDetail.css">
 <script src="${pageContext.request.contextPath}/js/party.fav.js"></script>
 
@@ -67,7 +68,36 @@
 		</div>
 		
 		<div class="party-register">
-			<input type="button" value="가입하기" onclick="location.href='${pageContext.request.contextPath}/partymember/partyMemberCheck.do?party_num=${party.party_num}'">
+			<input type="button" value="가입하기" id="apply_btn">
+			<script type="text/javascript">
+				$(function(){
+					$('#apply_btn').click(function(){
+						let choice = confirm('가입하시겠습니까?');
+						if(choice){
+							$.ajax({
+								url:'../partymember/apply.do',
+								type:'post',
+								data:{party_num:${partyVO.party_num}},
+								dataType:'json',
+								success:function(param){
+									if(param.result == 'logout'){
+										alert('로그인 후 사용하세요');
+										location.href='../member/login.do';
+									}else if(param.result == 'success'){
+										alert('신청 완료되었습니다.');
+										location.href='../party/Detail.do';
+									}else{
+										alert('기타 네트워크 오류 발생');
+									}
+								},
+								error:function(){
+									alert('신청에 네트워크 오류 발생');
+								}
+							});
+						}
+					});
+				});
+			</script>
 		</div>
 		<div class="align-right">
 		

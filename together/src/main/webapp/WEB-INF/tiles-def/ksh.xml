@@ -8,8 +8,15 @@
     <definition name="partyMemberList" extends="main">
     	<put-attribute name="title" value="파티멤버"/>
     	<put-attribute name="body"
-    	  value="/WEB-INF/views/partymember/partyMemberList.jsp"/>        
+    	  value="/WEB-INF/views/partymember/partyMemberList.jsp"/>
     </definition>
+    
+<!--     <definition name="partyMemberCheck" extends="main"> -->
+<!--     	<put-attribute name="title" value="파티신청"/> -->
+<!--     	<put-attribute name="body" -->
+<!--     	  value="/WEB-INF/views/partymember/partyMemberCheck.jsp"/> -->
+<!--     </definition> -->
+    
 </tiles-definitions>
 
 

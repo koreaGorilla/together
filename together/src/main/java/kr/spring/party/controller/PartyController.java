@@ -154,14 +154,14 @@ public class PartyController {
 		
 		
 		MemberVO user = (MemberVO)session.getAttribute("user");
-		PartyMemberVO pMember = partyService.selectPartyDetailForAuth(party_num, user.getMem_num());
+		//PartyMemberVO pMember = partyService.selectPartyDetailForAuth(party_num, user.getMem_num());
 
 		//party.setParty_name(StringUtil.useNoHtml(party.getParty_name()));
 		
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("partyDetail");
 		mav.addObject("party",party);
-		mav.addObject("pMember", pMember);
+		//mav.addObject("pMember", pMember);
 		mav.addObject("partyMember",partyService.selectPartyMember(party_num));
 		
 		return mav; 

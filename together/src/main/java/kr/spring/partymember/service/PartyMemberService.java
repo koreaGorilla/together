@@ -17,14 +17,14 @@ public interface PartyMemberService {
 
 	//가입신청
 	public void insertPartyMember(PartyMemberVO partyMemberVO);
-
+	
 	//가입승인
-	public void approvePartyMember(PartyMemberVO partyMemberVO);
+	public void approvePartyMember(Integer partymem_num);
 	//가입거부
-	public void rejectPartyMember(PartyMemberVO PartyMemberVO);
+	public void rejectPartyMember(Integer partymem_num);
 	//가입추방
-	public void banPartyMember(PartyMemberVO partyMemberVO);
+	public void banPartyMember(Integer partymem_num);
 
 	//나가기
-	public void deletePartyMember(Integer mem_num);
+	public void deletePartyMember(Integer partymem_num);
 }

@@ -19,10 +19,8 @@
 					<td>${member.mem_name}</td>
 					<td>${member.partymem_reg_date}</td>
 					<td>${member.party_auth}</td>
-					<td>
-						<c:if test="${member.party_auth==0}">일반회원</c:if> 
-						<c:if test="${member.party_auth==9}">파티장</c:if>
-					</td>
+					<td><c:if test="${member.party_auth==0}">일반회원</c:if> <c:if
+							test="${member.party_auth==9}">파티장</c:if></td>
 				</tr>
 			</c:if>
 		</c:forEach>
@@ -43,9 +41,21 @@
 				<tr>
 					<td>${member.mem_name}</td>
 					<td>${member.partymem_reg_date}</td>
-					<td>
-						<c:if test="${member.party_auth==1}">대기회원</c:if>
-						<c:if test="${member.party_auth==9}">파티장</c:if>
+					<td><c:if test="${member.party_auth==1}">대기회원</c:if>
+						<c:if test="${!empty member}">
+							<input type="button" value="삭제" id="delete_btn">
+							<script type="text/javascript">
+								$(function(){
+									$('#delete_btn').click(function(){
+										let choice = confirm('삭제하시겠습니까?');
+										if(choice){
+											$('member.mem_name').hide();
+											location.replace('delete.do?partymem_num=${member.partymem_num}');	
+										}
+									});
+								});
+							</script>
+						</c:if>
 					</td>
 				</tr>
 			</c:if>

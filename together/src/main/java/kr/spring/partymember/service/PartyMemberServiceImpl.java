@@ -25,31 +25,38 @@ public class PartyMemberServiceImpl implements PartyMemberService{
 		return partyMemberMapper.selectRowCount(map);
 	}
 
+
+	@Override
+	public void rejectPartyMember(Integer partymem_num) {
+		partyMemberMapper.rejectPartyMember(partymem_num);
+		
+	}
+
+	@Override
+	public void banPartyMember(Integer partymem_num) {
+		partyMemberMapper.banPartyMember(partymem_num);
+		
+	}
+
+	@Override
+	public void deletePartyMember(Integer partymem_num) {
+		partyMemberMapper.deletePartyMember(partymem_num);
+		
+	}
+
 	@Override
 	public void insertPartyMember(PartyMemberVO partyMemberVO) {
 		partyMemberMapper.insertPartyMember(partyMemberVO);
 		
 	}
+
+	@Override
+	public void approvePartyMember(Integer partymem_num) {
+		partyMemberMapper.approvePartyMember(partymem_num);
+		
+	}
+
 	
-	@Override
-	public void approvePartyMember(PartyMemberVO partyMemberVO) {
-		partyMemberMapper.approvePartyMember(partyMemberVO);
-	}
-
-	@Override
-	public void banPartyMember(PartyMemberVO partyMemberVO) {
-		partyMemberMapper.banPartyMember(partyMemberVO);
-	}
-
-	@Override
-	public void rejectPartyMember(PartyMemberVO PartyMemberVO) {
-		partyMemberMapper.rejectPartyMember(PartyMemberVO);
-	}
-
-	@Override
-	public void deletePartyMember(Integer mem_num) {
-		partyMemberMapper.deletePartyMember(mem_num);
-	}
 
 
 	
