@@ -20,6 +20,31 @@
     	<put-attribute name="body"
     	  value="/WEB-INF/views/chat/chatDetail.jsp"/>        
     </definition>
+    <definition name="findId" extends="main">
+    	<put-attribute name="title" value="아이디찾기"/>
+    	<put-attribute name="body"
+    	  value="/WEB-INF/views/find/findId.jsp"/>        
+    </definition>
+    <definition name="findMyId" extends="main">
+    	<put-attribute name="title" value="아이디찾기"/>
+    	<put-attribute name="body"
+    	  value="/WEB-INF/views/find/findId.jsp"/>        
+    </definition>
+    <definition name="findList" extends="main">
+    	<put-attribute name="title" value="찾기목록"/>
+    	<put-attribute name="body"
+    	  value="/WEB-INF/views/find/findList.jsp"/>        
+    </definition>
+    <definition name="checkCell" extends="main">
+    	<put-attribute name="title" value="찾기목록"/>
+    	<put-attribute name="body"
+    	  value="/WEB-INF/views/find/checkCell.jsp"/>        
+    </definition>
+    <definition name="findPw" extends="main">
+    	<put-attribute name="title" value="비밀번호찾기완료"/>
+    	<put-attribute name="body"
+    	  value="/WEB-INF/views/find/findPw.jsp"/>        
+    </definition>
 </tiles-definitions>
 
 

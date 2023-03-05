@@ -26,6 +26,13 @@ public class SmsController {
     public @ResponseBody String sendSMS(@RequestParam(value="to") String to,String partyName, String url) throws CoolsmsException {  	
     	
     	
-    	return smsService.PhoneNumberCheck(to, partyName, url);
+    	return smsService.MessageSend(to, partyName, url);
+    }
+        
+    // coolSMS 구현 로직 연결  
+    @PostMapping("/find/checkSms")
+    public @ResponseBody String sendSMS(@RequestParam(value="to") String to) throws CoolsmsException {  	
+    	
+    	return smsService.CellNumberCheck(to);
     }
 }
