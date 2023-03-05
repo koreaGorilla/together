@@ -41,12 +41,46 @@ public class MemberController {
 		return new MemberVO();
 	}
 	
+	//=========회원가입============//
+	//회원가입 폼 호출
+		@GetMapping("/member/registerUser.do")
+		public String form() {
+			return "memberRegister";//타일스 설정값
+		}
+	
+		//회원가입 데이터 전송
+		@PostMapping("/member/registerUser.do")
+		public String submit(@Valid MemberVO memberVO,
+				     BindingResult result, Model model) {
+			
+			logger.debug("<<회원가입>> : " + memberVO);
+			
+			//유효성 체크 결과 오류가 있으면 폼 호출
+			if(result.hasErrors()) {
+				return form();
+			}
+			
+			//회원가입
+			memberService.insertMember(memberVO);
+			
+			model.addAttribute("accessMsg", 
+					     "회원가입이 완료되었습니다.");
+			
+			return "common/notice";
+		}		
+	
+	
+		
+		
 	//=========회원로그인============//
 	//로그인 폼 호출
 	@GetMapping("/member/login.do")
 	public String formLogin() {
 		return "memberLogin";
 	}
+	
+	
+	
 	
 	//로그인 폼에 전송된 데이터 처리
 	@PostMapping("/member/login.do")
@@ -56,11 +90,11 @@ public class MemberController {
 			              HttpServletResponse response) {
 		
 		logger.debug("<<회원로그인>> : " + memberVO);
-		
+																																																																											
 		//유효성 체크 결과 오류가 있으면 폼을 호출
 		//id와 passwd 필드만 체크
-		if(result.hasFieldErrors("id") || 
-				result.hasFieldErrors("passwd")) {
+		if(result.hasFieldErrors("mem_id") || 
+				result.hasFieldErrors("mem_pw")) {
 			return formLogin();
 		}
 		
@@ -79,7 +113,7 @@ public class MemberController {
 			if(check) {//인증 성공
 				//자동로그인 체크
 				
-				//인증 성공, 로그인 처리
+				//인증 성공, 로그인 처리		
 				session.setAttribute("user", member);
 				
 				logger.debug("<<인증 성공>> : " + member.getMem_id());
@@ -121,7 +155,7 @@ public class MemberController {
 	}
 
 }
-
+											
 
 
 
