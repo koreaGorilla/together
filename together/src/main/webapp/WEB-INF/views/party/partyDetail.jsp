@@ -64,41 +64,48 @@
 		</div>
 		<%--좋아요--%>
 		<div>
-			<img id="output_fav" data-num="${party.party_num}" src="${pageContext.request.contextPath}/images/fav01.gif" width="40">
+			<img id="output_fav" data-num="${party.party_num}" src="${pageContext.request.contextPath}/images/fav_1.png" width="40">
 		</div>
 		
-		<div class="party-register">
-			<input type="button" value="가입하기" id="apply_btn">
-			<script type="text/javascript">
-				$(function(){
-					$('#apply_btn').click(function(){
-						let choice = confirm('가입하시겠습니까?');
-						if(choice){
-							$.ajax({
-								url:'../partymember/apply.do',
-								type:'post',
-								data:{party_num:${partyVO.party_num}},
-								dataType:'json',
-								success:function(param){
-									if(param.result == 'logout'){
-										alert('로그인 후 사용하세요');
-										location.href='../member/login.do';
-									}else if(param.result == 'success'){
-										alert('신청 완료되었습니다.');
-										location.href='../party/Detail.do';
-									}else{
-										alert('기타 네트워크 오류 발생');
-									}
-								},
-								error:function(){
-									alert('신청에 네트워크 오류 발생');
+			<c:if test="${count==0}">
+				
+				<div class="party-register">
+					<input type="button" value="가입하기" id="apply_btn">
+					<script type="text/javascript">
+						$(function(){
+							$('#apply_btn').click(function(){
+								let choice = confirm('가입하시겠습니까?');
+								if(choice){
+									$.ajax({
+										url:'../partymember/apply.do',
+										type:'post',
+										data:{party_num:${partyVO.party_num}},
+										dataType:'json',
+										success:function(param){
+											if(param.result == 'logout'){
+												alert('로그인 후 사용하세요');
+												location.href='../member/login.do';
+											}else if(param.result == 'success'){
+												alert('신청 완료되었습니다.');
+												location.href='../party/Detail.do';
+											}else{
+												alert('기타 네트워크 오류 발생');
+											}
+										},
+										error:function(){
+											alert('신청에 네트워크 오류 발생');
+										}
+									});
 								}
 							});
-						}
-					});
-				});
-			</script>
-		</div>
+						});
+					</script>
+				</div>
+			</c:if>
+			<c:if test="${count==1}">
+				<input type="button" value="파티 입장">
+			</c:if>
+	
 		<div class="align-right">
 		
 		<c:if test="${pMember.party_auth==9}">

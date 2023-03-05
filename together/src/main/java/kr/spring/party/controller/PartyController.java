@@ -19,11 +19,13 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import kr.spring.member.vo.MemberVO;
 import kr.spring.party.service.PartyService;
+import kr.spring.party.vo.PartyFavVO;
 import kr.spring.party.vo.PartyVO;
 import kr.spring.partymember.vo.PartyMemberVO;
 import kr.spring.review.vo.ReviewVO;
@@ -155,17 +157,91 @@ public class PartyController {
 		
 		MemberVO user = (MemberVO)session.getAttribute("user");
 		//PartyMemberVO pMember = partyService.selectPartyDetailForAuth(party_num, user.getMem_num());
-
-		//party.setParty_name(StringUtil.useNoHtml(party.getParty_name()));
+		
+		List<PartyMemberVO> partyMember = partyService.selectPartyMember(party_num);
+		
+		int count = partyService.selectmemcount(party_num, user.getMem_num());
+		
+		logger.debug("<<count>> : "+ count);
+		logger.debug("<<partyMember>> : " + partyMember);
+		party.setParty_name(StringUtil.useNoHtml(party.getParty_name()));
 		
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("partyDetail");
 		mav.addObject("party",party);
 		//mav.addObject("pMember", pMember);
-		mav.addObject("partyMember",partyService.selectPartyMember(party_num));
+		mav.addObject("list",partyMember);
+		mav.addObject("user",user);
+		mav.addObject("count",count);
 		
 		return mav; 
 	}
+	
+	//=====파티 좋아요=====//
+	//좋아요 읽기
+	@RequestMapping("/party/getFav.do")
+	@ResponseBody
+	public Map<String ,Object> getFav(PartyFavVO fav,HttpSession session){
+		logger.debug("<<파티 좋아요>> : " +fav);
+		
+		Map<String, Object> mapJson = new HashMap<String,Object>();
+		
+		//로그인 안 했을 경우 좋아요 안 한 기본 이미지 출력
+		MemberVO user = (MemberVO)session.getAttribute("user");
+		if(user==null) {
+			mapJson.put("status", "noFav");
+		}else {
+			//로그인된 아이디 세팅
+			fav.setMem_num(user.getMem_num());
+			PartyFavVO partyFav = partyService.selectFav(fav);
+			
+			if(partyFav!=null) {
+				mapJson.put("status", "yesFav"); //좋아요 누른 이미지 출력
+			}else {
+				mapJson.put("status", "noFav");
+			}
+		}
+		return mapJson;
+	}
+	
+	//좋아요 등록
+	@RequestMapping("/party/writeFav.do")
+	@ResponseBody
+	public Map<String, Object> writeFav(PartyFavVO fav, HttpSession session){
+		logger.debug("<<부모글 좋아요 등록>> : " + fav);
+		
+		Map<String, Object> mapJson = new HashMap<String,Object>();
+		
+		MemberVO user = (MemberVO)session.getAttribute("user");
+		
+		if(user==null) {
+			mapJson.put("result", "logout");
+		}else {
+			//로그인된 회원번호 세팅
+			fav.setMem_num(user.getMem_num());
+			
+			logger.debug("<<부모글 좋아요 등록>> : " + fav);
+			
+			PartyFavVO partyFav = partyService.selectFav(fav);
+			
+			logger.debug("<<partyFav>> : "+partyFav);
+			
+			if(partyFav!=null) {//좋아요 누른 거 
+				//좋아요가 이미 등록되어있으면 삭제
+				partyService.deleteFav(partyFav.getP_fav_num());
+				mapJson.put("result", "success");
+				mapJson.put("status", "noFav");
+			}else {
+				//좋아요 등록 하기
+				partyService.insertFav(fav);
+				mapJson.put("result", "success");
+				mapJson.put("status", "yesFav");
+			}
+		}
+		return mapJson;
+	}
+	
+	
 	//=====파티 글삭제=======//
 		@RequestMapping("/party/delete.do")
 		public String partyDelete(
@@ -181,7 +257,8 @@ public class PartyController {
 			
 			return "redirect:/party/list.do";
 		}
-
+		
+		
 
 
 }
