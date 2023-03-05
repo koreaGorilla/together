@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/partyDetail.css">
+<script src="${pageContext.request.contextPath}/js/party.fav.js"></script>
+
 <div class="page-main">
 	<div class="party-image">
 		<c:if test="${empty party.party_photo_name }">
@@ -12,7 +15,7 @@
 	</div>
 	<form id="partyView">
 		<div class="party-info">
-			<ul class="party-info">
+			<ul class="info">
 				<li class="party-top">
 					<c:if test="${empty party.photo_name}">
 					<img src="${pageContext.request.contextPath}/images/face.png" width="40" height="40" class="my-photo">
@@ -34,10 +37,35 @@
 					<b>가입멤버</b>
 					<br>
 					<span>함께 소통하며 활동하고 있어요</span>
-					${list.mem_name }
+					<div class="member">
+						<c:forEach var="member" items="${list}">
+							<c:if test="${empty member.photo_name}">
+								<div class="member-info">
+									<img src="${pageContext.request.contextPath}/images/face.png" width="40" height="40" class="my-photo">
+									<br>
+									<span>${member.mem_name}</span>
+								</div>
+							</c:if>
+							<c:if test="${!empty member.photo_name}">
+								<div class="member-info">
+									<img src="imageView.do?party_num=${party.party_num}&party_type=1" width="40" height="40" class="my-photo">
+									<br>
+									<span>${member.mem_name}</span>
+								</div>
+							</c:if>
+					
+						
+
+						</c:forEach>
+					</div>	
 				</li>
 			</ul>	
 		</div>
+		<%--좋아요--%>
+		<div>
+			<img id="output_fav" data-num="${party.party_num}" src="${pageContext.request.contextPath}/images/fav01.gif" width="40">
+		</div>
+		
 		<div class="party-register">
 			<input type="button" value="가입하기" onclick="location.href='${pageContext.request.contextPath}/partymember/partyMemberCheck.do?party_num=${party.party_num}'">
 		</div>
