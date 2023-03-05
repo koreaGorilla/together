@@ -68,7 +68,7 @@ let result = '${result}';
 				<img src="imageView.do?party_num=${party.party_num}&party_type=2">
 				</c:if>
 				<c:if test="${empty party.party_photo_name}">
-				<img src="${pageContext.request.contextPath}/images/face.png">
+				<img src="${pageContext.request.contextPath}/images/togetherLogo.jpg">
 				</c:if>
 				<span>${party.party_name}</span>
 				<br>
