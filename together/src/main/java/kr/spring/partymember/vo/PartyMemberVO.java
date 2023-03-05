@@ -12,6 +12,8 @@ public class PartyMemberVO {
 	
 	private String mem_id;
 	private String mem_name;
+	private byte[] photo;//프로필 이미지
+	private String photo_name;
 	
 	public int getPartymem_num() {
 		return partymem_num;
@@ -55,12 +57,26 @@ public class PartyMemberVO {
 	public void setMem_name(String mem_name) {
 		this.mem_name = mem_name;
 	}
+	public byte[] getPhoto() {
+		return photo;
+	}
+	public void setPhoto(byte[] photo) {
+		this.photo = photo;
+	}
+	public String getPhoto_name() {
+		return photo_name;
+	}
+	public void setPhoto_name(String photo_name) {
+		this.photo_name = photo_name;
+	}
+	
 	@Override
 	public String toString() {
 		return "PartyMemberVO [partymem_num=" + partymem_num + ", party_auth=" + party_auth + ", partymem_reg_date="
 				+ partymem_reg_date + ", party_num=" + party_num + ", mem_num=" + mem_num + ", mem_id=" + mem_id
-				+ ", mem_name=" + mem_name + "]";
+				+ ", mem_name=" + mem_name + ", photo_name=" + photo_name + "]";
 	}
+	
 	
 	
 }
