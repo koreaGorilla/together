@@ -66,7 +66,6 @@
 		<div>
 			<img id="output_fav" data-num="${party.party_num}" src="${pageContext.request.contextPath}/images/fav_1.png" width="40">
 		</div>
-		
 			<c:if test="${count==0}">
 				
 				<div class="party-register">
@@ -77,9 +76,9 @@
 								let choice = confirm('가입하시겠습니까?');
 								if(choice){
 									$.ajax({
-										url:'../partymember/apply.do',
+										url:'/partymember/apply',
 										type:'post',
-										data:{party_num:${partyVO.party_num}},
+										data:{party_num:${party.party_num}},
 										dataType:'json',
 										success:function(param){
 											if(param.result == 'logout'){
@@ -87,7 +86,7 @@
 												location.href='../member/login.do';
 											}else if(param.result == 'success'){
 												alert('신청 완료되었습니다.');
-												location.href='../party/Detail.do';
+												location.href='../party/detail.do?party_num=${party.party_num}';
 											}else{
 												alert('기타 네트워크 오류 발생');
 											}

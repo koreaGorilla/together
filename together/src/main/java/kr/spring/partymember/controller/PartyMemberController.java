@@ -18,6 +18,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -65,25 +66,24 @@ public class PartyMemberController {
 	}
 	 //=========가입신청 ==========//
 	 
-	 @RequestMapping("/partymember/apply.do") 
-	 public Map<String,Object>applyPartyMemberAjax(
-			 PartyMemberVO vo,HttpSession session,HttpServletResponse response){
-	 
-	 Map<String,Object> mapJson = new HashMap<String,Object>();
-	 
-	 MemberVO user = (MemberVO)session.getAttribute("user"); 
-	 
-	 if(user==null) {
-		 mapJson.put("result", "logout");
-	 }else {
-		 vo.setMem_num(user.getMem_num());
-		 partyMemberService.insertPartyMember(vo);
-	 
-		 mapJson.put("result", "success");
-	 }
-	 
-	 return mapJson;
-	 }
+	@PostMapping("/partymember/apply") 
+	@ResponseBody
+	public Map<String,Object> applyPartyMemberAjax(PartyMemberVO vo, HttpSession session, HttpServletResponse response) {
+
+	    Map<String,Object> mapJson = new HashMap<String,Object>();
+
+	    MemberVO user = (MemberVO)session.getAttribute("user");
+
+	    if(user == null) {
+	        mapJson.put("result", "logout");
+	    } else {
+	        vo.setMem_num(user.getMem_num());
+	        partyMemberService.insertPartyMember(vo);
+	        mapJson.put("result", "success");
+	    }
+
+	    return mapJson;
+	}
 }
 
 
