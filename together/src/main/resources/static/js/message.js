@@ -65,7 +65,7 @@ $(function(){
 								//타인 메시지
 								output += '<div class="to-position">';
 								output += '<div class="space-photo">';
-								//output += '<img src="../member/viewProfile.do?mem_num='+item.mem_num+'" width="40" height="40" class="my-photo">';
+								output += '<img src="../mypage/photoView.do?mem_num='+item.mem_num+'" width="40" height="40" class="my-photo">';
 								output += '</div><div class="space-message">';
 								output += item.mem_name;
 							}
