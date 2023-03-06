@@ -31,5 +31,7 @@ public interface PartyService {
 	public void insertFav(PartyFavVO fav);
 	public void deleteFav(Integer fav_num);
 	
+	
+	
 
 }
