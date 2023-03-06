@@ -5,15 +5,11 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/message.js"></script>
 <div id="chatDetail" class="page-main">
 <div class="chat-header">
-	<h3>${partyVO.party_name} 채팅방</h3>
-</div>
-	<div class="align-right">
-	<div class="listButton">  
+	<h3>${partyVO.party_name} 채팅방		
 		<a href="${pageContext.request.contextPath}/chat/chatList.do">
 			<img src="${pageContext.request.contextPath}/images/menu.png" >
-		</a> 
-	</div>
-	</div>
+		</a> </h3>
+</div>
 	<div id="chat-messages"></div>
 	<form method="post" id="detail_form">
 		<input type="hidden" name="party_num"

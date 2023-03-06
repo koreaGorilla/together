@@ -12,6 +12,7 @@
 	<table class="chat-table">
 	<thead>
 		<tr>
+			<th scope="cols" style="text-align:left">파티 사진</th>
 			<th scope="cols" style="text-align:left">파티 이름</th>
 			<th scope="cols" style="text-align:right">파티 생성일자</th>
 		</tr>
@@ -19,6 +20,20 @@
 	<tbody>
 		<c:forEach var="chat" items="${list}">
 		<tr>
+				<th scope="cols" style="text-align:left">
+			<div class="party-img">
+					<c:if test="${!empty chat.party_photo_name}">
+						<a href="chatDetail.do?party_num=${chat.party_num}">
+							<img src="imageView.do?party_num=${chat.party_num}&party_type=2">
+						</a>
+					</c:if>
+					<c:if test="${empty chat.party_photo_name}">
+						<a href="chatDetail.do?party_num=${chat.party_num}">
+							<img src="${pageContext.request.contextPath}/images/togetherLogo.jpg">
+						</a>
+					</c:if>
+			</div>
+				</th>
 			<th scope="row" style="text-align:left">
 				<a href="chatDetail.do?party_num=${chat.party_num}"><br>
 					<span>${chat.party_name}</span>

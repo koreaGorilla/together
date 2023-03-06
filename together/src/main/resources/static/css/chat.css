@@ -5,7 +5,20 @@ li {
 }
 .date-position{
 	text-align:center;
+	width: 150px;
+    height: 15px;
 	color: gray;
+	background-color: #ced4da;
+	position: relative;
+    margin: auto;
+    margin-top: 20px;
+    border-radius: 50px;
+}
+.date-position span{
+	text-align: center;
+    color: gray;
+    width: 150px;
+    height: 15px;
 }
 .align-right{
 	text-align:right;
@@ -19,8 +32,64 @@ body {
   padding: 0;
   font-family: Arial, sans-serif;
   background-color: #F7F8FA;
+  
+}
+/*채팅방 목록*/
+.page-main {
+  background-color: #f8f9fa;
+  padding: 16px;
+}
+.party-img img{
+	width: 200px;
+	height: 100px;
 }
 
+h2 {
+  font-size: 18px;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.result-display {
+  font-size: 14px;
+  color: #666;
+  text-align: center;
+  margin-top: 24px;
+}
+
+.chat-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 16px;
+}
+
+th {
+  font-size: 14px;
+  font-weight: bold;
+  color: #333;
+  text-align: left;
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+}
+
+td {
+  font-size: 14px;
+  color: #666;
+  text-align: left;
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+}
+
+a {
+  color: #333;
+  text-decoration: none;
+  display: block;
+  float: left;
+}
+ul{
+	margin: 0;
+	padding: 0;
+}
 /* 채팅방 내용 */
 .chatDetail {
   display: flex;
@@ -45,11 +114,24 @@ body {
   color: #3C4043;
 }
 
+.chat-header a {
+  color: #333;
+  text-decoration: none;
+  display: block;
+  float: right;
+}
+
+.chat-header img{
+	width: 30px;
+	height: 30px;
+}
+
 /* 채팅방 메시지 영역 */
 .chat-messages {
   flex: 1;
   overflow-y: scroll;
   padding: 20px;
+  
 }
 
 /* 채팅 메시지 */
@@ -128,6 +210,10 @@ body {
 
 /* 메시지 입력 영역 */
 .message-input {
+  position: fixed;
+  bottom: 0;
+  width: 94%;
+  margin-bottom: 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -135,7 +221,6 @@ body {
   padding: 10px;
   box-shadow: 0px -1px 2px rgba(0, 0, 0, 0.1);
 }
-
 .message-input textarea {
   flex: 1;
   border: none;

@@ -25,6 +25,7 @@ import org.springframework.web.servlet.ModelAndView;
 import kr.spring.chat.service.ChatService;
 import kr.spring.chat.vo.ChatVO;
 import kr.spring.member.vo.MemberVO;
+import kr.spring.party.service.PartyService;
 import kr.spring.party.vo.PartyVO;
 
 
@@ -37,6 +38,9 @@ public class ChatController {
 	
 	@Autowired
     private ChatService chatService;
+	
+	@Autowired
+	private PartyService partyService;
 
 	
 	//======채팅방 목록======//
@@ -127,7 +131,26 @@ public class ChatController {
 		
 		return mapAjax;
 	}
-	
+	//======이미지 출력======//
+	@RequestMapping("/chat/imageView.do")
+	public ModelAndView viewImage(@RequestParam int party_num, @RequestParam int party_type) {
+
+		PartyVO party = partyService.selectPartyDetail(party_num);
+
+
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("imageView");
+
+		if(party_type==1) { //프로필 이미지 가져오기
+			mav.addObject("imageFile",party.getPhoto());
+			mav.addObject("filename",party.getPhoto_name());
+		}else if(party_type==2) { //파티 이미지 가져오기
+			mav.addObject("imageFile",party.getParty_photo());
+			mav.addObject("filename",party.getParty_photo_name());
+		}
+
+		return mav;
+	}
 	
 	
 	
