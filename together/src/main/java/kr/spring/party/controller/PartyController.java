@@ -156,7 +156,6 @@ public class PartyController {
 
 
 		List<PartyMemberVO> partyMember = partyService.selectPartyMember(party_num);
-
 		
 		logger.debug("<<partyMember>> : " + partyMember);
 		party.setParty_name(StringUtil.useNoHtml(party.getParty_name()));
@@ -165,6 +164,8 @@ public class PartyController {
 		mav.setViewName("partyDetail");
 
 		MemberVO user = (MemberVO)session.getAttribute("user");
+		PartyMemberVO nowPartyUser = partyService.selectUser(party_num, user.getMem_num());
+		
 		if(user!=null) {
 			int count = partyService.selectmemcount(party_num, user.getMem_num());
 
@@ -172,6 +173,7 @@ public class PartyController {
 			PartyMemberVO pMember = partyService.selectPartyDetailForAuth(party_num, user.getMem_num());
 			mav.addObject("pMember", pMember);
 			mav.addObject("count",count);
+			mav.addObject("nowMem", nowPartyUser);
 		}
 
 		mav.addObject("party",party);

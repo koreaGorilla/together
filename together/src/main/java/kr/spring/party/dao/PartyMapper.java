@@ -71,6 +71,8 @@ public interface PartyMapper {
 	@Delete("delete from party_fav where party_num=#{party_num}")
 	public void deleteFavByPartyNum(Integer party_num); //부모글 삭제하기 전에 좋아요 먼저 삭제
 	
+	@Select("SELECT * FROM party_member where party_num=#{party_num} and mem_num=#{mem_num}")
+	public PartyMemberVO selectUser(Integer party_num, Integer mem_num);
 	
 	//읽지않은채팅 삭제
 	@Delete("DELETE FROM PARTY_CHAT WHERE party_num=#{party_num}")

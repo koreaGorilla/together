@@ -114,7 +114,12 @@
 				</div>
 			</c:if>
 			<c:if test="${count==1}">
-				<input type="button" value="파티 입장">
+				<c:if test="${nowMem.party_auth==0}">
+					<input type="button" value="파티 입장">
+				</c:if>
+				<c:if test="${nowMem.party_auth==1}">
+					가입 대기중입니다!
+				</c:if>
 			</c:if>
 	
 		<div class="align-right">
