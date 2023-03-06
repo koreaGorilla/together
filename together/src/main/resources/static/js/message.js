@@ -38,7 +38,7 @@ $(function(){
 					alert('로그인 후 사용하세요!');
 					message_socket.close();
 				}else if(param.result == 'success'){
-					$('#chatting_message').empty();
+					$('#chat-messages').empty();
 					
 					//채팅 날짜 표시
 					let timestamp='';
@@ -47,7 +47,7 @@ $(function(){
 						//날짜 추출
 						if(timestamp != item.timestamp.split(' ')[0]){
 							timestamp = item.timestamp.split(' ')[0];
-							output += '<div class="date-position"><span>'+timestamp+'</span></div>';
+							output += '<div class="date-position"><div class="align-center"><span>'+timestamp+'</span></div></div>';
 						}
 						
 						if(item.message.indexOf('@{exit}@')>=0){
@@ -59,35 +59,52 @@ $(function(){
 							//일반 메시지 처리
 							if(item.mem_num == $('#mem_num').val()){
 								//본인 메시지
-								output += '<div class="from-position">' + item.mem_name;
+								output += '<div class="chat-message-right">';
+								output += '<div class="message-header">';
+								output += '<div class="align-right">';
+								output += '<div class="username">' + item.mem_name;
+								output += '</div>';
+								output += '</div>';
+								output += '</div>';
 								output += '<div>';
+								
 							}else{
 								//타인 메시지
-								output += '<div class="to-position">';
+								output += '<div class="chat-message-left">';
 								output += '<div class="space-photo">';
 								output += '<img src="../mypage/photoView.do?mem_num='+item.mem_num+'" width="40" height="40" class="my-photo">';
-								output += '</div><div class="space-message">';
+								output += '</div><div class="message-header">';
+								output += '<div class="username">';
 								output += item.mem_name;
+								output += '</div>';
+								output += '</div>';
+								
 							}
 							output += '<div class="item">';
+							output += '<div class="message-content">';
 							output +=  '<span>' + item.message.replace(/\r\n/g,'<br>').replace(/\r/,'<br>').replace(/\n/,'<br>') + '</span>';
+								output += '</div>';
+							output += '<div class="message-header">';
 							//시간 표시
 							if (item.timestamp && item.timestamp !== '') {
-  								output += '<div class="align-right">' + item.timestamp.split(' ')[1] + '</div>';
-								}							
-							output += '</div>';
+  								output += '<div class="timestamp">';
 							output += '<div class="read_count">';
 							output += item.read_count;
+							output += '</div>';
+							output += item.timestamp.split(' ')[1];
+							output += '</div>';
+								}
+							output += '</div>';
 							output += '</div>';
 							output += '</div><div class="space-clear"></div>';
 							output += '</div>';
 						}
 						
 						//문서 객체에 추가
-						$('#chatting_message').append(output);
+						$('#chat-messages').append(output);
 						//스크롤을 하단에 위치시킴
-						$('#chatting_message').scrollTop(
-							   $('#chatting_message')[0].scrollHeight);
+						$('#chat-messages').scrollTop(
+							   $('#chat-messages')[0].scrollHeight);
 					});
 					
 				}else{

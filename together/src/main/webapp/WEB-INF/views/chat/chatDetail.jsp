@@ -4,14 +4,17 @@
 <!-- 채팅하기 시작 -->
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/message.js"></script>
 <div id="chatDetail" class="page-main">
-	<h2>${partyVO.party_name} 채팅방</h2>
+<div class="chat-header">
+	<h3>${partyVO.party_name} 채팅방</h3>
+</div>
 	<div class="align-right">
-	<div class="listButton">
-		<input type="button" value="목록"
-		       onclick="location.href='chatList.do'">     
+	<div class="listButton">  
+		<a href="${pageContext.request.contextPath}/chat/chatList.do">
+			<img src="${pageContext.request.contextPath}/images/menu.png" >
+		</a> 
 	</div>
 	</div>
-	<div id="chatting_message"></div>
+	<div id="chat-messages"></div>
 	<form method="post" id="detail_form">
 		<input type="hidden" name="party_num"
 		         id="party_num" 
@@ -20,10 +23,12 @@
 		        id="mem_num" value="${user.mem_num}">
 		<ul>
 			<li>
+			<div class="message-input">
 				<label for="message"></label>
 				<textarea rows="5" cols="40"
 				  name="message" id="message"></textarea>
 				<input type="submit" value="전송">  
+			</div>
 			</li>
 		</ul>                 
 	</form>
