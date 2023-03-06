@@ -141,7 +141,9 @@
 	</form>
 	
 	<div class="party-info">
+	<c:if test="${nowMem.party_auth==9}">
 		<a href="${pageContext.request.contextPath}/partymember/partyMemberList.do?party_num=${party.party_num}">파티멤버</a>
+	</c:if>
 		<ul class="party-info">
 		<li>
 		</li>
