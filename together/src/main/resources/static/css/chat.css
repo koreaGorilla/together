@@ -145,7 +145,6 @@ ul{
 
 .chat-message-left .message-header {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   margin-bottom: 5px;
 }
@@ -154,6 +153,7 @@ ul{
   font-size: 14px;
   font-weight: bold;
   color: #3C4043;
+  margin-left: 7px;
 }
 
 .chat-message-left .message-header .timestamp {
@@ -172,6 +172,9 @@ ul{
 }
 
 /* 채팅 메시지 */
+.item{
+  padding-left: 47px;
+}
 .chat-message-right {
   display: flex;
   flex-direction: column;
@@ -179,6 +182,7 @@ ul{
   padding-bottom: 10px;
   padding-right: 10px;
 }
+
 
 .chat-message-right .message-header {
   justify-content: space-between;
