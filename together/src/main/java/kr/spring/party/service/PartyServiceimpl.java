@@ -68,6 +68,7 @@ public class PartyServiceimpl implements PartyService {
 
 	@Override
 	public void deleteParty(Integer party_num) {
+		//재우님 여기입니다
 		partyMapper.deleteFavByPartyNum(party_num); //좋아요 삭제
 		partyMapper.deleteParty_Member(party_num);
 		partyMapper.deleteParty(party_num);
