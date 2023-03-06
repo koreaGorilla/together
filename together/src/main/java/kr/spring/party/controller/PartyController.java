@@ -88,14 +88,14 @@ public class PartyController {
 
 		return mav;
 	}
-	
+
 
 	//======이미지 출력======//
 	@RequestMapping("/party/imageView.do")
 	public ModelAndView viewImage(@RequestParam int party_num, @RequestParam int party_type) {
 
 		PartyVO party = partyService.selectPartyDetail(party_num);
-		
+
 
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("imageView");
@@ -143,7 +143,7 @@ public class PartyController {
 
 		return "redirect:/party/list.do";
 	}
-	
+
 
 
 	//======파티 상세======//
@@ -153,39 +153,43 @@ public class PartyController {
 
 		//한 건의 데이터 가져오기
 		PartyVO party = partyService.selectPartyDetail(party_num);
-		
-		
-		MemberVO user = (MemberVO)session.getAttribute("user");
-		//PartyMemberVO pMember = partyService.selectPartyDetailForAuth(party_num, user.getMem_num());
-		
+
+
 		List<PartyMemberVO> partyMember = partyService.selectPartyMember(party_num);
+
 		
-		int count = partyService.selectmemcount(party_num, user.getMem_num());
-		
-		logger.debug("<<count>> : "+ count);
 		logger.debug("<<partyMember>> : " + partyMember);
 		party.setParty_name(StringUtil.useNoHtml(party.getParty_name()));
-		
+
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("partyDetail");
+
+		MemberVO user = (MemberVO)session.getAttribute("user");
+		if(user!=null) {
+			int count = partyService.selectmemcount(party_num, user.getMem_num());
+
+			logger.debug("<<count>> : "+ count);
+			PartyMemberVO pMember = partyService.selectPartyDetailForAuth(party_num, user.getMem_num());
+			mav.addObject("pMember", pMember);
+			mav.addObject("count",count);
+		}
+
 		mav.addObject("party",party);
-		//mav.addObject("pMember", pMember);
 		mav.addObject("list",partyMember);
 		mav.addObject("user",user);
-		mav.addObject("count",count);
-		
+
 		return mav; 
 	}
-	
+
 	//=====파티 좋아요=====//
 	//좋아요 읽기
 	@RequestMapping("/party/getFav.do")
 	@ResponseBody
 	public Map<String ,Object> getFav(PartyFavVO fav,HttpSession session){
 		logger.debug("<<파티 좋아요>> : " +fav);
-		
+
 		Map<String, Object> mapJson = new HashMap<String,Object>();
-		
+
 		//로그인 안 했을 경우 좋아요 안 한 기본 이미지 출력
 		MemberVO user = (MemberVO)session.getAttribute("user");
 		if(user==null) {
@@ -194,7 +198,7 @@ public class PartyController {
 			//로그인된 아이디 세팅
 			fav.setMem_num(user.getMem_num());
 			PartyFavVO partyFav = partyService.selectFav(fav);
-			
+
 			if(partyFav!=null) {
 				mapJson.put("status", "yesFav"); //좋아요 누른 이미지 출력
 			}else {
@@ -203,29 +207,29 @@ public class PartyController {
 		}
 		return mapJson;
 	}
-	
+
 	//좋아요 등록
 	@RequestMapping("/party/writeFav.do")
 	@ResponseBody
 	public Map<String, Object> writeFav(PartyFavVO fav, HttpSession session){
 		logger.debug("<<부모글 좋아요 등록>> : " + fav);
-		
+
 		Map<String, Object> mapJson = new HashMap<String,Object>();
-		
+
 		MemberVO user = (MemberVO)session.getAttribute("user");
-		
+
 		if(user==null) {
 			mapJson.put("result", "logout");
 		}else {
 			//로그인된 회원번호 세팅
 			fav.setMem_num(user.getMem_num());
-			
+
 			logger.debug("<<부모글 좋아요 등록>> : " + fav);
-			
+
 			PartyFavVO partyFav = partyService.selectFav(fav);
-			
+
 			logger.debug("<<partyFav>> : "+partyFav);
-			
+
 			if(partyFav!=null) {//좋아요 누른 거 
 				//좋아요가 이미 등록되어있으면 삭제
 				partyService.deleteFav(partyFav.getP_fav_num());
@@ -240,25 +244,25 @@ public class PartyController {
 		}
 		return mapJson;
 	}
-	
-	
+
+
 	//=====파티 글삭제=======//
-		@RequestMapping("/party/delete.do")
-		public String partyDelete(
-				@RequestParam int party_num,
-				Model model,
-				HttpServletRequest request) {
-			
-			logger.debug("<<게시판 글삭제>> : " + party_num);
-			
-			//글삭제
-			partyService.deleteParty(party_num);
-			
-			
-			return "redirect:/party/list.do";
-		}
-		
-		
+	@RequestMapping("/party/delete.do")
+	public String partyDelete(
+			@RequestParam int party_num,
+			Model model,
+			HttpServletRequest request) {
+
+		logger.debug("<<게시판 글삭제>> : " + party_num);
+
+		//글삭제
+		partyService.deleteParty(party_num);
+
+
+		return "redirect:/party/list.do";
+	}
+
+
 
 
 }
