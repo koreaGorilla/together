@@ -55,8 +55,32 @@
 	<update id="updateReview" parameterType="reviewVO">
 		update review set
 		<if test="r_photoname != ''"> r_photo=#{r_photo}, r_photoname=#{r_photoname}, </if>
-		party_name = #{party_name}, r_content=#{r_content}, r_modify_date =sysdate where r_num=#{r_num}
+	 	r_content=#{r_content}, r_modify_date =sysdate where r_num=#{r_num}
 	</update>
 
-
+	<!-- 리뷰댓글 목록 -->
+	<select id="selectListReply" parameterType="map" resultType="reviewReplyVO">
+		slect
+		  *
+		from(select
+			   a.*,
+			   rownum rnum
+			 from(select
+				   c_num,
+				   <![CDATA[
+				   REPLACE(REPLACE(c_content,'<','&lt;'),'>','&gt;') c_content,
+				   ]]>
+				   c_date,
+				   c_modify_date,
+				   r_num,
+				   mem_num,
+				   mem_name
+				 from review_comments join member_detail
+				 using(mem_num)
+				 where r_num=${r_num}
+				 order by c_num desc)a)
+			<![CDATA[
+			where rnum >= #{start} and rnum <= #{end} 
+			]]>
+	</select>
 </mapper>
