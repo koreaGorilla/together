@@ -92,6 +92,25 @@ public class PartyMemberController {
 
 	    return mapJson;
 	}
+	
+	
+	@PostMapping("/partymember/modifyAuth") 
+	@ResponseBody																
+	public Map<String,Object> ModifyAuth(HttpSession session, int partymem_num, int party_auth) {//party_auth값 전달받음
+		
+		Map<String,Object> mapJson = new HashMap<String,Object>();
+		
+		MemberVO user = (MemberVO)session.getAttribute("user");
+		
+		if(user == null) {
+			mapJson.put("result", "logout");
+		}else {
+			partyMemberService.approvePartyMember(partymem_num, party_auth);
+			mapJson.put("result", "success");
+		}
+		
+		return mapJson;
+	}
 }
 
 

@@ -51,8 +51,8 @@ public class PartyMemberServiceImpl implements PartyMemberService{
 	}
 
 	@Override
-	public void approvePartyMember(Integer partymem_num) {
-		partyMemberMapper.approvePartyMember(partymem_num);
+	public void approvePartyMember(Integer partymem_num ,Integer party_auth) {
+		partyMemberMapper.approvePartyMember(partymem_num, party_auth);
 		
 	}
 

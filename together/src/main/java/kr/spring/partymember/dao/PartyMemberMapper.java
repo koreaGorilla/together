@@ -24,7 +24,7 @@ public interface PartyMemberMapper {
 	
 	//가입승인
 	@Update("UPDATE Party_Member SET party_auth=#{party_auth} WHERE partymem_num=#{partymem_num}")
-	public void approvePartyMember(Integer partymem_num);
+	public void approvePartyMember(Integer partymem_num, Integer party_auth);
 	//가입거부
 	@Delete("DELETE FROM party_member WHERE partymem_num=#{partymem_num}")
 	public void rejectPartyMember(Integer partymem_num);
