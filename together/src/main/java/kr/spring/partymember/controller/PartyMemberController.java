@@ -41,48 +41,41 @@ public class PartyMemberController {
 
 	// =====파티 회원목록 관리=====//
 	@RequestMapping("/partymember/partyMemberList.do")
-	public ModelAndView process(@RequestParam(value = "pageNum", defaultValue = "1") int currentPage, int party_num) {
-		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("party_num", party_num);
-		// 총 개수
-		int count = partyMemberService.selectRowCount(map);
+	   public ModelAndView process(@RequestParam(value = "pageNum", defaultValue = "1") int currentPage, int party_num) {
 
-		logger.debug("<파티원 관리 - count> : " + count);
-		// 페이지 처리
-		PagingUtil page = new PagingUtil(currentPage, count, 20, 10, "partyMemberList.do");
+	      Map<String, Object> map = new HashMap<String, Object>();
+	      map.put("party_num", party_num);
+	      // 총 개수
+	      int count = partyMemberService.selectRowCount(map);
 
-		// 회원목록
-		List<PartyMemberVO> list = null;
-		if (count > 0) {
-			map.put("start", page.getStartRow());
-			map.put("end", page.getEndRow());
+	      logger.debug("<파티원 관리 - count> : " + count);
+	      // 페이지 처리
+	      PagingUtil page = new PagingUtil(currentPage, count, 20, 10, "partyMemberList.do");
 
-			list = partyMemberService.selectList(map);
-			// 파티 회원 타입, 권한 설정
-			for (PartyMemberVO member : list) {
-				PartyVO party = partyService.selectParty(member.getParty_num());
-				if (party.getParty_reg_type() == 1) {
-					member.setParty_auth(0);
-				} else if (party.getParty_reg_type() == 0) {
-					member.setParty_auth(1);
-				}
-			}
-		}
+	      // 회원목록
+	      List<PartyMemberVO> list = null;
+	      if (count > 0) {
+	         map.put("start", page.getStartRow());
+	         map.put("end", page.getEndRow());
 
-		ModelAndView mav = new ModelAndView();
-		mav.setViewName("partyMemberList");// 이 이름으로 된 xml경로로 이동
-		mav.addObject("count", count);
-		mav.addObject("list", list);
-		mav.addObject("page", page.getPage());
+	         list = partyMemberService.selectList(map);
+	      }
 
-		return mav;
-	}
+	      ModelAndView mav = new ModelAndView();
+	      mav.setViewName("partyMemberList");// 이 이름으로 된 xml경로로 이동
+	      mav.addObject("count", count);
+	      mav.addObject("list", list);
+	      mav.addObject("page", page.getPage());
+
+	      return mav;
+	   }
 
 	 //=========가입신청 ==========//
 	 
 	@PostMapping("/partymember/apply") 
-	@ResponseBody
-	public Map<String,Object> applyPartyMemberAjax(PartyMemberVO vo, HttpSession session, HttpServletResponse response) {
+	@ResponseBody																
+	public Map<String,Object> applyPartyMemberAjax(PartyMemberVO vo, HttpSession session, HttpServletResponse response,
+			int party_auth) {//party_auth값 전달받음
 
 	    Map<String,Object> mapJson = new HashMap<String,Object>();
 
@@ -92,6 +85,7 @@ public class PartyMemberController {
 	        mapJson.put("result", "logout");
 	    }else {
 	        vo.setMem_num(user.getMem_num());
+	        vo.setParty_auth(party_auth); //전달받은 party_auth값 vo에 전달후 저장
 	        partyMemberService.insertPartyMember(vo);
 	        mapJson.put("result", "success");
 	    }

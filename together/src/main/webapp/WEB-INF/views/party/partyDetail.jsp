@@ -40,6 +40,7 @@
 					<span>함께 소통하며 활동하고 있어요</span>
 					<div class="member">
 						<c:forEach var="member" items="${list}">
+						<c:if test="${member.party_auth == 0}">
 							<c:if test="${empty member.photo_name}">
 								<div class="member-info">
 									<img src="${pageContext.request.contextPath}/images/face.png" width="40" height="40" class="my-photo">
@@ -53,10 +54,8 @@
 									<br>
 									<span>${member.mem_name}</span>
 								</div>
-							</c:if>
-					
-						
-
+							</c:if>	
+						</c:if>
 						</c:forEach>
 					</div>	
 				</li>
@@ -69,16 +68,29 @@
 			<c:if test="${count==0}">
 				
 				<div class="party-register">
+				<!-- 파티가입시 party_auth값 저장 하단 ajax로 이동-->
+				<c:if test="${party.party_reg_type == 0}">
+					<input type="hidden" id="party_auth" name="party_auth" value="0">
+				</c:if>
+				<c:if test="${party.party_reg_type == 1}">
+					<input type="hidden" id="party_auth" name="party_auth" value="1">
+				</c:if>
 					<input type="button" value="가입하기" id="apply_btn">
 					<script type="text/javascript">
 						$(function(){
 							$('#apply_btn').click(function(){
 								let choice = confirm('가입하시겠습니까?');
+								//파티가입 권한 전달받고 하단의 data를 통해 controller로 전송
+								let party_auth = $('#party_auth').val();
 								if(choice){
 									$.ajax({
 										url:'/partymember/apply',
 										type:'post',
-										data:{party_num:${party.party_num}},
+										data:{
+											party_num:${party.party_num},
+											"party_auth" : party_auth
+											},
+											
 										dataType:'json',
 										success:function(param){
 											if(param.result == 'logout'){
