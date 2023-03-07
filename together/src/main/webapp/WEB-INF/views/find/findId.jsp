@@ -12,6 +12,7 @@
 <body>
   <div class="containerId">
 <form method="post" class="findId" action="findMyId" name="findMyId">
+	<h1>아이디 찾기</h1>
 		<div class="inputName">
 			<label for="mem_name">이름</label>
 			<input type="text" id="mem_name" name="mem_name" class="form-control"/>

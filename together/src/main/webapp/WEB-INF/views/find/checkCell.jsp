@@ -16,7 +16,7 @@
 		<form method="post" class="findPw" action="findMyPw" name="findMyPw">
 			<c:if test="${check == null || check == 1}">
 			
-				<h1>개인정보 확인</h1>
+				<h1>비밀번호 찾기</h1>
 					<div class="inputName">
 						<label for="mem_name">아이디</label>
 						<input type="text" id="mem_name" name="mem_name" class="form-control" />
@@ -39,7 +39,7 @@
 		
 				<!-- 이름과 비밀번호가 일치할때 -->
 				<c:if test="${check == 0 && cell !=null}">
-					<h1>번호 인증</h1>
+					<h1>비밀번호 찾기</h1>
 					<div id="contents"> 
 						<label for="invite_phone">전화번호 입력</label>
 						<input type="text" id="to" name="to" value="${cell}" disabled/>  
