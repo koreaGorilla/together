@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<tiles-definitions>
+    <definition name="noticeList" extends="main">
+    	<put-attribute name="title" value="게시판목록"/>
+    	<put-attribute name="body"
+    	  value="/WEB-INF/views/notice/noticeList.jsp"/>        
+    </definition>
+    <definition name="noticeWrite" extends="main">
+    	<put-attribute name="title" value="글쓰기"/>
+    	<put-attribute name="body"
+    	  value="/WEB-INF/views/notice/noticeWrite.jsp"/>        
+    </definition>
+    <definition name="noticeView" extends="main">
+    	<put-attribute name="title" value="상세정보"/>
+    	<put-attribute name="body"
+    	  value="/WEB-INF/views/notice/noticeView.jsp"/>        
+    </definition>
+    <definition name="noticeModify" extends="main">
+    	<put-attribute name="title" value="글수정"/>
+    	<put-attribute name="body"
+    	  value="/WEB-INF/views/notice/noticeModify.jsp"/>        
+    </definition>
+</tiles-definitions>
+
+
+
+

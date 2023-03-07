@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper   
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+<mapper namespace="kr.spring.notice.dao.NoticeMapper">  
+  	<!-- sql 태그와 include 태그를 이용해 SQL문을 재사용 -->
+<!--   	<sql id="noticeSearch">
+  		<where>
+  			<if test="keyword != null and keyword != ''">
+  				<if test="keyfield == 1">
+  					n.notice_title LIKE '%' || #{keyword} || '%'
+  				</if>
+  				<if test="keyfield == 2">
+  					n.notice_content LIKE '%' || #{keyword} || '%'
+  				</if>
+  				<if test="keyfield == 3">
+  					n.notice_title LIKE '%' || #{keyword} || '%' OR
+  					n.notice_content LIKE '%' || #{keyword} || '%'
+  				</if>
+  			</if>
+  		</where>
+  	</sql> -->
+  	
+  	<select id="selectRowCount" parameterType="map"
+  	                            resultType="integer">
+  		SELECT
+  		  COUNT(*)
+  		FROM notice n JOIN member m
+  		ON n.mem_num = m.mem_num
+  		<!-- <include refid="noticeSearch"></include>   -->                          
+  	</select>
+  	
+<!--   	<select id="selectList" parameterType="map"
+  	                         resultType="noticeVO">
+  		SELECT
+  		   *
+  		FROM (SELECT
+  		        a.*,
+  		        rownum rnum
+  		      FROM (SELECT
+  		              n.notice_num,
+  		              <![CDATA[
+  		              REPLACE(REPLACE(n.notice_title,'<','&lt;'),'>','&gt;') notice_title,
+  		              ]]>
+  		              n.notice_hit,
+  		              n.notice_filename,
+  		              n.notice_date,
+  		              n.mem_num,
+  		              m.id,
+  		              m.nick_name
+  		            FROM notice n JOIN member m 
+  		            ON n.mem_num = m.mem_num
+  		            <include refid="noticeSearch"></include>
+  		            ORDER BY n.notice_num DESC)a)                         
+  		<![CDATA[
+  		WHERE rnum >= #{start} AND rnum <= #{end}
+  		]]>
+  	</select> -->
+  	
+  	<update id="updateNotice" parameterType="noticeVO">
+  		UPDATE notice SET
+  		  <if test="notice_filename != ''">
+  		  notice_file=#{notice_file},
+  		  notice_filename=#{notice_filename},
+  		  </if>
+  		  notice_title=#{notice_title},
+  		  notice_content=#{notice_content},
+  		  ip=#{ip},
+  		  notice_modifydate=SYSDATE
+  		WHERE notice_num=#{notice_num}  
+  	</update>
+  	
+</mapper>
+
+
+
+
+
+
+

@@ -7,7 +7,7 @@
 	<a href="${pageContext.request.contextPath}/calendar/calendar.do">일정</a>
     <a href="${pageContext.request.contextPath}/party/list.do">파티</a>
 	<a href="${pageContext.request.contextPath}/review/list.do">리뷰</a>
-	<a href="${pageContext.request.contextPath}/board/list.do">게시판</a>
+	<a href="${pageContext.request.contextPath}/notice/list.do">공지사항</a>
 
 	
 	<c:if test="${!empty user && user.mem_auth == 2}">
