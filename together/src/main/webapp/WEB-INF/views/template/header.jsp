@@ -43,10 +43,9 @@
 		<a href="${pageContext.request.contextPath}/main/admin.do">관리자메인</a>
 	</c:if>
 </div>
-<script>
-	$("#chat").on('click',function(e){
-		e.preventDefault();
-		window.open("/chat/chatList.do", "chat", "width=800, height=800, top=200, left=200");
-	})
+<script type="text/javascript">
+	$("#chat").on('click', function(e){
+		window.open("/chat/chatList.do", "chat", "width=600, height=700, top=200, left=200, resizable=no");
+		})
 </script>
 <!-- 상단 끝 -->

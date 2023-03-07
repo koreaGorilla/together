@@ -37,7 +37,6 @@ body {
 /*채팅방 목록*/
 .page-main {
   background-color: #f8f9fa;
-  padding: 16px;
 }
 .party-img img{
 	width: 200px;
@@ -105,6 +104,11 @@ ul{
   background-color: #FFFFFF;
   box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
   text-align: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
 }
 
 .chat-header h3 {
@@ -124,17 +128,24 @@ ul{
 .chat-header img{
 	width: 30px;
 	height: 30px;
+	padding-right: 30px;
 }
 
 /* 채팅방 메시지 영역 */
-.chat-messages {
-  flex: 1;
-  overflow-y: scroll;
-  padding: 20px;
+#chat-messages {
+  padding-bottom: 120px;
+  padding-top: 50px;
+
   
 }
 
 /* 채팅 메시지 */
+.chat-message-left, .chat-message-right {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  
+}
+
 .chat-message-left {
   display: flex;
   flex-direction: column;
@@ -147,10 +158,11 @@ ul{
   display: flex;
   align-items: center;
   margin-bottom: 5px;
+  
 }
 
 .chat-message-left .message-header .username {
-  font-size: 14px;
+  font-size: 16px;
   font-weight: bold;
   color: #3C4043;
   margin-left: 7px;
@@ -169,11 +181,13 @@ ul{
   font-size: 14px;
   color: #3C4043;
   box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
+  max-width: 300px;
 }
 
 /* 채팅 메시지 */
 .item{
   padding-left: 47px;
+  
 }
 .chat-message-right {
   display: flex;
@@ -191,7 +205,7 @@ ul{
 }
 
 .chat-message-right .message-header .username {
-  font-size: 14px;
+  font-size: 16px;
   font-weight: bold;
   color: #3C4043;
 }
@@ -210,20 +224,25 @@ ul{
   font-size: 14px;
   color: #3C4043;
   box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
+  max-width: 300px;
 }
 
 /* 메시지 입력 영역 */
+.message{
+	background-color: black;
+}
 .message-input {
   position: fixed;
   bottom: 0;
-  width: 94%;
-  margin-bottom: 20px;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: #FFFFFF;
   padding: 10px;
   box-shadow: 0px -1px 2px rgba(0, 0, 0, 0.1);
+  margin-top: 40px;
+  z-index:999;
 }
 .message-input textarea {
   flex: 1;
@@ -235,7 +254,6 @@ ul{
 }
 
 input[type=submit] {
-  margin-left: 10px;
   background-color: #2E86C1;
   color: #FFFFFF;
   border: none;
@@ -244,4 +262,5 @@ input[type=submit] {
   font-size: 14px;
   cursor: pointer;
   margin-top: 50px;
+  margin-right: 20px;
 }

@@ -19,8 +19,8 @@
 		        id="mem_num" value="${user.mem_num}">
 		<ul>
 			<li>
-			<div class="message-input">
 				<label for="message"></label>
+			<div class="message-input">
 				<textarea rows="5" cols="40"
 				  name="message" id="message"></textarea>
 				<input type="submit" value="전송">  
