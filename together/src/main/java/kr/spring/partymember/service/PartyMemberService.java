@@ -17,9 +17,8 @@ public interface PartyMemberService {
 
 	//가입신청
 	public void insertPartyMember(PartyMemberVO partyMemberVO);
-	
 	//가입승인
-	public void approvePartyMember(Integer partymem_num);
+	public void approvePartyMember(Integer partymem_num ,Integer party_auth);
 	//가입거부
 	public void rejectPartyMember(Integer partymem_num);
 	//가입추방

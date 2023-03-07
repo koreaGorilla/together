@@ -99,6 +99,11 @@ public class PartyServiceimpl implements PartyService {
 		return partyMapper.selectmemcount(party_num, mem_num);
 	}
 
+	@Override
+	public PartyMemberVO selectUser(Integer party_num, Integer mem_num) {
+		return partyMapper.selectUser(party_num, mem_num);
+	}
+
 	
 
 	

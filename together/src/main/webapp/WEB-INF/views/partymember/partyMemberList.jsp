@@ -19,8 +19,8 @@
 					<td>${member.mem_name}</td>
 					<td>${member.partymem_reg_date}</td>
 					<td>${member.party_auth}</td>
-					<td><c:if test="${member.party_auth==0}">일반회원</c:if> <c:if
-							test="${member.party_auth==9}">파티장</c:if></td>
+					<td><c:if test="${member.party_auth==0}">일반회원</c:if> 
+					    <c:if test="${member.party_auth==9}">파티장</c:if></td>
 				</tr>
 			</c:if>
 		</c:forEach>
@@ -43,8 +43,37 @@
 					<td>${member.partymem_reg_date}</td>
 					<td><c:if test="${member.party_auth==1}">대기회원</c:if>
 						<c:if test="${!empty member}">
+						<input type="hidden" id="partymem_num" name="partymem_num" value="${member.partymem_num}">
+							<input type="button" value="승인" id="apply_btn">
 							<input type="button" value="삭제" id="delete_btn">
 							<script type="text/javascript">
+								$('#apply_btn').click(function() {
+									
+									let party_auth = 0;
+									let partymem_num = $('#partymem_num').val();
+									$.ajax ({
+										url: '/partymember/modifyAuth',
+										type: 'POST',
+										data: {
+											"partymem_num" : partymem_num,
+											"party_auth" : party_auth
+										},
+										success: function(param) {
+											if(param.result == 'logout'){
+												alert('로그인 후 사용하세요');
+												location.href='../member/login.do';
+											}else if(param.result == 'success'){
+												alert('신청 완료되었습니다.');
+												location.reload();
+											}
+										},
+										error:function(){
+											alert('네트워크 오류 발생');
+										}
+									});
+									
+								});
+								
 								$(function(){
 									$('#delete_btn').click(function(){
 										let choice = confirm('삭제하시겠습니까?');

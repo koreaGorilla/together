@@ -22,6 +22,8 @@ public interface PartyService {
 	public List<PartyVO> selectMainPartyList();
 
 	public List<PartyMemberVO> selectPartyMember(Integer party_num);
+	
+	public PartyMemberVO selectUser(Integer party_num, Integer mem_num);
 
 	public void deleteParty(Integer party_num);
 	
