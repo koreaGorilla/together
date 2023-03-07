@@ -14,12 +14,6 @@ public class MemberServiceImpl implements MemberService{
 	@Autowired 
 	private MemberMapper memberMapper;
 	
-
-	@Override
-	public MemberVO selectCheckMember(String id) {
-		return memberMapper.selectCheckMember(id);
-	}
-
 	@Override
 	public void insertMember(MemberVO member) {
 		member.setMem_num(memberMapper.selectMem_num());
@@ -27,6 +21,12 @@ public class MemberServiceImpl implements MemberService{
 		memberMapper.insertMember_detail(member);
 		
 	}
+
+	@Override
+	public MemberVO selectCheckMember(String id) {
+		return memberMapper.selectCheckMember(id);
+	}
+
 
 
 	@Override
