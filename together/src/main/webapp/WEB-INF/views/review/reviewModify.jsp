@@ -19,9 +19,9 @@
 		<ul>
 		    <li>
 				<label for="party_name">파티명</label>
-				<label>${reviewVO.party_name}</label>
+				<label id="${reviewVO.party_name}" >${reviewVO.party_name}</label>
 				<form:errors path="party_name" cssClss="error-color"/>
-			</li>	
+			</li>		
 			<li>
 	            <label for="r_content">내용</label>
 	            <form:textarea path="r_content"/>

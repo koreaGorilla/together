@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import kr.spring.review.dao.ReviewMapper;
+import kr.spring.review.vo.ReviewFavVO;
+import kr.spring.review.vo.ReviewReplyVO;
 import kr.spring.review.vo.ReviewVO;
 
 @Service
@@ -45,7 +47,9 @@ public class ReviewServiceImpl implements ReviewService{
 
 	@Override
 	public void deleteReview(Integer r_num) {
-		// TODO Auto-generated method stub
+		reviewMapper.deleteFavByReviewNum(r_num);//리뷰 좋아요 삭제
+		reviewMapper.deleteReplyByReviewNum(r_num);//리뷰 댓글 삭제
+		reviewMapper.deleteReview(r_num);//리뷰 삭제
 		
 	}
 
@@ -58,6 +62,57 @@ public class ReviewServiceImpl implements ReviewService{
 	public List<String> selectPartyname(Integer mem_num) {
 		return reviewMapper.selectPartyname(mem_num);
 		
+	}
+
+	@Override
+	public ReviewFavVO selectFav(ReviewFavVO fav) {
+		return reviewMapper.selectFav(fav);
+	}
+
+	@Override
+	public int selectFavCount(Integer r_num) {
+		return reviewMapper.selectFavCount(r_num);
+	}
+
+	@Override
+	public void insertFav(ReviewFavVO fav) {
+		reviewMapper.insertFav(fav);
+	}
+
+	@Override
+	public void deleteFav(Integer r_fav_num) {
+		reviewMapper.deleteFav(r_fav_num);
+	}
+
+	@Override
+	public List<ReviewReplyVO> selectListReply(Map<String, Object> map) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ReviewReplyVO selectReply(Integer c_num) {
+		return reviewMapper.selectReply(c_num);
+	}
+
+	@Override
+	public int selectReplyCount(Map<String, Object> map) {
+		return reviewMapper.selectReplyCount(map);
+	}
+
+	@Override
+	public void insertReply(ReviewReplyVO reviewReply) {
+		reviewMapper.insertReply(reviewReply);
+	}
+
+	@Override
+	public void updateReply(ReviewReplyVO reviewReply) {
+		reviewMapper.updateReply(reviewReply);
+	}
+
+	@Override
+	public void deleteReply(Integer c_num) {
+		reviewMapper.deleteReply(c_num);
 	}
 	
 }
