@@ -164,10 +164,10 @@ public class PartyController {
 		mav.setViewName("partyDetail");
 
 		MemberVO user = (MemberVO)session.getAttribute("user");
-		PartyMemberVO nowPartyUser = partyService.selectUser(party_num, user.getMem_num());
 		
 		if(user!=null) {
 			int count = partyService.selectmemcount(party_num, user.getMem_num());
+			PartyMemberVO nowPartyUser = partyService.selectUser(party_num, user.getMem_num());
 
 			logger.debug("<<count>> : "+ count);
 			PartyMemberVO pMember = partyService.selectPartyDetailForAuth(party_num, user.getMem_num());
