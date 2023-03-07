@@ -67,8 +67,7 @@ public class PartyServiceimpl implements PartyService {
 	}
 
 	@Override
-	public void deleteParty(Integer party_num) {	
-		
+	public void deleteParty(Integer party_num) {
 		partyMapper.deleteChatRead(party_num);
 		partyMapper.deleteChat(party_num);
 		partyMapper.deleteFavByPartyNum(party_num); //좋아요 삭제
@@ -102,9 +101,5 @@ public class PartyServiceimpl implements PartyService {
 	@Override
 	public PartyMemberVO selectUser(Integer party_num, Integer mem_num) {
 		return partyMapper.selectUser(party_num, mem_num);
-	}
-
-	
-
-	
+	}	
 }
