@@ -42,6 +42,33 @@ public class MemberController {
 	}
 	
 	//=========회원가입============//
+	//아이디 중복 체크
+		@RequestMapping("/member/confirmId.do")
+		@ResponseBody
+		public Map<String,String> process(
+				             @RequestParam String id){
+			logger.debug("<<mem_id>> : " + id);
+			
+			Map<String,String> mapAjax = 
+					new HashMap<String,String>();
+			
+			MemberVO member = 
+					memberService.selectCheckMember(id);
+			if(member!=null) {
+				//아이디 중복
+				mapAjax.put("result", "idDuplicated");
+			}else {
+				if(!Pattern.matches("^[A-Za-z0-9]{4,12}$", id)) {
+					//패턴 불일치
+					mapAjax.put("result", "notMatchPattern");
+				}else {
+					//패턴 일치하면서 아이디 미중복
+					mapAjax.put("result", "idNotFound");
+				}
+			}
+			
+			return mapAjax;
+		}
 	//회원가입 폼 호출
 		@GetMapping("/member/registerUser.do")
 		public String form() {
