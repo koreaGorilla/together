@@ -43,24 +43,15 @@
 	opacity: 0;
 	filter:Alpha(Opacity=0); /* support: IE8 */
 }
-
 .ui-front {
 	z-index: 100;
 }
-
 
 /* Interaction Cues
 ----------------------------------*/
 .ui-state-disabled {
 	cursor: default !important;
 }
-
-
-/* Icons
-----------------------------------*/
-
-
-
 
 /* Misc visuals
 ----------------------------------*/
@@ -255,8 +246,8 @@ button.ui-button::-moz-focus-inner {
 	margin: 0 2.3em;
 	line-height: 1.8em;
 	text-align: center;
-  font-size: 14px;
-  font-size: 0.9rem
+	font-size: 14px;
+	font-size: 0.9rem
 }
 .ui-datepicker .ui-datepicker-title select {
 	font-size: 1em;
@@ -273,7 +264,7 @@ button.ui-button::-moz-focus-inner {
 	margin: 0 0 .4em;
 }
 .ui-datepicker-calendar thead{
-  border-bottom:4px solid #fff;
+	border-bottom:4px solid #fff;
 }
 
 a.ui-datepicker-next.ui-corner-all::before {
@@ -288,26 +279,24 @@ a.ui-datepicker-next.ui-corner-all::before {
     top: 8px;
     left: 9px;
 }
-
 button.ui-datepicker-trigger {
-  border:none;
-  background: #4c5762 url("../../images/sub/datapicker.png") 16px 15px no-repeat;
-  width: 49px;
-  height: 48px;
-  text-indent: -9999px;
+	border:none;
+	background: #4c5762 url("../../images/sub/datapicker.png") 16px 15px no-repeat;
+	width: 49px;
+	height: 48px;
+	text-indent: -9999px;
 }
-
 a.ui-datepicker-prev.ui-corner-all::before{
-  border: solid #63666a;
-  border-width: 0 2px 2px 0;
-  display: inline-block;
-  padding: 4px 2px 2px 4px;
-  transform: rotate(135deg);
-  -webkit-transform: rotate(135deg);
-  content: '';
-  position: absolute;
-  top: 8px;
-  left: 12px;
+	border: solid #63666a;
+	border-width: 0 2px 2px 0;
+	display: inline-block;
+	padding: 4px 2px 2px 4px;
+	transform: rotate(135deg);
+	-webkit-transform: rotate(135deg);
+	content: '';
+	position: absolute;
+	top: 8px;
+	left: 12px;
 }
 
 .ui-datepicker th {
@@ -776,12 +765,14 @@ a.ui-datepicker-prev.ui-corner-all::before{
 	overflow: hidden;
 	right: 0;
 }
+
 /* more specificity required here to override default borders */
 .ui-spinner a.ui-spinner-button {
 	border-top: none;
 	border-bottom: none;
 	border-right: none;
 }
+
 /* vertically center icon */
 .ui-spinner{
 	position: absolute;
@@ -871,8 +862,8 @@ body .ui-tooltip {
 	font-size: 1em;
 }
 .ui-widget-content {
-  margin-top:4px;
-  font-size: 12px;
+	margin-top:4px;
+	font-size: 12px;
     font-size: 0.75rem;
     -webkit-border-radius: 2px;
     -moz-border-radius: 2px;
@@ -923,8 +914,8 @@ body .ui-tooltip {
 
 .ui-state-hover,
 .ui-widget-content .ui-state-hover{
-  background: #63666a;
-  color: #fff;
+	background: #63666a;
+	color: #fff;
 }
 
 .ui-widget-header .ui-state-hover,
@@ -964,7 +955,7 @@ body .ui-tooltip {
 .ui-state-highlight,
 .ui-widget-content .ui-state-highlight,
 .ui-widget-header .ui-state-highlight {
-  background: #000;
+	background: #000;
 	color: #fff;
 }
 .ui-state-highlight a,
@@ -1040,8 +1031,9 @@ body .ui-tooltip {
 	border-bottom-right-radius: 4px;
 }
 a.ui-corner-all{
-  border-radius: 50%;
+	border-radius: 50%;
 }
+
 /* Overlays */
 .ui-widget-overlay {
 	opacity: .3;
@@ -1056,9 +1048,9 @@ a.ui-corner-all{
 }
 
 button.ui-datepicker-trigger {
-  border:none;
-  background: #4c5762 url("../image_bundle/calendar.png") no-repeat;
-  width: 30px;
-  height: 30px;
-  text-indent: -9999px;
+	border:none;
+	background: #4c5762 url("../image_bundle/calendar.png") no-repeat;
+	width: 30px;
+	height: 30px;
+	text-indent: -9999px;
 }

@@ -2,6 +2,11 @@
 
 /* 전체 레이아웃
 ---------------------------*/
+*{
+	padding: 0;
+	margin: 0;
+}
+
 div#main{
 	width:1024px;
 	margin:0 auto;
@@ -17,7 +22,7 @@ div#main_body{
 	min-height:500px;
 }
 div#main_footer{
-	background-color:yellow;
+	background-color:#303740;
 }
 a:link{
 	text-decoration:none;

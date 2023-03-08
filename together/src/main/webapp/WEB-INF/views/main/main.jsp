@@ -1,85 +1,135 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 <!-- 메인 시작 -->
-<!-- 메인 시작 -->
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/hyem.css">
 <div id="page-main">
-	<section>
-	<div class="slideshow">
+	<div class="slider">
+	  <ul>
+	    <li class="item item1">
+	    	<img src="imageView.do?party_num=${recent_list[0].party_num}" width="800">
+			<div class="txt">${recent_list[0].party_name}</div>
+	    </li>
+	    <li class="item item2">
+			<img src="imageView.do?party_num=${recent_list[1].party_num}" width="800">
+			<div class="txt">${recent_list[1].party_name}</div>
+	    </li>
+	    <li class="item item3">
+			<img src="imageView.do?party_num=${recent_list[2].party_num}" width="800">
+			<div class="txt">${recent_list[2].party_name}</div>
+	    </li>
+	    <li class="item item4">
+			<img src="imageView.do?party_num=${recent_list[3].party_num}" width="800">
+			<div class="txt">${recent_list[3].party_name}</div>
+	    </li>
+	    <li class="item item5">
+			<img src="imageView.do?party_num=${recent_list[4].party_num}" width="800">
+			<div class="txt">${recent_list[4].party_name}</div>
+	    </li>
+	  </ul>
+	  <img src="${pageContext.request.contextPath}/image_bundle/prev.png" width="50" class="prev_btn">
+	  <img src="${pageContext.request.contextPath}/image_bundle/next.png" width="50" class="next_btn">
+	</div>
+	<script>
+	$(function(){
+		var pt = [];
+		var maxZindex = 3; // 가장높은 인덱스
+		var $item = $('.item');
+		var $tbox = $('.text-box');
+		
+		var init = function(){
+			valInp(function(i,e){
+				var o = {};
+				o.top = $(e).position().top;
+				o.left = $(e).position().left;
+				o.height = $(e).outerHeight();
+				o['z-index'] = $(e).css('z-index');
+				pt[i] = o;
+			});
 	
-	<div class="Slides fade">
-	  	<a href="#">
-	  		<img src="../image_bundle/face.png">
-	  	</a>
-	</div>
+			for(var i=0;i<2;i++) {
+		    	pt.push(pt.shift());
+		  	}
 	
-	<div class="Slides fade">
-	  	<a href="#">
-	  		<img src="../image_bundle/face.png">
-	  	</a>
-	</div>
+		  	valInp(function(i,e){
+		    	$(e).css(pt[i]);
+		    	setZindex(e,function(e){
+			      	$(e).find('.txt').css({'display':'block','bottom':0});
+			      	$(e).find('.filter').css({'filter':'none'});
+		    	});
+		  	});
+		}
 	
-	<div class="Slides fade">
-	  	<a href="#">
-	  		<img src="../image_bundle/face.png">
-	  	</a>
-	</div>
+		function valInp(fn){
+			$item.each(function(i,e){
+		    	fn(i,e);
+		  	});
+		}
 	
-	</div>
-	<br>
+		function setZindex(e,fn){
+		  	if($(e).css('z-index') == maxZindex){
+		    	fn(e);
+		  	}
+		}
 	
-	<div style="text-align:center">
-	  <span class="dot"></span> 
-	  <span class="dot"></span> 
-	  <span class="dot"></span> 
+		function anime(){
+		  	valInp(function(i,e){
+		    	$(e).css('z-index',pt[i]['z-index']).stop(true,true).animate(pt[i],200,function(){
+		      		$(e).find('.txt').css({'display':'none','bottom':-40});
+		      		setZindex(e,function(e){
+		        		$(e).find('.txt').css('display','block').stop(true,true).animate({'bottom':0},100);
+		      		});
+		    	});
+		  	});
+		}
+	
+		// prev
+		$('.prev_btn').on('click',function(e){
+		  pt.push(pt.shift());
+		  anime();
+		});
+		
+		// next
+		$('.next_btn').on('click',function(e){
+		  pt.unshift(pt.pop());
+		  anime();
+		});
+	
+	 	setInterval(function() { 
+			pt.unshift(pt.pop());
+			anime();
+		}, 5000);
+		
+		init();
+	});
+	</script>
+	<div class="party-category">
+		<ul>
+			<li class="cate-bg"><a href="${pageContext.request.contextPath}/party/list.do?party_hobby=1"><img src="${pageContext.request.contextPath}/image_bundle/exercise.png"><p class="cate-title"># 운동</p></a></li>
+			<li class="cate-bg"><a href="${pageContext.request.contextPath}/party/list.do?party_hobby=2"><img src="${pageContext.request.contextPath}/image_bundle/book.png"><p class="cate-title"># 독서</p></a></li>
+			<li class="cate-bg"><a href="${pageContext.request.contextPath}/party/list.do?party_hobby=3"><img src="${pageContext.request.contextPath}/image_bundle/alcohol.png"><p class="cate-title"># 음주</p></a></li>
+			<li class="cate-bg"><a href="${pageContext.request.contextPath}/party/list.do?party_hobby=4"><img src="${pageContext.request.contextPath}/image_bundle/culture.png"><p class="cate-title"># 문화</p></a></li>
+		</ul>
 	</div>
-	<div class="party_menu">
-		<nav>
-			<ul>
-				<li><a href="${pageContext.request.contextPath}/party/list.do?party_hobby=1"><img src="../images/exercise.png"><br>운동</a></li>
-				<li><a href="${pageContext.request.contextPath}/party/list.do?party_hobby=2"><img src="../images/book.png"><br>독서</a></li>
-				<li><a href="${pageContext.request.contextPath}/party/list.do?party_hobby=3"><img src="../images/beer.png"><br>음주</a></li>
-				<li><a href="${pageContext.request.contextPath}/party/list.do?party_hobby=4"><img src="../images/culture.png"><br>문화</a></li>
-			</ul>
-		</nav>
-	</div>
-		<script>
-			let slideIndex = 0;
-			showSlides();
-			function showSlides() {
-			  let i;
-			  let slides = document.getElementsByClassName("Slides");
-			  let dots = document.getElementsByClassName("dot");
-			  for (i = 0; i < slides.length; i++) {
-			    slides[i].style.display = "none";  
-			  }
-			  slideIndex++;
-			  if (slideIndex > slides.length) {slideIndex = 1}    
-			  for (i = 0; i < dots.length; i++) {
-			    dots[i].className = dots[i].className.replace(" active", "");
-			  }
-			  slides[slideIndex-1].style.display = "block";  
-			  dots[slideIndex-1].className += " active";
-			  setTimeout(showSlides, 2000); // 2초마다 슬라이드 변경
-			}
-		</script>
-	</section>
-</div>
-	<div class="item-space">
+	<div class="party-list">
+<%-- 		<c:if test="${!empty user && myparty != null}">
+			rkske
+		</c:if> --%>
 		<c:forEach var="party" items="${list}">
-		<div class="horizontal-area">
-			<a href="${pageContext.request.contextPath}/party/detail.do?party_num=${party.party_num}">
-				<img src="imageView.do?party_num=${party.party_num}">
-				<span>${party.party_name}</span>
-				<c:if test="${party.party_hobby == 1}">운동</c:if>
-				<c:if test="${party.party_hobby == 2}">독서</c:if>
-				<c:if test="${party.party_hobby == 3}">음주</c:if>
-				<c:if test="${party.party_hobby == 4}">문화</c:if>
-			</a>
-		</div>
+			<div class="party-list-item">
+				<a href="${pageContext.request.contextPath}/party/detail.do?party_num=${party.party_num}">
+					<div id="party_list_img"><img src="imageView.do?party_num=${party.party_num}"></div>
+					<span>${party.party_name}</span>
+					<c:if test="${party.party_hobby == 1}"><p># 운동</p></c:if>
+					<c:if test="${party.party_hobby == 2}"><p># 독서</p></c:if>
+					<c:if test="${party.party_hobby == 3}"><p># 음주</p></c:if>
+					<c:if test="${party.party_hobby == 4}"><p># 문화</p></c:if>
+				</a>
+			</div>
 		</c:forEach>
 		<div class="float-clear">
-			<hr width="100%" size="1" noshade="noshade">
+			
 		</div>
 	</div>
+</div>
 <!-- 메인 끝 -->

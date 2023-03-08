@@ -81,7 +81,9 @@ public interface PartyMapper {
 	@Delete("DELETE FROM PARTY_CHAT_READ WHERE party_num=#{party_num}")
 	public void deleteChat(Integer party_num);
 	
+	//이미지 슬라이드용
+	@Select("select * from (select * from party order by party_num desc) where rownum <= 5")
+	public List<PartyVO> selectRecentParty();
 	
-	
-	
+
 } 

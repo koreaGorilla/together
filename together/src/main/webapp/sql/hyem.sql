@@ -9,6 +9,7 @@ create table party_calendar(
 	start_time varchar2(20) not null,
 	end_time varchar2(20) not null,
 	location varchar2(100) not null,
+	color varchar2(10) not null,
 	constraint party_calendar_pk primary key (calendar_num),
 	constraint party_calendar_fk1 foreign key (party_num) references party (party_num),
 	constraint party_calendar_fk2 foreign key (mem_num) references member (mem_num)
