@@ -26,7 +26,7 @@
 						</ul>
 					</c:if>
  					<c:if test="${!empty user && user.mem_auth < 9}">
-						<img src="${pageContext.request.contextPath}/image_bundle/mypage.png" height="25">
+						<img src="${pageContext.request.contextPath}/image_bundle/my_page.png" height="25">
 	 					<ul class="dropdown-mypage">
 	 						<li><div id="profile"><div id="profile-img"><img src="${pageContext.request.contextPath}/mypage/photoView.do"></div><span>${user.mem_name} 님</span></div></li>
 							<li><a href="${pageContext.request.contextPath}/mypage/myPage.do">회원상세정보</a></li>
@@ -34,9 +34,9 @@
 							<li><a href="${pageContext.request.contextPath}/mypage/myPage.do">나의 리뷰</a></li>
 							<li><a href="${pageContext.request.contextPath}/member/logout.do">로그아웃</a></li>
 						</ul>
-					</c:if>
+					</c:if> 
 					<c:if test="${!empty user && user.mem_auth == 9}">
-						<img src="${pageContext.request.contextPath}/image_bundle/mypage.png" height="25">
+						<img src="${pageContext.request.contextPath}/image_bundle/my_page.png" height="25">
 	 					<ul class="dropdown-login">
 							<li><a href="${pageContext.request.contextPath}/main/admin.do">관리자페이지</a></li>
 							<li><a href="${pageContext.request.contextPath}/member/logout.do">로그아웃</a></li>

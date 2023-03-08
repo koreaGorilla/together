@@ -18,7 +18,7 @@
 				<br>
 				<span>주소:서울 강남구 테헤란로 132 한독약품빌딩 8층</span>
 				<p>ⓒTogether. ALL RIGHTS RESERVED</p>
-			</div>
+			</div> 
 		</div>
 		<div class="footer-content-right">
 			<img src="${pageContext.request.contextPath}/image_bundle/naver.png" width="30">
