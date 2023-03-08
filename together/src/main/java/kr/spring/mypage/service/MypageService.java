@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import kr.spring.member.vo.MemberVO;
+import kr.spring.party.vo.PartyFavVO;
 import kr.spring.party.vo.PartyVO;
 import kr.spring.review.vo.ReviewVO;
 
@@ -29,4 +30,10 @@ public interface MypageService {
 			Map<String,Object> map);
 	public int selecPartyCountByMem_num(
             Map<String,Object> map);
+		//파티목록
+		public List<PartyVO>getListPartyFavMem_num(
+				Map<String,Object> map);
+		//좋아요 누른 리뷰 가져오기
+		public List<ReviewVO>getListReviewFavMem_num(
+				Map<String,Object>map);
 }

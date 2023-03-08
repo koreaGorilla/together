@@ -25,7 +25,7 @@
 	<table class="striped-table">
 		<tr>
 		<th>리뷰번호</th>
-		<th>동호회 이름</th>
+		<th>파티명</th>
 		<th>내용</th>
 		<th>등록일</th>
 		</tr>
@@ -42,12 +42,31 @@
 	</table>
 
 <!-- 내가 쓴 리뷰 목록 끝 -->
+<!-- 좋아요 누른 리뷰 목록 시작 -->
+<h2>좋아요 누른 리뷰 목록</h2>
+<table class="striped-table">
+<tr>
+<th>리뷰번호</th>
+<th>내용</th>
+<th>날짜</th>
+</tr>
+	<c:forEach var="review" items="${getReview}">
+		<tr>
+		<td>${review.r_num}</td>
+		<td>
+			<a href="${pageContext.request.contextPath}/review/detail.do?r_num=${review.r_num}">${review.r_content}</a>
+		</td>
+		<td>${review.r_date}</td>
+		</tr>
+	</c:forEach>
+</table>
+<!-- 좋아요 누른 리뷰 목록 끝 -->
 <!-- 내가 가입한 파티 목록 -->
 	<h2>내가 가입한 파티 목록</h2>
 	<table class="striped-table">
 	<tr>
-	<th>동호회 번호</th>
-	<th>동호회 이름</th>
+	<th>파티 번호</th>
+	<th>파티명</th>
 	<th>가입 날짜</th>
 	</tr>
 		<c:forEach var="party" items="${partyList}">
@@ -61,6 +80,25 @@
 		</c:forEach>
 	</table>
 <!-- 내가 가입한 파티 목록 끝 -->
-<!-- 내가 쓴 댓글 목록 시작 -->
-<!-- 내가 쓴 댓글 목록 끝 -->
+<!-- 내가 찜한 파티 목록 -->
+	<h2>찜한 파티 목록</h2>
+	<table class="striped-table">
+	<tr>
+	<th>파티번호</th>
+	<th>파티명</th>
+	<th>날짜</th>
+	</tr>
+		<c:forEach var="party" items="${getList}">
+			<tr>
+			<td>${party.party_num}</td>
+			<td>
+				<a href="${pageContext.request.contextPath}/party/detail.do?party_num=${party.party_num}">${party.party_name}</a>
+			</td>
+			<td>${party.party_reg_date}</td>
+			</tr>
+		</c:forEach>
+	</table>
+
+<!-- 내가 찜한 파티 목록 끝 -->
+
 </div>
