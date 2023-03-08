@@ -1,66 +1,120 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/confirmId.js"></script>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/login.css">  
 <!-- 중앙 컨텐츠 시작 -->
 <div class="page-main">
 	<h2>회원가입</h2>
 	<form:form action="registerUser.do" id="register_form"
 	                            modelAttribute="memberVO">
-		<form:errors element="div" cssClass="error-color"/>                            
-		<ul>
-			<li>
-				<label for="mem_id">아이디</label>
-				<form:input path="mem_id" placeholder="영문,숫자만 4~12자"
-				    autocomplete="off"/>
-				<input type="button" id="confirmId" value="ID중복체크">
-				<span id="message_id"></span>
+		<form:errors element="div" cssClass="error-color"/>   
+		       <!--회원가입 부분-->
+        <section class="signup-wrap">
+
+            <div>
+                <!--아이디,비번,비번재확인-->
+
+                <h3>아이디</h3>
+
+                <div style="display: flex;">
+                    <span class="signup-input" style="width:100%; margin: 10px 0px 0px 0px">
+                        <input id="mem_id" type="text" placeholder="영문,숫자만 4~12자"></input>
+                    </span>
+                    <span class="cnum-btn-wrap">
+                        <input type="button" class="cnum-btn" id="confirmId" value="ID중복체크">
+                    </span>
+                </div>
+                <span id="message_id"></span>
 				<form:errors path="mem_id" cssClass="error-color"/>    
-			</li>
-			<li>
-				<label for="mem_name">이름</label>
-				<form:input path="mem_name"/>
-				<form:errors path="mem_name" cssClass="error-color"/>
-			</li>
-			<li>
-				<label for="mem_pw">비밀번호</label>
-				<form:password path="mem_pw" placeholder="영문,숫자만 4~12자"/>
-				<form:errors path="mem_pw" cssClass="error-color"/>
-			</li>
-			<li>
-				<label for="mem_cell">전화번호</label>
-				<form:input path="mem_cell"/>
-				<form:errors path="mem_cell" cssClass="error-color"/>
-			</li>
-			<li>
-				<label for="mem_email">이메일</label>
-				<form:input path="mem_email"/>
-				<form:errors path="mem_email" cssClass="error-color"/>
-			</li>
-			<li>
-				<label for="mem_zipcode">우편번호</label>
-				<form:input path="mem_zipcode"/>
-				<input type="button" 
-				    onclick="execDaumPostcode()" value="우편번호찾기">
-				<form:errors path="mem_zipcode" cssClass="error-color"/>
-			</li>
-			<li>
-				<label for="mem_address1">주소</label>
-				<form:input path="mem_address1"/>
-				<form:errors path="mem_address1" cssClass="error-color"/>
-			</li>
-			<li>
-				<label for="mem_address2">상세주소</label>
-				<form:input path="mem_address2"/>
-				<form:errors path="mem_address2" cssClass="error-color"/>
-			</li>
-		</ul>
-		<div class="align-center">
-			<form:button>전송</form:button>
-			<input type="button" value="홈으로"
-			   onclick="location.href='/main/main.do'">
-		</div>
-	</form:form>
+                
+                <h3>비밀번호</h3>
+                <span class="signup-input">
+                    <input id="mem_pw" type="text"></input>
+                    <span class="pw-lock"></span>
+                </span>
+                <form:errors path="mem_pw" cssClass="error-color"/>
+
+            </div>
+
+            <div style="margin-top: 35px;">
+                <h3>이름</h3>
+                <span class="signup-input">
+                    <input id="mem_name" type="text"></input>
+                </span>
+                <form:errors path="mem_name" cssClass="error-color"/>
+
+                <span class="choice">
+                    <h3>이메일</h3>
+                </span>
+                <span class="signup-input">
+                    <input id="mem_email" type="text"></input>
+                </span>
+                <form:errors path="mem_email" cssClass="error-color"/>
+
+            </div>
+
+            <div style="margin-top: 35px;">
+                <!--휴대전화-->
+                <h3>휴대전화</h3>
+                <div style="display: flex;">
+                    <span class="signup-input" style="width:100%; margin: 10px 0px 0px 0px">
+                        <input id="mem_cell" type="text" placeholder="전화번호 '-' 제외하고 입력"></input>
+                    </span>
+                    <span class="cnum-btn-wrap2" id="cnum-btn-wrap2">
+                        <button id="send">인증번호 받기</button>
+                    </span>
+                </div>
+                <form:errors path="mem_cell" cssClass="error-color"/>
+                
+                <div style="display: flex;" id="confrimWrap" class="confrimWrap" name="confrimWrap">
+                    <span class="signup-input" style="width:100%; margin: 10px 0px 0px 0px">
+                        <input id="userNum" name="userNum" type="text" placeholder="인증번호 입력하세요"></input>
+                    </span>
+                    <span class="cnum-btn-wrap">
+                        <button id="enterBtn">인증번호 확인</button>
+                    </span>
+                </div>
+
+            
+            <div style="margin-top: 35px;">
+                <!--휴대전화-->
+                <h3>주소</h3>
+                <div style="display: flex;">
+                    <span class="signup-input" style="width:100%; margin: 10px 0px 0px 0px">
+                        <input id="mem_zipcode" type="text" placeholder="우편번호 입력"></input>
+                    </span>
+                    <span class="cnum-btn-wrap">
+                        				<input type="button" id="cnum-btn"
+				    onclick="execDaumPostcode()" value="우편번호 찾기">
+                    </span>
+                </div>
+                				<form:errors path="mem_zipcode" cssClass="error-color"/>
+                <span class="signup-input-c" style="margin-top: 10px;">
+                    <input id="mem_address1" type="text" placeholder="주소"></input>
+                    
+                </span>
+                				<form:errors path="mem_address1" cssClass="error-color"/>
+                
+                <span class="signup-input-c" style="margin-top: 10px;">
+                    <input id="mem_address2" type="text" placeholder="상세주소"></input>
+                </span>
+                				<form:errors path="mem_address2" cssClass="error-color"/>
+            </div>
+
+            <div>
+                <!--가입하기-->
+  				 <div style="display: flex;">
+                    <span class="cnum-btn-wrap" style="width:50%; display: none; margin: 10px 0px 0px 0px">
+                        <form:button id="cnum-btn2">가입</form:button>                        
+                    </span>
+                    <span class="cnum-btn-wrap3" id="cnum-btn-wrap3" style="width:100%;">
+                        <input id="cnum-btn" value="홈으로"  onclick="location.href='/main/main.do'">
+                    </span>
+                </div>
+        </section>
+    </form:form>
 </div>
 <!-- 우편번호 검색 시작 -->
 <!-- iOS에서는 position:fixed 버그가 있음, 적용하는 사이트에 맞게 position:absolute 등을 이용하여 top,left값 조정 필요 -->
@@ -158,6 +212,46 @@
         element_layer.style.left = (((window.innerWidth || document.documentElement.clientWidth) - width)/2 - borderWidth) + 'px';
         element_layer.style.top = (((window.innerHeight || document.documentElement.clientHeight) - height)/2 - borderWidth) + 'px';
     }
+</script>
+<script type="text/javascript">
+$('#send').click(function() {
+	
+	const to = $('#mem_cell').val();
+	var element = document.getElementById("cnum-btn-wrap3");
+	
+	$.ajax ({
+		url: '/find/checkSms',
+		type: 'POST',
+		data: {
+			"to" : to
+		},
+		success: function(data) {
+			const checkNum = data;
+			alert('인증번호 전송 완료!');
+			
+			
+			$('#enterBtn').click(function() {	
+				const userNum = $('#userNum').val();
+				
+				if(checkNum === userNum) {
+					alert('인증되었습니다.');
+					
+		            // 가입 버튼 보이기
+		 			$('.cnum-btn-wrap').show();
+		 			$('#cnum-btn2').show();
+		 			element.style.width = "50%";
+		 			element.style.marginLeft = "10px";
+					
+				}
+				else {
+					alert('인증 실패하였습니다. 다시 입력해주세요.');
+				}
+			});
+			
+		}
+	});
+	
+});
 </script>
 <!-- 우편번호 검색 끝 -->
 <!-- 중앙 컨텐츠 끝 -->

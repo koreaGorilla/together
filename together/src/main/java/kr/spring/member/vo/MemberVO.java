@@ -20,7 +20,6 @@ public class MemberVO {
 	@Pattern(regexp="^[A-Za-z0-9]{4,12}$")
 	private String mem_pw;
 	@NotEmpty
-	@Pattern(regexp="^[0-9]{9,12}$")
 	private String mem_cell;
 	@Email
 	@NotEmpty
