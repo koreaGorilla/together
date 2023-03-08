@@ -19,8 +19,7 @@ public interface ChatMapper {
 		        "p.party_photo, p.party_photo_name, pm.mem_num, pm.partymem_num, pm.party_auth " +
 		        "FROM party p JOIN party_member pm ON p.party_num = pm.party_num " +
 		        "WHERE pm.mem_num = #{mem_num}")
-		public List<PartyVO> selectChatRoomList(
-			                 Map<String,Object> map);
+		public List<PartyVO> selectChatRoomList(Integer mem_num);
 		//채팅방 상세
 		@Select("SELECT * FROM party WHERE "
 			  + "party_num=#{party_num}")

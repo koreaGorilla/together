@@ -8,8 +8,7 @@ import kr.spring.party.vo.PartyVO;
 
 public interface ChatService {
 	//채팅방 목록
-	public List<PartyVO> selectChatRoomList(
-			                Map<String,Object> map);
+	public List<PartyVO> selectChatRoomList(Integer mem_num);
 	//채팅방 상세
 	public PartyVO selectChatRoom(
 			                 Integer party_num);
