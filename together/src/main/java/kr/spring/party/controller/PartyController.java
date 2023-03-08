@@ -264,7 +264,41 @@ public class PartyController {
 		return "redirect:/party/list.do";
 	}
 
+	//=====파티 메인페이지=====//
+	@RequestMapping("/party/partyMain.do")
+	public ModelAndView partyMain(@RequestParam int party_num,HttpSession session) {
+		logger.debug("<<party_num>> : " + party_num);
+
+		//한 건의 데이터 가져오기
+		PartyVO party = partyService.selectPartyDetail(party_num);
 
 
+		List<PartyMemberVO> partyMember = partyService.selectPartyMember(party_num);
+		
+		logger.debug("<<partyMember>> : " + partyMember);
+		party.setParty_name(StringUtil.useNoHtml(party.getParty_name()));
 
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("partyMain");
+
+		MemberVO user = (MemberVO)session.getAttribute("user");
+		
+		if(user!=null) {
+			int count = partyService.selectmemcount(party_num, user.getMem_num());
+			PartyMemberVO nowPartyUser = partyService.selectUser(party_num, user.getMem_num());
+
+			logger.debug("<<count>> : "+ count);
+			PartyMemberVO pMember = partyService.selectPartyDetailForAuth(party_num, user.getMem_num());
+			mav.addObject("pMember", pMember);
+			mav.addObject("count",count);
+			mav.addObject("nowMem", nowPartyUser);
+		}
+
+		mav.addObject("party",party);
+		mav.addObject("list",partyMember);
+		mav.addObject("user",user);
+
+		return mav; 
+
+	}
 }
