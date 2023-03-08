@@ -1,5 +1,7 @@
 package kr.spring.review.vo;
 
+import kr.spring.util.DurationFromNow;
+
 public class ReviewReplyVO {
 	private int c_num;
 	private String c_date;
@@ -22,13 +24,13 @@ public class ReviewReplyVO {
 		return c_date;
 	}
 	public void setC_date(String c_date) {
-		this.c_date = c_date;
+		this.c_date = DurationFromNow.getTimeDiffLabel(c_date);
 	}
 	public String getC_modify_date() {
 		return c_modify_date;
 	}
 	public void setC_modify_date(String c_modify_date) {
-		this.c_modify_date = c_modify_date;
+		this.c_modify_date =DurationFromNow.getTimeDiffLabel(c_modify_date);
 	}
 	public String getC_content() {
 		return c_content;

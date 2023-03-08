@@ -3,6 +3,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/review.css">
 <script src="${pageContext.request.contextPath}/js/review.fav.js"></script>
+<script src="${pageContext.request.contextPath}/js/review.reply.js"></script>
+
 
 <div class="page-main">
 	<h2>${review.party_name}</h2>
@@ -58,10 +60,10 @@
 	</div>
 	<%--좋아요 + 댓글 아이콘--%>
 	<div id="review_icon">
-	<img id="output_fav" data-num="${review.r_num}" src="${pageContext.request.contextPath}/images/fav_1.png" width="40">
-	<span id="output_fcount"></span>
-	<img id="output_reply" 	src="${pageContext.request.contextPath}/images/reply.png" width="40">
-	<span id="output_rcount"></span>
+		<img id="output_fav" data-num="${review.r_num}" src="${pageContext.request.contextPath}/images/fav_1.png" width="40">
+		<span id="output_fcount"></span>
+		<img id="output_reply" 	src="${pageContext.request.contextPath}/images/reply.png" width="40">
+		<span id="output_rcount"></span>
 	</div>
 	
 	<%--댓글 시작--%>
@@ -93,5 +95,9 @@
 		<img src="${pageContext.request.contextPath}/images/loading.gif" width="50" height="50">
 	</div>
 	<%--댓글 끝--%>
+	
+	
+	
+	
 	
 </div>

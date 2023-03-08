@@ -61,6 +61,7 @@ public class ReviewController {
 		//리뷰의 총 개수 또는 검색된 리뷰 개수 확인
 		int count = reviewService.selectRowCount(map);
 		
+		//List<ReviewVO> favcount = reviewService.selectfavcount2();
 		logger.debug("<<count>> : "+ count);
 		
 		//페이지 처리
@@ -79,7 +80,7 @@ public class ReviewController {
 		mav.addObject("count",count);
 		mav.addObject("list",list);
 		mav.addObject("page",page.getPage());
-		
+		//mav.addObject("favcount",favcount);
 		return mav;
 	}
 	
@@ -360,7 +361,7 @@ public class ReviewController {
 		Map<String, Object> mapJson = new HashMap<String, Object>();
 		mapJson.put("count", count);
 		mapJson.put("list", list);
-		mapJson.put("rowCount", "rowCount");
+		mapJson.put("rowCount", rowCount);
 		
 		//=====로그인한 회원정보 세팅=====//
 		MemberVO user = (MemberVO)session.getAttribute("user");
@@ -370,7 +371,50 @@ public class ReviewController {
 		return mapJson;
 	}
 	
+	//=====댓글 수정=====//
+	@RequestMapping("/review/modifyReply.do")
+	@ResponseBody
+	public Map<String, String> modifyReply(ReviewReplyVO reviewReplyVO, HttpSession session, HttpServletRequest request){
+		logger.debug("<<댓글수정>> : " + reviewReplyVO);
+		
+		Map<String, String> mapJson = new HashMap<String, String>();
+		MemberVO user = (MemberVO)session.getAttribute("user");
+		ReviewReplyVO db_reply = reviewService.selectReply(reviewReplyVO.getC_num());
+		
+		if(user==null) {
+			mapJson.put("result", "logout");
+		}else if(user!=null &&user.getMem_num()==db_reply.getMem_num()) {
+			reviewService.updateReply(reviewReplyVO);
+			mapJson.put("result", "success");
+		}else {
+			//로그인 회원번호와 작성자 회원번호 불일치
+			mapJson.put("result", "wrongAccess");
+		}
+		return mapJson;
+	}
 	
+	//=====댓글 삭제=====//
+	@RequestMapping("review/deleteReply.do")
+	@ResponseBody
+	public Map<String, String> deleteReply(@RequestParam int c_num,HttpSession session){
+		logger.debug("<<댓글 삭제>> : " + c_num);
+		
+		Map<String, String> mapJson = new HashMap<String, String>();
+		MemberVO user = (MemberVO)session.getAttribute("user");
+		
+		ReviewReplyVO db_reply = reviewService.selectReply(c_num);
+		
+		if(user==null) {
+			mapJson.put("result", "logout");
+		}else if(user!=null && db_reply.getMem_num()==user.getMem_num()){
+			reviewService.deleteReply(c_num);
+			mapJson.put("result", "success");
+		}else {
+			mapJson.put("result", "wrongAccess");
+		}
+		
+		return mapJson;
+	}
 	
 	
 	

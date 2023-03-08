@@ -60,7 +60,7 @@
 
 	<!-- 리뷰댓글 목록 -->
 	<select id="selectListReply" parameterType="map" resultType="reviewReplyVO">
-		slect
+		select
 		  *
 		from(select
 			   a.*,
