@@ -31,7 +31,8 @@ public interface ReviewMapper {
 	@Select("select party_name from party p join party_member b on p.party_num=b.party_num where b.mem_num=#{mem_num}")
 	public List<String> selectPartyname(Integer mem_num); //리뷰작성 페이지에 파티 이름 가져오기
 	
-	
+	@Select("SELECT r.r_num,COUNT(f.r_fav_num) AS fav FROM review_fav f right join review r on f.r_num=r.r_num GROUP BY r.r_num")
+	public List<ReviewVO> selectfavcount2();
 	//리뷰 좋아요
 	@Select("select * from review_fav where r_num=#{r_num} and mem_num=#{mem_num}")
 	public ReviewFavVO selectFav(ReviewFavVO fav);

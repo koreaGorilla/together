@@ -20,6 +20,7 @@ public class MemberVO {
 	@Pattern(regexp="^[A-Za-z0-9]{4,12}$")
 	private String mem_pw;
 	@NotEmpty
+	@Pattern(regexp="^[0-9]{9,12}$")
 	private String mem_cell;
 	@Email
 	@NotEmpty
@@ -177,7 +178,6 @@ public class MemberVO {
 		this.now_passwd = now_passwd;
 	}
 
-
 	@Override
 	public String toString() {
 		return "MemberVO [mem_num=" + mem_num + ", mem_id=" + mem_id + ", mem_auth=" + mem_auth + ", mem_name="
@@ -186,6 +186,8 @@ public class MemberVO {
 				+ ", hobby=" + hobby + ", photo_name=" + photo_name + ", reg_date=" + reg_date + ", modify_date="
 				+ modify_date + ", now_passwd=" + now_passwd + "]";
 	}
+
+
 
 
 

@@ -3,7 +3,7 @@
 <!-- Calendar 메뉴 시작 -->
 <div class="side-bar">
 	<ul>
-		<li>파티 메인</li>
+		<li><a href="${pageContext.request.contextPath}/party/partyMain.do?party_num=${party.party_num}">파티 메인</a></li>
 		<li>파티원 목록</li>
 		<li>게시판</li>
 		<li><a href="${pageContext.request.contextPath}/calendar/calendar.do">일정</a></li>

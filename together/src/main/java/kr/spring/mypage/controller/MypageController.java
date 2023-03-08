@@ -24,6 +24,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import kr.spring.member.vo.MemberVO;
 import kr.spring.mypage.service.MypageService;
 import kr.spring.party.service.PartyService;
+import kr.spring.party.vo.PartyFavVO;
 import kr.spring.party.vo.PartyVO;
 import kr.spring.review.service.ReviewService;
 import kr.spring.review.vo.ReviewVO;
@@ -70,7 +71,7 @@ public class MypageController {
 		logger.debug("<<내가쓴리뷰 목록>> :" + reviewList);
 		
 		
-		//내가 가입한 파티 목록
+		//내가 생성한파티 목록
 		Map<String,Object>map2 =
 				new HashMap<String,Object>();
 		map.put("mem_num", user.getMem_num());
@@ -81,10 +82,32 @@ public class MypageController {
 		
 		logger.debug("<<가입한 파티목록>>" + partyList);
 		
+		
+		//찜한 파티 목록
+		Map<String,Object>map4 =
+				new HashMap<String,Object>();
+		map.put("mem_num", user.getMem_num());
+		//찜한 파티 목록 5건
+		map.put("start", 1);
+		map.put("end",5);
+		List<PartyVO> getList = mypageService.getListPartyFavMem_num(map);
+		logger.debug("<<찜한 파티 목록>>" + getList);
+		//좋아요 누른 리뷰 목록
+		Map<String, Object>map5 =
+				new HashMap<String,Object>();
+		map.put("mem_num", user.getMem_num());
+		//리뷰 목록 5건
+		map.put("start", 1);
+		map.put("end", 5);
+		List<ReviewVO> getReview = mypageService.getListReviewFavMem_num(map);
+		logger.debug("<<좋아요 누른 리뷰 목록>>" + getReview);
+		
 		model.addAttribute("member" , member);
 		model.addAttribute("reviewList",reviewList);
 		model.addAttribute("partyList",partyList);
 		
+		model.addAttribute("getList",getList);
+		model.addAttribute("getReview" ,getReview);
 		model.addAttribute("member",member);
 		
 		return "myPage";		
