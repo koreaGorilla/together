@@ -12,17 +12,43 @@
 					<li><a href="${pageContext.request.contextPath}/notice/list.do">공지</a></li>
 					<li><a href="${pageContext.request.contextPath}/party/list.do">파티</a></li>
 					<li><a href="${pageContext.request.contextPath}/review/list.do">리뷰</a></li>
-					<li><a href="">이벤트</a></li>
 				</ul>
 			</div>
 		</div>
 		<div class="button">
-			<a href="${pageContext.request.contextPath}/member/login.do"><img src="${pageContext.request.contextPath}/image_bundle/lock.png" height="25"></a>
-			<a href="${pageContext.request.contextPath}/main/main.do"><img src="${pageContext.request.contextPath}/image_bundle/home.png" height="25"></a>
+			<ul class="button-ul">
+				<li>
+					<c:if test="${empty user}">
+						<img src="${pageContext.request.contextPath}/image_bundle/lock.png" height="25">
+	 					<ul class="dropdown-login">
+							<li><a href="${pageContext.request.contextPath}/member/login.do">로그인</a></li>
+							<li><a href="${pageContext.request.contextPath}/member/registerUser.do">회원가입</a></li>
+						</ul>
+					</c:if>
+ 					<c:if test="${!empty user && user.mem_auth < 9}">
+						<img src="${pageContext.request.contextPath}/image_bundle/mypage.png" height="25">
+	 					<ul class="dropdown-mypage">
+	 						<li><div id="profile"><div id="profile-img"><img src="${pageContext.request.contextPath}/mypage/photoView.do"></div><span>${user.mem_name} 님</span></div></li>
+							<li><a href="${pageContext.request.contextPath}/mypage/myPage.do">회원상세정보</a></li>
+							<li><a href="${pageContext.request.contextPath}/mypage/myPage.do">나의 파티</a></li>
+							<li><a href="${pageContext.request.contextPath}/mypage/myPage.do">나의 리뷰</a></li>
+							<li><a href="${pageContext.request.contextPath}/member/logout.do">로그아웃</a></li>
+						</ul>
+					</c:if>
+					<c:if test="${!empty user && user.mem_auth == 9}">
+						<img src="${pageContext.request.contextPath}/image_bundle/mypage.png" height="25">
+	 					<ul class="dropdown-login">
+							<li><a href="${pageContext.request.contextPath}/main/admin.do">관리자페이지</a></li>
+							<li><a href="${pageContext.request.contextPath}/member/logout.do">로그아웃</a></li>
+						</ul>
+					</c:if>
+				</li>
+				<li><a href="${pageContext.request.contextPath}/main/main.do"><img src="${pageContext.request.contextPath}/image_bundle/home.png" height="25"></a></li>
+			</ul>
 		</div>
 	</div>
 	<!-- 나중에 수정해야 함 -->
-	<div class="align-right">
+ 	<div class="align-right">
 		<a href="${pageContext.request.contextPath}/calendar/calendar.do">일정</a>
 	    <a href="${pageContext.request.contextPath}/party/list.do">파티</a>
 		<a href="${pageContext.request.contextPath}/review/list.do">리뷰</a>
