@@ -95,8 +95,7 @@ public class PartyController {
 	public ModelAndView viewImage(@RequestParam int party_num, @RequestParam int party_type) {
 
 		PartyVO party = partyService.selectPartyDetail(party_num);
-
-
+		
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("imageView");
 
