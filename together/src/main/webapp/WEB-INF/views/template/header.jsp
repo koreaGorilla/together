@@ -31,12 +31,7 @@
 	 						<li>
 	 							<div id="profile">
 	 								<div id="profile-img"><img src="${pageContext.request.contextPath}/mypage/photoView.do"></div>
-	 								<c:if test="${!empty user && !empty user.mem_name}">
-	 									<span>${user.mem_name} 님</span>
-	 								</c:if>
-	 								<c:if test="${!empty user && empty user.mem_name}">
-	 									<span>${user.mem_mem_id} 님</span>
-	 								</c:if>
+	 								<span>${user.mem_name} 님</span>
 	 							</div>
 	 						</li>
 							<li><a href="${pageContext.request.contextPath}/mypage/myPage.do">회원상세정보</a></li>
