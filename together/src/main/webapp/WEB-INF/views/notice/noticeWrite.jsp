@@ -4,6 +4,7 @@
 <!-- 중앙 컨텐츠 시작 -->
 <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/hapal.css">
 <style>
 .ck-editor__editable_inline{
    min-height:250px;
@@ -12,7 +13,7 @@
 <script src="${pageContext.request.contextPath}/js/ckeditor.js"></script>
 <script src="${pageContext.request.contextPath}/js/uploadAdapter.js"></script>
 <div class="page-main">
-   <h2>글쓰기</h2>
+   <h2 id="rmfTmrl">글쓰기</h2>
    <form:form action="write.do" id="register_form" 
                       modelAttribute="noticeVO"
                       enctype="multipart/form-data">
@@ -25,7 +26,6 @@
                               cssClass="error-color"/>
          </li>
          <li>
-            <label for="notice_content">내용</label>
             <form:textarea path="notice_content"/>
             <form:errors path="notice_content"
                               cssClass="error-color"/>
@@ -49,13 +49,13 @@
              </script>                   
          </li>
          <li>
-            <label for="upload">파일업로드</label>
+            <label id="vkdlfdjqfhem" for="upload">파일업로드</label>
             <input type="file" name="upload" id="notice_file">
          </li>
       </ul>
       <div class="align-center">
-         <form:button>전송</form:button>
-         <input type="button" value="목록" 
+         <form:button class="qjxms">완료</form:button>
+         <input class="qjxms" type="button" value="목록" 
                       onclick="location.href='list.do'">
       </div>                      
    </form:form>

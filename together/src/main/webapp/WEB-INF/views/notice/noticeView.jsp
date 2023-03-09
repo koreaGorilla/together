@@ -4,6 +4,7 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!-- 중앙 컨텐츠 시작 -->
 <script src="${pageContext.request.contextPath}/js/videoAdapter.js"></script>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/hapal.css">
 <div class="page-main">
    <h2>${notice.notice_title}</h2>
    <ul class="detail-info">
