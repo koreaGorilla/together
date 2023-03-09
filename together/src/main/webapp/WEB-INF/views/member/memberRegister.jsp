@@ -220,7 +220,11 @@ $('#send').click(function() {
 	
 	const to = $('#mem_cell').val();
 	var element = document.getElementById("cnum-btn-wrap3");
-	
+	if (to === "") {
+		  alert("인증번호를 입력해주세요.");
+		}else if(isNaN(to)) {
+			  alert("인증번호는 숫자로만 이루어져야 합니다.");
+		}else{
 	$.ajax ({
 		url: '/find/checkSms',
 		type: 'POST',
@@ -258,8 +262,10 @@ $('#send').click(function() {
 			
 		}
 	});
+		  }
 	
 });
 </script>
 <!-- 우편번호 검색 끝 -->
 <!-- 중앙 컨텐츠 끝 -->
+
