@@ -16,18 +16,45 @@
 		
 		<li>파티원 목록</li>
 		<li>게시판</li>
-		
-		<li>
-			<a href="#" id="chatParty" title="채팅">파티 채팅</a>
-			
-			<!-- 윈도우창으로 채팅 오픈 -->
-			<script type="text/javascript">
-				$("#chatParty").on('click', function(e){
-					event.preventDefault();
-					window.open("${pageContext.request.contextPath}/chat/chatDetail.do?party_num=${party.party_num}", "chat", "width=600, height=700, top=200, left=200, resizable=no");
-				});
-			</script>
-		</li>
+		<c:if test="${!empty party.party_num}">
+			<li>
+				<a href="#" id="chatParty" title="채팅">파티 채팅</a>			
+				<!-- 윈도우창으로 채팅 오픈 -->
+				<script type="text/javascript">
+					$("#chatParty").on('click', function(e){
+						event.preventDefault();
+						window.open("${pageContext.request.contextPath}/chat/chatDetail.do?party_num=${party.party_num}", "chat", "width=600, height=700, top=200, left=200, resizable=no");
+					});
+				</script>
+			</li>
+		</c:if>
+		<c:if test="${empty party.party_num}">
+			<li>
+				<a href="#" id="chatParty" title="채팅">파티 채팅</a>			
+				<!-- 윈도우창으로 채팅 오픈 -->
+				<script type="text/javascript">
+					$("#chatParty").on('click', function(e){
+						event.preventDefault();
+						window.open("${pageContext.request.contextPath}/chat/chatDetail.do?party_num=${party_num}", "chat", "width=600, height=700, top=200, left=200, resizable=no");
+					});
+				</script>
+			</li>
+		</c:if>
+			<c:if test="${empty party.party_num}">
+				<c:if test="${nowMem.party_auth==9}">
+					<li>
+						<a href="${pageContext.request.contextPath}/partymember/partyMemberList.do?party_num=${party_num}">파티멤버</a>
+					</li>
+				</c:if>
+				
+			</c:if>
+			<c:if test="${!empty party.party_num}">
+				<c:if test="${nowMem.party_auth==9}">
+					<li>
+						<a href="${pageContext.request.contextPath}/partymember/partyMemberList.do?party_num=${party.party_num}">파티멤버</a>
+					</li>
+				</c:if>			
+			</c:if>
 	</ul>
 </div>
 <!-- Calendar 메뉴 끝 -->

@@ -29,7 +29,9 @@ import kr.spring.calendar.service.CalendarService;
 import kr.spring.calendar.vo.CalendarVO;
 import kr.spring.calendar.vo.ParticipationVO;
 import kr.spring.member.vo.MemberVO;
+import kr.spring.party.service.PartyService;
 import kr.spring.party.vo.PartyVO;
+import kr.spring.partymember.vo.PartyMemberVO;
 import kr.spring.util.FileUtil;
 import kr.spring.util.StringUtil;
 
@@ -41,6 +43,9 @@ public class CalendarController {
 	@Autowired
 	private CalendarService calendarService;
 	
+	@Autowired
+	private PartyService partyService;
+	
 	@ModelAttribute
 	public CalendarVO initcommand() {
 		return new CalendarVO();
@@ -48,10 +53,16 @@ public class CalendarController {
 	
 	//===========달력===========//
 	@GetMapping("/calendar.do")
-	public String calendar(HttpServletRequest request, Model model) {
+	public String calendar(HttpServletRequest request, Model model, HttpSession session) {
 		int party_num = Integer.parseInt(request.getParameter("party_num"));
 		
 		model.addAttribute("party_num", party_num);
+		//유저 받기
+		MemberVO user = (MemberVO)session.getAttribute("user");
+		
+		//파티 멤버 권한 검사
+        PartyMemberVO nowPartyUser = partyService.selectUser(party_num, user.getMem_num());
+        model.addAttribute("nowMem", nowPartyUser);
 		
 		return "calendar";
 	}
@@ -60,13 +71,18 @@ public class CalendarController {
 	//해당 파티 일정만 조회할 수 있게 수정해야 함
 	@GetMapping("/calendarList.do")
 	@ResponseBody
-	public List<Map<String, Object>> calendarList(@RequestParam int party_num) {		
+	public List<Map<String, Object>> calendarList(@RequestParam int party_num, HttpSession session) {		
 		JSONObject jsonObj = new JSONObject();
         JSONArray jsonArr = new JSONArray();
         
         Map<String, Object> map = new HashMap<>();
 		
 		List<CalendarVO> list = calendarService.selectCalendarList(party_num);
+		
+        
+        MemberVO user = (MemberVO)session.getAttribute("user");
+
+		
 		
 		for (CalendarVO calendarVO : list) {
 			String start = calendarVO.getStart_date() + " " + calendarVO.getStart_time();
@@ -90,8 +106,16 @@ public class CalendarController {
 	
 	//===========등록===========//
 	@GetMapping("/calendarWrite.do")
-	public String write(HttpServletRequest request, Model model) {
+	public String write(HttpServletRequest request, Model model, HttpSession session) {
 		int party_num = Integer.parseInt(request.getParameter("party_num"));
+		
+		//유저 받기
+		MemberVO user = (MemberVO)session.getAttribute("user");
+		
+		//파티 멤버 권한 검사
+        PartyMemberVO nowPartyUser = partyService.selectUser(party_num, user.getMem_num());
+        model.addAttribute("nowMem", nowPartyUser);
+		
 		
 		model.addAttribute("party_num", party_num);
 		
@@ -99,8 +123,16 @@ public class CalendarController {
 	}
 	
 	@GetMapping("/calendarWrite2.do")
-	public String write(@RequestParam String start_date, @RequestParam int party_num, Model model) {
+	public String write(@RequestParam String start_date, @RequestParam int party_num, Model model, HttpSession session) {
 		//int party_num = Integer.parseInt(request.getParameter("party_num"));
+		
+		//유저 받기
+		MemberVO user = (MemberVO)session.getAttribute("user");
+		
+		//파티 멤버 권한 검사
+        PartyMemberVO nowPartyUser = partyService.selectUser(party_num, user.getMem_num());
+        model.addAttribute("nowMem", nowPartyUser);
+		
 		
 		model.addAttribute("party_num", party_num);
 		model.addAttribute("start_date", start_date);
@@ -117,6 +149,7 @@ public class CalendarController {
 			return "calendar";
 		}
 		
+		
 		calendarVO.setMem_num(((MemberVO)session.getAttribute("user")).getMem_num());
 		calendarVO.setParty_num(calendarVO.getParty_num());
 		
@@ -132,8 +165,14 @@ public class CalendarController {
 	//===========상세===========//	
 	@RequestMapping("/calendarDetail.do")
 	@ResponseBody
-	public ModelAndView detail(@RequestParam int calendar_num, @RequestParam int party_num) {
+	public ModelAndView detail(@RequestParam int calendar_num, @RequestParam int party_num, HttpSession session) {
 		logger.debug("<<상세>> : " + calendar_num);
+		
+		//유저 받기
+		MemberVO user = (MemberVO)session.getAttribute("user");
+		
+		//파티 멤버 권한 검사
+        PartyMemberVO nowPartyUser = partyService.selectUser(party_num, user.getMem_num());
 		
 		CalendarVO calendar = calendarService.selectCalendar(calendar_num);
 		
@@ -156,6 +195,7 @@ public class CalendarController {
 		mav.addObject("count", count);
 		mav.addObject("member", list);
 		mav.addObject("party_num", party_num);
+		mav.addObject("nowMem", nowPartyUser);
 		
 		return mav;
 	}
@@ -271,6 +311,7 @@ public class CalendarController {
 		
 		return mapJson;
 	}
+	
 	
 	//===========이미지 출력===========//
 	//프로필 사진 출력(회원번호 지정)
