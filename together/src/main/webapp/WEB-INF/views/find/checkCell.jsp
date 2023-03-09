@@ -34,6 +34,10 @@
 					<section class="find-signup-wrap">
 						<div id="find-signup-wrap-ko">
 							<span class="find-id">
+								<a href="${pageContext.request.contextPath}/member/login.do" title="findId">로그인</a>
+							</span>
+						
+							<span class="find-id">
 								<a href="${pageContext.request.contextPath}/find/findId.do" title="findId">아이디 찾기</a>
 							</span>
 			
@@ -72,6 +76,9 @@
 				    </div>
 				    <section class="find-signup-wrap">
 						<div id="find-signup-wrap-ko">
+							<span class="find-id">
+								<a href="${pageContext.request.contextPath}/member/login.do" title="findId">로그인</a>
+							</span>				
 							<span class="find-id">
 								<a href="${pageContext.request.contextPath}/find/findId.do" title="findId">아이디 찾기</a>
 							</span>

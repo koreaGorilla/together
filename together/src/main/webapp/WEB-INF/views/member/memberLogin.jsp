@@ -11,7 +11,7 @@
 		<form:errors element="div" 
 		                    cssClass="error-color"/> 
 
-
+		<h1>로그인</h1>
 		<!--웹페이지 상단-->
 
 		<!--로그인 부분-->
