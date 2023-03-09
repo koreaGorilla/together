@@ -6,27 +6,39 @@
 <head>
 <meta charset="UTF-8">
 <title>아이디 찾기</title>
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/findIdPw.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/login.css">
 </head>
 
 <body>
-  <div class="containerId">
+<div class="page-main">
 <form method="post" class="findId" action="findMyId" name="findMyId">
 	<h1>아이디 찾기</h1>
-		<div class="inputName">
-			<label for="mem_name">이름</label>
-			<input type="text" id="mem_name" name="mem_name" class="form-control"/>
-		</div>
-		
-		<div class="inputCell">
-			<label for="mem_phone">전화번호</label>
-			<input type="text" id="mem_cell" name="mem_cell" class="form-control"/>
-		</div>
+		<section class="login-wrap">
 
-		<div class="findId-btn">
-			<input class="findId-submit-btn"
-				type="submit" value="확인"">
-		</div>
+			<div class="login-id-wrap">
+				<input type="text" id="mem_name" name="mem_name"  class="form-control" placeholder="이름" />
+			</div>
+			<div class="login-pw-wrap">
+				<input type="text" id="mem_cell"  name="mem_cell"  class="form-control" placeholder="전화번호"/>
+			</div>
+			<div class="login-btn-wrap">
+				<input id="submit-btn" type="submit" value="찾기"">
+			</div>
+
+		</section>
+			<section class="find-signup-wrap">
+				<div id="find-signup-wrap-ko">
+					<span class="find-pw">
+						<a href="${pageContext.request.contextPath}/find/checkCell.do"
+							title="findPw">비밀번호 찾기</a>
+					</span>
+					<span class="sign-up">
+						<a href="${pageContext.request.contextPath}/member/registerUser.do" title="register">회원가입</a>
+					</span>
+				</div>
+
+			</section>
+		
 		<!-- 이름과 전화번호가 일치하지 않을 때-->
 		<div class="result">
 			<c:if test="${check == 1}">
