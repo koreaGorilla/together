@@ -8,7 +8,6 @@
 }
 
 div#main{
-	width:1024px;
 	margin:0 auto;
 	font-size:10pt;
 	font-family:"맑은 고딕"; 
@@ -40,11 +39,11 @@ a:hover {
 ---------------------------*/
 div#page_nav{
 	float:left;
-	width:25%;
+	width:30%;
 	min-height:530px;
 }
 div#page_body{
-	width:75%;
+	width:70%;
 	float:left;
 }
 .page_clear{
@@ -54,7 +53,7 @@ div#page_body{
 /* 페이지 기본 레이아웃
 ---------------------------*/
 .page-main{
-	width:98%;
+	width:90%;
 	margin:0 auto;
 }
 .page-one{
@@ -263,12 +262,17 @@ li.paging-current{
 /* Admin, MY페이지 공통
 ---------------------------*/
 .side-bar{
-	margin:10px 10px 10px 0;
-	padding:10px;
-	/*사이드바의 높이가 컨텐트의 높이와 동일하게 자동 조절*/
-	margin-bottom: -9999px;
-	padding-bottom: 9999px;
-	background-color:#CCCCCC;
+	margin: 10px 10px 10px 0;
+    padding: 10px;
+    margin-bottom: -9999px;
+	position: relative;
+    display: table-cell;
+    width: 395px;
+    background-color: #fff;
+    box-shadow: 5px 1px 8px 0 rgb(0 0 0 / 6%);
+    border-left: 1px solid rgba(0,0,0,.08);
+    vertical-align: top;
+    z-index: 1;
 }
 .side-bar ul{
 	margin:0;
@@ -278,23 +282,27 @@ li.paging-current{
 	padding:5px 10px 5px 10px;
 }
 .side-bar ul li img{
-	margin-left:3px;
+	margin-left:35px;
 }
 .side-height{
 	/*사이드바의 높이가 컨텐트의 높이와 동일하게 자동 조절하기
 	위해 흘러넘친 배경색은 숨김*/
+	width:1024px;
+	margin:0 auto;
 	overflow:hidden;
 	margin-bottom:10px;
 }
 .menu-btn{
-	width:100%;
-	height:50px;
+	width:120px;
+	height:32px;
 	font-size:12pt;
 	background-color:#FCFCFC;
 	border-color:#B7B5B5;
 	border-radius:5px;
 }
-
+input#out.menu-btn{
+	margin-left:15px;
+}
 /* MY페이지
 ---------------------------*/
 .my-photo{
@@ -302,7 +310,112 @@ li.paging-current{
 	object-position:top;
 	border-radius:50%;
 }
-
+.my-photoo{
+	width: 200px;
+    height: 200px;
+	object-fit:cover;
+	object-position:top;
+	border-radius:50%;
+}
+.align-center input{
+	width: 50px;
+    height: 25px;
+    font-size: 14px;
+    font-weight: 700;
+}
+.mem-detail{
+	font-size:15px;
+	margin-bottom: 20px;
+}
+.mem-detail h2{
+	margin-left:75px;
+}
+.mem-detail h2 input{
+	margin-left: 15px;
+    width: 100px;
+    height: 30px;
+    font-size: 13px;
+    font-weight: 700;
+}
+.mem-detail ul{
+	margin-left: 30px;
+	font-size: 16px;
+}
+.photo_btn{
+	width: 80px;
+    height: 30px;
+    font-size: 15px;
+    font-weight: 700;
+}
+img#photo_pencil{
+	width:30px;
+	height:30px;
+	position: absolute;
+}
+.btns{
+	margin-top: 25px;
+    margin-left: 60px;
+    margin-bottom: 25px;
+}
+#review{
+	width: 140px;
+    height: 35px;
+    border-radius: 12px 12px 12px 12px;
+    background-image: linear-gradient(98deg,#03c75a,#49c6dd);
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 20px;
+    letter-spacing: 4px;
+    color: #fff;
+    border: 1px solid white;
+}
+#fav_review{
+	width: 140px;
+    height: 35px;
+    border-radius: 12px 12px 12px 12px;
+    background-image: linear-gradient(98deg,#03c75a,#49c6dd);
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 20px;
+    letter-spacing: 4px;
+    color: #fff;
+    border: 1px solid white;
+    margin-left:10px;
+}
+#in_party{
+	width: 140px;
+    height: 35px;
+    border-radius: 12px 12px 12px 12px;
+    background-image: linear-gradient(98deg,#03c75a,#49c6dd);
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 20px;
+    letter-spacing: 4px;
+    color: #fff;
+    border: 1px solid white;
+    margin-left:10px;
+}
+#fav_party{
+	width: 140px;
+    height: 35px;
+    border-radius: 12px 12px 12px 12px;
+    background-image: linear-gradient(98deg,#03c75a,#49c6dd);
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 20px;
+    letter-spacing: 4px;
+    color: #fff;
+    border: 1px solid white;
+    margin-left:10px;
+}
 /* 공통 목록
 ---------------------------*/
 form#search_form{
@@ -343,7 +456,14 @@ table.striped-table{
 	font-size:15px;
 	width:100%;
 	border-collapse:collapse;
-	margin:7px0;
+	margin-bottom:30px;
+	border-radius: 12px;
+    box-shadow: 2px 2px 14px 0 rgb(0 164 73 / 25%);
+}
+table.striped-table tr{
+	background:linear-gradient(98deg,#03c75a,#49c6dd);
+	color: white;
+    font-size: 17px;
 }
 table.striped-table td, table.striped-table th{
 	padding: .7em .5em;
@@ -351,17 +471,14 @@ table.striped-table td, table.striped-table th{
 }
 table.striped-table th{
 	font-weight:bold;
-	background:#E1E1E1;
 }
 table.striped-table td{
 	border-bottom:1px solid rgba(0,0,0,.1);
 	text-align:center;
+	background:white;
 }
 table.striped-table td:nth-child(2){
-	text-align:left;
-}
-table.striped-table tr:nth-child(odd){
-	background-color:rgb(250,250,247);
+	text-align:center;
 }
 
 /* 게시판 폼
