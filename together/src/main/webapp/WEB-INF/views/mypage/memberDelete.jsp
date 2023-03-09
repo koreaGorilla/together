@@ -3,6 +3,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!-- 중앙 컨텐츠 시작 -->
 <div class="page-main">
+<h2>회원탈퇴</h2>
 <form:form action="delete.do" id="delete_form"
 					modelAttribute="memberVO">
 	<form:errors element="div"

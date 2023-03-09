@@ -83,8 +83,9 @@ input{
     height: 40px;
     margin-left: 8px;
     margin-top: 0px;
-    font-size: 15px;
-    letter-spacing: 0.7px;
+    font-size: 16px;
+    letter-spacing: 3.7px;
+    
 }
 #to{
     border: none;
@@ -107,8 +108,9 @@ input{
     width:100%;
     cursor:text;
     height:40px;
+    margin-left:8px;
     font-size: 16px;
-    letter-spacing: 4.7px;
+    letter-spacing: 3.7px;
 }
 /*로그인버튼박스*/
 .login-btn-wrap{
@@ -304,8 +306,10 @@ h1{
     outline: none;
     margin-left: 8px;
     margin-top: 0px;
-    font-size: 15px;
+    font-size: 16px;
     cursor:text;
+    letter-spacing: 3.7px;
+    margin-left: 8px;
 }
 #mem_address1{
 	cursor:default;
@@ -339,12 +343,18 @@ input#mem_name{
 	width: 100%;
     height: 40px;
     cursor:text;
+    font-size:16px;
+    letter-spacing: 3.7px;
+    margin-left: 8px;
 }
 input#mem_email{
 	border: none;
 	width: 100%;
     height: 40px;
     cursor:text;
+    font-size:16px;
+    letter-spacing: 3.7px;
+    margin-left: 8px;
 }
 .choice span{
     margin-top: 20px;
