@@ -97,6 +97,11 @@
 $('#send').click(function() {
 	
 	const to = $('#to').val();
+	if (to === "") {
+		  alert("인증번호를 입력해주세요.");
+		}else if(isNaN(to)) {
+			  alert("인증번호는 숫자로만 이루어져야 합니다.");
+		}else{
 	
 	$.ajax ({
 		url: '/find/checkSms',
@@ -130,8 +135,16 @@ $('#send').click(function() {
 			
 		}
 	});
+		}
 	
 });
+</script>
+<script>
+    var check = <%= request.getAttribute("check") %>;	
+
+    if (check == 1) {
+        alert("일치하는 정보가 존재하지 않습니다.");
+    }
 </script>
 
 </html>

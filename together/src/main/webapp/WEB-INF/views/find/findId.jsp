@@ -52,7 +52,6 @@
     var check = <%= request.getAttribute("check") %>;
     var id = '<%= request.getAttribute("id") %>';
 
-    <%-- check the values and show the alert message accordingly --%>
     if (check == 1) {
         alert("일치하는 정보가 존재하지 않습니다.");
     } else if (check == 0 && id != null) {
