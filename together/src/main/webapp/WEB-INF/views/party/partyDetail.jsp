@@ -124,6 +124,7 @@
 	
 		<div class="align-right">
 		
+		
 		<c:if test="${!empty pMember && pMember.party_auth==9}">
 		<input type="button" value="삭제" id="delete_btn"> 
 		<script type="text/javascript">
