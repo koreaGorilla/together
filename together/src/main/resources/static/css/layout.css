@@ -264,10 +264,14 @@ li.paging-current{
 .side-bar{
 	margin: 10px 10px 10px 0;
     padding: 10px;
+    margin-top: -9999px;
     margin-bottom: -9999px;
-	position: relative;
-    display: table-cell;
-    width: 395px;
+    padding-top: 9999px;
+    padding-bottom: 9999px;
+    position: relative;
+    width: 290px;
+    overflow: hidden;
+    max-height: 1000px;
     background-color: #fff;
     box-shadow: 5px 1px 8px 0 rgb(0 0 0 / 6%);
     border-left: 1px solid rgba(0,0,0,.08);
@@ -293,15 +297,18 @@ li.paging-current{
 	margin-bottom:10px;
 }
 .menu-btn{
-	width:120px;
+	width:100px;
 	height:32px;
-	font-size:12pt;
+	font-size:9pt;
 	background-color:#FCFCFC;
 	border-color:#B7B5B5;
 	border-radius:5px;
 }
 input#out.menu-btn{
-	margin-left:15px;
+	margin-left:5px;
+}
+input#change.menu-btn{
+	margin-left:25px;
 }
 /* MY페이지
 ---------------------------*/
@@ -328,13 +335,15 @@ input#out.menu-btn{
 }
 .mem-detail{
 	font-size:15px;
-	margin-bottom: 20px;
+	padding: 15px 0px 5px 0px;
 }
 .mem-detail h2{
 	margin-left:75px;
 }
 .mem-detail h2 input{
 	margin-left: 15px;
+	margin-top: 15px;
+	margin-bottom: 5px;
     width: 100px;
     height: 30px;
     font-size: 13px;
@@ -346,6 +355,8 @@ input#out.menu-btn{
 .mem-detail ul{
 	margin-left: 30px;
 	font-size: 16px;
+	padding: 10px 10px 0px 10px;
+	letter-spacing: 0.2px;
 }
 .photo_btn{
 	width: 80px;
@@ -422,6 +433,38 @@ img#photo_pencil{
     border: 1px solid white;
     margin-left:10px;
 }
+
+#upload{
+	margin-left: 22px;
+    width: 180px;
+    height: 30px;
+    font-size: 13px;
+    font-weight: 700;
+    background-color: #FCFCFC;
+    border-color: #B7B5B5;
+    border-radius: 5px;
+}
+#photo_submit{
+	margin-left: 22px;
+    width: 100px;
+    height: 30px;
+    font-size: 13px;
+    font-weight: 700;
+    background-color: #FCFCFC;
+    border-color: #B7B5B5;
+    border-radius: 5px;
+}
+#photo_reset{
+	margin-left: 15px;
+    width: 100px;
+    height: 30px;
+    font-size: 13px;
+    font-weight: 700;
+    background-color: #FCFCFC;
+    border-color: #B7B5B5;
+    border-radius: 5px;
+}
+
 /* 공통 목록
 ---------------------------*/
 form#search_form{

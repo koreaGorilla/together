@@ -36,7 +36,7 @@
 	   </ul>
 	</div>
 	<li>
-	<input type="button" class="menu-btn" value="비밀번호변경" 
+	<input type="button" class="menu-btn" value="비밀번호변경" id="change"
 			  onclick="location.href='${pageContext.request.contextPath}/mypage/changePassword.do'">
 
 			<input type="button" class="menu-btn"  value="회원탈퇴" id="out"
