@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 <!-- 메인 시작 -->
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/hyem.css">
-<div id="page-main">
+<div id="main_body">
 	<div class="slider">
 	  <ul>
 	    <li class="item item1">
@@ -112,14 +112,11 @@
 		</ul>
 	</div>
 	<div class="party-list">
-<%-- 		<c:if test="${!empty user && myparty != null}">
-			rkske
-		</c:if> --%>
 		<c:forEach var="party" items="${list}">
 			<div class="party-list-item">
 				<a href="${pageContext.request.contextPath}/party/detail.do?party_num=${party.party_num}">
 					<div id="party_list_img"><img src="imageView.do?party_num=${party.party_num}"></div>
-					<span>${party.party_name}</span>
+					<div class="party-list-pname">${party.party_name}</div>
 					<c:if test="${party.party_hobby == 1}"><p># 운동</p></c:if>
 					<c:if test="${party.party_hobby == 2}"><p># 독서</p></c:if>
 					<c:if test="${party.party_hobby == 3}"><p># 음주</p></c:if>
