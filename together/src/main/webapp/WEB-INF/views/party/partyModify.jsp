@@ -5,6 +5,7 @@
 <!-- 중앙 컨텐츠 시작 -->
 <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 <style>
 .ck-editor__editable_inline{
 	min-height:250px;
