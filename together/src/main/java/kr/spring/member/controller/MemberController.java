@@ -84,6 +84,7 @@ public class MemberController {
 			
 			//유효성 체크 결과 오류가 있으면 폼 호출
 			if(result.hasErrors()) {
+				logger.debug("<<회원가입 유효성 체크>> : " + result.getFieldErrors());
 				return form();
 			}
 			

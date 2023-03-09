@@ -20,7 +20,7 @@
 
                 <div style="display: flex;">
                     <span class="signup-input" style="width:100%; margin: 10px 0px 0px 0px">
-                        <input id="mem_id" type="text" placeholder="영문,숫자만 4~12자"></input>
+                        <input id="mem_id" name="mem_id" type="text" placeholder="영문,숫자만 4~12자"></input>
                     </span>
                     <span class="cnum-btn-wrap">
                         <input type="button" class="cnum-btn" id="confirmId" value="ID중복체크">
@@ -31,7 +31,7 @@
                 
                 <h3>비밀번호</h3>
                 <span class="signup-input">
-                    <input id="mem_pw" type="text"></input>
+                    <input id="mem_pw" name="mem_pw" type="text"></input>
                     <span class="pw-lock"></span>
                 </span>
                 <form:errors path="mem_pw" cssClass="error-color"/>
@@ -41,7 +41,7 @@
             <div style="margin-top: 35px;">
                 <h3>이름</h3>
                 <span class="signup-input">
-                    <input id="mem_name" type="text"></input>
+                    <input id="mem_name" name="mem_name" type="text"></input>
                 </span>
                 <form:errors path="mem_name" cssClass="error-color"/>
 
@@ -49,7 +49,7 @@
                     <h3>이메일</h3>
                 </span>
                 <span class="signup-input">
-                    <input id="mem_email" type="text"></input>
+                    <input id="mem_email" name="mem_email" type="text"></input>
                 </span>
                 <form:errors path="mem_email" cssClass="error-color"/>
 
@@ -60,7 +60,7 @@
                 <h3>휴대전화</h3>
                 <div style="display: flex;">
                     <span class="signup-input" style="width:100%; margin: 10px 0px 0px 0px">
-                        <input id="mem_cell" type="text" placeholder="전화번호 '-' 제외하고 입력"></input>
+                        <input id="mem_cell" name="mem_cell" type="text" placeholder="전화번호 '-' 제외하고 입력"></input>
                     </span>
                     <span class="cnum-btn-wrap2" id="cnum-btn-wrap2">
                     <input type="button" class="cnum-btn" id="send" value="인증번호받기">
@@ -85,7 +85,7 @@
                 <h3>주소</h3>
                 <div style="display: flex;">
                     <span class="signup-input" style="width:100%; margin: 10px 0px 0px 0px">
-                        <input id="mem_zipcode" type="text" placeholder="우편번호 입력"></input>
+                        <input id="mem_zipcode" name="mem_zipcode" type="text" placeholder="우편번호 입력"></input>
                     </span>
                     <span class="cnum-btn-wrap">
                         				<input type="button" id="cnum-btn"
@@ -94,13 +94,13 @@
                 </div>
                 				<form:errors path="mem_zipcode" cssClass="error-color"/>
                 <span class="signup-input-c" style="margin-top: 10px;">
-                    <input id="mem_address1" type="text" placeholder="주소"></input>
+                    <input id="mem_address1" name="mem_address1" type="text" placeholder="주소"></input>
                     
                 </span>
                 				<form:errors path="mem_address1" cssClass="error-color"/>
                 
                 <span class="signup-input-c" style="margin-top: 10px;">
-                    <input id="mem_address2" type="text" placeholder="상세주소"></input>
+                    <input id="mem_address2" name="mem_address2" type="text" placeholder="상세주소"></input>
                 </span>
                 				<form:errors path="mem_address2" cssClass="error-color"/>
             </div>

@@ -30,7 +30,6 @@ public class MemberVO {
 	private String mem_address1;
 	@NotEmpty
 	private String mem_address2;
-	@NotEmpty
 	private String hobby;
 	private byte[] photo;
 	private String photo_name;
