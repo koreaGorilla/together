@@ -25,7 +25,7 @@
 				<label for="upload">프로필 사진</label>
 				<img src="${pageContext.request.contextPath}/images/blank.png" id="party_photo" width="350" 
 			           height="350">
-				<input type="file" name="upload" id="party_photo">
+				<input type="file" name="upload" id="upload">
 				<c:if test="${!empty partyVO.party_photo_name}">
 				<div id="file_detail">
 					(${partyVO.party_photo_name})파일이 등록되어 있습니다.
@@ -102,7 +102,7 @@
 			</li>
 		</ul>
 		<div class="align-center">
-			<form:button>전송</form:button>
+			<form:button>수정완료</form:button>
 			<input type="button" value="상세정보" 
 			   onclick="location.href='detail.do?party_num=${partyVO.party_num}'">
 		</div>	                   
