@@ -24,8 +24,8 @@ public class CalenderServiceImpl implements CalendarService {
 	}
 
 	@Override
-	public List<CalendarVO> selectCalendarList() {
-		return calendarMapper.selectCalendarList();
+	public List<CalendarVO> selectCalendarList(Integer party_num) {
+		return calendarMapper.selectCalendarList(party_num);
 	}
 
 	@Override

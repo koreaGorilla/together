@@ -11,11 +11,10 @@ div#main{
 	width:1024px;
 	margin:0 auto;
 	font-size:10pt;
-	font-family:"맑은 고딕";
+	font-family:"맑은 고딕"; 
 }
 div#main_header{
 	margin-bottom:10px;
-	padding:0 10px 0 0;
 }
 div#main_body{
 	padding:5px 5px 30px 5px;

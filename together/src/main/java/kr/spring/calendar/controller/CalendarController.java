@@ -48,7 +48,11 @@ public class CalendarController {
 	
 	//===========달력===========//
 	@GetMapping("/calendar.do")
-	public String calendar() {
+	public String calendar(HttpServletRequest request, Model model) {
+		int party_num = Integer.parseInt(request.getParameter("party_num"));
+		
+		model.addAttribute("party_num", party_num);
+		
 		return "calendar";
 	}
 	
@@ -56,13 +60,13 @@ public class CalendarController {
 	//해당 파티 일정만 조회할 수 있게 수정해야 함
 	@GetMapping("/calendarList.do")
 	@ResponseBody
-	public List<Map<String, Object>> calendarList() {		
+	public List<Map<String, Object>> calendarList(@RequestParam int party_num) {		
 		JSONObject jsonObj = new JSONObject();
         JSONArray jsonArr = new JSONArray();
         
         Map<String, Object> map = new HashMap<>();
 		
-		List<CalendarVO> list = calendarService.selectCalendarList();
+		List<CalendarVO> list = calendarService.selectCalendarList(party_num);
 		
 		for (CalendarVO calendarVO : list) {
 			String start = calendarVO.getStart_date() + " " + calendarVO.getStart_time();
@@ -73,6 +77,7 @@ public class CalendarController {
             map.put("start", start);
             map.put("end", end);
             map.put("color", calendarVO.getColor());
+            map.put("party_num", party_num);
  
             jsonObj = new JSONObject(map);
             jsonArr.add(jsonObj);
@@ -85,12 +90,19 @@ public class CalendarController {
 	
 	//===========등록===========//
 	@GetMapping("/calendarWrite.do")
-	public String write() {
+	public String write(HttpServletRequest request, Model model) {
+		int party_num = Integer.parseInt(request.getParameter("party_num"));
+		
+		model.addAttribute("party_num", party_num);
+		
 		return "calendarWrite";
 	}
 	
 	@GetMapping("/calendarWrite2.do")
-	public String write(@RequestParam String start_date, Model model) {
+	public String write(@RequestParam String start_date, @RequestParam int party_num, Model model) {
+		//int party_num = Integer.parseInt(request.getParameter("party_num"));
+		
+		model.addAttribute("party_num", party_num);
 		model.addAttribute("start_date", start_date);
 		
 		return "calendarWrite";
@@ -102,11 +114,11 @@ public class CalendarController {
 
 		//유효성 체크 결과 오류가 있으면 폼 호출
 		if(result.hasErrors()) {
-			return calendar();
+			return "calendar";
 		}
 		
 		calendarVO.setMem_num(((MemberVO)session.getAttribute("user")).getMem_num());
-		calendarVO.setParty_num(1);
+		calendarVO.setParty_num(calendarVO.getParty_num());
 		
 		calendarService.insertCalendar(calendarVO);
 		
@@ -114,13 +126,13 @@ public class CalendarController {
 		//브라우저에 데이터를 전송하지만 URL상에 보이지 않는 숨겨진 데이터의 형태로 전달
 		redirect.addFlashAttribute("result", "success");
 		
-		return "redirect:/calendar/calendar.do";
+		return "redirect:/calendar/calendar.do?party_num=" + calendarVO.getParty_num();
 	}
 	
 	//===========상세===========//	
 	@RequestMapping("/calendarDetail.do")
 	@ResponseBody
-	public ModelAndView detail(@RequestParam int calendar_num) {
+	public ModelAndView detail(@RequestParam int calendar_num, @RequestParam int party_num) {
 		logger.debug("<<상세>> : " + calendar_num);
 		
 		CalendarVO calendar = calendarService.selectCalendar(calendar_num);
@@ -143,6 +155,7 @@ public class CalendarController {
 		mav.addObject("calendar", calendar);
 		mav.addObject("count", count);
 		mav.addObject("member", list);
+		mav.addObject("party_num", party_num);
 		
 		return mav;
 	}
@@ -175,8 +188,8 @@ public class CalendarController {
 	//===========수정===========//
 	//수정 폼	
 	@GetMapping("/calendarModify.do")
-	public String modify(@RequestParam int calendar_num, Model model) {
-		logger.debug("<<수정 폼>> : " + calendar_num);
+	public String modify(@RequestParam int calendar_num, @RequestParam int party_num, Model model) {
+		logger.debug("<<수정 폼>> : " + calendar_num + ", " + party_num);
 		
 		CalendarVO calendar = calendarService.selectCalendar(calendar_num);
 		
@@ -198,7 +211,7 @@ public class CalendarController {
 		
 		//View에 표시할 메시지
 		model.addAttribute("message", "수정 완료");
-		model.addAttribute("url", request.getContextPath() + "/calendar/calendar.do");
+		model.addAttribute("url", request.getContextPath() + "/calendar/calendar.do?party_num=" + calendarVO.getParty_num());
 		
 		return "common/resultView";
 	}

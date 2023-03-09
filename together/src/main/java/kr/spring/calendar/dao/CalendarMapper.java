@@ -18,13 +18,13 @@ public interface CalendarMapper {
 	@Insert("insert into party_calendar (calendar_num, party_num, mem_num, title, content, start_date, end_date, start_time, end_time, location, color) values (party_calendar_seq.nextval, #{party_num}, #{mem_num}, #{title}, #{content}, #{start_date}, #{end_date}, #{start_time}, #{end_time}, #{location}, #{color})")
 	public void insertCalendar(CalendarVO calendarVO);
 	
-	@Select("select * from party_calendar")
-	public List<CalendarVO> selectCalendarList();
+	@Select("select * from party_calendar where party_num = #{party_num}")
+	public List<CalendarVO> selectCalendarList(Integer party_num);
 	
 	@Select("select * from party_calendar where calendar_num = #{calendar_num}")
 	public CalendarVO selectCalendar(Integer calendar_num);
 	
-	@Update("update party_calendar set title = #{title}, content = #{content}, start_date = #{start_date}, end_date = #{end_date}, start_time = #{start_time}, end_time = #{end_time}, location = #{location} where calendar_num = #{calendar_num}")
+	@Update("update party_calendar set title = #{title}, content = #{content}, start_date = #{start_date}, end_date = #{end_date}, start_time = #{start_time}, end_time = #{end_time}, location = #{location}, color = #{color} where calendar_num = #{calendar_num}")
 	public void updateCalendar(CalendarVO calendarVO);
 	
 	@Delete("delete from party_calendar where calendar_num = #{calendar_num}")

@@ -1,14 +1,15 @@
 $(function(){
 	//===========fullCalnedar 생성===========//
 	var request = $.ajax({
-		url: "/calendar/calendarList.do", // 변경하기
-		method: "get",
-		dataType: "json"
+		url: '/calendar/calendarList.do', // 변경하기
+		method: 'get',
+		dataType: 'json',
+		data: {party_num:$('#party_num').val()}
 	});
 
 	request.done(function (data) {
 		console.log(data); // log 로 데이터 찍어주기.
-
+	
 		var calendarEl = document.getElementById('calendar');
 
 		var calendar = new FullCalendar.Calendar(calendarEl, {
@@ -22,7 +23,7 @@ $(function(){
 				add: {
 					text: '일정 추가',
 					click: function() {
-						location.href='calendarWrite.do';
+						location.href='calendarWrite.do?party_num=' + $('#party_num').val();
 					}
 				}
             },
@@ -37,16 +38,16 @@ $(function(){
 			events: data,
 			locale: 'ko',
 			eventClick: function(info){
-				location.href='calendarDetail.do?calendar_num=' + info.event.id;
+				location.href='calendarDetail.do?party_num=' + $('#party_num').val() + '&calendar_num=' + info.event.id;
 			},
 			dateClick: function(info){
-				location.href='calendarWrite2.do?start_date=' + info.dateStr;
+				location.href='calendarWrite2.do?party_num=' + $('#party_num').val() + '&start_date=' + info.dateStr;
 			}
 		});
 		calendar.render();
 	});
 
 	request.fail(function(jqXHR, textStatus ) {
-		alert("Request failed: " + textStatus );
+		alert('달력 불러오기 실패');
 	});
 });

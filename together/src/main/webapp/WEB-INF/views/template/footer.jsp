@@ -11,7 +11,6 @@
 					<li style="line-height: 30px;  font-size: 10px;"><a href="${pageContext.request.contextPath}/notice/list.do">공지사항</a></li>
 					<li style="line-height: 30px; color: #b4b4b5; font-size: 10px;"><a href="${pageContext.request.contextPath}/party/list.do">파티</a></li>
 					<li style="line-height: 30px; color: #b4b4b5; font-size: 10px;"><a href="${pageContext.request.contextPath}/review/list.do">리뷰</a></li>
-					<li style="line-height: 30px; color: #b4b4b5; font-size: 10px;"><a href="">이벤트</a></li>
 				</ul>
 			</div>
 			<div class="footer-info">
@@ -19,7 +18,7 @@
 				<br>
 				<span>주소:서울 강남구 테헤란로 132 한독약품빌딩 8층</span>
 				<p>ⓒTogether. ALL RIGHTS RESERVED</p>
-			</div>
+			</div> 
 		</div>
 		<div class="footer-content-right">
 			<img src="${pageContext.request.contextPath}/image_bundle/naver.png" width="30">

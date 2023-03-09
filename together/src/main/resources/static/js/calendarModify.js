@@ -299,6 +299,6 @@ $(function(){
 	
 	//===============취소버튼===============//
 	$('#cancel_btn').click(function(){
-		location.href='calendarDetail.do?calendar_num=' + $('#calendar_num').val();
+		location.href='calendarDetail.do?party_num=' + $('#party_num').val() + '&calendar_num=' + $('#calendar_num').val();
 	});
 });

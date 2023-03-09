@@ -74,7 +74,7 @@ $(function(){
 					$('#participation_btn').prop('type', 'hidden');
 					$('#notparticipation_btn').prop('type', 'button');
 					
-					location.href='calendarDetail.do?calendar_num=' + $('#calendar_num').attr('data-calendarnum');
+					location.href='calendarDetail.do?party_num=' + $('#party_num').val() + '&calendar_num=' + $('#calendar_num').attr('data-calendarnum');
 				} else{
 					alert('참여 오류');
 				}
@@ -97,7 +97,7 @@ $(function(){
 					$('#participation_btn').prop('type', 'button');
 					$('#notparticipation_btn').prop('type', 'hidden');
 					
-					location.href='calendarDetail.do?calendar_num=' + $('#calendar_num').attr('data-calendarnum');
+					location.href='calendarDetail.do?party_num=' + $('#party_num').val() + '&calendar_num=' + $('#calendar_num').attr('data-calendarnum');
 				} else{
 					alert('참여 오류');
 				}

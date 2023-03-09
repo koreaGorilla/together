@@ -79,7 +79,7 @@
   	FROM party
   	<include refid="partySearchByMem_num"></include>
   	</select>
-  	
+
 </mapper>
 
 

@@ -75,52 +75,10 @@
 				<c:if test="${party.party_reg_type == 1}">
 					<input type="hidden" id="party_auth" name="party_auth" value="1">
 				</c:if>
-					<input type="button" value="가입하기" id="apply_btn">
-					<script type="text/javascript">
-						$(function(){
-							$('#apply_btn').click(function(){
-								let choice = confirm('가입하시겠습니까?');
-								//파티가입 권한 전달받고 하단의 data를 통해 controller로 전송
-								let party_auth = $('#party_auth').val();
-								if(choice){
-									$.ajax({
-										url:'/partymember/apply',
-										type:'post',
-										data:{
-											party_num:${party.party_num},
-											"party_auth" : party_auth
-											},
-											
-										dataType:'json',
-										success:function(param){
-											if(param.result == 'logout'){
-												alert('로그인 후 사용하세요');
-												location.href='../member/login.do';
-											}else if(param.result == 'success'){
-												alert('신청 완료되었습니다.');
-												location.href='../party/detail.do?party_num=${party.party_num}';
-											}else{
-												alert('기타 네트워크 오류 발생');
-											}
-										},
-										error:function(){
-											alert('신청에 네트워크 오류 발생');
-										}
-									});
-								}
-							});
-						});
-					</script>
+					
 				</div>
 			</c:if>
-			<c:if test="${count==1}">
-				<c:if test="${nowMem.party_auth==0}">
-					<input type="button" value="파티 입장" onclick="location.href='partyMain.do?party_num=${party.party_num}'">
-				</c:if>
-				<c:if test="${nowMem.party_auth==1}">
-					가입 대기중입니다!
-				</c:if>
-			</c:if>
+			
 	
 		<div class="align-right">
 		
@@ -135,6 +93,7 @@
 					
 				}
 			};
+			
 		</script> 
 		 </c:if>		
 	</div>
@@ -149,44 +108,4 @@
 		</li>
 		</ul>
 	</div>
-	
-	<c:if test="${!empty user}">
-		<div id="invite"> 
-		<h1>파티에 초대하기</h1>
-			<input type="hidden" id="partyname" name="partyname" value="${party.party_name}"> 
-			초대할 번호 : <input type="text" id="to" name="to"/>  
-			
-			<button type="button" id="send">전송</button>
-	    </div>
-	</c:if>
-    
-    
-    <script type="text/javascript">
-$('#send').click(function() {
-	
-	const to = $('#to').val();
-	const partyName = $('#partyname').val();
-	const partyNum = '${party.party_num}';
-	const currentUrl = "http://localhost:8001/party/detail.do?party_num=" + partyNum;
-	
-	$.ajax ({
-		url: currentUrl,
-		type: 'POST',
-		data: {
-			"to" : to,
-			"partyName" : partyName,
-			"url" : currentUrl
-		},
-		success: function(data) {
-			const message = data.message;
-			const url = data.url;
-			alert('메시지를 보냈습니다');
-		
-			
-		}
-	});
-	
-});
-</script>
-	
 </div>

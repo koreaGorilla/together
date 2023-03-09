@@ -335,6 +335,6 @@ $(function(){
 	
 	//===============취소버튼===============//
 	$('#cancel_btn').click(function(){
-		location.href='calendar.do';
+		location.href='calendar.do?party_num=' + $('#party_num').val();
 	});
 });

@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import kr.spring.member.vo.MemberVO;
 import kr.spring.mypage.dao.MypageMapper;
+import kr.spring.party.vo.PartyFavVO;
 import kr.spring.party.vo.PartyVO;
 import kr.spring.review.vo.ReviewVO;
 
@@ -73,5 +74,26 @@ public class MypageServiceImpl implements MypageService{
 		
 		return mypageMapper.selectPartyCountByMem_num(map);
 	}
+
+
+
+	@Override
+	public List<PartyVO> getListPartyFavMem_num(Map<String, Object> map) {
+		
+		return mypageMapper.getListPartyFavMem_num(map);
+	}
+
+	@Override
+	public List<ReviewVO> getListReviewFavMem_num(Map<String, Object> map) {
+		// TODO Auto-generated method stub
+		return mypageMapper.getListReviewFavMem_num(map);
+	}
+
+	
+
+
+
+	
+
 
 }

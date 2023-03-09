@@ -33,8 +33,8 @@
 			</li>
 			<li>
 				<label for="upload">사진</label>
-				<img src="${pageContext.request.contextPath}/images/blank.png" id="party_photo" width="100" 
-			           height="100">
+				<img src="${pageContext.request.contextPath}/images/blank.png" id="party_photo" width="350" 
+			           height="350">
 				<input type="file" name="upload" id="upload">
 			</li>
 			<li>
