@@ -45,9 +45,9 @@
    <hr size="1" width="100%">
    <div class="align-right">
       <c:if test="${!empty user && user.mem_num == notice.mem_num}">
-      <input type="button" value="수정" 
+      <input class="qjxms" type="button" value="수정" 
         onclick="location.href='update.do?notice_num=${notice.notice_num}'">
-      <input type="button" value="삭제" id="delete_btn"> 
+      <input class="qjxms" type="button" value="삭제" id="delete_btn"> 
       <script type="text/javascript">
          let delete_btn = document.getElementById('delete_btn');
          delete_btn.onclick=function(){
@@ -58,7 +58,7 @@
          };
       </script> 
       </c:if> 
-      <input type="button" value="목록"
+      <input class="qjxms" type="button" value="목록"
                  onclick="location.href='list.do'">
    </div>
 </div>

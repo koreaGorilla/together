@@ -45,7 +45,7 @@
    </form> --%>
    <c:if test="${!empty user && user.mem_auth == 9}">
    <div class="align-right">
-      <input type="button" value="글쓰기" 
+      <input class="qjxms" type="button" value="글쓰기" 
           onclick="location.href='write.do'">
    </div>
    </c:if>

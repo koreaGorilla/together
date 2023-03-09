@@ -828,6 +828,17 @@ label {
 }
 /* 상품
 ---------------------------*/
+.member-info{
+	width:60px;
+	display: inline-block;
+	text-align: center;
+}
+
+.partyMembers{
+	width:60px;
+	display: inline-block;
+	
+}
 
 /* 장바구니
 ---------------------------*/
