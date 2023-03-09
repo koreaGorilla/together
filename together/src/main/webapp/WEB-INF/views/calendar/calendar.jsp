@@ -8,6 +8,7 @@
 <div class="page-main">
 	<h3>달력</h3>
 	<div id="calendar"></div>
+	<input type="text" value="${party_num}" id="party_num">
 </div>
 <!-- 중앙 컨텐츠 끝 -->
 

@@ -9,7 +9,7 @@ import kr.spring.member.vo.MemberVO;
 
 public interface CalendarService {
 	public void insertCalendar(CalendarVO calendarVO);
-	public List<CalendarVO> selectCalendarList();
+	public List<CalendarVO> selectCalendarList(Integer party_num);
 	public CalendarVO selectCalendar(Integer calendar_num);
 	public void updateCalendar(CalendarVO calendarVO);
 	public void deleteCalendar(Integer calendar_num);

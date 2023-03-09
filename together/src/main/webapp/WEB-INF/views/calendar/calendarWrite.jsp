@@ -4,12 +4,19 @@
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/datepicker.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/hyem.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/layout.css">
+<script src="${pageContext.request.contextPath}/js/calendar.js"></script>
+<script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.4/index.global.min.js'></script>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=d66fecf4a3d09020f40dff08e5f3c4b5&libraries=services"></script>
 <script src="${pageContext.request.contextPath}/js/calendarWrite.js"></script>
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
+<div id="calendar"></div>
 <div id="calendarWrite">
 	<form:form action="calendarWrite.do" id="addSchedule_form" modelAttribute="calendarVO">
+		<input type="text" value="${party_num}" id="party_num" name="party_num">
 		<form:errors element="div" cssClass="error-color" />
 		<ul>
 			<li>

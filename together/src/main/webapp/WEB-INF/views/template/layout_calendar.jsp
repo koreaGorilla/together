@@ -20,9 +20,6 @@
 		<div id="page_body">
 			<tiles:insertAttribute name="body"/>
 		</div>
-		<div id="page_content">
-			<tiles:insertAttribute name="content"/>
-		</div>
 	</div>
 	<div id="main_footer" class="page_clear">
 		<tiles:insertAttribute name="footer"/>
