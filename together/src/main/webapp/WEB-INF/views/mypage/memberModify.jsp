@@ -1,8 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/memberModify.css">  
 <!-- 중앙 컨텐츠 시작 -->
-<<script type="text/javascript" src="${pageContext.request.contextPath}/js/confirmId.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/confirmId.js"></script>
 <div class="page-main">
 	<h2>회원정보 수정</h2>
 	<form:form action="update.do" id="modify_form"
@@ -16,12 +16,14 @@
 		</li>
 		<li>
 			<label>관심사</label>
-			<form:checkbox path="hobby" value="스터디"/>스터디
-			<form:checkbox path="hobby" value="친구"/>친구
-			<form:checkbox path="hobby" value="운동"/>운동
-			<form:checkbox path="hobby" value="밥"/>밥
-			<form:checkbox path="hobby" value="오락"/>오락
+			<li>
+			<form:checkbox path="hobby" value="스터디"/><span>스터디</span>
+			<form:checkbox path="hobby" value="친구"/><span>친구</span>
+			<form:checkbox path="hobby" value="운동"/><span>운동</span>
+			<form:checkbox path="hobby" value="밥"/><span>밥</span>
+			<form:checkbox path="hobby" value="오락"/><span>오락</span>
 			<form:errors path="hobby" cssClass="error-color"/>
+			</li>
 		</li>
 		<li>
 			<label for="mem_cell">전화번호</label>
@@ -34,10 +36,11 @@
 				<form:errors path="mem_email" cssClass="error-color"/>
 		</li>
 		<li>
-				<label for="mem_zipcode">우편번호</label>
-				<form:input path="mem_zipcode"/>
+				<label for="mem_zipcode" id="mem_zipcodee">우편번호
 				<input type="button" 
-				    onclick="execDaumPostcode()" value="우편번호찾기">
+				    onclick="execDaumPostcode()" value="우편번호찾기" id="find_zip"></label>
+				<form:input path="mem_zipcode"/>
+				
 				<form:errors path="mem_zipcode" cssClass="error-color"/>
 			</li>
 			<li>
@@ -52,8 +55,8 @@
 			</li>
 		</ul>
 		<div class="align-center">
-		<form:button>수정</form:button>
-		<input type="button" value="My페이지"
+		<form:button id="mmodify">수정완료</form:button>
+		<input type="button" value="My페이지" id="myPagee"
 			   onclick="location.href='myPage.do'">
 		</div>
 	</form:form>
@@ -144,12 +147,12 @@
     function initLayerPosition(){
         var width = 300; //우편번호서비스가 들어갈 element의 width
         var height = 400; //우편번호서비스가 들어갈 element의 height
-        var borderWidth = 5; //샘플에서 사용하는 border의 두께
+        var borderWidth = 3; //샘플에서 사용하는 border의 두께
 
         // 위에서 선언한 값들을 실제 element에 넣는다.
         element_layer.style.width = width + 'px';
         element_layer.style.height = height + 'px';
-        element_layer.style.border = borderWidth + 'px solid';
+        element_layer.style.border = borderWidth + 'px solid #19ce60';
         // 실행되는 순간의 화면 너비와 높이 값을 가져와서 중앙에 뜰 수 있도록 위치를 계산한다.
         element_layer.style.left = (((window.innerWidth || document.documentElement.clientWidth) - width)/2 - borderWidth) + 'px';
         element_layer.style.top = (((window.innerHeight || document.documentElement.clientHeight) - height)/2 - borderWidth) + 'px';

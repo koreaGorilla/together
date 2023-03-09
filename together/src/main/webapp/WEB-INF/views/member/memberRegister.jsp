@@ -31,7 +31,7 @@
                 
                 <h3>비밀번호</h3>
                 <span class="signup-input">
-                    <input id="mem_pw" name="mem_pw" type="text"></input>
+                    <input id="mem_pww" name="mem_pw" type="text"></input>
                     <span class="pw-lock"></span>
                 </span>
                 <form:errors path="mem_pw" cssClass="error-color"/>
