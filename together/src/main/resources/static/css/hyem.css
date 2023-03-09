@@ -240,6 +240,7 @@
 
 .slider ul{
 	list-style: none;
+	object-fit: cover;
 }
 
 .slider ul>li{

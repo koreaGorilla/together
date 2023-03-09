@@ -7,24 +7,34 @@
 	<div class="slider">
 	  <ul>
 	    <li class="item item1">
-	    	<img src="imageView.do?party_num=${recent_list[0].party_num}" width="800">
-			<div class="txt">${recent_list[0].party_name}</div>
+		    <a href="${pageContext.request.contextPath}/party/detail.do?party_num=${recent_list[0].party_num}">
+		    	<img src="imageView.do?party_num=${recent_list[0].party_num}" width="800">
+				<div class="txt">${recent_list[0].party_name}</div>
+			</a>
 	    </li>
 	    <li class="item item2">
-			<img src="imageView.do?party_num=${recent_list[1].party_num}" width="800">
-			<div class="txt">${recent_list[1].party_name}</div>
+		    <a href="${pageContext.request.contextPath}/party/detail.do?party_num=${recent_list[1].party_num}">
+				<img src="imageView.do?party_num=${recent_list[1].party_num}" width="800">
+				<div class="txt">${recent_list[1].party_name}</div>
+			</a>
 	    </li>
 	    <li class="item item3">
-			<img src="imageView.do?party_num=${recent_list[2].party_num}" width="800">
-			<div class="txt">${recent_list[2].party_name}</div>
+		    <a href="${pageContext.request.contextPath}/party/detail.do?party_num=${recent_list[2].party_num}">
+				<img src="imageView.do?party_num=${recent_list[2].party_num}" width="800">
+				<div class="txt">${recent_list[2].party_name}</div>
+			</a>
 	    </li>
 	    <li class="item item4">
-			<img src="imageView.do?party_num=${recent_list[3].party_num}" width="800">
-			<div class="txt">${recent_list[3].party_name}</div>
+		    <a href="${pageContext.request.contextPath}/party/detail.do?party_num=${recent_list[3].party_num}">
+				<img src="imageView.do?party_num=${recent_list[3].party_num}" width="800">
+				<div class="txt">${recent_list[3].party_name}</div>
+			</a>
 	    </li>
 	    <li class="item item5">
-			<img src="imageView.do?party_num=${recent_list[4].party_num}" width="800">
-			<div class="txt">${recent_list[4].party_name}</div>
+		    <a href="${pageContext.request.contextPath}/party/detail.do?party_num=${recent_list[4].party_num}">
+				<img src="imageView.do?party_num=${recent_list[4].party_num}" width="800">
+				<div class="txt">${recent_list[4].party_name}</div>
+			</a>
 	    </li>
 	  </ul>
 	  <img src="${pageContext.request.contextPath}/image_bundle/prev.png" width="50" class="prev_btn">
