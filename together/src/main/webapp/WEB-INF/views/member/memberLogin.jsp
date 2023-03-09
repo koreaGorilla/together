@@ -58,5 +58,13 @@
 </div>
 <!-- 중앙 컨텐츠 끝 -->	
 
+<script>
+    var check = <%= request.getAttribute("errorMessage") %>;
+
+    if (check == 1) {
+        alert("아이디 또는 비밀번호가 틀립니다.");
+    }
+</script>
+
 
 

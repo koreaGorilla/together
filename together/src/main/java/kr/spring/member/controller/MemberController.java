@@ -115,7 +115,8 @@ public class MemberController {
 	public String submitLogin(@Valid MemberVO memberVO,
 			              BindingResult result,
 			              HttpSession session,
-			              HttpServletResponse response) {
+			              HttpServletResponse response,
+			              Model model) {
 		
 		logger.debug("<<회원로그인>> : " + memberVO);
 																																																																											
@@ -131,6 +132,7 @@ public class MemberController {
 		try {
 			member = memberService.selectCheckMember(
 					                   memberVO.getMem_id());
+			
 			boolean check = false;
 			
 			if(member!=null) {
@@ -146,22 +148,13 @@ public class MemberController {
 				
 				logger.debug("<<인증 성공>> : " + member.getMem_id());
 				
-				if(member.getMem_auth() == 9) {
-					return "redirect:/main/admin.do";
-				}else {
 					return "redirect:/main/main.do";
-				}
 			}
 			//인증 실패
 			throw new AuthCheckException();
 		}catch(AuthCheckException e) {
 			//인증 실패로 로그인폼 호출
-			if(member!=null && member.getMem_auth()==1) {
-				//정지회원 메시지 표시
-				result.reject("noAuthority");
-			}else {
-				result.reject("invalidIdOrPassword");
-			}
+			model.addAttribute("errorMessage", 1);
 			
 			logger.debug("<<인증 실패>>");
 			
