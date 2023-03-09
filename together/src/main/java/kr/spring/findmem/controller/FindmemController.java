@@ -22,12 +22,6 @@ public class FindmemController {
 	
 	@Autowired
 	private FindmemService findmemService;
-	
-	@GetMapping("find/findList.do")
-	public String findList() {
-		
-		return "findList";
-	}
 	//=====아이디 찾기=====//
 	@GetMapping("find/findId.do")
 	public String findIdJsp() {
