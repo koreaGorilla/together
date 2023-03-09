@@ -40,6 +40,19 @@
   		</if>                          
   	</select>
   	
+  	<update id="updateParty" parameterType="partyVO">
+  		UPDATE party SET
+  		  <if test="party_filename  != ''">
+  		  party_photo=#{party_photo},  		  
+  		  </if>
+  		  party_name=#{party_name},
+  		  party_content=#{party_content},
+  		  party_hobby=#{party_hobby},
+  		  party_reg_type=#{party_reg_type},
+  		  modify_date=SYSDATE
+  		WHERE party_num=#{party_num}  
+  	</update>
+  	
   	<select id="selectList" parameterType="map"
   	                         resultType="partyVO">
   		SELECT

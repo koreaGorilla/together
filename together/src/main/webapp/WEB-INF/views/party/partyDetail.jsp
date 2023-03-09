@@ -137,7 +137,14 @@
 				}
 			};
 		</script> 
-		 </c:if>		
+		 </c:if>
+		 
+		 <c:if test="${!empty pMember && pMember.party_auth==9}">
+				
+					<input type="button" value="수정" onclick="location.href='partyUpdate.do?party_num=${party.party_num}'">
+				
+				</c:if>
+				
 	</div>
 	</form>
 	

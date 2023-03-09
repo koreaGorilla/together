@@ -3,6 +3,7 @@ package kr.spring.party.service;
 import java.util.List;
 import java.util.Map;
 
+
 import kr.spring.member.vo.MemberVO;
 import kr.spring.party.vo.PartyFavVO;
 import kr.spring.party.vo.PartyVO;
@@ -26,6 +27,10 @@ public interface PartyService {
 	public PartyMemberVO selectUser(Integer party_num, Integer mem_num);
 
 	public void deleteParty(Integer party_num);
+	
+	public void updateParty(PartyVO partyVO);
+	
+	public void deleteFile(Integer party_num);
 	
 	public int selectmemcount(Integer party_num,Integer mem_num);
 	//파티 좋아요

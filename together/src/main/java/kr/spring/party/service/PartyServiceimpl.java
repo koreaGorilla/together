@@ -65,6 +65,17 @@ public class PartyServiceimpl implements PartyService {
 	public List<PartyMemberVO> selectPartyMember(Integer party_num) {
 		return partyMapper.selectPartyMember(party_num);
 	}
+	
+	@Override
+	public void updateParty(PartyVO partyVO) {
+		partyMapper.updateParty(partyVO);
+		
+	}	
+	@Override
+	public void deleteFile(Integer party_num) {
+		partyMapper.deleteFile(party_num);
+		
+	}
 
 	@Override
 	public void deleteParty(Integer party_num) {
@@ -106,5 +117,9 @@ public class PartyServiceimpl implements PartyService {
 	@Override
 	public List<PartyVO> selectRecentParty() {
 		return partyMapper.selectRecentParty();
-	}	
+	}
+
+	
+
+	
 }

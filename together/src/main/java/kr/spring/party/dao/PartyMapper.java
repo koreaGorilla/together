@@ -38,6 +38,10 @@ public interface PartyMapper {
 	
 	//@Select("select * from party where party_num=#{party_num}")
 	//public PartyVO selectPartyDetail(Integer party_num);
+	public void updateParty(PartyVO partyVO);
+	
+	@Update("UPDATE party SET party_photo='',party_photo_name='' WHERE party_num=#{party_num}")
+	public void deleteFile(Integer party_num);
 	
 	@Delete("DELETE FROM party WHERE party_num=#{party_num}")
 	public void deleteParty(Integer party_num);

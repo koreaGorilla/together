@@ -23,6 +23,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+
 import kr.spring.member.vo.MemberVO;
 import kr.spring.party.service.PartyService;
 import kr.spring.party.vo.PartyFavVO;
@@ -245,6 +246,59 @@ public class PartyController {
 		}
 		return mapJson;
 	}
+	//======파티 수정======//
+	//수정 폼 호출
+		@GetMapping("/party/partyUpdate.do")
+		public String formUpdate(
+				          @RequestParam int party_num,
+				          Model model) {
+			PartyVO partyVO = 
+					partyService.selectParty(party_num);
+			
+			model.addAttribute("partyVO",partyVO);
+			
+			return "party/partyModify";
+		}
+		
+		//수정 폼에서 전송된 데이터 처리
+		@PostMapping("/board/partyUpdate.do")
+		public String submitUpdate(@Valid PartyVO partyVO,
+				                   BindingResult result,
+				                   HttpServletRequest request,
+				                   Model model) {
+			
+			logger.debug("<<글수정>> : " + partyVO);
+			logger.debug("<<업로드 파일 용량>> : " 
+			           + partyVO.getParty_photo().length);
+
+			if(partyVO.getParty_photo().length > 5*1024*1024) {//5MB
+				result.reject("limitUploadSize",new Object[]{"5MB"},null);
+			}
+			
+			//유효성 체크 결과 오류가 있으면 폼을 호출
+			if(result.hasErrors()) {
+				//title 또는 content가 입력되지 않아서 유효성
+				//체크에 걸리면 파일 정보를 잃어버리기 때문에
+				//폼을 호출할 때 파일 정보를 다시 셋팅
+				PartyVO vo = partyService.selectParty(
+						        partyVO.getParty_num());
+				partyVO.setParty_filename(vo.getParty_filename());
+				return "partyModify";
+			}
+			
+			
+			
+			//글수정
+			partyService.updateParty(partyVO);
+			
+			//View에 표시할 메시지
+			model.addAttribute("message", "글수정 완료!");
+			model.addAttribute("url", 
+				request.getContextPath()
+				+"/party/detail.do?party_num="+partyVO.getParty_num());
+			
+			return "common/resultView";
+		}
 
 
 	//=====파티 글삭제=======//
@@ -262,6 +316,27 @@ public class PartyController {
 
 		return "redirect:/party/list.do";
 	}
+	//=====파일 삭제=======//
+		@RequestMapping("/party/deleteFile.do")
+		@ResponseBody
+		public Map<String,String> processFile(
+				                   int party_num,
+				                   HttpSession session){
+			Map<String,String> mapJson = 
+					new HashMap<String,String>();
+			
+			MemberVO user = 
+				 (MemberVO)session.getAttribute("user");
+			if(user==null) {
+				mapJson.put("result", "logout");
+			}else {
+				partyService.deleteFile(party_num);
+				
+				mapJson.put("result", "success");
+			}
+			
+			return mapJson;
+		}
 
 	//=====파티 메인페이지=====//
 	@RequestMapping("/party/partyMain.do")
