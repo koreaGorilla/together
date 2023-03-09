@@ -30,6 +30,18 @@
 					<div class="login-btn-wrap">
 						<input id="login-btn" type="submit" value="확인">
 					</div>
+					
+					<section class="find-signup-wrap">
+						<div id="find-signup-wrap-ko">
+							<span class="find-id">
+								<a href="${pageContext.request.contextPath}/find/findId.do" title="findId">아이디 찾기</a>
+							</span>
+			
+							<span class="sign-up">
+								<a href="${pageContext.request.contextPath}/member/registerUser.do" title="register">회원가입</a>
+							</span>
+						</div>
+					</section>
 			</c:if>
 				
 				<!-- 이름과 전화번호가 일치하지 않을 때-->
@@ -58,6 +70,17 @@
 							</span>
 						</div>
 				    </div>
+				    <section class="find-signup-wrap">
+						<div id="find-signup-wrap-ko">
+							<span class="find-id">
+								<a href="${pageContext.request.contextPath}/find/findId.do" title="findId">아이디 찾기</a>
+							</span>
+			
+							<span class="sign-up">
+								<a href="${pageContext.request.contextPath}/member/registerUser.do" title="register">회원가입</a>
+							</span>
+						</div>
+					</section>
 				</c:if>
 		</form>
 	</div>
