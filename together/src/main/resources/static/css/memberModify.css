@@ -56,7 +56,22 @@ input#hobby1, #hobby2, #hobby3, #hobby4, #hobby5{
 input#hobby2, #hobby3, #hobby4, #hobby5{
 	margin-left:54px;	
 }
-
+input#now_passwd{
+	height: 40px;
+    cursor:text;
+}
+input#mem_pw{
+	height: 40px;
+    cursor:text;
+}
+input#confirm_passwd{
+	height: 40px;
+    cursor:text;
+}
+input#mem_id{
+	height: 40px;
+    cursor:text;
+}
 span{
 	font-size:15px;
 	position: absolute;
@@ -118,6 +133,12 @@ input#mem_address2{
     cursor:pointer;
 }
 
+#mmodify:hover{
+	background-color: #009d5a;
+	text-decoration: none;
+	transition: 0.5s ease-out;
+}
+
 #myPagee{
 	width: 100px;
     height: 35px;
@@ -131,7 +152,31 @@ input#mem_address2{
     cursor:pointer;
 }
 
+#myPagee:hover{
+	background-color: #009d5a;
+	text-decoration: none;
+	transition: 0.5s ease-out;
+}
+
 .form_search{
 	height: 46px;
     border-bottom: 1px solid #03c75a;
+}
+
+#send{
+	width: 85px;
+    height: 35px;
+    font-size: 16px;
+    font-weight: 700;
+    border:none;
+    border-radius: 5px;
+    color:white;
+    background-color: #03c75a;
+    cursor:pointer;
+}
+
+#send:hover{
+	background-color: #009d5a;
+	text-decoration: none;
+	transition: 0.5s ease-out;
 }
