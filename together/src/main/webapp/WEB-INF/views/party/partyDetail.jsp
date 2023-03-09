@@ -50,7 +50,7 @@
 							</c:if>
 							<c:if test="${!empty member.photo_name}">
 								<div class="member-info">
-									<img src="imageView.do?party_num=${party.party_num}&party_type=1" width="40" height="40" class="my-photo">
+									<img src="../mypage/viewProfile.do?mem_num=${member.mem_num}" width="40" height="40" class="my-photo">
 									<br>
 									<span>${member.mem_name}</span>
 								</div>
