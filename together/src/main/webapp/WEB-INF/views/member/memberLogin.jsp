@@ -40,18 +40,16 @@
 
 			<div id="find-signup-wrap-ko">
 				<span class="find-id">
-					<a href="https://nid.naver.com/user2/help/idInquiry?lang=ko_KR" target="_blank" title="findId">아이디
-						찾기</a>
+					<a href="${pageContext.request.contextPath}/find/findId.do" title="findId">아이디 찾기</a>
 				</span>
 
 				<span class="find-pw">
-					<a href="https://nid.naver.com/user2/help/pwInquiry?lang=ko_KR" target="_blank"
+					<a href="${pageContext.request.contextPath}/find/checkCell.do"
 						title="findPw">비밀번호 찾기</a>
 				</span>
 
 				<span class="sign-up">
-					<a href="./signup.html" target="_blank"
-						title="register">회원가입</a>
+					<a href="${pageContext.request.contextPath}/member/registerUser.do" title="register">회원가입</a>
 				</span>
 			</div>
 
