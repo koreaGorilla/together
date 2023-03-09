@@ -19,7 +19,7 @@
 				<input type="text" id="mem_name" name="mem_name"  class="form-control" placeholder="이름" />
 			</div>
 			<div class="login-pw-wrap">
-				<input type="text" id="mem_cell"  name="mem_cell"  class="form-control" placeholder="전화번호"/>
+				<input type="text" id="mem_cell"  name="mem_cell"  class="form-control" placeholder="전화번호('-'제외하고 입력)"/>
 			</div>
 			<div class="login-btn-wrap">
 				<input id="submit-btn" type="submit" value="찾기"">

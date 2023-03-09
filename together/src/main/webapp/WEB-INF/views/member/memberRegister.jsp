@@ -67,19 +67,21 @@
                     </span>
                 </div>
                 <form:errors path="mem_cell" cssClass="error-color"/>
-                
-                <div style="display: flex;" id="confrimWrap" class="confrimWrap" name="confrimWrap">
-                    <span class="signup-input" style="width:100%; margin: 10px 0px 0px 0px">
-                        <input id="userNum" name="userNum" type="text" placeholder="인증번호 입력하세요"></input>
-                    </span>
-                    <span class="cnum-btn-wrap">
-                        <button id="enterBtn">인증번호 확인</button>
-                    </span>
-                </div>
+                <div id="checkNumber">
+	                <div style="display: flex;" id="confrimWrap" class="confrimWrap" name="confrimWrap">
+	                    <span class="signup-input" style="width:100%; margin: 10px 0px 0px 0px">
+	                        <input id="userNum" name="userNum" type="text" placeholder="인증번호 입력하세요"></input>
+	                    </span>
+	                    <span class="cnum-btn-wrap">
+	                        <button id="enterBtn">인증번호 확인</button>
+	                    </span>
+	                </div>
+	            </div>
+	           </div>
 
             
             <div style="margin-top: 35px;">
-                <!--휴대전화-->
+                <!--주소-->
                 <h3>주소</h3>
                 <div style="display: flex;">
                     <span class="signup-input" style="width:100%; margin: 10px 0px 0px 0px">
@@ -229,6 +231,12 @@ $('#send').click(function() {
 			const checkNum = data;
 			alert('인증번호 전송 완료!');
 			
+            // 전송 버튼 숨기기
+            $('#send').hide();
+            $('#cnum-btn-wrap2').hide();
+
+            // 인증번호 입력 폼과 확인 버튼 보이기
+ 			$('#checkNumber').show();
 			
 			$('#enterBtn').click(function() {	
 				const userNum = $('#userNum').val();
