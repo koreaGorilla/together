@@ -45,14 +45,14 @@
 								<div class="member-info">
 									<img src="${pageContext.request.contextPath}/images/face.png" width="40" height="40" class="my-photo">
 									<br>
-									<span>${member.mem_name}</span>
+									<span class="partyMembers" >${member.mem_name}</span>
 								</div>
 							</c:if>
 							<c:if test="${!empty member.photo_name}">
 								<div class="member-info">
 									<img src="../mypage/viewProfile.do?mem_num=${member.mem_num}" width="40" height="40" class="my-photo">
 									<br>
-									<span>${member.mem_name}</span>
+									<span class="partyMembers">${member.mem_name}</span>
 								</div>
 							</c:if>	
 						</c:if>

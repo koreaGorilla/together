@@ -1,6 +1,13 @@
 @charset "UTF-8";
 
 .member-info{
-	width:50px;
+	width:60px;
 	display: inline-block;
+	text-align: center;
+}
+
+.partyMembers{
+	width:60px;
+	display: inline-block;
+	
 }
