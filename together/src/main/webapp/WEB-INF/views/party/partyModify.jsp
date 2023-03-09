@@ -21,41 +21,11 @@
 	    <form:hidden path="party_num"/>               
 		<form:errors element="div" cssClass="error-color"/>
 		<ul>
-			<li>
-				<label for="name">파티 이름</label>
-				<form:input path="party_name"/>
-				<form:errors path="party_name" 
-				                  cssClass="error-color"/>
-			</li>
-			<li>
-            <label for="content">내용</label>
-            <form:textarea path="party_content"/>
-            <form:errors path="party_content" cssClass="error-color"/>
-            <script>
-             function MyCustomUploadAdapterPlugin(editor) {
-                   editor.plugins.get('FileRepository').createUploadAdapter = (loader) => {
-                       return new UploadAdapter(loader);
-                   }
-               }
-             
-             ClassicEditor
-                  .create( document.querySelector( '#party_content' ),{
-                     extraPlugins: [MyCustomUploadAdapterPlugin]
-                  })
-                  .then( editor => {
-                  window.editor = editor;
-               } )
-                  .catch( error => {
-                      console.error( error );
-                  } );
-             </script> 
-         </li>
-         
-			<li>
+		<li>
 				<label for="upload">프로필 사진</label>
 				<img src="${pageContext.request.contextPath}/images/blank.png" id="party_photo" width="350" 
 			           height="350">
-				<input type="file" name="upload" id="upload">
+				<input type="file" name="upload" id="party_photo">
 				<c:if test="${!empty partyVO.party_photo_name}">
 				<div id="file_detail">
 					(${partyVO.party_photo_name})파일이 등록되어 있습니다.
@@ -90,6 +60,45 @@
 					});
 				</script>
 				</c:if>
+			</li>
+			<li>
+				<label for="name">파티 이름</label>
+				<form:input path="party_name"/>
+				<form:errors path="party_name" 
+				                  cssClass="error-color"/>
+			</li>
+			<li>
+            <label for="content">내용</label>
+            <form:textarea path="party_content"/>
+            <form:errors path="party_content" cssClass="error-color"/>
+            <script>
+             function MyCustomUploadAdapterPlugin(editor) {
+                   editor.plugins.get('FileRepository').createUploadAdapter = (loader) => {
+                       return new UploadAdapter(loader);
+                   }
+               }
+             
+             ClassicEditor
+                  .create( document.querySelector( '#party_content' ),{
+                     extraPlugins: [MyCustomUploadAdapterPlugin]
+                  })
+                  .then( editor => {
+                  window.editor = editor;
+               } )
+                  .catch( error => {
+                      console.error( error );
+                  } );
+             </script> 
+         </li>
+         
+			
+			<li>
+			    <label for="reg_type">회원가입방식</label>
+				<select name="party_reg_type" id="party_reg_type">
+					<option value="0">즉시가입</option>
+					<option value="1">승인 후 가입</option>
+					
+				</select>
 			</li>
 		</ul>
 		<div class="align-center">

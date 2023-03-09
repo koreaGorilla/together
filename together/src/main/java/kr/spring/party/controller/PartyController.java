@@ -261,7 +261,7 @@ public class PartyController {
 		}
 		
 		//수정 폼에서 전송된 데이터 처리
-		@PostMapping("/board/partyUpdate.do")
+		@PostMapping("/party/partyUpdate.do")
 		public String submitUpdate(@Valid PartyVO partyVO,
 				                   BindingResult result,
 				                   HttpServletRequest request,
