@@ -25,14 +25,30 @@
 				                  cssClass="error-color"/>
 			</li>
 			<li>
-				<label for="content">내용</label>
-				<form:textarea path="party_content"/>
-				<form:errors path="party_content"
-				                  cssClass="error-color"/>
-				          
-			</li>
+            <label for="content">내용</label>
+            <form:textarea path="party_content"/>
+            <form:errors path="party_content" cssClass="error-color"/>
+            <script>
+             function MyCustomUploadAdapterPlugin(editor) {
+                   editor.plugins.get('FileRepository').createUploadAdapter = (loader) => {
+                       return new UploadAdapter(loader);
+                   }
+               }
+             
+             ClassicEditor
+                  .create( document.querySelector( '#party_content' ),{
+                     extraPlugins: [MyCustomUploadAdapterPlugin]
+                  })
+                  .then( editor => {
+                  window.editor = editor;
+               } )
+                  .catch( error => {
+                      console.error( error );
+                  } );
+             </script> 
+         </li>
 			<li>
-				<label for="upload">사진</label>
+				<label for="upload">프로필 사진</label>
 				<img src="${pageContext.request.contextPath}/images/blank.png" id="party_photo" width="350" 
 			           height="350">
 				<input type="file" name="upload" id="upload">
