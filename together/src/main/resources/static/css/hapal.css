@@ -226,8 +226,9 @@ li.paging-current{
     height: 28px;
     font-size: 14px;
     font-weight: 600;
-    background-color: #e7e7e7;
+    background-color: #03c75a;
     border-color: #ffffff;
+    color:white;
 }
 
 /*메뉴 추가 */
@@ -341,7 +342,7 @@ input#change.menu-btn{
     height: 28px;
     font-size: 14px;
     font-weight: 600;
-    background-color: #e7e7e7;
+    background-color: #03c75a;
     border-color: #ffffff;
     border-radius: 2px;
 }
@@ -810,8 +811,21 @@ form{
 }
 label#vkdlfdjqfhem,#vkdlfdjqfhem1 {
     margin-right: -40px;
+    font-size:15px;
 }
-
+.align-center input {
+    width: 55px;
+    height: 28px;
+    font-size: 14px;
+    font-weight: 600;
+    background-color: #03c75a;
+    border-color: #ffffff;
+    border-radius: 2px;
+    color:white;
+}
+label {
+    font-size: 15px;
+}
 /* 상품
 ---------------------------*/
 
