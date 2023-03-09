@@ -63,7 +63,7 @@
                         <input id="mem_cell" type="text" placeholder="전화번호 '-' 제외하고 입력"></input>
                     </span>
                     <span class="cnum-btn-wrap2" id="cnum-btn-wrap2">
-                        <button id="send">인증번호 받기</button>
+                    <input type="button" class="cnum-btn" id="send" value="인증번호받기">
                     </span>
                 </div>
                 <form:errors path="mem_cell" cssClass="error-color"/>
@@ -73,7 +73,7 @@
 	                        <input id="userNum" name="userNum" type="text" placeholder="인증번호 입력하세요"></input>
 	                    </span>
 	                    <span class="cnum-btn-wrap">
-	                        <button id="enterBtn">인증번호 확인</button>
+	                        <input type="button" class="cnum-btn" id="enterBtn" value="인증">
 	                    </span>
 	                </div>
 	            </div>
