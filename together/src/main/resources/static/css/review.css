@@ -1,5 +1,97 @@
 @charset "UTF-8";
-
+/*리뷰 부분*/
 #output_fcount{
 	width:20px;
+}
+
+.review-table{
+	height:150px;
+	margin:10px 0;
+}
+
+.party_name{
+	text-align: left;
+	font-size:19px;
+	height:20px;
+}
+
+.review_content{
+	vertical-align:top;
+	font-size:15px;
+}
+
+.review-main{
+	width:85%;
+	margin:auto;
+	
+}
+.review-photo{
+	padding:0 10px 0 80px;
+}
+
+form#search-form{
+	padding:0;
+	border:0px;
+	display:inline-grid;
+	justify-content:start;
+	width: fit-content;
+}
+
+.align_right{
+	float:right;
+}
+li{
+	display:inline-block;
+}
+
+ul.search_form{
+	padding-bottom: 15px;
+}
+
+.page-title{
+	text-align: center;
+	font-size: 25px;
+	padding:15px 0 20px 0;
+}
+.review_mem_name{
+	font-size: 15px;
+	font-weight:600;
+	height:10px;
+	padding-left: 5px;
+	vertical-align:bottom;
+}
+.review-date{
+	font-size: 12px;
+	padding-left: 5px;	
+	height:10px;
+	vertical-align:top;
+}
+
+.party_name{
+	padding-bottom: 10px;
+}
+
+.review-image{
+	object-fit:cover;
+	object-position:top;
+	border-radius:5%;
+}
+/*댓글 js부분*/
+.modify-date{
+	font-size: 10px;
+	padding-left: 5px;
+}
+.reply_mem_name{
+	font-size: 15px;
+	font-weight:600;
+}
+
+.review_content:visited { text-decoration:none }
+.review_content:hover   { text-decoration:underline }
+
+hr{
+	background:rgb(235 235 235);
+	height:2px;
+	border:0;
+	
 }
