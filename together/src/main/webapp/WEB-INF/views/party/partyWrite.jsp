@@ -2,8 +2,11 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>    
 <!-- 중앙 컨텐츠 시작 -->
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/hapalpal.css">
 <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
+
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
 <style>
 .ck-editor__editable_inline{
 	min-height:250px;
@@ -11,8 +14,9 @@
 </style>
 <script src="${pageContext.request.contextPath}/js/ckeditor.js"></script>
 <script src="${pageContext.request.contextPath}/js/uploadAdapter.js"></script>
+
 <div class="page-main">
-	<h2>파티생성</h2>
+	<h2 id="rmfTmrl">파티생성</h2>
 	<form:form action="write.do" id="register_form" 
 	                   modelAttribute="partyVO"
 	                   enctype="multipart/form-data">              
@@ -25,7 +29,6 @@
 				                  cssClass="error-color"/>
 			</li>
 			<li>
-            <label for="content">내용</label>
             <form:textarea path="party_content"/>
             <form:errors path="party_content" cssClass="error-color"/>
             <script>
@@ -49,8 +52,7 @@
          </li>
 			<li>
 				<label for="upload">프로필 사진</label>
-				<img src="${pageContext.request.contextPath}/images/blank.png" id="party_photo" width="350" 
-			           height="350">
+				<img src="${pageContext.request.contextPath}/images/blank.png" id="party_photo" width="350" height="350">
 				<input type="file" name="upload" id="upload">
 			</li>
 			<li>
@@ -74,8 +76,8 @@
 			</li>
 		</ul>
 		<div class="align-center">
-			<form:button>생성하기</form:button>
-			<input type="button" value="취소하기" 
+			<form:button id="vkxltodtjd">파티생성</form:button>
+			<input type="button" value="취소" 
 			             onclick="location.href='list.do'">
 		</div>	                   
 	</form:form>

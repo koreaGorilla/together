@@ -2,18 +2,20 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/partyDetail.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/hapalpal.css">
 <script src="${pageContext.request.contextPath}/js/party.fav.js"></script>
 
-<div class="page-main">
-   <div class="party-image">
+<div id="partydetail-pagemain">
+ <div>
+   <div id="party-image">
       <c:if test="${empty party.party_photo_name }">
       <img src="${pageContext.request.contextPath}/images/togetherLogo.jpg" width="100%" height="200" class="party-photo">
       </c:if>
       <c:if test="${!empty party.party_photo_name }">
-      <img src="imageView.do?party_num=${party.party_num}&party_type=2" width="100%" height="200" class="party-photo">
+      <img src="imageView.do?party_num=${party.party_num}&party_type=2" width="400" height="380" class="party-photo">
       </c:if>
    </div>
+  <div id=dhfmsWhr>   
    <form id="partyView">
       <div class="party-info">
          <ul class="info">
@@ -163,6 +165,8 @@
          <button type="button" id="send">전송</button>
        </div>
    </c:if>
+  </div>   
+ </div>
     
     
     <script type="text/javascript">
