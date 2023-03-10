@@ -19,13 +19,13 @@
 		    <li>
 				<label for="party_name">파티명</label>
 					
-						<%--<c:if test="${!empty party_name}"> --%>
+						
 							<form:select path="party_name">
 								<c:forEach var="party_name" items="${list}">
-									<option value="${party_name}">${party_name}</option>
+									<option value="${party_num}${party_name}">${party_name}</option>
 								</c:forEach>
 							</form:select>
-						<%--</c:if> --%>
+							
 						
 					
 					<%-- 
