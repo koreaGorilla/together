@@ -6,7 +6,7 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/login.css">  
 <!-- 중앙 컨텐츠 시작 -->
 <div class="page-main">
-	<h2>회원가입</h2>
+	<h1>회원가입</h1>
 	<form:form action="registerUser.do" id="register_form"
 	                            modelAttribute="memberVO">
 		<form:errors element="div" cssClass="error-color"/>   
@@ -19,8 +19,8 @@
                 <h3>아이디</h3>
 
                 <div style="display: flex;">
-                    <span class="signup-input" style="width:100%;">
-                        <input id="mem_idd" name="mem_id" type="text" placeholder="영문,숫자만 4~12자"></input>
+                    <span class="signup-input" style="width:100%; margin: 10px 0px 0px 0px">
+                        <input id="mem_id" name="mem_id" type="text" placeholder="영문,숫자만 4~12자"></input>
                     </span>
                     <span class="cnum-btn-wrap">
                         <input type="button" class="cnum-btn" id="confirmId" value="ID중복체크">
@@ -31,14 +31,14 @@
                 
                 <h3>비밀번호</h3>
                 <span class="signup-input">
-                    <input id="mem_pww" name="mem_pw" type="text"></input>
+                    <input id="mem_pw" name="mem_pw" type="password"></input>
                     <span class="pw-lock"></span>
                 </span>
                 <form:errors path="mem_pw" cssClass="error-color"/>
 
             </div>
 
-            <div>
+            <div style="margin-top: 35px;">
                 <h3>이름</h3>
                 <span class="signup-input">
                     <input id="mem_name" name="mem_name" type="text"></input>
@@ -55,11 +55,11 @@
 
             </div>
 
-            <div>
+            <div style="margin-top: 35px;">
                 <!--휴대전화-->
                 <h3>휴대전화</h3>
                 <div style="display: flex;">
-                    <span class="signup-input" style="width:100%;">
+                    <span class="signup-input" style="width:100%; margin: 10px 0px 0px 0px">
                         <input id="mem_cell" name="mem_cell" type="text" placeholder="전화번호 '-' 제외하고 입력"></input>
                     </span>
                     <span class="cnum-btn-wrap2" id="cnum-btn-wrap2">
@@ -80,11 +80,11 @@
 	           </div>
 
             
-            <div>
+            <div style="margin-top: 35px;">
                 <!--주소-->
                 <h3>주소</h3>
                 <div style="display: flex;">
-                    <span class="signup-input" style="width:100%;">
+                    <span class="signup-input" style="width:100%; margin: 10px 0px 0px 0px">
                         <input id="mem_zipcode" name="mem_zipcode" type="text" placeholder="우편번호 입력"></input>
                     </span>
                     <span class="cnum-btn-wrap">
@@ -93,13 +93,13 @@
                     </span>
                 </div>
                 				<form:errors path="mem_zipcode" cssClass="error-color"/>
-                <span class="signup-input-c">
-                    <input id="mem_address1" name="mem_address1" type="text" placeholder="주소" disabled></input>
+                <span class="signup-input-c" style="margin-top: 10px;">
+                    <input id="mem_address1" name="mem_address1" type="text" placeholder="주소"></input>
                     
                 </span>
                 				<form:errors path="mem_address1" cssClass="error-color"/>
                 
-                <span class="signup-input-cc"">
+                <span class="signup-input-c" style="margin-top: 10px;">
                     <input id="mem_address2" name="mem_address2" type="text" placeholder="상세주소"></input>
                 </span>
                 				<form:errors path="mem_address2" cssClass="error-color"/>
@@ -108,11 +108,11 @@
             <div>
                 <!--가입하기-->
   				 <div style="display: flex;">
-                    <span class="cnum-btn-wrap" style="width:50%; display: none;">
-                        <form:button id="cnum-btn2">가입하기</form:button>                        
+                    <span class="cnum-btn-wrap" style="width:50%; display: none; margin: 10px 0px 0px 0px">
+                        <form:button id="cnum-btn2">가입</form:button>                        
                     </span>
                     <span class="cnum-btn-wrap3" id="cnum-btn-wrap3" style="width:100%;">
-                        <input id="cnum-btnn" value="홈으로"  onclick="location.href='/main/main.do'">
+                        <input id="cnum-btn" value="홈으로"  onclick="location.href='/main/main.do'">
                     </span>
                 </div>
         </section>
@@ -220,11 +220,7 @@ $('#send').click(function() {
 	
 	const to = $('#mem_cell').val();
 	var element = document.getElementById("cnum-btn-wrap3");
-	if (to === "") {
-		  alert("인증번호를 입력해주세요.");
-		}else if(isNaN(to)) {
-			  alert("인증번호는 숫자로만 이루어져야 합니다.");
-		}else{
+	
 	$.ajax ({
 		url: '/find/checkSms',
 		type: 'POST',
@@ -262,10 +258,8 @@ $('#send').click(function() {
 			
 		}
 	});
-		  }
 	
 });
 </script>
 <!-- 우편번호 검색 끝 -->
 <!-- 중앙 컨텐츠 끝 -->
-
