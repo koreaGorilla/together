@@ -15,6 +15,11 @@
     	<put-attribute name="body"
     	  value="/WEB-INF/views/party/partyWrite.jsp"/>        
     </definition>
+    <definition name="partyModify" extends="main">
+    	<put-attribute name="title" value="글수정"/>
+    	<put-attribute name="body"
+    	  value="/WEB-INF/views/party/partyModify.jsp"/>        
+    </definition>
 </tiles-definitions>
 
 

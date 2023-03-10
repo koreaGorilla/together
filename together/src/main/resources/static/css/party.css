@@ -21,3 +21,53 @@
 .item-space .float-clear{
 	clear:both;
 }
+
+/* 파티 목록 */
+.page-main{
+	margin-top: 40px;
+}
+
+.party-list-item{
+	float: left;
+	width: 320px;
+    height: 230px;
+    overflow: hidden;
+    border: 1px solid #303740;
+    margin: 15px 8px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.party-list-item a:hover{
+	color: #009d5a;
+	text-decoration: none;
+	transition: 0.2s ease-out;
+}
+
+.party-list-pname{
+	font-weight: bold;
+	font-size: 15px;
+	margin-left: 15px;
+	overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin-right: 15px;
+}
+
+.party-list-item p{
+	margin-left : 15px;
+	margin-top: 5px;
+	font-size: 10px;
+}
+
+.party-list-item img{
+	width: 320px;
+}
+
+#party_list_img{
+	width: 320px;
+	height: 160px;
+	overflow: hidden;
+	border-bottom: 1px solid #303740;
+	margin-bottom: 15px;
+}

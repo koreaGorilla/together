@@ -22,7 +22,7 @@
    
 </script>
 <div class="page-main">
-   <h2>공지사항 목록</h2>
+   <h2 id="rhdwltkgkd">공지사항</h2>
 <%--    <form action="list.do" id="search_form" method="get">
       <ul class="search">
          <li>
@@ -45,7 +45,7 @@
    </form> --%>
    <c:if test="${!empty user && user.mem_auth == 9}">
    <div class="align-right">
-      <input type="button" value="글쓰기" 
+      <input class="qjxms" type="button" value="글쓰기" 
           onclick="location.href='write.do'">
    </div>
    </c:if>
@@ -53,7 +53,7 @@
    <div class="result-display">표시할 게시물이 없습니다.</div>
    </c:if>   
    <c:if test="${count > 0}">
-   <table class="striped-table">
+   <table class="striped-table" id="stiped-table-hap">
       <tr>
          <th>번호</th>
          <th width="400">제목</th>

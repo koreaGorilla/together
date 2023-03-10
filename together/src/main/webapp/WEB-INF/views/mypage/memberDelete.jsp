@@ -1,8 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/memberModify.css"> 
 <!-- 중앙 컨텐츠 시작 -->
 <div class="page-main">
+<h2>회원탈퇴</h2>
 <form:form action="delete.do" id="delete_form"
 					modelAttribute="memberVO">
 	<form:errors element="div"
@@ -22,8 +24,8 @@
 		</li>
 	</ul>	
 	<div class="align-center">
-	<form:button>전송</form:button>
-	<input type="button" value="MY페이지"
+	<form:button id="send">전송</form:button>
+	<input type="button" value="MY페이지" id="myPagee"
 			onclick="location.href='myPage.do'">
 	</div>				
 </form:form>

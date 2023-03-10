@@ -19,10 +19,11 @@
 				<input type="button" value="취소" id="photo_reset">         
 			</div>
 		</li>
-	<div class="mem-detail">
-	   <h2>회원상세 정보<input type="button" value="회원정보 수정" id="mem_modify"
+	<div class="mem-detail" id="mem-detail">
+	   <h2>회원상세 정보
+	   <input type="button" value="회원정보 수정" id="mem_modify"
 	         onclick="location.href='update.do'"></h2>
-	   <ul>
+	   <ul id="modify_table">
 	      <li>이름 : ${member.mem_name}</li>
 	      <li>취미 : ${member.hobby}</li>
 	      <li>전화번호 : ${member.mem_cell }</li>
@@ -36,7 +37,7 @@
 	   </ul>
 	</div>
 	<li>
-	<input type="button" class="menu-btn" value="비밀번호변경" 
+	<input type="button" class="menu-btn" value="비밀번호변경" id="change"
 			  onclick="location.href='${pageContext.request.contextPath}/mypage/changePassword.do'">
 
 			<input type="button" class="menu-btn"  value="회원탈퇴" id="out"
@@ -45,6 +46,13 @@
 	</ul>
 </div>
 <!-- MyPage 메뉴 끝 -->
-
+<script type="text/javascript">
+var button = document.getElementById("mem_modify");
+var div = document.getElementById("mem-detail");
+button.onclick = function() {
+    div.style.display = "none";
+    window.location.href = "update.do";
+};
+</script>
 
 

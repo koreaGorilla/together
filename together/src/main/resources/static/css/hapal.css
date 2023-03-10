@@ -184,13 +184,18 @@ ul{
 	list-style:none;
 }
 input{
-	margin-top:4px;
+	margin-top:10px;
 }
 input[type="text"],.page-main input[type="password"],.page-main input[type="email"]{
-	width:350px;
+	width:767px;
 }
 #register_form input[id="id"]{
 	width:263px;
+}
+input#notice_title{
+	margin-left: -95px;
+	margin-bottom: 9px;
+    margin-top: -1px;
 }
 input[id="zipcode"]{
 	width:245px;
@@ -216,7 +221,15 @@ li.paging-current{
 	padding:10px;
 }
 
-
+.qjxms {
+  width: 55px;
+    height: 28px;
+    font-size: 14px;
+    font-weight: 600;
+    background-color: #03c75a;
+    border-color: #ffffff;
+    color:white;
+}
 
 /*메뉴 추가 */
 .party_menu{
@@ -307,20 +320,8 @@ li.paging-current{
 input#out.menu-btn{
 	margin-left:5px;
 }
-
-input#out.menu-btn:hover{
-	background-color: #B7B5B5;
-	text-decoration: none;
-	transition: 0.5s ease-out;
-}
 input#change.menu-btn{
 	margin-left:25px;
-}
-
-input#change.menu-btn:hover{
-	background-color: #B7B5B5;
-	text-decoration: none;
-	transition: 0.5s ease-out;
 }
 /* MY페이지
 ---------------------------*/
@@ -336,15 +337,16 @@ input#change.menu-btn:hover{
 	object-position:top;
 	border-radius:50%;
 }
-.align-center input{
-	width: 50px;
-    height: 25px;
+.align-center input {
+    width: 55px;
+    height: 28px;
     font-size: 14px;
-    font-weight: 700;
-    background-color: #FCFCFC;
-    border-color: #B7B5B5;
-    border-radius: 5px;
+    font-weight: 600;
+    background-color: #03c75a;
+    border-color: #ffffff;
+    border-radius: 2px;
 }
+
 .mem-detail{
 	font-size:15px;
 	padding: 15px 0px 5px 0px;
@@ -364,12 +366,6 @@ input#change.menu-btn:hover{
     border-color: #B7B5B5;
     border-radius: 5px;
 }
-
-.mem-detail h2 input:hover{
-	background-color: #B7B5B5;
-	text-decoration: none;
-	transition: 0.5s ease-out;
-}
 .mem-detail ul{
 	margin-left: 30px;
 	font-size: 16px;
@@ -382,13 +378,6 @@ input#change.menu-btn:hover{
     font-size: 15px;
     font-weight: 700;
 }
-
-#photo_btn:hover{
-	background-color: #B7B5B5;
-	text-decoration: none;
-	transition: 0.5s ease-out;
-}
-
 img#photo_pencil{
 	width:30px;
 	height:30px;
@@ -792,9 +781,64 @@ form#detail_form{
   text-align: center;
   font-size: 2.7rem;
 }
-
+  /* //////////////////////////////////////////////////////////////////////////////////////////////////////// */
+form{
+	  margin: 0 auto;
+	  padding: 10px 10px 10px 30px;
+	  margin-right: 40px;
+	  all: unset;
+   }
+   .page-main{
+	margin: 0 auto;
+	padding: 35px;
+	max-width: 915px;
+	background-color: #fff;
+	border-radius: 5px;
+	box-shadow: 0px 0px 5px rgb(0 0 0 / 30%);
+	margin-top: 100px;
+}
+#rmfTmrl{
+	margin-left: 17px;
+	margin-bottom: 13px;
+}
+#rhdwltkgkd{
+	margin-top: 15px;
+    margin-bottom: -30px;
+    font-size: x-large;
+}
+#stiped-table-hap {
+    margin-top: 18px;
+}
+label#vkdlfdjqfhem,#vkdlfdjqfhem1 {
+    margin-right: -40px;
+    font-size:15px;
+}
+.align-center input {
+    width: 55px;
+    height: 28px;
+    font-size: 14px;
+    font-weight: 600;
+    background-color: #03c75a;
+    border-color: #ffffff;
+    border-radius: 2px;
+    color:white;
+}
+label {
+    font-size: 15px;
+}
 /* 상품
 ---------------------------*/
+.member-info{
+	width:60px;
+	display: inline-block;
+	text-align: center;
+}
+
+.partyMembers{
+	width:60px;
+	display: inline-block;
+	
+}
 
 /* 장바구니
 ---------------------------*/

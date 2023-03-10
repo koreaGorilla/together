@@ -23,10 +23,10 @@ let result = '${result}';
 	<h2>파티목록  
 	<c:if test="${!empty param.party_hobby  and (param.party_hobby>=1 and param.party_hobby<=4)}">
 		>
-		<c:if test="${param.party_hobby == 1}">운동</c:if>
-		<c:if test="${param.party_hobby == 2}">독서</c:if>
-		<c:if test="${param.party_hobby == 3}">음주</c:if>
-		<c:if test="${param.party_hobby == 4}">문화</c:if>
+		<c:if test="${param.party_hobby == 1}"> 운동</c:if>
+		<c:if test="${param.party_hobby == 2}"> 독서</c:if>
+		<c:if test="${param.party_hobby == 3}"> 음주</c:if>
+		<c:if test="${param.party_hobby == 4}"> 문화</c:if>
 	</c:if>
 	</h2>
 	<c:if test="${empty param.party_hobby  or (param.party_hobby<1 or param.party_hobby>4)}">
