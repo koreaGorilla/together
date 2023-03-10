@@ -187,7 +187,7 @@ input{
 	margin-top:10px;
 }
 input[type="text"],.page-main input[type="password"],.page-main input[type="email"]{
-	width:767px;
+	width:200px;
 }
 #register_form input[id="id"]{
 	width:263px;
@@ -838,6 +838,24 @@ label {
 	width:60px;
 	display: inline-block;
 	
+}
+div#party-image {
+    float: left;
+}
+div#dhfmsWhr {
+   float: left;
+    width: 544px;
+    margin-left: 43px;
+    margin-right: -134px;
+}
+#partydetail-pagemain{
+	margin: 0 auto;
+	padding: 18px 128px 439px 18px;
+	max-width: 915px;
+	background-color: #fff;
+	border-radius: 5px;
+	box-shadow: 0px 0px 5px rgb(0 0 0 / 30%);
+	margin-top: 39px;
 }
 /* 장바구니
 ---------------------------*/
