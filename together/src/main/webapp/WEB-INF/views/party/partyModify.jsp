@@ -23,8 +23,12 @@
 		<ul>
 		<li>
 				<label for="upload">프로필 사진</label>
-				<img src="${pageContext.request.contextPath}/images/blank.png" id="party_photo" width="350" 
-			           height="350">
+				<c:if test="${empty partyVO.party_photo_name }">
+				<img src="${pageContext.request.contextPath}/images/blank.png" id="party_photo" width="200" height="200" class="party-photo">
+				</c:if>
+				<c:if test="${!empty partyVO.party_photo_name }">
+				<img src="imageView.do?party_num=${partyVO.party_num}&party_type=2" id="party_photo" width="200" height="200" class="party-photo">
+				</c:if>
 				<input type="file" name="upload" id="upload">
 				<c:if test="${!empty partyVO.party_photo_name}">
 				<div id="file_detail">
@@ -34,6 +38,31 @@
 				</div>
 				<script type="text/javascript">
 					$(function(){
+						// 이미지 미리보기
+					    let photo_path = $('#party_photo').attr('src'); // 처음 화면에 보여지는 이미지 읽기
+					    let my_photo;
+					    $('#upload').change(function(){
+					       my_photo = this.files[0];
+					       if(!my_photo){
+					          $('#party_photo').attr('src',photo_path);
+					          return; // 선택한 이미지가 없으니 다시 선택하게끔
+					       }
+					       
+					       // 파일 용량 체크
+					       if(my_photo.size>1024*1024){
+					          alert(Math.round(my_photo.size/1024) + 'kbytes(1024kbytes까지만 업로드 가능)');
+					          $('#party_photo').attr('src',photo_path); // 용량이 너무 크면 처음 이미지를 보여준다.
+					          $(this).val(''); // 선택한 파일 정보 지우기
+					       }
+					       
+					       let reader = new FileReader();
+					       reader.readAsDataURL(my_photo);
+					       
+					       reader.onload = function(){
+					          $('#party_photo').attr('src',reader.result);
+					       };
+					    }); // end of change
+						
 						$('#file_delete').click(function(){
 							let choice = confirm('삭제하시겠습니까?');
 							if(choice){
