@@ -11,6 +11,7 @@ import kr.spring.member.vo.MemberVO;
 import kr.spring.mypage.dao.MypageMapper;
 import kr.spring.party.vo.PartyFavVO;
 import kr.spring.party.vo.PartyVO;
+import kr.spring.partymember.vo.PartyMemberVO;
 import kr.spring.review.vo.ReviewVO;
 
 @Service
@@ -87,6 +88,12 @@ public class MypageServiceImpl implements MypageService{
 	public List<ReviewVO> getListReviewFavMem_num(Map<String, Object> map) {
 		// TODO Auto-generated method stub
 		return mypageMapper.getListReviewFavMem_num(map);
+	}
+
+	@Override
+	public List<PartyVO> getListpartyMem_num(Map<String, Object> map) {
+		// TODO Auto-generated method stub
+		return mypageMapper.getListpartyMem_num(map);
 	}
 
 	

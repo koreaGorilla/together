@@ -26,6 +26,7 @@ import kr.spring.mypage.service.MypageService;
 import kr.spring.party.service.PartyService;
 import kr.spring.party.vo.PartyFavVO;
 import kr.spring.party.vo.PartyVO;
+import kr.spring.partymember.vo.PartyMemberVO;
 import kr.spring.review.service.ReviewService;
 import kr.spring.review.vo.ReviewVO;
 import kr.spring.util.AuthCheckException;
@@ -102,12 +103,23 @@ public class MypageController {
 		List<ReviewVO> getReview = mypageService.getListReviewFavMem_num(map);
 		logger.debug("<<좋아요 누른 리뷰 목록>>" + getReview);
 		
+		//가입한 파티 목록
+		 Map<String,Object>map6 = 
+				 new HashMap<String,Object>();
+		 map.put("mem_num", user.getMem_num());
+		 //파티목록 5건
+		 map.put("start", 1);
+		 map.put("end", 5);
+		 List<PartyVO> getMyparty = mypageService.getListpartyMem_num(map);
+		 logger.debug("<<가입한 파티>>" + getMyparty);
+		
 		model.addAttribute("member" , member);
 		model.addAttribute("reviewList",reviewList);
 		model.addAttribute("partyList",partyList);
 		
 		model.addAttribute("getList",getList);
 		model.addAttribute("getReview" ,getReview);
+		model.addAttribute("getMyparty",getMyparty);
 		model.addAttribute("member",member);
 		
 		return "myPage";		

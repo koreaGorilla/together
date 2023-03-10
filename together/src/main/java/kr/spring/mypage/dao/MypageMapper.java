@@ -24,7 +24,7 @@ public interface MypageMapper {
 	@Update("UPDATE member_detail SET mem_name=#{mem_name},"
 			+ "mem_cell=#{mem_cell},mem_email=#{mem_email},"
 			+ "mem_zipcode=#{mem_zipcode},mem_address1=#{mem_address1},mem_address2=#{mem_address2},"
-			+ "hobby=#{hobby},modify_date=SYSDATE WHERE mem_num=#{mem_num}")
+			+ "hobby=#{hobby,jdbcType=VARCHAR},modify_date=SYSDATE WHERE mem_num=#{mem_num}")
 	public void updateMember_detail(MemberVO member);
 	//비밀번호 수정
 	@Update("UPDATE member_detail SET "
@@ -66,6 +66,14 @@ public interface MypageMapper {
 			+ "WHERE rnum >= #{start} AND rnum <= #{end}")
 	public List<ReviewVO>getListReviewFavMem_num(
 			Map<String,Object>map);
+	
+	@Select("SELECT * FROM (SELECT a.*, rownum rnum "
+			+ "FROM(SELECT * FROM party p JOIN member m "
+			+ "USING(mem_num) JOIN party_member b USING(party_num) "
+			+ "WHERE b.mem_num=#{mem_num} ORDER BY party_num DESC)a) "
+			+ "WHERE rnum >= #{start} AND rnum <= #{end}")
+	public List<PartyVO>getListpartyMem_num(
+			Map<String,Object> map);
 
 	
 }

@@ -5,8 +5,9 @@
 <div class="btns">
 <button type="button" id="review">리뷰 목록</button>
 <button type="button" id="fav_review">좋아요 목록</button>
-<button type="button" id="in_party">가입한 파티</button>
+<button type="button" id="in_party">생성한 파티</button>
 <button type="button" id="fav_party">찜한 파티</button>
+<button type="button" id="my_party">가입한 파티</button>
 </div>
 <div class="page-main">
   <table class="striped-table" id="striped-table" style="display: none;">
@@ -54,7 +55,7 @@
    <tr>
    <th>파티 번호</th>
    <th>파티명</th>
-   <th>가입 날짜</th>
+   <th>생성 날짜</th>
    </tr>
       <c:forEach var="party" items="${partyList}">
          <tr>
@@ -85,6 +86,28 @@
          </tr>
       </c:forEach>
    </table>
+   <!-- 가입한 파티 목록 -->
+	<table class="striped-table" id="striped-table5" style="display: none;">
+	<tr>
+	<th>파티번호</th>
+	<th>파티명</th>
+	<th>날짜</th>
+	</tr>
+		<c:forEach var="party" items="${getMyparty}">
+			
+			<tr>
+			<td>${party.party_num}</td>
+			<td>
+				<a href="${pageContext.request.contextPath}/party/detail.do?party_num=${party.party_num}">${party.party_name}</a>
+			</td>
+			<td>${party.party_reg_date}</td>
+			
+			</tr>
+		
+		</c:forEach>
+	</table>
+	
+<!-- 가입한 파티 목록 끝 -->
 </div>
 <!-- 내가 찜한 파티 목록 끝 -->
 <script type="text/javascript">
@@ -96,6 +119,8 @@ const inPartyBtn = document.getElementById("in_party");
 const stripedTable3 = document.getElementById("striped-table3");
 const favPartyBtn = document.getElementById("fav_party");
 const stripedTable4 = document.getElementById("striped-table4");
+const myPartyBtn = document.getElementById("my_party");
+const stripedTable5 = document.getElementById("striped-table5");
 
 reviewBtn.addEventListener("click", function() {
   if (stripedTable.style.display === "none") {
@@ -126,6 +151,13 @@ favPartyBtn.addEventListener("click", function() {
 	    stripedTable4.style.display = "table";
 	  } else {
 	    stripedTable4.style.display = "none";
+	  }
+	});
+myPartyBtn.addEventListener("click", function() {
+	  if (stripedTable5.style.display === "none") {
+	    stripedTable5.style.display = "table";
+	  } else {
+	    stripedTable5.style.display = "none";
 	  }
 	});
 </script>

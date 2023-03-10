@@ -6,6 +6,7 @@ import java.util.Map;
 import kr.spring.member.vo.MemberVO;
 import kr.spring.party.vo.PartyFavVO;
 import kr.spring.party.vo.PartyVO;
+import kr.spring.partymember.vo.PartyMemberVO;
 import kr.spring.review.vo.ReviewVO;
 
 public interface MypageService {
@@ -36,4 +37,8 @@ public interface MypageService {
 		//좋아요 누른 리뷰 가져오기
 		public List<ReviewVO>getListReviewFavMem_num(
 				Map<String,Object>map);
+		
+		public List<PartyVO>getListpartyMem_num(
+				Map<String,Object> map);
+
 }
