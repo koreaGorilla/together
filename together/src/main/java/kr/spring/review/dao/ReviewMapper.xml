@@ -83,4 +83,18 @@
 			where rnum >= #{start} and rnum <= #{end} 
 			]]>
 	</select>
+	<!-- 
+	<select id="selectfavcount2" resultType="reviewVO">
+		SELECT r.r_num,COUNT(f.r_fav_num) AS fav 
+		FROM review_fav f right join review r 
+		on f.r_num=r.r_num GROUP BY r.r_num
+		<if test="data-sortnum==0">
+			order by r.r_num desc
+		</if>
+		<if test="data-sortnum==1">
+			order by fav
+		</if>
+		
+	</select>
+	 -->
 </mapper>

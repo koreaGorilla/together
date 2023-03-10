@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import kr.spring.party.vo.PartyVO;
 import kr.spring.review.dao.ReviewMapper;
 import kr.spring.review.vo.ReviewFavVO;
 import kr.spring.review.vo.ReviewReplyVO;
@@ -86,8 +87,7 @@ public class ReviewServiceImpl implements ReviewService{
 
 	@Override
 	public List<ReviewReplyVO> selectListReply(Map<String, Object> map) {
-		// TODO Auto-generated method stub
-		return null;
+		return reviewMapper.selectListReply(map);
 	}
 
 	@Override
@@ -114,5 +114,15 @@ public class ReviewServiceImpl implements ReviewService{
 	public void deleteReply(Integer c_num) {
 		reviewMapper.deleteReply(c_num);
 	}
+
+	@Override
+	public int partyMemberCount(Integer mem_num) {
+		return reviewMapper.partyMemberCount(mem_num);
+	}
+	
+	//@Override
+	//public List<ReviewVO> selectfavcount2() {
+	//	return reviewMapper.selectfavcount2();
+	//}
 	
 }

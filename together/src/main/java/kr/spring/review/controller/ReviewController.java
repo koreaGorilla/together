@@ -25,6 +25,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import kr.spring.member.vo.MemberVO;
+import kr.spring.party.vo.PartyVO;
 import kr.spring.review.dao.ReviewMapper;
 import kr.spring.review.service.ReviewService;
 import kr.spring.review.vo.ReviewFavVO;
@@ -51,16 +52,31 @@ public class ReviewController {
 	
 	//======게시판 글 목록======//
 	@RequestMapping("/review/list.do")
-	public ModelAndView process(@RequestParam(value="pageNum",defaultValue="1") int currentPage,String keyfield,String keyword) {
+	public ModelAndView process(@RequestParam(value="pageNum",defaultValue="1") int currentPage,String keyfield,String keyword,HttpSession session) {
 		
 		
 		Map<String , Object> map = new HashMap<String, Object>();
 		map.put("keyfield", keyfield);
 		map.put("keyword", keyword);
 		
+		MemberVO user = (MemberVO)session.getAttribute("user");
+		
 		//리뷰의 총 개수 또는 검색된 리뷰 개수 확인
 		int count = reviewService.selectRowCount(map);
 		
+		int partyCount = 0;
+		//접속한 회원이 가입한 파티가 없으면 리뷰작성 버튼 보이지 않게 처리하기 위해 파티 가입 개수 받아옴
+		if(user != null) {
+			partyCount = reviewService.partyMemberCount(user.getMem_num());
+		}else {
+			partyCount = 0;
+		}
+		
+		logger.debug("<<파티 카운트>> : "+partyCount);
+		
+		//내용에 태그를 허용하지 않음
+		//review.setR_content(StringUtil.useNoHtml(review.getR_content()));
+				
 		//List<ReviewVO> favcount = reviewService.selectfavcount2();
 		logger.debug("<<count>> : "+ count);
 		
@@ -73,6 +89,7 @@ public class ReviewController {
 			map.put("end", page.getEndRow());
 			
 			list = reviewService.selectList(map);
+		
 		}
 		
 		ModelAndView mav = new ModelAndView();
@@ -80,6 +97,7 @@ public class ReviewController {
 		mav.addObject("count",count);
 		mav.addObject("list",list);
 		mav.addObject("page",page.getPage());
+		mav.addObject("partyCount",partyCount);
 		//mav.addObject("favcount",favcount);
 		return mav;
 	}
@@ -144,8 +162,9 @@ public class ReviewController {
 		
 		//회원번호 셋팅
 		reviewVO.setMem_num(((MemberVO)session.getAttribute("user")).getMem_num());
+		//reviewVO.setParty_num(party_num);
 		
-		logger.debug("<<로그인한 회원 번호>>"+ reviewVO.getMem_num());
+		logger.debug("<<로그인한 회원 정보>>"+ reviewVO);
 		//리뷰 작성하기
 		reviewService.insertReview(reviewVO);
 		
@@ -153,7 +172,8 @@ public class ReviewController {
 		//브라우저에 데이터를 전송하지만 URL상에 보이지 않는 숨겨진 데이터의 형태로 전달
 		//request에 저장되고 return에서 redirect 사용 가능
 		redirect.addFlashAttribute("result","success");
-				
+		//redirect.addAttribute(party_num);
+		
 		//숨겨진 데이터가 list.do에 보내짐
 		return "redirect:/review/list.do";
 	}
@@ -166,8 +186,6 @@ public class ReviewController {
 		//한 건의 데이터 가져옴
 		ReviewVO review = reviewService.selectReview(r_num);
 		
-		//내용에 태그를 허용하지 않음
-		//review.setR_content(StringUtil.useNoHtml(review.getR_content()));
 		
 		return new ModelAndView("reviewView","review",review);
 	}

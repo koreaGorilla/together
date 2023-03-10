@@ -36,11 +36,11 @@ $(function(){
 					output += '<img src="../mypage/viewProfile.do?mem_num='+item.mem_num+'"width="40" height="40" class="my-photo">';
 					output += '</li>';
 					output += '<li>';
-					output += item.mem_name + '|' ;
+					output += '<span class="reply_mem_name">'+item.mem_name+'</span>'  ;
 					if(item.c_modify_date){
-						output += '<span class="modify-date">최근 수정일 : ' + item.c_modify_date+'</span>';
+						output += '<span class="modify-date">' + item.c_modify_date+' 수정</span>';
 					}else{
-						output += '<span class="modify-date">등록일 : ' + item.c_date + '</span>';
+						output += '<span class="modify-date"> ' + item.c_date + '</span>';
 					}
 					output += '</li>';
 					output += '</ul>';

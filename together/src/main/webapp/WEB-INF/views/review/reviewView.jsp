@@ -20,12 +20,12 @@
 			
 		</li>
 		<li>
-			<span>${review.mem_name}</span><br>
+			<span class="review_mem_name">${review.mem_name}</span><br>
 			<c:if test="${empty review.r_modify_date}">
-				<span>작성일 : ${review.r_date}</span>
+				<span class="review-date">작성일 : ${review.r_date}</span>
 			</c:if>
 			<c:if test="${!empty review.r_modify_date}">
-				<span>최근 수정일 : ${review.r_modify_date}</span>
+				<span class="review-date">최근 수정일 : ${review.r_modify_date}</span>
 			</c:if>
 		</li>
 		
