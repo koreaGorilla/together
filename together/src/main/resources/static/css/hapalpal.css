@@ -867,14 +867,16 @@ input#party_name {
     height: 375px;
 }
 button#vkxltodtjd {
-    width: 68px;
-    height: 28px;
-    font-size: 14px;
-    font-weight: 600;
-    background-color: #03c75a;
-    border-color: #ffffff;
-    border-radius: 2px;
+   width: 66px;
+    height: 23px;
+    font-size: 13px;
+    font-weight: 700;
+    border: none;
+    border-radius: 5px;
     color: white;
+    background-color: #03c75a;
+    cursor: pointer;
+    margin-right: 65px;
 }
 input#upload {
     margin-left: 130px;
@@ -887,6 +889,34 @@ input#upload {
     border-radius: 5px;
     margin-bottom: 25px;
 }
+input[type="button"] {
+    width: 66px;
+    height: 23px;
+    font-size: 13px;
+    font-weight: 700;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    background-color: #03c75a;
+    cursor: pointer;
+    margin-right: 62px;
+    margin-left: -64px;
+}
+input#apply_btn {
+    width: 66px;
+    height: 23px;
+    font-size: 13px;
+    font-weight: 700;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    background-color: #03c75a;
+    cursor: pointer;
+    margin-right: 64px;
+    margin-top: 6px;
+    margin-bottom: 28px;
+    margin-left: -1px;
+}
 .member {
     margin-top: 15px;
     margin-bottom: 14px;
@@ -894,6 +924,20 @@ input#upload {
 }
 p {
     margin-top: 10px;
+}
+input#apply_btn {
+    width: 66px;
+    height: 23px;
+    font-size: 13px;
+    font-weight: 700;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    background-color: #03c75a;
+    cursor: pointer;
+    margin-right: 65px;
+    margin-top: 6px;
+    margin-bottom: 28px;
 }
 /* 장바구니
 ---------------------------*/
