@@ -1210,6 +1210,10 @@ a#ui-active-item{
 	text-align: center;
 }
 
+.find-passwd-logo a:visited, .find-id-logo a:visited{
+	color: #03c75a;
+}
+
 .find-passwd-span, .find-id-span{
 	width: 100%;
     display: block;
