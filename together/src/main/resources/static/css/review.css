@@ -22,31 +22,32 @@
 
 .detail-infooo{
 	float: left;
-    margin: 0px 0px -30px 500px;
+    margin: 0px 0px 0px 6px;
     width: 710px;
-    padding: 30px 0px 30px 0px;
+    padding: 30px 0px 16px 0px;
+   
 }
 
 .detail-infoo{
-	float: left;
-    margin: 0px 0px -30px 0px;
-    width: 150px;
-    height: 75px;
-    padding: 10px 0px 30px 0px;
+    margin: 0px 0px 0px 0px;
+    width: 100%;
+    height: 35px;
+    padding: 10px 0px 0px 0px;
 }
 
 .detail-img{
 	width: 500px;
     height: 340px;
-    padding-top: 30px;
+    padding-top: 25px;
     margin-left: 8px;
-    margin-bottom: 40px;
+    margin-bottom: 8px;
 }
 
 .r_content{
-	padding:20px 0px 20px 20px;
-    border-top: 1px solid darkgray;
+	padding:12px 0px 20px 20px;
+   
     font-size: 20px;
+    clear: both;
 }
 
 #review_icon{
@@ -64,7 +65,7 @@
 
 #re_form{
 	margin-left:-10px;
-	paading:0;
+	padding:0;
 }
 
 #c_content{
@@ -78,14 +79,14 @@
 /*리뷰 부분*/
 .item{
 	width: 650px;
-    border-bottom: 2px solid #ededed;
+    
     margin:30px 0px 10px 30px;
 }
 
 #reggi{
 	margin-top: -53px;
     position: absolute;
-    margin-left: 637px;
+    margin-left: 697px;
     width: 55px;
     height: 28px;
     font-size: 17px;
@@ -101,12 +102,7 @@
 }
 
 
-.sub-item{
-	height: 65px;
-    font-size: 15px;
-    line-height: 26px;
-    padding-top: 20px;
-}
+
 
 span.letter-count{
 	font-size: 12pt;
@@ -210,6 +206,12 @@ ul.search_form{
     margin-left: 10px;
 }
 
+hr {
+    background:#ededed;
+    height:2px;
+    border:0;
+}
+
 /*댓글 js부분*/
 .modify-date{
 	font-size: 11px;
@@ -224,3 +226,31 @@ ul.search_form{
 .review_content:visited { text-decoration:none }
 .review_content:hover   { text-decoration:underline }
 
+.review-subitem{
+	height:100px;
+	
+}
+
+
+
+.review-hr{
+	background:#dedede;
+    height:1px;
+    border:0;
+    margin:12px 0 0 0 ;
+    clear:both;	
+	
+}
+
+.reply-content{
+	float:left;
+	width:80%;
+	padding-bottom: 15px;
+}	
+
+.sub-item{
+	
+    font-size: 15px;
+    line-height: 26px;
+    padding-top:5px;
+}

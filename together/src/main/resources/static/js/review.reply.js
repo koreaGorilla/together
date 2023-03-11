@@ -45,11 +45,14 @@ $(function(){
 					output += '</li>';
 					output += '</ul>';
 					output += '<div class="sub-item">';
-					output += '<p>' + item.c_content.replace(/\r\n/g,'<br>')+'</p>';
+					output += '<p class="reply-content">' + item.c_content.replace(/\r\n/g,'<br>')+'</p>';
+					
 					if(param.user_num==item.mem_num){
 						output += '<input type="button" data-num="'+item.c_num+'" value="수정" class="modify-btnn">';
 						output += '<input type="button" data-num="'+item.c_num+'" value="삭제" class="delete-btnn">';
 					}
+					
+					output += '<hr class="review-hr">';
 					output += '</div>';
 					output += '</div>';
 					
@@ -147,7 +150,7 @@ $(function(){
 	
 	//댓글 수정
 	//댓글 수정 버튼 클릭시 수정폼 노출
-	$(document).on('click','.modify-btn',function(){
+	$(document).on('click','.modify-btnn',function(){
 		//댓글 글번호
 		let c_num = $(this).attr('data-num'); //커스텀 데이터 속성에서 가져오기
 		//댓글 내용 읽어오기
@@ -236,7 +239,7 @@ $(function(){
 	});
 	
 	//댓글 삭제
-	$(document).on('click','.delete-btn',function(){
+	$(document).on('click','.delete-btnn',function(){
 		//댓글 번호
 		let c_num = $(this).attr('data-num');
 		

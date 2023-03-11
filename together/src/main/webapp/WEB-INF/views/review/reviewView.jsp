@@ -30,10 +30,11 @@
 		</li>
 		
 		<li>
-			<div class="align-right">
+			<div class="review-button">
 				<c:if test="${!empty user && user.mem_num==review.mem_num}">
 				<input type="button" value="수정" onclick="location.href='update.do?r_num=${review.r_num}'">
 				<input type="button" value="삭제" id="delete_btn">
+				
 				
 				<script type="text/javascript">
 					let delete_btn = document.getElementById('delete_btn');
@@ -45,11 +46,14 @@
 					}
 				</script>
 				</c:if>
+				<input type="button" value="목록" id="list" onclick="location.href='list.do'">
 				
 				
 			</div>
 		</li>
 	</ul>
+	<br>
+	<hr size="1" width="100%">
 	<div class="align-center">
 		<c:if test="${!empty review.r_photoname}">
 			<img src="imageView.do?r_num=${review.r_num}&review_type=2" class="detail-img">
@@ -81,7 +85,7 @@
 			</div>
 			<div id="reply_second">
 				<input type="submit" value="등록" id="reggi">
-				<input type="button" value="목록" id="llist" onclick="location.href='list.do'">
+				
 			</div>
 			</c:if>
 		</form>
