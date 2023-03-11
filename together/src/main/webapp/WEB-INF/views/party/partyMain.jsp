@@ -16,7 +16,7 @@
 	</div>
 	<form id="partyView">
 		<div class="party-info">
-			<ul class="info">
+			<ul class="info1">
 				<li class="party-top">
 					<c:if test="${empty party.photo_name}">
 					<img src="${pageContext.request.contextPath}/images/face.png" width="40" height="40" class="my-photo">
