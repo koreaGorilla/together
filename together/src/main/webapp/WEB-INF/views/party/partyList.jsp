@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>  
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/party.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/hapalpalpal.css">
 <script type="text/javascript">
 let result = '${result}';
 	if(!location.hash && result == 'success'){
@@ -20,7 +20,7 @@ let result = '${result}';
 	});
 	</script>
 <div class="page-main">
-	<h2>파티목록  
+	<h2 id="vkxlahrfhr">파티목록  
 	<c:if test="${!empty param.party_hobby  and (param.party_hobby>=1 and param.party_hobby<=4)}">
 		>
 		<c:if test="${param.party_hobby == 1}"> 운동</c:if>
@@ -52,7 +52,7 @@ let result = '${result}';
 	</c:if>
 	<c:if test="${!empty user}">
 	<div class="align-right">
-		<input type="button" value="파티 생성" 
+		<input id="vkxltodtjd" type="button" value="파티 생성" 
 		    onclick="location.href='write.do'">
 	</div>
 	</c:if>
