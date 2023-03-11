@@ -939,6 +939,19 @@ input#apply_btn {
     margin-top: 6px;
     margin-bottom: 28px;
 }
+input#vkxldlqwkd1 {
+    width: 66px;
+    height: 23px;
+    font-size: 13px;
+    font-weight: 700;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    background-color: #03c75a;
+    cursor: pointer;
+    margin-right: 62px;
+    margin-left: -1px;
+}
 /* 장바구니
 ---------------------------*/
 

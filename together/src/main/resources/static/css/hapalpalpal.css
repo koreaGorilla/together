@@ -916,7 +916,6 @@ input#keyword {
     margin-left: 0px;
 }
 input[type="button"] {
-	margin-top: -4px;
 }
 input#vkxltodtjd {
     width: 66px;
@@ -929,6 +928,21 @@ input#vkxltodtjd {
     background-color: #03c75a;
     cursor: pointer;
     margin-right: 65px;
+     margin-left: 1px;
+     margin-top:-4px;
+}
+input#vkxldlqwkd1 {
+    width: 66px;
+    height: 23px;
+    font-size: 13px;
+    font-weight: 700;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    background-color: #03c75a;
+    cursor: pointer;
+    margin-right: 62px;
+    margin-left: 1px;
 }
 /* 장바구니
 ---------------------------*/
