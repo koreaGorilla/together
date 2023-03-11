@@ -79,9 +79,7 @@
             
          </tr>
             
-         <tr >
-            <th class="party_name" colspan="2">${review.party_name }</th>
-         </tr>
+         
          
          <tr class="review_content">
          <c:choose>
@@ -105,7 +103,9 @@
             </td>
             
          </tr> --%>
-         
+         <tr>
+            <th class="party_name" colspan="2">${review.party_name }</th>
+         </tr>
       </table>
       <hr size="1" width="100%">
       </c:forEach>
