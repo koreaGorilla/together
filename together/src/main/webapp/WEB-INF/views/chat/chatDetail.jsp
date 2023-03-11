@@ -3,12 +3,13 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <!-- 채팅하기 시작 -->
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/message.js"></script>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/hyem.css">
 <div id="chatDetail" class="page-main">
-<div class="chat-header">
-	<h3>${partyVO.party_name} 채팅방		
-		<a href="${pageContext.request.contextPath}/chat/chatList.do">
-			<img src="${pageContext.request.contextPath}/images/menu.png" >
-		</a> </h3>
+<div class="chat-title">
+	<h3>${partyVO.party_name}</h3>
+	<a href="${pageContext.request.contextPath}/chat/chatList.do">
+		<img src="${pageContext.request.contextPath}/images/menu.png" >
+	</a>
 </div>
 	<div id="chat-messages"></div>
 	<form method="post" id="detail_form">
@@ -23,7 +24,7 @@
 			<div class="message-input">
 				<textarea rows="5" cols="40"
 				  name="message" id="message"></textarea>
-				<input type="submit" value="전송">  
+				<input type="submit" value="전송" id="chat_btn">  
 			</div>
 			</li>
 		</ul>                 

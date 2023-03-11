@@ -8,7 +8,7 @@
 	<definition name="calendar" template="/WEB-INF/views/template/layout_calendar.jsp">
 		<put-attribute name="title" value="Calendar"/>
 		<put-attribute name="header" value="/WEB-INF/views/template/header.jsp"/>
-		<put-attribute name="nav" value="/WEB-INF/views/template/calendar_nav.jsp"/>
+		<put-attribute name="nav" value="/WEB-INF/views/template/party_nav.jsp"/>
 		<put-attribute name="body" value="/WEB-INF/views/calendar/calendar.jsp"/>
 		<put-attribute name="footer" value="/WEB-INF/views/template/footer.jsp"/>
 	</definition>

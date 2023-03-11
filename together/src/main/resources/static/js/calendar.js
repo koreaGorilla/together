@@ -42,7 +42,8 @@ $(function(){
 			},
 			dateClick: function(info){
 				location.href='calendarWrite2.do?party_num=' + $('#party_num').val() + '&start_date=' + info.dateStr;
-			}
+			},
+			ihandleWindowResize : true
 		});
 		calendar.render();
 	});

@@ -3,20 +3,16 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!-- 채팅목록 시작 -->
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/hyem.css">
 <div class="page-main">
-	<h2>채팅목록</h2>
+	<div class="chat-list">
+		<h3>채팅방 목록</h3>
+	</div>
 	<c:if test="${empty list}">
 	<div class="result-display">표시할 채팅방이 없습니다.</div>
 	</c:if>
 	<c:if test="${!empty list}">
 	<table class="chat-table">
-	<thead>
-		<tr>
-			<th scope="cols" style="text-align:left">파티 사진</th>
-			<th scope="cols" style="text-align:left">파티 이름</th>
-			<th scope="cols" style="text-align:right">파티 생성일자</th>
-		</tr>
-	</thead>
 	<tbody>
 		<c:forEach var="chat" items="${list}">
 		<tr>
@@ -34,12 +30,12 @@
 					</c:if>
 			</div>
 				</th>
-			<th scope="row" style="text-align:left">
+			<th scope="row" style="text-align:left" class="chat-name">
 				<a href="chatDetail.do?party_num=${chat.party_num}"><br>
 					<span>${chat.party_name}</span>
 				</a>
 			</th>
-			<th scope="row" style="text-align:right">
+			<th scope="row" style="text-align:center" class="chat-reg-date">
 				<span>${chat.party_reg_date}</span>
 			</th>
 		</tr>

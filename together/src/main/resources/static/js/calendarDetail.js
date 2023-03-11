@@ -8,7 +8,7 @@ $(function(){
 	        lat = result[0].x;
 			lng = result[0].y;
 			
-			var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+			var mapContainer = document.getElementById('detail_map'), // 지도를 표시할 div 
 			    mapOption = { 
 			        center: new kakao.maps.LatLng(lng, lat), // 지도의 중심좌표
 			        level: 3 // 지도의 확대 레벨

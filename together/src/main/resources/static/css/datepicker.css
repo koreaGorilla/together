@@ -1048,9 +1048,30 @@ a.ui-corner-all{
 }
 
 button.ui-datepicker-trigger {
-	border:none;
-	background: #4c5762 url("../image_bundle/calendar.png") no-repeat;
+	border-top: 1px solid #303740;
+	border-bottom: 1px solid #303740;
+	border-right: 1px solid #303740;
+	background: #19ce60 url("../image_bundle/calendar.png") no-repeat;
 	width: 30px;
-	height: 30px;
+	height: 38px;
 	text-indent: -9999px;
+	cursor: pointer;
+}
+
+.ui-datepicker .ui-datepicker-next{
+	cursor: pointer;
+}
+
+.ui-datepicker .ui-datepicker-next:hover {
+    right: 2px;
+    background-color: #fff;
+}
+
+.ui-datepicker .ui-datepicker-prev{
+	cursor: pointer;
+}
+
+.ui-datepicker .ui-datepicker-prev:hover{
+    right: 2px;
+    background-color: #fff;
 }

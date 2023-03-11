@@ -167,7 +167,7 @@ div#main_menu ul li{
 
 /* 공통 등록, 수정 폼
 ---------------------------*/
-form{
+/* form{
 	width:800px;
 	margin:0 auto;
 	border:1px solid #000;
@@ -179,14 +179,14 @@ form ul li{
 form ul li label{
 	width:130px;
 	float:left;
-}
+} */
 ul{
 	list-style:none;
 }
 input{
 	margin-top:4px;
 }
-input[type="text"],.page-main input[type="password"],.page-main input[type="email"]{
+/* input[type="text"], */.page-main input[type="password"],.page-main input[type="email"]{
 	width:350px;
 }
 #register_form input[id="id"]{

@@ -53,10 +53,9 @@ public class CalendarController {
 	
 	//===========달력===========//
 	@GetMapping("/calendar.do")
-	public String calendar(HttpServletRequest request, Model model, HttpSession session) {
-		int party_num = Integer.parseInt(request.getParameter("party_num"));
-		
+	public String calendar(@RequestParam int party_num, Model model, HttpSession session) {
 		model.addAttribute("party_num", party_num);
+		
 		//유저 받기
 		MemberVO user = (MemberVO)session.getAttribute("user");
 		
@@ -78,12 +77,7 @@ public class CalendarController {
         Map<String, Object> map = new HashMap<>();
 		
 		List<CalendarVO> list = calendarService.selectCalendarList(party_num);
-		
-        
-        MemberVO user = (MemberVO)session.getAttribute("user");
 
-		
-		
 		for (CalendarVO calendarVO : list) {
 			String start = calendarVO.getStart_date() + " " + calendarVO.getStart_time();
 			String end = calendarVO.getEnd_date() + " " + calendarVO.getEnd_time();
@@ -106,17 +100,14 @@ public class CalendarController {
 	
 	//===========등록===========//
 	@GetMapping("/calendarWrite.do")
-	public String write(HttpServletRequest request, Model model, HttpSession session) {
-		int party_num = Integer.parseInt(request.getParameter("party_num"));
-		
+	public String write(@RequestParam int party_num, Model model, HttpSession session) {
 		//유저 받기
 		MemberVO user = (MemberVO)session.getAttribute("user");
 		
 		//파티 멤버 권한 검사
         PartyMemberVO nowPartyUser = partyService.selectUser(party_num, user.getMem_num());
+        
         model.addAttribute("nowMem", nowPartyUser);
-		
-		
 		model.addAttribute("party_num", party_num);
 		
 		return "calendarWrite";
@@ -124,16 +115,13 @@ public class CalendarController {
 	
 	@GetMapping("/calendarWrite2.do")
 	public String write(@RequestParam String start_date, @RequestParam int party_num, Model model, HttpSession session) {
-		//int party_num = Integer.parseInt(request.getParameter("party_num"));
-		
 		//유저 받기
 		MemberVO user = (MemberVO)session.getAttribute("user");
 		
 		//파티 멤버 권한 검사
         PartyMemberVO nowPartyUser = partyService.selectUser(party_num, user.getMem_num());
+        
         model.addAttribute("nowMem", nowPartyUser);
-		
-		
 		model.addAttribute("party_num", party_num);
 		model.addAttribute("start_date", start_date);
 		
@@ -148,8 +136,7 @@ public class CalendarController {
 		if(result.hasErrors()) {
 			return "calendar";
 		}
-		
-		
+			
 		calendarVO.setMem_num(((MemberVO)session.getAttribute("user")).getMem_num());
 		calendarVO.setParty_num(calendarVO.getParty_num());
 		
@@ -258,14 +245,14 @@ public class CalendarController {
 	
 	//===========삭제===========//
 	@RequestMapping("/calendarDelete.do")
-	public String delete(@RequestParam int calendar_num, Model model, HttpServletRequest request) {
+	public String delete(@RequestParam int calendar_num, @RequestParam int party_num, Model model, HttpServletRequest request) {
 		logger.debug("<<삭제>> : " + calendar_num);
 		
 		calendarService.deleteCalendar(calendar_num);
 		
 		//View에 표시할 메시지
 		model.addAttribute("message", "삭제 완료");
-		model.addAttribute("url", request.getContextPath() + "/calendar/calendar.do");
+		model.addAttribute("url", request.getContextPath() + "/calendar/calendar.do?party_num=" + party_num);
 		
 		return "common/resultView";
 	}

@@ -225,6 +225,11 @@
     flex: 2;
 }
 
+#party_body{
+	width: 864px;
+	float: left;
+}
+
 /* 이미지 슬라이드 */
 #main_body{
 	width: 1024px;
@@ -521,6 +526,105 @@
     cursor: pointer;
 }
 
+/* party nav */
+#party_nav{
+	float: left;
+	min-height: 700px;
+}
+
+.party-side-height{
+	width: 1024px;
+	margin: 0 auto;
+	overflow: hidden;
+	margin-bottom: 10px;
+}
+
+.party-nav{
+	background-color: #19ce60;
+	width: 160px;
+	margin-bottom: -9999px;
+	padding-bottom: 9999px;
+}
+
+.party-menu{
+	list-style: none;
+}
+
+.party-menu a{
+	display: flex;
+	width: 100%;
+	align-items: center;
+	justify-content: center;
+}
+
+.party-menu p{
+	flex: 2;
+	overflow: hidden;
+    white-space: nowrap;
+    text-align: center;
+    font-weight: bold;
+    color: #fff;
+}
+
+.party-icon{
+	display: inline-block;
+	flex: 1;
+}
+
+.party-menu li > ul{
+	height: 50px;
+}
+
+.party-menu-hover{
+	background: #303740;
+    position: relative;
+    left: 55px;
+    top: -42px;
+    border-radius: 10px;
+    width: 100px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    color: #fff;
+    font-weight: bold;
+    display: none;
+}
+
+.party-menu-hover:after{
+	border-top: 5px solid transparent;
+    border-left: 0px solid transparent;
+    border-right: 10px solid #303740;
+    border-bottom: 5px solid transparent;
+    content: "";
+    position: absolute;
+    top: 9px;
+    left: -10px;
+}
+
+.party-menu li > ul:hover > .party-menu-hover{
+	display: block;
+}
+
+.party-menu-hover a{
+	color: #fff;
+}
+
+.party-menu-hover a:visited{
+	color: #fff;
+}
+
+.party-menu-hover a:hover{
+	color: #19ce60;
+	text-decoration: none;
+}
+
+/* calendar main */
+.calendar-main{
+	width: 90%;
+	margin: 0 auto;
+	padding: 10px;
+}
+
 .fc a{
 	color: #000;
 }
@@ -543,43 +647,551 @@
 	background: #f5f5f5;
 }
 
-h5{
+.fc .fc-button-primary{
+	background-color: #19ce60;
+    border-color: #19ce60;
+    color: #fff;
+    font-weight: bold;
+}
+
+.fc .fc-button-primary:hover{
+	background-color: #fff;
+    border-color: #19ce60;
+    color: #19ce60;
+    font-weight: bold;
+}
+
+.fc .fc-button-primary:disabled{
+	background-color: #fff;
+    border-color: #19ce60;
+    color: #19ce60;
+    font-weight: bold;	
+}
+
+.fc .fc-button-primary:not(:disabled).fc-button-active, .fc .fc-button-primary:not(:disabled):active{
+	background-color: #fff;
+    border-color: #19ce60;
+    color: #19ce60;
+    font-weight: bold;	
+}
+
+:root{
+	--fc-border-color: rgba(48, 55, 64, 0.5);
+}
+
+/* calendar detail */
+#calendarWrite, #calendarDetail, #calendarModify{
+	width: 90%;
+	margin: 0 auto;
+}
+
+#detail_content, #calendarWrite, #calendarModify{
+	display: flex;
+	border: 1px solid #303740;
+	margin-top: 10px;
+	margin-bottom: 20px;
+}
+
+#detail_content ul, #calendarWrite form, #calendarModify form{
+	flex: 1;
+	padding: 15px 20px;
+	text-align: center;
+}
+
+#detail_content ul li:first-child{
+	font-size: 20pt;
+	font-weight: bold;
+	text-align: center;
+	padding-bottom: 20px;
+	margin-bottom: 20px;
+	border-bottom: 1px solid #303740;
+}
+
+#detail_content ul li:nth-child(2){
+	height: 120px;
+	padding: 0 15px;
+	text-align: left;
+	margin-bottom: 20px;
+	word-break: break-all;
+}
+
+#detail_content ul li:nth-child(3), #detail_content ul li:nth-child(4){
+	padding: 0 15px;
+	text-align: left;
+	margin-bottom: 5px;
+}
+
+#detail_map, #write_map, #modify_map{
+	flex: 1;
+	border-left: 1px solid #303740;
+}
+
+.participation-member{
+	position: relative;
+    height: 65px;
+    background-color: rgba(48, 55, 64, 0.2);
+    z-index: 2;
+    bottom: -285px;
+    padding: 0px 15px;
+}
+
+.participation-member img{
+	margin-top: 12px;
+	border: 1px solid #303740;
+	background-color: #fff;
+}
+
+.participation-list{
+	width: 25px;
+	display: inline-block;
+}
+
+#find{
+	padding: 3px 10px;
+    border: 1px solid #303740;
+    border-radius: 2px;
+    color: #303740;
+    background-color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+#find:hover{
+	background-color: #303740;
+	color: #fff;
+	transition: 0.2s ease-out;
+}
+
+.detail-btn{
+	position: relative;
+    transform: translate(-50%, -50%);
+    top: 10%;
+    left: 50%;
+}
+
+#detail_modify, #participation_btn, #notparticipation_btn, #write_btn, #modify_btn{
+	padding: 5px 20px;
+    border: 1px solid #19ce60;
+    border-radius: 2px;
+    color: #fff;
+    background-color: #19ce60;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#detail_modify:hover, #participation_btn:hover, #notparticipation_btn:hover, #write_btn:hover, #modify_btn:hover{
+	background-color: #fff;
+	color: #19ce60;
+	transition: 0.2s ease-out;
+}
+
+#detail_delete, #cancel_btn{
+	padding: 5px 20px;
+    border: 1px solid #19ce60;
+    border-radius: 2px;
+    color: #19ce60;
+    background-color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#detail_delete:hover, #cancel_btn:hover{
+	background-color: #19ce60;
+	color: #fff;
+	transition: 0.2s ease-out;
+}
+
+/* calendarWrite */
+#addSchedule_form li, #calendarModify_form li{
+	width: 100%;
+	margin: 10px 0px;
+}
+
+#addSchedule_form ul li:nth-child(3), #calendarModify_form ul li:nth-child(3){
+	margin-top: -15px;
+}
+
+#addSchedule_form ul li:last-child, #calendarModify_form ul li:last-child{
+	margin-top: 25px;
+}
+
+#addSchedule_form li label, #calendarModify_form li label{
+	display: inline-block;
+	width: 15%;
+	height: 30px;
+	text-align: left;
+}
+
+.addSchedule_form_input, .calendarModify_form_input{
+	width: 70%;
+    border: 1px solid #303740;
+    padding: 10px;
+}
+
+#addSchedule_form li textarea, #calendarModify_form li textarea{
+	width: 70%;
+	height: 80px;
+	border: 1px solid #303740;
+    padding: 10px;
+    resize: none;
+}
+
+#addSchedule_form li input:focus, #addSchedule_form li textarea:focus,
+#calendarModify_form li input:focus, #calendarModify_form li textarea:focus{
+	outline: none;
+}
+
+#write_content, #modify_content{
+	position: relative;
+	bottom: 43px;
+}
+
+#start_date, #end_date{
+	width: 22%;
+	border: 1px solid #303740;
+    padding: 10px;
+}
+
+#start_time, #end_time{
+	width: 30%;
+	border: 1px solid #303740;
+    padding: 10px;
+}
+
+.write-color, .modify-color{
+	display: inline-block;
+	width: 30px;
+	height: 30px;
+	margin-top: -9px;
+    border-radius: 100%;
+}
+
+#addSchedule_form input[type="radio"], #calendarModify_form input[type="radio"]{
+	margin: 0 10px;
+	vertical-align: top;
+    padding-top: 15px;
+}
+
+.write-btn, .modify-btn{
+	position: relative;
+    transform: translate(-50%, -50%);
+    top: 2%;
+    left: 50%;	
+}
+
+.search-area{
+	width: 100%;
+	height: 50px;
+	position: relative;
+	background-color: #fff;
+	z-index: 2;
+	padding: 5px 0;
+	border-bottom: 1px solid #303740;
+}
+
+#keyword{
+	width: 70%;
+    border: 1px solid #303740;
+    padding: 10px;
+    margin-left: 20px;
+    margin-top: 6px;
+}
+
+#keyword:focus{
+	outline: none;
+}
+
+#search_btn{
+	padding: 10px 12px;
+	background-color: #19ce60;
+	border: 0;
+	border-top: 1px solid #303740;
+	border-bottom: 1px solid #303740;
+	border-right: 1px solid #303740;
+	color: #fff;
+	font-weight: bold;
 	cursor: pointer;
 }
 
-h5:hover{
-	text-decoration: underline;
-	font-weight: bold;
+#menu-wrap{
+    background-color: #fff;
+    overflow-y:auto;
+    padding-bottom: 10px;
+    max-height: 176px;
+    border-bottom: 1px solid #303740;
+    display: none;
 }
 
-div#page_content{
-	width:75%;
-	float:left;
+#placesList{
+	padding: 10px 28px;
+	display: none;
 }
 
-#add_schedule{
-	width: 75%;
+#placesList li{
+	list-style: none;
 }
 
-#calendarWrite, #calendarDetail, #calendarModify{
-	width: 100%;
-	margin-left: 250px;
+#placesList .item {
+	position: relative;
+	border-bottom: 1px solid #303740;
+	overflow: hidden;
+	cursor: pointer;
+}
+
+#placesList .item span{
+	display: block;
+	margin-top:4px;
+}
+
+#placesList .item h5, #placesList .item .info{
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+#placesList .item .info{
+	padding: 10px 0 10px 55px;
+}
+
+.info:hover{
+	background-color: #19ce60;
+	color: #fff;
+	border-radius: 10px;
+}
+
+#placesList .item{
+	position: relative;
+	border-bottom: 1px solid #303740;
+	overflow: hidden;
+	cursor: pointer;
+}
+
+#placesList .item .markerbg{
+	float: left;
+	position: absolute;
+	width: 36px; 
+	height: 46px;
+	margin: 10px 0 0 10px;
+	background: url(https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/marker_number_blue.png) no-repeat;
+}
+
+#placesList .item .marker_1 {background-position: 0 -10px;}
+#placesList .item .marker_2 {background-position: 0 -56px;}
+#placesList .item .marker_3 {background-position: 0 -102px}
+#placesList .item .marker_4 {background-position: 0 -148px;}
+#placesList .item .marker_5 {background-position: 0 -194px;}
+#placesList .item .marker_6 {background-position: 0 -240px;}
+#placesList .item .marker_7 {background-position: 0 -286px;}
+#placesList .item .marker_8 {background-position: 0 -332px;}
+#placesList .item .marker_9 {background-position: 0 -378px;}
+#placesList .item .marker_10 {background-position: 0 -423px;}
+#placesList .item .marker_11 {background-position: 0 -470px;}
+#placesList .item .marker_12 {background-position: 0 -516px;}
+#placesList .item .marker_13 {background-position: 0 -562px;}
+#placesList .item .marker_14 {background-position: 0 -608px;}
+#placesList .item .marker_15 {background-position: 0 -654px;}
+
+#pagination{
+	margin: 10px auto;
+	text-align: center;
+}
+
+#pagination a{
+	display: inline-block;
+	margin-right: 10px;
+}
+
+#pagination a:hover{
+	text-decoration: none;
+}
+
+#pagination .on{
+	font-weight: bold; 
+	cursor: default;
+	color: #777;
+}
+
+.ui-timepicker-standard {
+    background-color: rgba(255, 255, 255, 0);
+    border: 0;
+}
+
+.ui-widget-content.ui-menu.ui-corner-all {
+    border: 1px solid #303740;
+    border-radius: 0;
+    box-shadow: none;
 }
 
 a.ui-corner-all{
 	border-radius: 0%;
+	width: 50%;
+}
+
+.ui-timepicker-viewport {
+	width: 200px;
+    overflow: auto;
+    overflow-x: hidden;
 }
 
 a.ui-corner-all:hover{
 	border-radius: 0%;
-	background: #ccc;
-	border: 1px solid #000;
-	color: #000;
+	background: #19ce60;
+	color: #fff;
+	border: 0;
+	font-weight: bold;
 }
 
 a#ui-active-item{
 	border-radius: 0%;
-	background: #ccc;
-	border: 1px solid #000;
-	color: #000;
+	background: #19ce60;
+	color: #fff;
+}
+
+/* chat */
+.chat-title{
+	display: flex;
+	background-color: #19ce60;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+    align-items: center;
+}
+
+.chat-title h3{
+	flex: 10;
+	color: #fff;
+	font-weight: bold;
+}
+
+.chat-title a{
+	flex: 1;
+}
+
+.chat-date{
+	text-align: center;
+	margin-top: 15px;
+}
+
+.chat-date span{
+	display: inline-block;
+    width: 250px;
+    line-height: 20px;
+    border-radius: 10px;
+    background-color: #f2efef;
+}
+
+#chat_photo{
+	border-radius: 100%;
+}
+
+.user-name{
+	font-weight: bold;
+    color: #303740;
+    margin-left: 7px;
+    margin-top: -25px;
+}
+
+.chat-message-left .message-content{
+	margin-top: -20px;
+	margin-right: 10px;
+}
+
+.chat-mesage-left .item{
+    padding-left: 47px;
+    display: flex;
+}
+
+.message-time-left{
+    margin-top: -14px;
+}
+
+.message-time-right{
+	float: right;
+	margin-right: 10px;
+	margin-top: 5px;
+}
+
+.timestamp-left{
+    font-size: 8pt;
+    margin-left: 10px;
+    color: #ccc;
+}
+
+.timestamp-right{
+	font-size: 8pt;
+	float: right;
+	color: #ccc;
+}
+
+.read_count-left{
+	color: #19ce60;
+}
+
+.read_count-right{
+	color: #19ce60;
+	text-align: right;
+}
+
+#chat_btn{
+	padding: 5px 20px;
+    border: 1px solid #19ce60;
+    border-radius: 2px;
+    color: #fff;
+    background-color: #19ce60;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#chat_btn:hover{
+	background-color: #fff;
+	color: #19ce60;
+	transition: 0.2s ease-out;
+}
+
+/* chat list */
+.chat-list{
+	background-color: #19ce60;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+    align-items: center;
+}
+
+.chat-list h3{
+	color: #fff;
+}
+
+.chat-table{
+	margin-top: 55px;
+}
+
+.party-img{
+	width: 80px;
+	height: 80px;
+	overflow: hidden;
+	text-align: center;
+	display: flex;
+	justify-content: center;
+	border-radius: 100%;
+	margin-left: 15px;
+}
+
+.chat-name{
+	line-height: 0px;
+	overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.chat-reg-date{
+	margin-right: 15px;
 }

@@ -83,7 +83,7 @@ $(function(){
 	var ps = new kakao.maps.services.Places();
 	var geocoder = new kakao.maps.services.Geocoder();
 	
-	var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+	var mapContainer = document.getElementById('write_map'), // 지도를 표시할 div 
 	    mapOption = { 
 			center: new kakao.maps.LatLng(37.566826, 126.9786567), // 지도의 중심좌표
 			level: 3 // 지도의 확대 레벨
@@ -140,6 +140,8 @@ $(function(){
 			return false;
 		}
 		ps.keywordSearch(keyword, placesSearchCB);
+		$('#placesList').css('display', 'block');
+		$('#menu-wrap').css('display', 'block');
 	});
 	
 	// 장소검색이 완료됐을 때 호출되는 콜백함수 입니다
@@ -232,8 +234,7 @@ $(function(){
 	                '   <h5>' + places.place_name + '</h5>';
 	
 	    if (places.road_address_name) {
-	        itemStr += '    <span>' + places.road_address_name + '</span>' +
-	                    '   <span class="jibun gray">' +  places.address_name  + '</span>';
+	        itemStr += '    <span>' + places.road_address_name + '</span>';
 	    } else {
 	        itemStr += '    <span>' +  places.address_name  + '</span>'; 
 	    }
@@ -241,10 +242,8 @@ $(function(){
 		el.onclick = function(){
 	    	$('#location').val('');
 	    	$('#location').val(places.road_address_name);
-	    }
-
-		itemStr += '  <span class="tel">' + places.phone  + '</span>' +
-	                '</div>';           
+			$('#menu-wrap').css('display', 'none');
+	    }    
 	
 	    el.innerHTML = itemStr;
 	    el.className = 'item';
