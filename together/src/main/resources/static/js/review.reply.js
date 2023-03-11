@@ -31,7 +31,7 @@ $(function(){
 				//댓글 목록 작업
 				$(param.list).each(function(index,item){
 					let output = '<div class="item">';
-					output += '<ul class="detail-info">';
+					output += '<ul class="detail-infoo" id="detail-infoo">';
 					output += '<li>';
 					output += '<img src="../mypage/viewProfile.do?mem_num='+item.mem_num+'"width="40" height="40" class="my-photo">';
 					output += '</li>';
@@ -47,10 +47,9 @@ $(function(){
 					output += '<div class="sub-item">';
 					output += '<p>' + item.c_content.replace(/\r\n/g,'<br>')+'</p>';
 					if(param.user_num==item.mem_num){
-						output += '<input type="button" data-num="'+item.c_num+'" value="수정" class="modify-btn">';
-						output += '<input type="button" data-num="'+item.c_num+'" value="삭제" class="delete-btn">';
+						output += '<input type="button" data-num="'+item.c_num+'" value="수정" class="modify-btnn">';
+						output += '<input type="button" data-num="'+item.c_num+'" value="삭제" class="delete-btnn">';
 					}
-					output += '<hr size="1" noshade>'
 					output += '</div>';
 					output += '</div>';
 					

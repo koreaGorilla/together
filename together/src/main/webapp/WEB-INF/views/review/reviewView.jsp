@@ -9,13 +9,13 @@
 <div class="page-main">
 	<h2>${review.party_name}</h2>
 	
-	<ul class="detail-info">
+	<ul class="detail-infooo" id="detail-infooo">
 		<li>
 			<c:if test="${!empty review.photo_name}">
-			<img src="imageView.do?r_num=${review.r_num}&review_type=1" width="40" height="40" class="my-photo">
+			<img src="imageView.do?r_num=${review.r_num}&review_type=1" class="my-photoo">
 			</c:if>
 			<c:if test="${empty review.photo_name}">
-			<img src="${pageContext.request.contextPath}/images/face.png" width="40" height="40" class="my-photo">
+			<img src="${pageContext.request.contextPath}/images/face.png" class="my-photoo">
 			</c:if>
 			
 		</li>
@@ -46,13 +46,13 @@
 				</script>
 				</c:if>
 				
-				<input type="button" value="목록" onclick="location.href='list.do'">
+				
 			</div>
 		</li>
 	</ul>
 	<div class="align-center">
 		<c:if test="${!empty review.r_photoname}">
-			<img src="imageView.do?r_num=${review.r_num}&review_type=2" width="500" height="300" class="detail-img">
+			<img src="imageView.do?r_num=${review.r_num}&review_type=2" class="detail-img">
 		</c:if>
 	</div>
 	<div class="r_content">
@@ -80,7 +80,8 @@
 				<span class="letter-count">100/100</span>
 			</div>
 			<div id="reply_second">
-				<input type="submit" value="등록">
+				<input type="submit" value="등록" id="reggi">
+				<input type="button" value="목록" id="llist" onclick="location.href='list.do'">
 			</div>
 			</c:if>
 		</form>
