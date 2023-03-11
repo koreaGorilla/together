@@ -20,15 +20,15 @@
 		<section class="find-signup-wrap">
 			<div id="find-signup-wrap-ko">
 				<span class="find-id">
-					<a href="${pageContext.request.contextPath}/member/login.do" title="findId">로그인</a>
+					<a href="${pageContext.request.contextPath}/member/login.do">로그인</a>
 				</span>
 				
 				<span class="find-pw">
-					<a href="${pageContext.request.contextPath}/find/checkCell.do" title="findPw">비밀번호 찾기</a>
+					<a href="${pageContext.request.contextPath}/find/checkCell.do">비밀번호 찾기</a>
 				</span>
 				
 				<span class="sign-up">
-					<a href="${pageContext.request.contextPath}/member/registerUser.do" title="register">회원가입</a>
+					<a href="${pageContext.request.contextPath}/member/registerUser.do">회원가입</a>
 				</span>
 			</div>
 		</section>
