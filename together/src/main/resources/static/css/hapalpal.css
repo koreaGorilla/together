@@ -952,6 +952,41 @@ input#vkxldlqwkd1 {
     margin-right: 62px;
     margin-left: -1px;
 }
+input#detail-enterparty {
+    width: 66px;
+    height: 23px;
+    font-size: 13px;
+    font-weight: 700;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    background-color: #03c75a;
+    cursor: pointer;
+    margin-right: 62px;
+    margin-left: -1px;
+}
+div#partymain {
+    margin: 0 auto;
+    padding: 35px;
+    max-width: 915px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px rgb(0 0 0 / 30%);
+    margin-top: 1px;
+}
+input#vkxldlqwkd1 {
+    width: 66px;
+    height: 23px;
+    font-size: 13px;
+    font-weight: 700;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    background-color: #03c75a;
+    cursor: pointer;
+    margin-right: 62px;
+    margin-left: -1px;
+}
 /* 장바구니
 ---------------------------*/
 

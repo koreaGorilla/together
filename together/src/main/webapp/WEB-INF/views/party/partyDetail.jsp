@@ -117,7 +117,7 @@
          </c:if>
          <c:if test="${count==1}">
             <c:if test="${nowMem.party_auth==0 or nowMem.party_auth==9}">
-               <input type="button" value="파티 입장" onclick="location.href='partyMain.do?party_num=${party.party_num}'">
+               <input id="detail-enterparty"type="button" value="파티 입장" onclick="location.href='partyMain.do?party_num=${party.party_num}'">
             </c:if>
             <c:if test="${nowMem.party_auth==1}">
                가입 대기중입니다!

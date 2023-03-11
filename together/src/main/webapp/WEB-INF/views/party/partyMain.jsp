@@ -2,10 +2,10 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/partyDetail.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/hapalpal.css">
 <script src="${pageContext.request.contextPath}/js/party.fav.js"></script>
 
-<div class="page-main">
+<div id="partymain" class="page-main">
 	<div class="party-image">
 		<c:if test="${empty party.party_photo_name }">
 		<img src="${pageContext.request.contextPath}/images/togetherLogo.jpg" width="100%" height="200" class="party-photo">
