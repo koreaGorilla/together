@@ -40,23 +40,23 @@
 					<span>함께 소통하며 활동하고 있어요</span>
 					<div class="member">
 						<c:forEach var="member" items="${list}">
-						<c:if test="${member.party_auth == 0}">
-							<c:if test="${empty member.photo_name}">
-								<div class="member-info">
-									<img src="${pageContext.request.contextPath}/images/face.png" width="40" height="40" class="my-photo">
-									<br>
-									<span>${member.mem_name}</span>
-								</div>
-							</c:if>
-							<c:if test="${!empty member.photo_name}">
-								<div class="member-info">
-									<img src="imageView.do?party_num=${party.party_num}&party_type=1" width="40" height="40" class="my-photo">
-									<br>
-									<span>${member.mem_name}</span>
-								</div>
-							</c:if>	
-						</c:if>
-						</c:forEach>
+                  <c:if test="${member.party_auth == 0}">
+                     <c:if test="${empty member.photo_name}">
+                        <div class="member-info">
+                           <img src="${pageContext.request.contextPath}/images/face.png" width="40" height="40" class="my-photo">
+                           <br>
+                           <span class="partyMembers" >${member.mem_name}</span>
+                        </div>
+                     </c:if>
+                     <c:if test="${!empty member.photo_name}">
+                        <div class="member-info">
+                           <img src="../mypage/viewProfile.do?mem_num=${member.mem_num}" width="40" height="40" class="my-photo">
+                           <br>
+                           <span class="partyMembers">${member.mem_name}</span>
+                        </div>
+                     </c:if>   
+                  </c:if>
+                  </c:forEach>
 					</div>	
 				</li>
 			</ul>	
