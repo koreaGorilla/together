@@ -153,52 +153,9 @@
             
    </div>
    </form>
-   
-   <div class="party-info">
-   <c:if test="${nowMem.party_auth==9}">
-      <a href="${pageContext.request.contextPath}/partymember/partyMemberList.do?party_num=${party.party_num}">파티멤버</a>
-   </c:if>
-   </div>
-   
-   <!--<c:if test="${nowMem.party_auth==0 or nowMem.party_auth==9}">-->
-      <div id="invite"> 
-      <h1>파티에 초대하기</h1>
-         <input type="hidden" id="partyname" name="partyname" value="${party.party_name}"> 
-         초대할 번호 : <input type="text" id="to" name="to"/>  
-         
-         <button type="button" id="send">전송</button>
-       </div>
-   <!--</c:if>-->
+  
   </div>   
  </div>
     
-    
-    <script type="text/javascript">
-$('#send').click(function() {
-   
-   const to = $('#to').val();
-   const partyName = $('#partyname').val();
-   const partyNum = '${party.party_num}';
-   const currentUrl = "http://localhost:8001/party/detail.do?party_num=" + partyNum;
-   
-   $.ajax ({
-      url: currentUrl,
-      type: 'POST',
-      data: {
-         "to" : to,
-         "partyName" : partyName,
-         "url" : currentUrl
-      },
-      success: function(data) {
-         const message = data.message;
-         const url = data.url;
-         alert('메시지를 보냈습니다');
-      
-         
-      }
-   });
-   
-});
-</script>
    
 </div>

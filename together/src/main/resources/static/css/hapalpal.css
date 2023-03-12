@@ -340,7 +340,7 @@ input#change.menu-btn{
     border: 0.5px solid darkgray;
 }
 .party-content{
-	height: 215px;
+	height: 156px;
     overflow: auto;
     margin-top:13px;
 }
@@ -915,7 +915,7 @@ input#upload {
 }
 .member {
     margin-top: 15px;
-    margin-left: -13px;
+    margin-left: -9px;
 }
 p {
     margin-top: 10px;
