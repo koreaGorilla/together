@@ -65,7 +65,7 @@ let result = '${result}';
 		<div class="horizontal-area">
 			<a href="detail.do?party_num=${party.party_num}">
 				<c:if test="${!empty party.party_photo_name}">
-				<img src="imageView.do?party_num=${party.party_num}&party_type=2">
+				<div id="party_list_img"><img src="imageView.do?party_num=${party.party_num}&party_type=2"></div>
 				</c:if>
 				<c:if test="${empty party.party_photo_name}">
 				<img src="${pageContext.request.contextPath}/images/togetherLogo.jpg">
@@ -73,10 +73,10 @@ let result = '${result}';
 				<span>${party.party_name}</span>
 				<br>
 				<b>
-				<c:if test="${party.party_hobby == 1}">운동</c:if>
-				<c:if test="${party.party_hobby == 2}">독서</c:if>
-				<c:if test="${party.party_hobby == 3}">음주</c:if>
-				<c:if test="${party.party_hobby == 4}">문화</c:if>
+				<c:if test="${party.party_hobby == 1}"><p># 운동</p></c:if>
+				<c:if test="${party.party_hobby == 2}"><p># 독서</p></c:if>
+				<c:if test="${party.party_hobby == 3}"><p># 음주</p></c:if>
+				<c:if test="${party.party_hobby == 4}"><p># 문화</p></c:if>
 				</b>
 			</a>
 		</div>
