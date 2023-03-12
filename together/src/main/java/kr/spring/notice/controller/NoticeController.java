@@ -168,12 +168,13 @@ public class NoticeController {
                             Model model) {
       
       logger.debug("<<글수정>> : " + noticeVO);
-      logger.debug("<<업로드 파일 용량>>: "+noticeVO.getNotice_file().length);
 
-      if(noticeVO.getNotice_file().length >= 52428800) {//5Mb
-         result.reject("limitUploadSize");//에러필드를 따로 지정 안했기에 폼 맨 위에 호출
+      if(noticeVO.getNotice_filename() != "") {
+          if(noticeVO.getNotice_file().length >= 52428800) {//5Mb
+              result.reject("limitUploadSize");//에러필드를 따로 지정 안했기에 폼 맨 위에 호출
+           }
       }
-      
+
       //유효성 체크 결과 오류가 있으면 폼을 호출
       if(result.hasErrors()) {
          //title 또는 content가 입력되지 않아서 유효성
@@ -181,7 +182,11 @@ public class NoticeController {
          //폼을 호출할 때 파일 정보를 다시 셋팅
          NoticeVO vo = noticeService.selectNotice(
                        noticeVO.getNotice_num());
-         noticeVO.setNotice_filename(vo.getNotice_filename());
+         
+         if(noticeVO.getNotice_filename() != "") {
+        	 noticeVO.setNotice_filename(vo.getNotice_filename());
+         }
+         
          return "noticeModify";
       }
       

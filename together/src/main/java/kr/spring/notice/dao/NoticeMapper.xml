@@ -58,16 +58,16 @@
   	</select> -->
   	
   	<update id="updateNotice" parameterType="noticeVO">
-  		UPDATE notice SET
-  		  <if test="notice_filename != ''">
-  		  notice_file=#{notice_file},
-  		  notice_filename=#{notice_filename},
-  		  </if>
-  		  notice_title=#{notice_title},
-  		  notice_content=#{notice_content},
-  		  ip=#{ip},
-  		  notice_modifydate=SYSDATE
-  		WHERE notice_num=#{notice_num}  
+  		update notice set
+  		<if test="notice_filename != ''">
+			notice_file = #{notice_file},
+			notice_filename = #{notice_filename},
+		</if>
+		notice_title = #{notice_title},
+		notice_content = #{notice_content},
+		ip = #{ip},
+		notice_modifydate = sysdate
+  		where notice_num = #{notice_num}  
   	</update>
   	
 </mapper>

@@ -52,7 +52,7 @@
          </li>
          <li>
             <label id="vkdlfdjqfhem" for="upload">파일업로드</label>
-            <input type="file" name="notice_file" id="notice_file">
+            <input type="file" name="upload" id="upload">
             <c:if test="${!empty noticeVO.notice_filename}">
             <div id="file_detail">
                (${noticeVO.notice_filename})파일이 등록되어 있습니다.
