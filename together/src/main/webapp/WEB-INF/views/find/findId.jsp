@@ -11,7 +11,7 @@
 <body>
 <div class="find-id-div">
 	<form method="post" class="findId" action="findMyId" name="findMyId">
-		<p class="find-id-logo">Together</p>
+		<p class="find-id-logo"><a href="${pageContext.request.contextPath}/main/main.do">Together</a></p>
 		<span class="find-id-span">이름과 전화번호를 입력해주세요.</span>
 		<input type="text" id="mem_name" name="mem_name" class="form-control" placeholder="이름 입력" autocomplete="off"/>
 		<input type="text" id="mem_cell" name="mem_cell" class="form-control" placeholder="전화번호 입력('-' 제외하고 입력하세요)"  autocomplete="off"/>
@@ -20,15 +20,15 @@
 		<section class="find-signup-wrap">
 			<div id="find-signup-wrap-ko">
 				<span class="find-id">
-					<a href="${pageContext.request.contextPath}/member/login.do" title="findId">로그인</a>
+					<a href="${pageContext.request.contextPath}/member/login.do">로그인</a>
 				</span>
 				
 				<span class="find-pw">
-					<a href="${pageContext.request.contextPath}/find/checkCell.do" title="findPw">비밀번호 찾기</a>
+					<a href="${pageContext.request.contextPath}/find/checkCell.do">비밀번호 찾기</a>
 				</span>
 				
 				<span class="sign-up">
-					<a href="${pageContext.request.contextPath}/member/registerUser.do" title="register">회원가입</a>
+					<a href="${pageContext.request.contextPath}/member/registerUser.do">회원가입</a>
 				</span>
 			</div>
 		</section>
