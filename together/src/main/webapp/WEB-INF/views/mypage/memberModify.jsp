@@ -1,64 +1,58 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/memberModify.css">  
-<!-- 중앙 컨텐츠 시작 -->
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>  
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/memberModify.css"> 
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/confirmId.js"></script>
-<div class="page-main">
-	<h2>회원정보 수정</h2>
-	<form:form action="update.do" id="modify_form"
-								modelAttribute="memberVO">
-	<form:errors element="div" cssClass="error-color"/>
-	<ul>
-		<li>
-			<label for="mem_name">이름</label>
-			<form:input path="mem_name"/>
-			<form:errors path="mem_name" cssClass="error-color"/>
-		</li>
-		<li>
-			<label>관심사</label>
-			<li>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/login.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/hyem.css">
+<title>회원정보 수정</title>
+</head>
+<body> 
+<div class="register-div">
+	<p class="register-logo"><a href="${pageContext.request.contextPath}/main/main.do">Together</a></p>
+	<form:form action="update.do" id="modify_form" modelAttribute="memberVO">
+		<span class="changePasswd-span">회원정보 수정</span>	
+		<form:errors element="div" cssClass="error-color"/>
+		
+		<h3 style="padding-top: 20px">이름</h3>
+		<form:input path="mem_name" class="form-control-register-common"/>
+		<form:errors path="mem_name" cssClass="error-color"/>
+		
+		<h3>휴대전화</h3>
+		<form:input path="mem_cell" class="form-control-register-common"/>
+		<form:errors path="mem_cell" cssClass="error-color"/>
+		
+		<h3>이메일</h3>
+		<form:input path="mem_email" class="form-control-register-common"/>
+		<form:errors path="mem_email" cssClass="error-color"/>
+		
+		<h3>주소</h3>
+		<form:input path="mem_zipcode" class="form-control-register"/>
+		<input type="button" id="zip-code-modify" onclick="execDaumPostcode()" value="우편번호 찾기">
+		<form:errors path="mem_zipcode" cssClass="error-color"/>
+		
+		<form:input path="mem_address1" class="form-control-register-common"/>
+		<form:errors path="mem_address1" cssClass="error-color"/>
+	                
+		<form:input path="mem_address2" class="form-control-register-common"/>
+		<form:errors path="mem_address2" cssClass="error-color"/>
+		
+		<h3>관심사</h3>
+		<div class="hobby-checkbox">
 			<form:checkbox path="hobby" value="스터디"/><span>스터디</span>
 			<form:checkbox path="hobby" value="친구"/><span>친구</span>
 			<form:checkbox path="hobby" value="운동"/><span>운동</span>
 			<form:checkbox path="hobby" value="밥"/><span>밥</span>
 			<form:checkbox path="hobby" value="오락"/><span>오락</span>
-			<form:errors path="hobby" cssClass="error-color"/>
-			</li>
-		</li>
-		<li>
-			<label for="mem_cell">전화번호</label>
-			<form:input path="mem_cell"/>
-			<form:errors path="mem_cell" cssClass="error-color"/>
-		</li>
-		<li>
-				<label for="mem_email">이메일</label>
-				<form:input path="mem_email"/>
-				<form:errors path="mem_email" cssClass="error-color"/>
-		</li>
-		<li>
-				<label for="mem_zipcode" id="mem_zipcodee">우편번호
-				<input type="button" 
-				    onclick="execDaumPostcode()" value="우편번호찾기" id="find_zip"></label>
-				<form:input path="mem_zipcode"/>
-				
-				<form:errors path="mem_zipcode" cssClass="error-color"/>
-			</li>
-			<li>
-				<label for="mem_address1">상세주소1</label>
-				<form:input path="mem_address1"/>
-				<form:errors path="mem_address1" cssClass="error-color"/>
-			</li>
-			<li>
-				<label for="mem_address2">상세주소2</label>
-				<form:input path="mem_address2"/>
-				<form:errors path="mem_address2" cssClass="error-color"/>
-			</li>
-		</ul>
-		<div class="align-center">
-		<form:button id="mmodify">수정완료</form:button>
-		<input type="button" value="My페이지" id="myPagee"
-			   onclick="location.href='myPage.do'">
 		</div>
+		<form:errors path="hobby" cssClass="error-color"/>
+	
+		<form:button id="modifymem_btn">확인</form:button>    
+		<input type="button" value="취소" id="myPagee" class="myPage-btn2" onclick="location.href='myPage.do'">
 	</form:form>
 </div>
 <!-- 우편번호 검색 시작 -->

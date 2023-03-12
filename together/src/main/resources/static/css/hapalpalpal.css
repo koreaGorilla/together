@@ -12,6 +12,32 @@ div#main{
 	font-size:10pt;
 	font-family:"맑은 고딕"; 
 }
+button#tnwjddhksfy {
+    width: 65px;
+    height: 25px;
+    font-size: 14px;
+    font-weight: 700;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    background-color: #03c75a;
+    cursor: pointer;
+    margin-right: 5px;
+    margin-top: -18px;
+}
+input#tnwjdcnlth {
+    width: 65px;
+    height: 25px;
+    font-size: 14px;
+    font-weight: 700;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    background-color: #03c75a;
+    cursor: pointer;
+    margin-right: 5px;
+    margin-top: -18px;
+}
 div#main_header{
 	margin-bottom:10px;
 }

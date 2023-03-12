@@ -18,22 +18,16 @@
     	  value="/WEB-INF/views/template/footer.jsp"/>          
     </definition>
     
-    <definition name="memberModify" extends="main">
+    <definition name="memberModify" template="/WEB-INF/views/mypage/memberModify.jsp">
     	<put-attribute name="title" value="회원정보수정"/>
-    	<put-attribute name="body"
-    	  value="/WEB-INF/views/mypage/memberModify.jsp"/>
     </definition>
     
-    <definition name="memberChangePassword" extends="main">
-    	<put-attribute name="title" value="비밀번호변경"/>
-    	<put-attribute name="body"
-    	  value="/WEB-INF/views/mypage/memberChangePassword.jsp"/>        
+    <definition name="memberChangePassword" template="/WEB-INF/views/mypage/memberChangePassword.jsp">
+    	<put-attribute name="title" value="비밀번호 변경"/>       
     </definition>
     
-  <definition name="memberDelete" extends="main">
+  <definition name="memberDelete" template="/WEB-INF/views/mypage/memberDelete.jsp">
     	<put-attribute name="title" value="회원탈퇴"/>
-    	<put-attribute name="body"
-    	  value="/WEB-INF/views/mypage/memberDelete.jsp"/>        
     </definition>
 
 </tiles-definitions>
