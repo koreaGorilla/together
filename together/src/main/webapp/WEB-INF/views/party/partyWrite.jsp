@@ -77,7 +77,7 @@
 		</ul>
 		<div class="align-center">
 			<form:button id="vkxltodtjd">파티생성</form:button>
-			<input type="button" value="취소" 
+			<input id="cnlth" type="button" value="취소" 
 			             onclick="location.href='list.do'">
 		</div>	                   
 	</form:form>

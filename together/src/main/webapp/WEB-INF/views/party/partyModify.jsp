@@ -134,9 +134,9 @@
 			</li>
 		</ul>
 		<div class="align-center">
-			<form:button>수정완료</form:button>
+			<form:button id="tnwjddhksfy">수정완료</form:button>
 			
-			<input type="button" value="수정취소" 
+			<input id="tnwjdcnlth" type="button" value="수정취소" 
 			   onclick="location.href='detail.do?party_num=${partyVO.party_num}'">
 		</div>	                   
 	</form:form>

@@ -900,14 +900,27 @@ input#party_name {
 button#vkxltodtjd {
    width: 66px;
     height: 23px;
-    font-size: 13px;
+    font-size: 14px;
     font-weight: 700;
     border: none;
     border-radius: 5px;
     color: white;
     background-color: #03c75a;
     cursor: pointer;
-    margin-right: 65px;
+    margin-right: 7px;
+}
+input#cnlth {
+    width: 65px;
+    height: 25px;
+    font-size: 14px;
+    font-weight: 700;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    background-color: #03c75a;
+    cursor: pointer;
+    margin-right: 5px;
+    margin-top: -18px;
 }
 input#upload {
     margin-left: 130px;
