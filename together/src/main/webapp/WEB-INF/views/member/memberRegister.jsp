@@ -12,7 +12,7 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/hyem.css">
 <title>회원가입</title>
 </head>
-<body>
+<body> 
 <div class="register-div">
 	<p class="register-logo"><a href="${pageContext.request.contextPath}/main/main.do">Together</a></p>
 	<form:form action="registerUser.do" id="register_form" modelAttribute="memberVO">

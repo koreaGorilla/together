@@ -247,7 +247,7 @@ h1{
     width: 113px;
     height: 29px;
     border: none;
-    outline:none;
+    outline:none; 
 }
 #signup-name, #signup-gender, #signup-email, #signup-country, #signup-cnum{
     width:100%;

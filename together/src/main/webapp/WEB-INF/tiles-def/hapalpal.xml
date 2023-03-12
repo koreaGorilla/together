@@ -3,7 +3,7 @@
 <!DOCTYPE tiles-definitions PUBLIC
        "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
-
+ 
 <tiles-definitions>
     <definition name="memberRegister" template="/WEB-INF/views/member/memberRegister.jsp">
     	<put-attribute name="title" value="회원가입"/>

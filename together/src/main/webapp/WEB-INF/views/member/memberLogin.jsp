@@ -12,7 +12,7 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/hyem.css">
 <title>로그인</title>
 </head>
-<body>
+<body> 
 <div class="login-div">
 	<form:form action="login.do" id="login_form" modelAttribute="memberVO">
 		<p class="login-logo"><a href="${pageContext.request.contextPath}/main/main.do">Together</a></p>
