@@ -156,7 +156,7 @@
    </c:if>
    </div>
    
-   <c:if test="${nowMem.party_auth==0 or nowMem.party_auth==9}">
+   <!--<c:if test="${nowMem.party_auth==0 or nowMem.party_auth==9}">-->
       <div id="invite"> 
       <h1>파티에 초대하기</h1>
          <input type="hidden" id="partyname" name="partyname" value="${party.party_name}"> 
@@ -164,7 +164,7 @@
          
          <button type="button" id="send">전송</button>
        </div>
-   </c:if>
+   <!--</c:if>-->
   </div>   
  </div>
     
