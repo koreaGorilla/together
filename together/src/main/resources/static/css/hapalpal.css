@@ -183,9 +183,6 @@ form ul li label{
 ul{
 	list-style:none;
 }
-input{
-	margin-top:10px;
-}
 input[type="text"],.page-main input[type="password"],.page-main input[type="email"]{
 	width:200px;
 }
@@ -336,6 +333,31 @@ input#change.menu-btn{
 	object-fit:cover;
 	object-position:top;
 	border-radius:50%;
+}
+.partyy-photo{
+	width: 470px;
+    height: 420px;
+    border: 0.5px solid darkgray;
+}
+.party-content{
+	height: 215px;
+    overflow: auto;
+    margin-top:13px;
+}
+.party_content{
+	line-height: 26px;
+    font-size: 16px;
+}
+.party-member{
+	line-height: 17px;
+    width: 350px;
+    margin-top: 25px;
+    overflow: hidden;
+}
+#partyView{
+	margin: 0 auto;
+    padding: 10px 10px 10px 30px;
+    all: unset;
 }
 .align-center input {
     width: 55px;
@@ -580,7 +602,9 @@ ul.detail-info li:last-child{
 	max-width:500px;
 }
 #output_fav{
-	cursor:pointer;
+	cursor: pointer;
+    margin: -110px 0 0px 38px;
+    float: right;
 }
 #output_fcount{
 	width:50px;
@@ -843,15 +867,15 @@ div#party-image {
     float: left;
 }
 div#dhfmsWhr {
-   float: left;
-    width: 544px;
-    margin-left: 43px;
-    margin-right: -134px;
+    float: left;
+    width: 433px;
+    margin-left: 45px;
+    margin-right: -80px;
 }
 #partydetail-pagemain{
 	margin: 0 auto;
 	padding: 18px 128px 439px 18px;
-	max-width: 915px;
+	max-width: 1024px;
 	background-color: #fff;
 	border-radius: 5px;
 	box-shadow: 0px 0px 5px rgb(0 0 0 / 30%);
@@ -889,55 +913,12 @@ input#upload {
     border-radius: 5px;
     margin-bottom: 25px;
 }
-input[type="button"] {
-    width: 66px;
-    height: 23px;
-    font-size: 13px;
-    font-weight: 700;
-    border: none;
-    border-radius: 5px;
-    color: white;
-    background-color: #03c75a;
-    cursor: pointer;
-    margin-right: 62px;
-    margin-left: -64px;
-}
-input#apply_btn {
-    width: 66px;
-    height: 23px;
-    font-size: 13px;
-    font-weight: 700;
-    border: none;
-    border-radius: 5px;
-    color: white;
-    background-color: #03c75a;
-    cursor: pointer;
-    margin-right: 64px;
-    margin-top: 6px;
-    margin-bottom: 28px;
-    margin-left: -1px;
-}
 .member {
     margin-top: 15px;
-    margin-bottom: 14px;
     margin-left: -13px;
 }
 p {
     margin-top: 10px;
-}
-input#apply_btn {
-    width: 66px;
-    height: 23px;
-    font-size: 13px;
-    font-weight: 700;
-    border: none;
-    border-radius: 5px;
-    color: white;
-    background-color: #03c75a;
-    cursor: pointer;
-    margin-right: 65px;
-    margin-top: 6px;
-    margin-bottom: 28px;
 }
 input#vkxldlqwkd1 {
     width: 66px;
@@ -953,17 +934,17 @@ input#vkxldlqwkd1 {
     margin-left: -1px;
 }
 input#detail-enterparty {
-    width: 66px;
-    height: 23px;
-    font-size: 13px;
+    width: 75px;
+    height: 30px;
+    font-size: 14px;
     font-weight: 700;
+    float: right;
     border: none;
     border-radius: 5px;
     color: white;
     background-color: #03c75a;
     cursor: pointer;
-    margin-right: 62px;
-    margin-left: -1px;
+    margin-top: -58px;
 }
 div#partymain {
     margin: 0 auto;
@@ -973,6 +954,46 @@ div#partymain {
     border-radius: 5px;
     box-shadow: 0px 0px 5px rgb(0 0 0 / 30%);
     margin-top: 1px;
+}
+#delete_btn{
+	width: 65px;
+    height: 25px;
+    font-size: 14px;
+    font-weight: 700;
+    float: right;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    background-color: #03c75a;
+    cursor: pointer;
+    margin-top: -18px;
+}
+#modify_btnn{
+    width: 65px;
+    height: 25px;
+    font-size: 14px;
+    font-weight: 700;
+    float: right;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    background-color: #03c75a;
+    cursor: pointer;
+    margin-right: 5px;
+    margin-top: -18px;
+}
+#apply_btn{
+	width: 75px;
+    height: 30px;
+    font-size: 14px;
+    font-weight: 700;
+    float: right;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    background-color: #03c75a;
+    cursor: pointer;
+    margin-top: -58px;
 }
 input#vkxldlqwkd1 {
     width: 66px;
