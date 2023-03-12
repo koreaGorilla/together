@@ -106,6 +106,14 @@
 		
 		</c:forEach>
 	</table>
+		<a href="#" class="chatParty">채팅</a>			
+		<!-- 윈도우창으로 채팅 오픈 -->
+		<script type="text/javascript">
+			$(".chatParty").on('click', function(e){
+				event.preventDefault();
+				window.open("${pageContext.request.contextPath}/chat/chatList.do?mem_num=${party.party_num}", "chat", "width=600, height=700, top=200, left=200, resizable=no");
+			});
+		</script>
 	
 <!-- 가입한 파티 목록 끝 -->
 </div>
