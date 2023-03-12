@@ -134,9 +134,7 @@
 				</a>
 			</div>
 		</c:forEach>
-		<div class="float-clear">
-			
-		</div>
+		<div class="float-clear"></div>
 	</div>
 </div>
 <!-- 메인 끝 -->

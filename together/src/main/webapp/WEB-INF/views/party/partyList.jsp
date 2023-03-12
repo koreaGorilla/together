@@ -19,8 +19,7 @@ let result = '${result}';
 		});
 	});
 	</script>
-<div class="page-main">
-	<h2 id="vkxlahrfhr">파티목록  
+<div id="main_body">
 	<c:if test="${!empty param.party_hobby  and (param.party_hobby>=1 and param.party_hobby<=4)}">
 		>
 		<c:if test="${param.party_hobby == 1}"> 운동</c:if>
@@ -60,30 +59,19 @@ let result = '${result}';
 	<div class="result-display">표시할 파티 정보가 없습니다.</div>
 	</c:if>	
 	<c:if test="${count > 0}">
-	<div class="item-space">
+	<div class="party-list">
 		<c:forEach var="party" items="${list}">
-		<div class="horizontal-area">
-			<a href="detail.do?party_num=${party.party_num}">
-				<c:if test="${!empty party.party_photo_name}">
-				<div id="party_list_img"><img src="imageView.do?party_num=${party.party_num}&party_type=2"></div>
-				</c:if>
-				<c:if test="${empty party.party_photo_name}">
-				<img src="${pageContext.request.contextPath}/images/togetherLogo.jpg">
-				</c:if>
-				<span>${party.party_name}</span>
-				<br>
-				<b>
-				<c:if test="${party.party_hobby == 1}"><p># 운동</p></c:if>
-				<c:if test="${party.party_hobby == 2}"><p># 독서</p></c:if>
-				<c:if test="${party.party_hobby == 3}"><p># 음주</p></c:if>
-				<c:if test="${party.party_hobby == 4}"><p># 문화</p></c:if>
-				</b>
-			</a>
-		</div>
+			<div class="party-list-item">
+				<a href="${pageContext.request.contextPath}/party/detail.do?party_num=${party.party_num}">
+					<div id="party_list_img"><img src="imageView.do?party_num=${party.party_num}&party_type=2"></div>
+					<div class="party-list-pname">${party.party_name}</div>
+					<c:if test="${party.party_hobby == 1}"><p># 운동</p></c:if>
+					<c:if test="${party.party_hobby == 2}"><p># 독서</p></c:if>
+					<c:if test="${party.party_hobby == 3}"><p># 음주</p></c:if>
+					<c:if test="${party.party_hobby == 4}"><p># 문화</p></c:if>
+				</a>
+			</div>
 		</c:forEach>
-		<div class="float-clear">
-			<hr width="100%" size="1" noshade="noshade">
-		</div>
 	</div>
 	<div class="align-center">${page}</div>
 	</c:if>
