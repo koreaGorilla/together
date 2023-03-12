@@ -340,7 +340,7 @@ input#change.menu-btn{
     border: 0.5px solid darkgray;
 }
 .party-content{
-	height: 156px;
+	height: 99px;
     overflow: auto;
     margin-top:13px;
 }
@@ -352,12 +352,17 @@ input#change.menu-btn{
 	line-height: 17px;
     width: 350px;
     margin-top: 25px;
+    margin-bottom: 44px;
     overflow: hidden;
 }
+
 #partyView{
 	margin: 0 auto;
     padding: 10px 10px 10px 30px;
     all: unset;
+}
+b#rkdlqapaqj {
+    font-size: large;
 }
 .align-center input {
     width: 55px;
@@ -368,7 +373,9 @@ input#change.menu-btn{
     border-color: #ffffff;
     border-radius: 2px;
 }
-
+h1 {
+    font-size: large;
+}
 .mem-detail{
 	font-size:15px;
 	padding: 15px 0px 5px 0px;
