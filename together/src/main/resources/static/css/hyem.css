@@ -1226,7 +1226,7 @@ a#ui-active-item{
 }
 
 /* 아이디/비밀번호 찾기 */
-.find-passwd, .find-id-div, .login-div{
+.find-passwd, .find-id-div, .login-div, .changePasswd-div, .memDelete-div{
 	width: 500px;
 	margin: 0 auto;
 	margin-top: 150px;
@@ -1239,24 +1239,38 @@ a#ui-active-item{
 	margin-bottom: 100px;
 }
 
-.find-passwd-logo, .find-id-logo, .login-logo, .register-logo{
+.find-passwd-logo, .find-id-logo, .login-logo, .register-logo, .changePasswd-logo, .memDelete-logo{
 	color: #03c75a;
 	font-weight: bold;
 	font-size: 60px;
 	text-align: center;
 }
 
-.find-passwd-logo a:link, .find-id-logo a:link, .login-logo a:link, .register-logo a:link{
+.find-passwd-logo a:link, .find-id-logo a:link, .login-logo a:link, .register-logo a:link, .changePasswd-logo a:link,
+.memDelete-logo a:link{
+	text-decoration: none;
 	color: #03c75a;
 }
 
-.find-passwd-logo a:visited, .find-id-logo a:visited, .login-logo a:visited, .register-logo a:visited{
+.find-passwd-logo a:visited, .find-id-logo a:visited, .login-logo a:visited, .register-logo a:visited,
+.changePasswd-logo a:visited, .memDelete-logo a:visited{
 	color: #03c75a;
+	text-decoration: none;
 }
 
 .find-passwd-span, .find-id-span{
 	width: 100%;
     display: block;
+    text-align: center;
+    margin-top: -25px;
+    font-size: 18px;
+    font-family: "명조";
+    font-weight: bold;
+}
+
+.changePasswd-span{
+	width: 500px;
+	display: block;
     text-align: center;
     margin-top: -25px;
     font-size: 18px;
@@ -1301,7 +1315,49 @@ a#ui-active-item{
     margin-top: 30px;
 }
 
-.form-control:focus, .form-control-register:focus, .form-control-register-common:focus{
+.form-control-pw{
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	width: 80%;
+	margin: 5px 0;
+	padding: 20px;
+	cursor: text;
+	margin-top: 20px;
+}
+
+.form-control-delete{
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	width: 80%;
+	margin: 5px 0;
+	padding: 20px;
+	cursor: text;
+}
+
+
+.form-control-pwo{
+	border: 1px solid #ccc;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	width: 80%;
+	margin: 5px 0;
+	padding: 20px;
+	cursor: text;
+}
+
+.form-control-pwc{
+	margin-top: -6px;
+	border: 1px solid #ccc;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+	width: 80%;
+	padding: 20px;
+	cursor: text;
+}
+
+.form-control:focus, .form-control-register:focus, .form-control-register-common:focus,
+.form-control-name:focus, .form-control-pw:focus, .form-control-delete:focus, .form-control-pwo:focus,
+.form-control-pwc:focus{
 	outline: none;
 }
 
@@ -1316,6 +1372,58 @@ a#ui-active-item{
     font-size: 15px;
     border-radius: 5px;
     cursor: pointer;
+}
+
+.change-btn{
+	width: 89%;
+    padding: 20px;
+    border: 0;
+    background-color: #09aa5c;
+    color: #fff;
+    font-weight: bold;
+    font-size: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+#modifymem_btn{
+	width: 100%;
+    padding: 20px;
+    border: 0;
+    background-color: #09aa5c;
+    color: #fff;
+    font-weight: bold;
+    font-size: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 25px;
+}
+
+.myPage-btn2{
+	width: 100%;
+    padding: 20px;
+    border: 1px solid #09aa5c;
+    background-color: #fff;
+    color: #09aa5c;
+    font-weight: bold;
+    font-size: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.myPage-btn{
+	width: 89%;
+    padding: 20px;
+    border: 1px solid #09aa5c;
+    background-color: #fff;
+    color: #09aa5c;
+    font-weight: bold;
+    font-size: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
 }
 
 #register_btn{
@@ -1372,4 +1480,41 @@ a#ui-active-item{
     cursor: pointer;
     padding: 18px 0;
     border-radius: 5px;
+}
+
+#change_form ul, #delete_form ul{
+	list-style: none;
+}
+
+#change_form ul li, #delete_form ul li{
+	margin: 0;
+}
+
+#zip-code-modify{
+	width: 115px;
+    background-color: #09aa5c;
+    border: none;
+    color: #fff;
+    font-size: 15px;
+    outline: none;
+    cursor: pointer;
+    padding: 21px 0;
+    border-radius: 5px;
+}
+
+.hobby-checkbox{
+	margin-left: 25px;
+	margin-top: 20px;
+}
+
+.hobby-checkbox input{
+	width: 10px;
+	margin-left: 15px;
+}
+
+.hobby-checkbox span{
+	width: 100px;
+	margin-left: 10px;
+	text-align: left;
+	margin-right: 15px;
 }

@@ -19,7 +19,6 @@
 		<form:errors element="div" cssClass="error-color"/>   
 	
 		<h3>아이디</h3>
-	
 		<input id="mem_id" name="mem_id" type="text" class="form-control-register" placeholder="영문,숫자만 4~12자" autocomplete="off"/>
 		<input type="button" class="confirmId" id="confirmId" value="ID중복체크">
 	
