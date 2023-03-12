@@ -81,7 +81,7 @@
             <c:if test="${party.party_reg_type == 1}">
                <input type="hidden" id="party_auth" name="party_auth" value="1">
             </c:if>
-               <input type="button" value="가입하기" id="apply_btn">
+               <input type="button" value="파티가입" id="apply_btn">
                <script type="text/javascript">
                   $(function(){
                      $('#apply_btn').click(function(){
