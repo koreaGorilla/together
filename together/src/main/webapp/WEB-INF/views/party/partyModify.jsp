@@ -132,7 +132,7 @@
 		</ul>
 		<div class="align-center">
 			<form:button>수정완료</form:button>
-			<input type="button" value="상세정보" 
+			<input type="button" value="수정취소" 
 			   onclick="location.href='detail.do?party_num=${partyVO.party_num}'">
 		</div>	                   
 	</form:form>
