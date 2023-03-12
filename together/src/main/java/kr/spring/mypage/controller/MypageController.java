@@ -79,7 +79,7 @@ public class MypageController {
 		//내 파티 가입 목록 5건 표시
 		map .put("start", 1);
 		map .put("end", 5);
-		List<PartyVO> partyList= mypageService.selectListPartyByMem_num(map );
+		List<PartyVO> partyList= mypageService.selectListPartyByMem_num(map);
 		
 		logger.debug("<<가입한 파티목록>>" + partyList);
 		

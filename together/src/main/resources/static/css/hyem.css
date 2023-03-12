@@ -426,6 +426,32 @@
 	align-items: center;
 }
 
+.party-list-hr{
+	margin: 25px 0;
+	margin-right: 10px;
+}
+
+.party-list-p{
+	font-weight: bold;
+    font-size: 15pt;
+    margin-bottom: 10px;
+    color: #009d5a;
+    margin-left: 15px;
+}
+
+.party-list-p a:link{
+	color: #009d5a;
+}
+
+.party-list-p a:visited{
+	color: #009d5a;
+}
+
+.party-list-p a:hover{
+	color: #009d5a;
+	text-decoration: none;
+}
+
 /* footer */
 .footer{
 	width: 1024px;
@@ -566,6 +592,7 @@
     text-align: center;
     font-weight: bold;
     color: #fff;
+    margin-bottom: 12px;
 }
 
 .party-icon{

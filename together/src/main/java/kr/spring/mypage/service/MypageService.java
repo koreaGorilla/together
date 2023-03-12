@@ -40,5 +40,5 @@ public interface MypageService {
 		
 		public List<PartyVO>getListpartyMem_num(
 				Map<String,Object> map);
-
+		
 }

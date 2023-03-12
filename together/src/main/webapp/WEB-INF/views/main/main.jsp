@@ -122,6 +122,24 @@
 		</ul>
 	</div>
 	<div class="party-list">
+		<c:if test="${!empty user}">
+			<p class="party-list-p"><a href="${pageContext.request.contextPath}/mypage/myPage.do">나의 파티 ></a></p>
+			<c:forEach var="party" items="${myparty}">
+				<div class="party-list-item">
+					<a href="${pageContext.request.contextPath}/party/partyMain.do?party_num=${party.party_num}">
+						<div id="party_list_img"><img src="imageView.do?party_num=${party.party_num}"></div>
+						<div class="party-list-pname">${party.party_name}</div>
+						<c:if test="${party.party_hobby == 1}"><p># 운동</p></c:if>
+						<c:if test="${party.party_hobby == 2}"><p># 독서</p></c:if>
+						<c:if test="${party.party_hobby == 3}"><p># 음주</p></c:if>
+						<c:if test="${party.party_hobby == 4}"><p># 문화</p></c:if>
+					</a>
+				</div>
+			</c:forEach>
+			<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><hr class="party-list-hr">
+		</c:if>
+		
+		<p class="party-list-p"><a href="${pageContext.request.contextPath}/party/list.do">전체 파티 ></a></p>
 		<c:forEach var="party" items="${list}">
 			<div class="party-list-item">
 				<a href="${pageContext.request.contextPath}/party/detail.do?party_num=${party.party_num}">

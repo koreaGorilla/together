@@ -39,21 +39,6 @@
 			<li>
 				<ul>
 					<li>
-						<a href="">
-							<div class="party-icon">
-								<img src="${pageContext.request.contextPath}/image_bundle/party_board.png" width="50">
-							</div>
-							<p>게시판</p>
-						</a>
-					</li>
-					<li class="party-menu-hover">
-						<a href="">게시판</a>
-					</li>
-				</ul>
-			</li>
-			<li>
-				<ul>
-					<li>
 						<a href="#" class="chatParty">
 							<div class="party-icon">
 								<img src="${pageContext.request.contextPath}/image_bundle/party_chat.png" width="50">
@@ -72,21 +57,6 @@
 						window.open("${pageContext.request.contextPath}/chat/chatDetail.do?party_num=${party.party_num}", "chat", "width=600, height=700, top=200, left=200, resizable=no");
 					});
 				</script>
-			</li>
-			<li>
-				<ul>
-					<li>
-						<a href="">
-							<div class="party-icon">
-								<img src="${pageContext.request.contextPath}/image_bundle/party_member.png" width="50">
-							</div>
-							<p>파티원 목록</p>
-						</a>
-					</li>
-					<li class="party-menu-hover">
-						<a href="">파티원 목록</a>
-					</li>
-				</ul>
 			</li>
 			<c:if test="${nowMem.party_auth == 9}">
 				<li>
@@ -141,21 +111,6 @@
 			<li>
 				<ul>
 					<li>
-						<a href="">
-							<div class="party-icon">
-								<img src="${pageContext.request.contextPath}/image_bundle/party_board.png" width="50">
-							</div>
-							<p>게시판</p>
-						</a>
-					</li>
-					<li class="party-menu-hover">
-						<a href="">게시판</a>
-					</li>
-				</ul>
-			</li>
-			<li>
-				<ul>
-					<li>
 						<a href="#" class="chatParty">
 							<div class="party-icon">
 								<img src="${pageContext.request.contextPath}/image_bundle/party_chat.png" width="50">
@@ -174,21 +129,6 @@
 						window.open("${pageContext.request.contextPath}/chat/chatDetail.do?party_num=${party_num}", "chat", "width=600, height=700, top=200, left=200, resizable=no");
 					});
 				</script>
-			</li>
-			<li>
-				<ul>
-					<li>
-						<a href="">
-							<div class="party-icon">
-								<img src="${pageContext.request.contextPath}/image_bundle/party_member.png" width="50">
-							</div>
-							<p>파티원 목록</p>
-						</a>
-					</li>
-					<li class="party-menu-hover">
-						<a href="">파티원 목록</a>
-					</li>
-				</ul>
 			</li>
 			<c:if test="${nowMem.party_auth == 9}">
 				<li>
