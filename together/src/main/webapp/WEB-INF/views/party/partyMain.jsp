@@ -35,7 +35,7 @@
 					<span>${party.party_content}</span>
 				</li>
 				<li class="party-member">
-					<b>가입멤버</b>
+					<b id="rkdlqapaqj">가입멤버</b>
 					<br>
 					<span>함께 소통하며 활동하고 있어요</span>
 					<div class="member">

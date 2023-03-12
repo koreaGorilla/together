@@ -4,8 +4,11 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!-- 중앙 컨텐츠 시작 -->
 <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/hapalpalpal.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/partyModify.css">
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+
 <style>
 .ck-editor__editable_inline{
 	min-height:250px;
@@ -132,6 +135,7 @@
 		</ul>
 		<div class="align-center">
 			<form:button>수정완료</form:button>
+			
 			<input type="button" value="수정취소" 
 			   onclick="location.href='detail.do?party_num=${partyVO.party_num}'">
 		</div>	                   
