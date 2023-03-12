@@ -1,0 +1,22 @@
+@charset "UTF-8";
+
+button#vkxltodtjd {
+    width: 100px;
+    height: 28px;
+    font-size: 14px;
+    font-weight: 600;
+    background-color: #03c75a;
+    border-color: #ffffff;
+    border-radius: 2px;
+    color: white;
+}
+form#button {
+    width: 68px;
+    height: 28px;
+    font-size: 14px;
+    font-weight: 600;
+    background-color: #03c75a;
+    border-color: #ffffff;
+    border-radius: 2px;
+    color: white;
+}
