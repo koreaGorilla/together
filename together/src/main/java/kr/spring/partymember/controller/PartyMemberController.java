@@ -111,19 +111,25 @@ public class PartyMemberController {
 		
 		return mapJson;
 	}
+
+
+	@PostMapping("/partymember/delete.do") 
+	@ResponseBody		
+	public Map<String,Object> submitDelete(HttpSession session, @RequestParam int partymem_num){
+
+		Map<String,Object> map = new HashMap<String,Object>();
+		
+		MemberVO user = (MemberVO)session.getAttribute("user");
+		
+		if(user == null) {
+			map.put("result", "logout");
+		}else {
+			partyMemberService.rejectPartyMember(partymem_num);
+			map.put("result", "success");
+		}
+		
+
+		return map; 
+	} 
 }
 
-
-
-/*
- * //=====가입 거부=======//
- * 
- * @RequestMapping("/partymember/delete.do") public String submitDelete(
- * 
- * @RequestParam int partymem_num){
- * 
- * 
- * //가입거부 partyMemberService.rejectPartyMember(partymem_num);
- * 
- * return "redirect:/partymember/partyMemberList.do"; } }
- */

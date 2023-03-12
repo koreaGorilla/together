@@ -20,7 +20,8 @@
 					<td>${member.partymem_reg_date}</td>
 					<td>${member.party_auth}</td>
 					<td><c:if test="${member.party_auth==0}">일반회원</c:if> 
-					    <c:if test="${member.party_auth==9}">파티장</c:if></td>
+					    <c:if test="${member.party_auth==9}">파티장</c:if>
+					    </td>
 				</tr>
 			</c:if>
 		</c:forEach>
@@ -34,6 +35,7 @@
 		<h2>대기회원 목록</h2>
 		<tr>
 			<th>이름</th>
+			<th>신청일자</th>
 			<th>회원분류</th>
 		</tr>
 		<c:forEach var="member" items="${list}">
@@ -44,6 +46,7 @@
 					<td><c:if test="${member.party_auth==1}">대기회원</c:if>
 						<c:if test="${!empty member}">
 						<input type="hidden" id="partymem_num" name="partymem_num" value="${member.partymem_num}">
+						<input type="hidden" id="party_num" name="party_num" value="${member.party_num}">
 							<input type="button" value="승인" id="apply_btn">
 							<input type="button" value="삭제" id="delete_btn">
 							<script type="text/javascript">
@@ -77,9 +80,30 @@
 								$(function(){
 									$('#delete_btn').click(function(){
 										let choice = confirm('삭제하시겠습니까?');
+										let partymem_num = $('#partymem_num').val();
+										let party_num = $('#party_num').val();
 										if(choice){
-											$('member.mem_name').hide();
-											location.replace('delete.do?partymem_num=${member.partymem_num}');	
+											$.ajax ({
+												url: '/partymember/delete.do',
+												type: 'POST',
+												data: {
+													"partymem_num" : partymem_num,
+													"party_num" : party_num
+												},
+												success: function(param) {
+													if(param.result == 'logout'){
+														alert('로그인 후 사용하세요');
+														location.href='../member/login.do';
+													}else if(param.result == 'success'){
+														alert('삭제 완료되었습니다.');
+														location.reload();
+													}
+												},
+												error:function(){
+													alert('네트워크 오류 발생');
+												}
+											});
+												
 										}
 									});
 								});
