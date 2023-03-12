@@ -422,6 +422,8 @@
 	overflow: hidden;
 	border-bottom: 1px solid #303740;
 	margin-bottom: 15px;
+	display: flex;
+	align-items: center;
 }
 
 /* footer */
