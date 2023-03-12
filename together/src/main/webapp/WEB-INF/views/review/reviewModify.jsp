@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/reviewWrite.css">
 <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <style>
@@ -12,13 +13,13 @@
 <script src="${pageContext.request.contextPath}/js/ckeditor.js"></script>
 <script src="${pageContext.request.contextPath}/js/uploadAdapter.js"></script>
 <div class="page-main">
-	<h2>리뷰수정</h2>
-	<form:form action="update.do" id="update_form" modelAttribute="reviewVO" enctype="multipart/form-data">
+	<h2 id="write-title">리뷰수정</h2>
+	<form:form action="update.do" id="reviewUpdate_form" modelAttribute="reviewVO" enctype="multipart/form-data">
 		<form:hidden path="r_num"/>
 		<form:errors element="div" cssClass="error-color"/>
 		<ul>
 		    <li>
-				<label for="party_name">파티명</label>
+				<label for="party_name">파티명 : </label>
 				<label id="${reviewVO.party_name}" >${reviewVO.party_name}</label>
 				<form:errors path="party_name" cssClss="error-color"/>
 			</li>		
@@ -47,7 +48,7 @@
          	</li>
          	<li>
 				<label for="upload">이미지 업로드</label>
-				<input type="file" name="upload" id="upload" accept="image/gif,image/jpeg,image/png">
+				<input type="file" name="upload" id="img_upload" accept="image/gif,image/jpeg,image/png">
 				<c:if test="${!empty reviewVO.r_photoname}">
 				<div id="photo_detail">
 					(${reviewVO.r_photoname})이미지가 등록되어 있습니다.
@@ -85,9 +86,9 @@
 				</c:if>
 			</li>
 		</ul>
-		<div class="align-center">
-			<form:button>수정</form:button>
-         	<input type="button" value="목록" onclick="location.href='list.do'">
+		<div class="rev_btn">
+			<form:button class="btn_css" >수정</form:button>
+         	<input class="btn_css" type="button" value="목록" onclick="location.href='list.do'">
       	</div>
       	
 	</form:form>

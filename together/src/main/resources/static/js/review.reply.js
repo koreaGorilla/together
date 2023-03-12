@@ -159,13 +159,13 @@ $(function(){
 		//댓글수정 폼 UI
 		let modifyUI = '<form id="mreply_form">';
 		modifyUI += '<input type="hidden" name="c_num" id="mc_num" value="'+c_num+'">';//댓글 글번호 hidden
-		modifyUI += '<textarea rows="1" cols="50" name="c_content" id="mc_content" class="rep-content">' + content +'</textarea>';//입력한 내용 가져오기
+		modifyUI += '<textarea rows="1" cols="50" name="c_content" id="mc_content" class="repContent" >' + content +'</textarea>';//입력한 내용 가져오기
 		modifyUI += '<div id="mreply_first"><span class="letter-count">100/100</span></div>';
 		modifyUI += '<div id="mreply_second" class="align-right">';
-		modifyUI += '<input type="submit" value="수정">';
+		modifyUI += '<input type="submit" value="수정" class="modify-btnn">';
 		modifyUI += '<input type="button" value="취소" class="content-reset">';
 		modifyUI += '</div>';
-		modifyUI += '<hr size="1" noshade width="96%">';
+		modifyUI += '<hr size="1" noshade width="100%">';
 		modifyUI += '</form>';
 		
 		//이전에 이미 수정하는 댓글이 있을 경우 수정버튼을 클릭하면 숨김

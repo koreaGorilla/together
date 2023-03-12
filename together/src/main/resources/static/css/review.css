@@ -1,5 +1,6 @@
 @charset "UTF-8";
 
+/*리뷰 부분*/
 #main_body{
 	margin:0 auto;
 }
@@ -14,17 +15,13 @@
     margin-top: 50px;
 }
 
-.page-main h2{
-	margin: 30px 0px 0px 0px;
-    font-size: 30px;
-    text-align: center;
-}
+
 
 .detail-infooo{
 	float: left;
     margin: 0px 0px 0px 6px;
     width: 710px;
-    padding: 30px 0px 16px 0px;
+    padding: 11px 0px 16px 0px;
    
 }
 
@@ -38,30 +35,22 @@
 .detail-img{
 	width: 500px;
     height: 340px;
-    padding-top: 25px;
     margin-left: 8px;
     margin-bottom: 8px;
-}
-
-.r_content{
-	padding:12px 0px 20px 20px;
    
-    font-size: 20px;
-    clear: both;
+   
+    border-radius: 5%;
 }
 
-#review_icon{
-	padding-bottom:15px;
-	margin-left: 20px;
-}
+
+
+
 
 #output_reply{
 	margin-left:15px;
 }
 
-#output_fcount, #output_rcount{
-	font-size:17px;
-}
+
 
 #re_form{
 	margin-left:-10px;
@@ -76,7 +65,7 @@
     margin-left: 30px;
 }
 
-/*리뷰 부분*/
+
 .item{
 	width: 650px;
     
@@ -119,14 +108,7 @@ span.letter-count{
 	margin:10px 0;
 }
 
-.party_name{
-	text-align: left;
-    padding-top: 30px;
-    font-size: 16px;
-    height: 20px;
-    padding-bottom: 10px;
-    color:#007580fc;
-}
+
 
 .my-photo{
 	width:30px;
@@ -181,13 +163,7 @@ ul.search_form{
 	font-size: 25px;
 	padding:15px 0 20px 0;
 }
-.review_mem_name{
-	font-size: 18px;
-	font-weight:600;
-	height:10px;
-	padding-left: 5px;
-	vertical-align:bottom;
-}
+
 .review-date{
 	font-size: 14px;
 	padding-left: 5px;	
@@ -213,6 +189,68 @@ hr {
     height:2px;
     border:0;
 }
+
+#review-keyword{
+	height:25px;
+	width:200px;
+}
+
+/*리뷰 상세부분*/
+
+ul.review-button{
+	text-align:right;
+}
+.review_mem_name {
+    font-size: 17px;
+    font-weight: 600;
+    height: 10px;
+    padding-left: 5px;
+    vertical-align: bottom;
+    color: #1b4f6e;
+}   
+.page-main h2{
+	margin: 0px 0px 0px 2px;
+    font-size: 25px;
+    color:#464646
+}
+
+.r_content{
+	padding:25px 0px 25px 20px;
+   	line-height:30px;
+    font-size: 17px;
+    clear: both;
+}
+
+#output_fav, #output_reply{
+	width:30px;
+}
+#output_fcount {
+	font-size:17px;
+	vertical-align: middle;
+    padding: 0 0 8px 5px;
+    height: 40px;
+    
+}
+#output_rcount{
+	display:inline-block;
+	font-size:17px;
+	vertical-align: middle;
+    padding: 0 0 8px 5px;
+    height: 40px;
+}
+#review_icon{
+	margin-left: 20px;
+}
+
+.rev-button img{
+	width:17px;
+	padding-left:15px;
+}
+
+.detail_hr{
+	margin-bottom: 25px;
+}
+
 
 /*댓글 js부분*/
 .modify-date{
@@ -255,4 +293,76 @@ hr {
     font-size: 15px;
     line-height: 26px;
     padding-top:5px;
+}
+
+.modify-btnn, .delete-btnn,.content-reset{
+	background-color: white;
+    border-radius: 9%;
+    color: #333333;
+    border: 1px solid #007580fc;
+    font-size: 15px;
+    cursor: pointer;
+    padding: 3px;
+    height: 26px;
+    width:50px;
+    text-align: center;
+}
+.modify-btnn:hover,.delete-btnn:hover,.content-reset:hover {
+
+  background: #2b9ca6fc;
+  color: white;
+
+}
+
+#mreply_first{
+	float: left;
+    width: 60%;
+    margin: -11px 0 0 -21px;
+}
+
+#mreply_second{
+	float:right;
+	width:30%;
+	margin: -5px 0 11px 0 ;
+}
+.repContent{
+	width: 95%;
+    height: 50px;
+    margin: 10px 10px;
+}
+
+
+/*리뷰 리스트 부분*/
+tr.review_content td{
+	padding-top: 12px;
+}
+.party_name{
+	text-align: left;
+    padding-top: 17px;
+    font-size: 16px;
+    height: 20px;
+    padding-bottom: 10px;
+    color:#007580fc;
+}
+
+.btn_css{
+	background-color: white;
+    border-radius: 9%;
+    color: #333333;
+    border: 1px solid #007580fc;
+    font-size: 12px;
+    cursor: pointer;
+    padding: 3px;
+    height: 26px;
+    
+}
+
+.btn_css:hover {
+
+  background: #2b9ca6fc;
+  color: white;
+
+}
+.rev-keyfield{
+	height:25px;
 }

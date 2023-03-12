@@ -13,7 +13,7 @@
 <script src="${pageContext.request.contextPath}/js/ckeditor.js"></script>
 <script src="${pageContext.request.contextPath}/js/uploadAdapter.js"></script>
 <div class="page-main">
-	<h2 id="rmfTmrl">리뷰</h2>
+	<h2 id="write-title">리뷰작성</h2>
 	<form:form action="write.do" id="write_form" modelAttribute="reviewVO" enctype="multipart/form-data">
 		<form:errors element="div" cssClass="error-color"/>
 		<ul>
@@ -61,12 +61,12 @@
          </li>
          <li>
 				<label for="upload">이미지 업로드</label>
-				<input type="file" name="upload" id="upload" accept="image/gif,image/jpeg,image/png">
+				<input type="file" name="upload" id="img_upload" accept="image/gif,image/jpeg,image/png">
 			</li>
 		</ul>
-		<div class="align-center">
-			<form:button>등록</form:button>
-         	<input type="button" value="목록" onclick="location.href='list.do'">
+		<div class="rev_btn">
+			<form:button class="btn_css">등록</form:button>
+         	<input class="btn_css" type="button" value="목록" onclick="location.href='list.do'">
       	</div>
 	</form:form>
 </div>

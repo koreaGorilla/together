@@ -16,12 +16,12 @@
    });
 </script>
 <div class="page-main">
-   <h2 class="page-title">리뷰</h2>
+   <h2 class="page-title">회원 리뷰</h2>
       <div class="review-main">
       <form class="search-form" action="list.do" id="search-form" method="get">
          <ul class="search_form">
             <li>
-               <select name="keyfield" id="keyfield">
+               <select class="rev-keyfield" name="keyfield" id="keyfield">
                   <option value="1" <c:if test="${param.keyfield==1}">selected</c:if>>작성자</option>
                   <option value="2" <c:if test="${param.keyfield==2}">selected</c:if>>내용</option>
                   <option value="3" <c:if test="${param.keyfield==3}">selected</c:if>>작성자+내용</option>
@@ -29,18 +29,18 @@
                </select>
             </li>
             <li>
-               <input type="search" name="keyword" id="keyword" value="${param.keyword}">
+               <input type="search" name="keyword" id="review-keyword" value="${param.keyword}">
             </li>
             <li>
-               <input type="submit" value="검색">
-               <input type="button" value="목록" onclick="location.href='list.do'">
+               <input class="btn_css" type="submit" value="검색">
+               <input class="btn_css" type="button" value="목록" onclick="location.href='list.do'">
                
             </li>
          </ul>
       </form>
       <div class="align_right">
          <c:if test="${!empty user && partyCount>0}">
-         <input class="align_right" type="button" value="리뷰작성" onclick="location.href='write.do'">
+         <input class="btn_css" type="button" value="리뷰작성" onclick="location.href='write.do'">
          </c:if>
       </div>
       
@@ -83,14 +83,14 @@
          
          <tr class="review_content">
          <c:choose>
-            <c:when test="${fn:length(review.r_content) > 123}">
-                <td colspan="2   "><c:out value="${fn:substring(review.r_content,0,122)}" escapeXml="false"/>. . . 더보기</td>   
+            <c:when test="${fn:length(review.r_content) > 100}">
+                <td colspan="2   "><c:out value="${fn:substring(review.r_content,0,99)}" escapeXml="false"/>. . . 더보기</td>   
              </c:when>
              <c:otherwise>
                 <td colspan="2"><c:out value="${review.r_content}" escapeXml="false"/></td>   
              </c:otherwise> 
            </c:choose>
-           </tr>
+         </tr>
    
          <%-- <tr id="review_icon">
             좋아요 + 댓글 아이콘
