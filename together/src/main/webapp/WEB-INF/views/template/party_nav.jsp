@@ -129,7 +129,7 @@
 						window.open("${pageContext.request.contextPath}/chat/chatDetail.do?party_num=${party_num}", "chat", "width=600, height=700, top=200, left=200, resizable=no");
 					});
 				</script>
-			</li>
+			</li> 
 			<c:if test="${nowMem.party_auth == 9}">
 				<li>
 					<ul>

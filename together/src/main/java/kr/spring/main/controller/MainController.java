@@ -35,7 +35,7 @@ public class MainController {
 		return "redirect:/main/main.do";
 	}
 	
-	@RequestMapping("/main/main.do")
+	@RequestMapping("/main/main.do") 
 	public String main(HttpSession session, Model model) {
 		Map<String,Object> map = new HashMap<String, Object>();
 		

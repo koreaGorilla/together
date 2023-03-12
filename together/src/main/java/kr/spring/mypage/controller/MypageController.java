@@ -50,7 +50,7 @@ public class MypageController {
 		return new MemberVO();
 	}
 	//====회원상세정보====//
-	@RequestMapping("/mypage/myPage.do")
+	@RequestMapping("/mypage/myPage.do") 
 	public String process(HttpSession session,
 						  Model model) {
 		MemberVO user = 

@@ -36,7 +36,7 @@ public interface MypageMapper {
 	@Delete("DELETE FROM member_detail WHERE mem_num=#{mem_num}")
 	public void deleteMember_detail(Integer mem_num);
 	//프로필 이미지 업데이트
-	@Update("UPDATE member_detail SET photo=#{photo},"
+	@Update("UPDATE member_detail SET photo=#{photo}," 
 			+ "photo_name=#{photo_name} WHERE mem_num=#{mem_num}")
 	public void updateProfile(MemberVO member);
 	//내가 쓴 리뷰 가져오기(mem_num)

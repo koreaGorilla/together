@@ -33,7 +33,7 @@
 	 								<div id="profile-img"><img src="${pageContext.request.contextPath}/mypage/photoView.do"></div>
 	 								<span>${user.mem_name} 님</span>
 	 							</div>
-	 						</li>
+	 						</li> 
 							<li><a href="${pageContext.request.contextPath}/mypage/myPage.do">회원상세정보</a></li>
 							<li><a href="${pageContext.request.contextPath}/mypage/myPage.do">나의 파티</a></li>
 							<li><a href="${pageContext.request.contextPath}/mypage/myPage.do">나의 리뷰</a></li>

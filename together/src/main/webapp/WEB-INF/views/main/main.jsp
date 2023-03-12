@@ -134,7 +134,7 @@
 						<c:if test="${party.party_hobby == 3}"><p># 음주</p></c:if>
 						<c:if test="${party.party_hobby == 4}"><p># 문화</p></c:if>
 					</a>
-				</div>
+				</div> 
 			</c:forEach>
 			<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><hr class="party-list-hr">
 		</c:if>

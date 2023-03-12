@@ -597,7 +597,7 @@
 
 .party-icon{
 	display: inline-block;
-	flex: 1;
+	flex: 1; 
 }
 
 .party-menu li > ul{
