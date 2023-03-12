@@ -5,10 +5,8 @@
        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
 
 <tiles-definitions>
-    <definition name="memberLogin" extends="main">
-    	<put-attribute name="title" value="회원로그인"/>
-    	<put-attribute name="body"
-    	  value="/WEB-INF/views/member/memberLogin.jsp"/>        
+    <definition name="memberLogin" template="/WEB-INF/views/member/memberLogin.jsp">
+    	<put-attribute name="title" value="로그인"/> 
     </definition>
     <definition name="chatList" extends="chat">
     	<put-attribute name="title" value="채팅목록"/>

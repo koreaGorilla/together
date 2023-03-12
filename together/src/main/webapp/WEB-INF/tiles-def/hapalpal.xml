@@ -5,10 +5,8 @@
        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
 
 <tiles-definitions>
-    <definition name="memberRegister" extends="main">
+    <definition name="memberRegister" template="/WEB-INF/views/member/memberRegister.jsp">
     	<put-attribute name="title" value="회원가입"/>
-    	<put-attribute name="body"
-    	  value="/WEB-INF/views/member/memberRegister.jsp"/>        
     </definition>
 </tiles-definitions>
 

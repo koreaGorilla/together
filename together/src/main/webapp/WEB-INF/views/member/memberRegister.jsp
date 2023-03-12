@@ -1,129 +1,76 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
+<meta http-equiv="X-UA-Compatible" content="ie=edge" /> 
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/confirmId.js"></script>
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/login.css">  
-<!-- 중앙 컨텐츠 시작 -->
-<div class="page-main">
-	<h1>회원가입</h1>
-	<form:form action="registerUser.do" id="register_form"
-	                            modelAttribute="memberVO">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/login.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/hyem.css">
+<title>회원가입</title>
+</head>
+<body>
+<div class="register-div">
+	<p class="register-logo"><a href="${pageContext.request.contextPath}/main/main.do">Together</a></p>
+	<form:form action="registerUser.do" id="register_form" modelAttribute="memberVO">
 		<form:errors element="div" cssClass="error-color"/>   
-		       <!--회원가입 부분-->
-        <section class="signup-wrap">
-
-            <div>
-                <!--아이디,비번,비번재확인-->
-
-                <h3>아이디</h3>
-
-                <div style="display: flex;">
-                    <span class="signup-input" style="width:100%; margin: 10px 0px 0px 0px">
-                        <input id="mem_id" name="mem_id" type="text" placeholder="영문,숫자만 4~12자"></input>
-                    </span>
-                    <span class="cnum-btn-wrap">
-                        <input type="button" class="cnum-btn" id="confirmId" value="ID중복체크">
-                    </span>
-                </div>
-                <span id="message_id"></span>
-				<form:errors path="mem_id" cssClass="error-color"/>    
-                
-                <h3>비밀번호</h3>
-                <span class="signup-input">
-                    <input id="mem_pw" name="mem_pw" type="password"></input>
-                    <span class="pw-lock"></span>
-                </span>
-                <form:errors path="mem_pw" cssClass="error-color"/>
-
-            </div>
-
-            <div style="margin-top: 35px;">
-                <h3>이름</h3>
-                <span class="signup-input">
-                    <input id="mem_name" name="mem_name" type="text"></input>
-                </span>
-                <form:errors path="mem_name" cssClass="error-color"/>
-
-                <span class="choice">
-                    <h3>이메일</h3>
-                </span>
-                <span class="signup-input">
-                    <input id="mem_email" name="mem_email" type="text"></input>
-                </span>
-                <form:errors path="mem_email" cssClass="error-color"/>
-
-            </div>
-
-            <div style="margin-top: 35px;">
-                <!--휴대전화-->
-                <h3>휴대전화</h3>
-                <div style="display: flex;">
-                    <span class="signup-input" style="width:100%; margin: 10px 0px 0px 0px">
-                        <input id="mem_cell" name="mem_cell" type="text" placeholder="전화번호 '-' 제외하고 입력"></input>
-                    </span>
-                    <span class="cnum-btn-wrap2" id="cnum-btn-wrap2">
-                    <input type="button" class="cnum-btn" id="send" value="인증번호받기">
-                    </span>
-                </div>
-                <form:errors path="mem_cell" cssClass="error-color"/>
-                <div id="checkNumber">
-	                <div style="display: flex;" id="confrimWrap" class="confrimWrap" name="confrimWrap">
-	                    <span class="signup-input" style="width:100%; margin: 10px 0px 0px 0px">
-	                        <input id="userNum" name="userNum" type="text" placeholder="인증번호 입력하세요"></input>
-	                    </span>
-	                    <span class="cnum-btn-wrap">
-	                        <input type="button" class="cnum-btn" id="enterBtn" value="인증">
-	                    </span>
-	                </div>
-	            </div>
-	           </div>
-
-            
-            <div style="margin-top: 35px;">
-                <!--주소-->
-                <h3>주소</h3>
-                <div style="display: flex;">
-                    <span class="signup-input" style="width:100%; margin: 10px 0px 0px 0px">
-                        <input id="mem_zipcode" name="mem_zipcode" type="text" placeholder="우편번호 입력"></input>
-                    </span>
-                    <span class="cnum-btn-wrap">
-                        				<input type="button" id="cnum-btn"
-				    onclick="execDaumPostcode()" value="우편번호 찾기">
-                    </span>
-                </div>
-                				<form:errors path="mem_zipcode" cssClass="error-color"/>
-                <span class="signup-input-c" style="margin-top: 10px;">
-                    <input id="mem_address1" name="mem_address1" type="text" placeholder="주소"></input>
-                    
-                </span>
-                				<form:errors path="mem_address1" cssClass="error-color"/>
-                
-                <span class="signup-input-c" style="margin-top: 10px;">
-                    <input id="mem_address2" name="mem_address2" type="text" placeholder="상세주소"></input>
-                </span>
-                				<form:errors path="mem_address2" cssClass="error-color"/>
-            </div>
-
-            <div>
-                <!--가입하기-->
-  				 <div style="display: flex;">
-                    <span class="cnum-btn-wrap" style="width:50%; display: none; margin: 10px 0px 0px 0px">
-                        <form:button id="cnum-btn2">가입</form:button>                        
-                    </span>
-                    <span class="cnum-btn-wrap3" id="cnum-btn-wrap3" style="width:100%;">
-                        <input id="cnum-btn" value="홈으로"  onclick="location.href='/main/main.do'">
-                    </span>
-                </div>
-        </section>
-    </form:form>
+	
+		<h3>아이디</h3>
+	
+		<input id="mem_id" name="mem_id" type="text" class="form-control-register" placeholder="영문,숫자만 4~12자" autocomplete="off"/>
+		<input type="button" class="confirmId" id="confirmId" value="ID중복체크">
+	
+		<span id="message_id"></span>
+		<form:errors path="mem_id" cssClass="error-color"/>    
+	                
+		<h3>비밀번호</h3>
+		<input id="mem_pw" name="mem_pw" class="form-control-register-common" type="password"/>
+		<span class="pw-lock"></span>
+	    <form:errors path="mem_pw" cssClass="error-color"/>
+	
+		<h3>이름</h3>
+		<input id="mem_name" name="mem_name" class="form-control-register-common" type="text" autocomplete="off"/>
+		<form:errors path="mem_name" cssClass="error-color"/>
+	
+		<h3>이메일</h3>
+		<input id="mem_email" name="mem_email" class="form-control-register-common" type="text" autocomplete="off"/>
+		<form:errors path="mem_email" cssClass="error-color"/>
+	
+		<h3>휴대전화</h3>
+		<input id="mem_cell" name="mem_cell" class="form-control-register" type="text" placeholder="전화번호 '-' 제외하고 입력" autocomplete="off"/>
+	    <input type="button" class="send" id="send" value="인증번호받기">
+		<form:errors path="mem_cell" cssClass="error-color"/>
+		
+		<div id="checkNumber">
+			<div id="confrimWrap" class="confrimWrap" name="confrimWrap">
+				<input id="userNum" name="userNum" class="form-control-register" type="text" placeholder="인증번호 입력하세요" autocomplete="off"/>
+				<input type="button" class="enterBtn" id="enterBtn" value="인증">
+			</div>
+		</div>
+	
+		<h3>주소</h3>
+		<input id="mem_zipcode" name="mem_zipcode" class="form-control-register" type="text" placeholder="우편번호" readonly/>
+		<input type="button" id="zip-code" onclick="execDaumPostcode()" value="우편번호 찾기">
+		<form:errors path="mem_zipcode" cssClass="error-color"/>
+	
+		<input id="mem_address1" name="mem_address1" class="form-control-register-common" type="text" placeholder="주소" readonly/>
+		<form:errors path="mem_address1" cssClass="error-color"/>
+	                
+		<input id="mem_address2" name="mem_address2" class="form-control-register-common" type="text" placeholder="상세주소" autocomplete="off"/>
+		<form:errors path="mem_address2" cssClass="error-color"/>
+	
+		<form:button id="register_btn">가입하기</form:button>                        
+		<input type="button" id="home_btn" value="취소"  onclick="location.href='/main/main.do'">
+	</form:form>
 </div>
 <!-- 우편번호 검색 시작 -->
 <!-- iOS에서는 position:fixed 버그가 있음, 적용하는 사이트에 맞게 position:absolute 등을 이용하여 top,left값 조정 필요 -->
 <div id="layer" style="display:none;position:fixed;overflow:hidden;z-index:1;-webkit-overflow-scrolling:touch;">
 <img src="//t1.daumcdn.net/postcode/resource/images/close.png" id="btnCloseLayer" style="cursor:pointer;position:absolute;right:-3px;top:-3px;z-index:1" onclick="closeDaumPostcode()" alt="닫기 버튼">
 </div>
-
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>
     // 우편번호 찾기 화면을 넣을 element
@@ -217,7 +164,6 @@
 </script>
 <script type="text/javascript">
 $('#send').click(function() {
-	
 	const to = $('#mem_cell').val();
 	var element = document.getElementById("cnum-btn-wrap3");
 	
@@ -230,11 +176,9 @@ $('#send').click(function() {
 		success: function(data) {
 			const checkNum = data;
 			alert('인증번호 전송 완료!');
-			
-            // 전송 버튼 숨기기
-            $('#send').hide();
-            $('#cnum-btn-wrap2').hide();
 
+			$('#send').hide();
+			
             // 인증번호 입력 폼과 확인 버튼 보이기
  			$('#checkNumber').show();
 			
@@ -246,10 +190,9 @@ $('#send').click(function() {
 					
 		            // 가입 버튼 보이기
 		 			$('.cnum-btn-wrap').show();
-		 			$('#cnum-btn2').show();
+		 			$('#register_btn').show();
 		 			element.style.width = "50%";
 		 			element.style.marginLeft = "10px";
-					
 				}
 				else {
 					alert('인증 실패하였습니다. 다시 입력해주세요.');
