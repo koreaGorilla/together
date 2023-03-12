@@ -20,7 +20,7 @@
 			<input type="text" id="mem_name" name="mem_name" class="form-control-name" placeholder="아이디 입력" autocomplete="off"/>
 			<input type="text" id="mem_cell" name="mem_cell" class="form-control" placeholder="전화번호 입력('-' 제외하고 입력하세요)"  autocomplete="off"/>
 			<input id="login_btn" type="submit" value="확인">
-
+ 
 			<section class="find-signup-wrap">
 				<div id="find-signup-wrap-ko">
 					<span class="find-id">
