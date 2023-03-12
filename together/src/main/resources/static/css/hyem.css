@@ -1637,31 +1637,145 @@ a#ui-active-item{
 }
 
 .mpList table th, .mrList table th, .mpartyList table th,
-.fpList table th, .frList table th{
+.fpList table th, .frList table th, .noticeList th{
 	padding: 15px 0;
 	background-color: #09aa5c;
 	color: #fff;
 }
 
 .mpList table td, .mrList table td, .mpartyList table td,
-.fpList table td, .frList table td{
+.fpList table td, .frList table td, .noticeList td{
 	padding: 15px 0;
 	border-bottom: 1px solid #ccc;
 }
 
 .mpList table td a:link, .mrList table td a:link, .mpartyList table td a:link,
-.fpList table td a:link, .frList table td a:link{
+.fpList table td a:link, .frList table td a:link, .noticeList td a:link{
 	color: #000;
 }
 
 .mpList table td a:visited, .mrList table td a:visited, .mpartyList table td a:visited,
-.fpList table td a:visited, .frList table td a:visited{
+.fpList table td a:visited, .frList table td a:visited, .noticeList td a:visited{
 	color: #000;
 }
 
 .mpList table td a:hover, .mrList table td a:hover, .mpartyList table td a:hover,
-.fpList table td a:hover, .frList table td a:hover{
+.fpList table td a:hover, .frList table td a:hover, .noticeList td a:hover{
 	color: #09aa5c;
 	text-decoration: none;
 	transition: 0.2s ease-out;
+}
+
+/* 공지사항 */
+.notice-main{
+	width: 90%;
+	margin: 0 auto;
+	min-height: 636px;
+}
+
+.notice-wbtn{
+	padding: 5px 15px;
+	background-color: #09aa5c;
+	color: #fff;
+	border: 1px solid #09aa5c;
+	border-radius: 5px;
+	font-weight: bold;
+	cursor: pointer;
+	margin-top: 15px;
+}
+
+.notice-wbtn:hover{
+	background-color: #fff;
+	color: #09aa5c;
+	transition: 0.2s ease-out;
+}
+
+.noticeList{
+	width: 100%;
+	border-collapse:collapse;
+	margin: 20px 0;
+	margin-top: 30px;
+}
+
+#updateNotice_form, #noticeWrite_form{
+	padding: 50px;
+}
+
+#updateNotice_form ul li, #noticeWrite_form ul li{
+	margin-bottom: 15px;
+}
+
+.updateform-label{
+	display: inline-block;
+	width: 150px;
+	text-align: center;
+	padding: 15px 0;
+	border: 1px solid #ccc;
+}
+
+.updateform-title{
+	width: 76%;
+    padding: 15px;
+    margin-left: 0;
+    border: 0;
+}
+
+.updateform-title:focus{
+	outline: none;
+}
+
+.update-btn{
+	padding: 5px 20px;
+	background-color: #09aa5c;
+	border: 1px solid #09aa5c;
+	color: #fff;
+	font-weight: bold;
+	border-radius: 5px;
+	cursor: pointer;
+	margin-top: 15px;
+}
+
+.update-btn:hover{
+	background-color: #fff;
+	color: #09aa5c;
+	transition: 0.2s ease-out;
+}
+
+.update-cancel{
+	padding: 5px 20px;
+	background-color: #fff;
+	border: 1px solid #09aa5c;
+	color: #09aa5c;
+	font-weight: bold;
+	border-radius: 5px;
+	cursor: pointer;
+	margin-top: 15px;
+}
+
+.update-cancel:hover{
+	background-color: #09aa5c;
+	color: #fff;
+	transition: 0.2s ease-out;
+}
+
+.notice-view{
+	width: 90%;
+	margin: 0 auto;
+	min-height: 636px;
+	text-align: center;
+	margin-top: 25px;
+}
+
+.notice-view h2{
+	display: inline-block;
+}
+
+.detail-info{
+	float: right;
+}
+
+.notice-view p{
+	text-align: left;
+	min-height: 250px;
+	padding: 30px;
 }

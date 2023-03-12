@@ -1,22 +1,22 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!-- 중앙 컨텐츠 시작 -->
 <script src="${pageContext.request.contextPath}/js/videoAdapter.js"></script>
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/hapal.css">
-<div class="page-main">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/hyem.css">
+<div class="notice-view">
    <h2>${notice.notice_title}</h2>
+   <br>
    <ul class="detail-info">
       <li>
          <br>
          <c:if test="${!empty notice.notice_modifydate}">
-         최근 수정일 : ${notice.notice_modifydate}
+         ${notice.notice_modifydate}
          </c:if>
          <c:if test="${empty notice.notice_modifydate}">
-         작성일 : ${notice.notice_date}
+         ${notice.notice_date}
          </c:if>
-         조회 : ${notice.notice_hit}
+         | ${notice.notice_hit}
       </li>
    </ul>
    <c:if test="${!empty notice.notice_filename}">
@@ -39,15 +39,12 @@
       <img src="imageView.do?notice_num=${notice.notice_num}" class="detail-img">
    </div>
    </c:if>
-   <p>
       ${notice.notice_content}
-   </p>
    <hr size="1" width="100%">
    <div class="align-right">
       <c:if test="${!empty user && user.mem_num == notice.mem_num}">
-      <input class="qjxms" type="button" value="수정" 
-        onclick="location.href='update.do?notice_num=${notice.notice_num}'">
-      <input class="qjxms" type="button" value="삭제" id="delete_btn"> 
+      <input class="update-btn" type="button" value="수정" onclick="location.href='update.do?notice_num=${notice.notice_num}'">
+      <input class="update-cancel" type="button" value="삭제" id="delete_btn"> 
       <script type="text/javascript">
          let delete_btn = document.getElementById('delete_btn');
          delete_btn.onclick=function(){
@@ -58,8 +55,7 @@
          };
       </script> 
       </c:if> 
-      <input class="qjxms" type="button" value="목록"
-                 onclick="location.href='list.do'">
+      <input class="update-btn" type="button" value="목록" onclick="location.href='list.do'">
    </div>
 </div>
 <!-- 중앙 컨텐츠 끝 -->
