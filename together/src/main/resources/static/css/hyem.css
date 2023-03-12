@@ -1518,3 +1518,150 @@ a#ui-active-item{
 	text-align: left;
 	margin-right: 15px;
 }
+
+/* myPage nav */
+.camera{
+	width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    background-color: #09aa5c;
+    position: relative;
+    top: -60px;
+    left: 170px;
+    border: 2px solid #fff;
+    cursor: pointer;
+}
+
+#photo_choice{
+	text-align: center;
+}
+
+#photo_submit:hover{
+	background-color: #fff;
+	color: #09aa5c;
+	transition: 0.2s ease-out;
+}
+
+#photo_reset:hover{
+	background-color: #09aa5c;
+	color: #fff;
+	transition: 0.2s ease-out;
+}
+
+.myPage-button{
+	border: 0;
+	background-color: #fff;
+	color: #000;
+	cursor: pointer;
+	font-weight: bold;
+	padding: 5px 0;
+	font-size: 15px;
+	margin-left: 10px;
+}
+
+.myPage-button:hover{
+	border-bottom: 2px solid #000;
+}
+
+.member-btn{
+	border: 0;
+	background-color: #fff;
+	color: #000;
+	cursor: pointer;
+	padding: 5px 0;
+	font-size: 12px;
+	margin-left: 10px;
+}
+
+.member-btn:hover{
+	border-bottom: 1px solid #000;
+}
+
+/* member-detail */
+.member-detail{
+	margin: 0 20px;
+	padding: 20px 30px;
+	margin-top: 20px;
+}
+
+.member-detail h3{
+	display: inline-block;
+	width: 100px;
+	text-align: center;
+}
+
+.myPage-detail{
+	border: 0;
+    border-radius: 5px;
+    width: 70%;
+    margin: 5px 0px;
+    padding: 10px;
+    cursor: text;
+    margin-left: 10px;
+    font-size: 15px;
+}
+
+.myPage-detail:focus{
+	outline: none;
+}
+
+#member_modify_btn{
+	position: relative;
+    transform: translate(-50%, -50%);
+    margin-top: 40px;
+    left: 50%;
+    background: #09aa5c;
+    color: #fff;
+    border: 1px solid #09aa5c;
+    padding: 10px 20px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#member_modify_btn:hover{
+	background-color: #fff;
+	color: #09aa5c;
+}
+
+/* 내가 생성한 파티 목록 */
+.mpList, .mrList, .mpartyList, .fpList, .frList{
+	width: 95%;
+	margin: 20px;
+	display: none;
+}
+
+.mpList table, .mrList table, .mpartyList table, .fpList table, .frList table{
+	width: 100%;
+	border-collapse:collapse;
+}
+
+.mpList table th, .mrList table th, .mpartyList table th,
+.fpList table th, .frList table th{
+	padding: 15px 0;
+	background-color: #09aa5c;
+	color: #fff;
+}
+
+.mpList table td, .mrList table td, .mpartyList table td,
+.fpList table td, .frList table td{
+	padding: 15px 0;
+	border-bottom: 1px solid #ccc;
+}
+
+.mpList table td a:link, .mrList table td a:link, .mpartyList table td a:link,
+.fpList table td a:link, .frList table td a:link{
+	color: #000;
+}
+
+.mpList table td a:visited, .mrList table td a:visited, .mpartyList table td a:visited,
+.fpList table td a:visited, .frList table td a:visited{
+	color: #000;
+}
+
+.mpList table td a:hover, .mrList table td a:hover, .mpartyList table td a:hover,
+.fpList table td a:hover, .frList table td a:hover{
+	color: #09aa5c;
+	text-decoration: none;
+	transition: 0.2s ease-out;
+}

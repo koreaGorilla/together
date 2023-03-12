@@ -384,12 +384,6 @@ input#change.menu-btn:hover{
     font-weight: 700;
 }
 
-#photo_btn:hover{
-	background-color: #B7B5B5;
-	text-decoration: none;
-	transition: 0.5s ease-out;
-}
-
 img#photo_pencil{
 	width:30px;
 	height:30px;
@@ -400,81 +394,7 @@ img#photo_pencil{
     margin-left: 35px;
     margin-bottom: 25px;
 }
-#review{
-	width: 117px;
-    height: 35px;
-    border-radius: 12px 12px 12px 12px;
-    background-image: linear-gradient(98deg,#03c75a,#49c6dd);
-    text-decoration: none;
-    cursor: pointer;
-    font-size: 17px;
-    font-weight: 700;
-    line-height: 20px;
-    letter-spacing: 2px;
-    color: #fff;
-    border: 1px solid white;
-}
-#fav_review{
-	width: 117px;
-    height: 35px;
-    border-radius: 12px 12px 12px 12px;
-    background-image: linear-gradient(98deg,#03c75a,#49c6dd);
-    text-decoration: none;
-    cursor: pointer;
-    font-size: 17px;
-    font-weight: 700;
-    line-height: 20px;
-    letter-spacing: 2px;
-    color: #fff;
-    border: 1px solid white;
-    margin-left:10px;
-}
-#in_party{
-	width: 117px;
-    height: 35px;
-    border-radius: 12px 12px 12px 12px;
-    background-image: linear-gradient(98deg,#03c75a,#49c6dd);
-    text-decoration: none;
-    cursor: pointer;
-    font-size: 17px;
-    font-weight: 700;
-    line-height: 20px;
-    letter-spacing: 2px;
-    color: #fff;
-    border: 1px solid white;
-    margin-left:10px;
-}
-#fav_party{
-	width: 117px;
-    height: 35px;
-    border-radius: 12px 12px 12px 12px;
-    background-image: linear-gradient(98deg,#03c75a,#49c6dd);
-    text-decoration: none;
-    cursor: pointer;
-    font-size: 17px;
-    font-weight: 700;
-    line-height: 20px;
-    letter-spacing: 2px;
-    color: #fff;
-    border: 1px solid white;
-    margin-left:10px;
-}
 
-#my_party{
-	width: 117px;
-    height: 35px;
-    border-radius: 12px 12px 12px 12px;
-    background-image: linear-gradient(98deg,#03c75a,#49c6dd);
-    text-decoration: none;
-    cursor: pointer;
-    font-size: 17px;
-    font-weight: 700;
-    line-height: 20px;
-    letter-spacing: 2px;
-    color: #fff;
-    border: 1px solid white;
-    margin-left:10px;
-}
 
 #upload{
 	margin-left: 22px;
@@ -487,24 +407,22 @@ img#photo_pencil{
     border-radius: 5px;
 }
 #photo_submit{
-	margin-left: 22px;
-    width: 100px;
-    height: 30px;
-    font-size: 13px;
-    font-weight: 700;
-    background-color: #FCFCFC;
-    border-color: #B7B5B5;
+	padding: 5px 20px;
+    border: 1px solid #09aa5c;
     border-radius: 5px;
+    color: #fff;
+    background-color: #09aa5c;
+    font-weight: bold;
+    cursor: pointer;
 }
 #photo_reset{
-	margin-left: 15px;
-    width: 100px;
-    height: 30px;
-    font-size: 13px;
-    font-weight: 700;
-    background-color: #FCFCFC;
-    border-color: #B7B5B5;
+	padding: 5px 20px;
+    border: 1px solid #09aa5c;
     border-radius: 5px;
+    color: #09aa5c;
+    background-color: #fff;
+    font-weight: bold;
+    cursor: pointer;
 }
 
 /* 공통 목록
