@@ -10,7 +10,6 @@
 		<tr>
 			<th>이름</th>
 			<th>파티 가입일</th>
-			<th>파티번호</th>
 			<th>회원분류</th>
 		</tr>
 		<c:forEach var="member" items="${list}">
@@ -18,7 +17,6 @@
 				<tr>
 					<td>${member.mem_name}</td>
 					<td>${member.partymem_reg_date}</td>
-					<td>${member.party_auth}</td>
 					<td><c:if test="${member.party_auth==0}">일반회원</c:if> 
 					    <c:if test="${member.party_auth==9}">파티장</c:if>
 					    </td>
