@@ -378,11 +378,6 @@ input#change.menu-btn{
     font-size: 15px;
     font-weight: 700;
 }
-img#photo_pencil{
-	width:30px;
-	height:30px;
-	position: absolute;
-}
 .btns{
 	margin-top: 25px;
     margin-left: 60px;
@@ -848,6 +843,11 @@ div#dhfmsWhr {
     margin-left: 43px;
     margin-right: -134px;
 }
+.partyy-photo{
+	width:400px;
+	height:380px;
+}
+
 #partydetail-pagemain{
 	margin: 0 auto;
 	padding: 18px 128px 439px 18px;

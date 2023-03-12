@@ -9,10 +9,10 @@
  <div>
    <div id="party-image">
       <c:if test="${empty party.party_photo_name }">
-      <img src="${pageContext.request.contextPath}/images/togetherLogo.jpg" width="100%" height="200" class="party-photo">
+      <img src="${pageContext.request.contextPath}/images/togetherLogo.jpg" class="partyy-photo">
       </c:if>
       <c:if test="${!empty party.party_photo_name }">
-      <img src="imageView.do?party_num=${party.party_num}&party_type=2" width="400" height="380" class="party-photo">
+      <img src="imageView.do?party_num=${party.party_num}&party_type=2"class="partyy-photo">
       </c:if>
    </div>
   <div id=dhfmsWhr>   
@@ -20,21 +20,25 @@
       <div class="party-info">
          <ul class="info1">
             <li class="party-top">
-               <c:if test="${empty party.photo_name}">
-               <img src="${pageContext.request.contextPath}/images/face.png" width="40" height="40" class="my-photo">
-               </c:if>
-               <c:if test="${!empty party.photo_name}">
-               <img src="imageView.do?party_num=${party.party_num}&party_type=1" width="40" height="40" class="my-photo">
-               </c:if>
-               <b style="font-size:20px;">${party.party_name }</b>
-               <b>파티장 : </b>
-               <span>${party.mem_name }</span>
-               <b>파티 개설일 : </b>
-               <span>${party.party_reg_date }</span>
+            <ul style="font-size:20px; text-align: center;">
+               <b>${party.party_name }</b>
+            </ul>
+               <ul style="text-align: center; margin-top:10px;">
+	               <c:if test="${empty party.photo_name}">
+	               <img src="${pageContext.request.contextPath}/images/face.png" width="20" height="20" class="my-photo">
+	               </c:if>
+	               <c:if test="${!empty party.photo_name}">
+	               <img src="imageView.do?party_num=${party.party_num}&party_type=1" width="20" height="20" class="my-photo">
+	               </c:if>
+	               <b>파티장 : </b>
+	               <span>${party.mem_name }</span>
+	               <b>파티 개설일 : </b>
+	               <span>${party.party_reg_date }</span>
+               </ul>
                
             </li>
             <li class="party-content">
-               <span>${party.party_content}</span>
+               <span class="party_content">${party.party_content}</span>
             </li>
             <li class="party-member">
                <b>가입멤버</b>
@@ -143,7 +147,7 @@
        
        <c:if test="${!empty pMember && pMember.party_auth==9}">
             
-               <input type="button" value="수정" onclick="location.href='partyUpdate.do?party_num=${party.party_num}'">
+               <input type="button" value="수정" id="modify_btnn" onclick="location.href='partyUpdate.do?party_num=${party.party_num}'">
             
             </c:if>
             
