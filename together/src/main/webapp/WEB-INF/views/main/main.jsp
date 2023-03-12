@@ -137,9 +137,9 @@
 				</div> 
 			</c:forEach>
 			<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><hr class="party-list-hr">
+			<p class="party-list-p"><a href="${pageContext.request.contextPath}/party/list.do">전체 파티 ></a></p>
 		</c:if>
 		
-		<p class="party-list-p"><a href="${pageContext.request.contextPath}/party/list.do">전체 파티 ></a></p>
 		<c:forEach var="party" items="${list}">
 			<div class="party-list-item">
 				<a href="${pageContext.request.contextPath}/party/detail.do?party_num=${party.party_num}">
