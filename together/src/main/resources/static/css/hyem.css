@@ -1786,8 +1786,12 @@ a#ui-active-item{
 
 .notice-view p{
 	text-align: left;
+	line-height: 30px;
+}
+
+.notice-content{
+	padding: 20px;
 	min-height: 250px;
-	padding: 30px;
 }
 
 /* party detail */
@@ -1952,13 +1956,13 @@ a#ui-active-item{
 	float: left;
 }
 
-#party_keyword{
+#party_keyword, #review_keyword{
 	width: 300px;
 	padding: 10px 15px;
 	border: 3px solid #09aa5c;
 }
 
-#party_keyword:focus{
+#party_keyword:focus, #review_keyword:focus{
 	outline: none;
 }
 
@@ -2040,4 +2044,16 @@ a#ui-active-item{
 	margin-left: 5px;
 	font-weight: bold;
 	margin-bottom: -10px;
+}
+
+.rev-keyfield{
+	padding: 9px 10px 27px 10px;
+    border: 3px solid #09aa5c;
+    margin-left: 50px;
+}
+
+#message_id{
+	margin: 5px 60px;
+    display: block;
+    text-align: right;
 }

@@ -39,7 +39,9 @@
       <img src="imageView.do?notice_num=${notice.notice_num}" class="detail-img">
    </div>
    </c:if>
-      ${notice.notice_content}
+   <div class="notice-content">
+		${notice.notice_content}
+   </div> 
    <hr size="1" width="100%">
    <div class="align-right">
       <c:if test="${!empty user && user.mem_num == notice.mem_num}">

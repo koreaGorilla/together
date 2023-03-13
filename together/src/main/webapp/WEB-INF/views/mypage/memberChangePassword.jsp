@@ -27,7 +27,7 @@
 				<form:errors path="mem_pw" cssClass="error-color"/>
 			</li>
 			<li>
-				<input type="password" id="confirm_passwd" class="form-control-pwc" placeholder="새 비밀번호 확인"/>
+				<input type="password" id="confirm_passwd" class="form-control-pwc" placeholder="새 비밀번호 확인"/><br>
 				<span id="message_id"></span>
 			</li>
 			<li>

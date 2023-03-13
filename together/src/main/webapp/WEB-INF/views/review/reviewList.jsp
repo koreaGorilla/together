@@ -25,17 +25,15 @@
                   <option value="1" <c:if test="${param.keyfield==1}">selected</c:if>>작성자</option>
                   <option value="2" <c:if test="${param.keyfield==2}">selected</c:if>>내용</option>
                   <option value="3" <c:if test="${param.keyfield==3}">selected</c:if>>작성자+내용</option>
-                  
                </select>
             </li>
-            <li>
-               <input type="search" name="keyword" id="review-keyword" value="${param.keyword}">
-            </li>
-            <li>
-               <input class="btn_css" type="submit" value="검색">
-               <input class="btn_css" type="button" value="목록" onclick="location.href='list.do'">
-               
-            </li>
+			<li>
+				<input type="search" name="keyword" id="review_keyword" value="${param.keyword}" autocomplete="off" style="margin-left:-8px">
+			</li>
+			<li>
+				<input type="submit" value="검색" id="partySearch_btn">
+				<input type="button" value="목록" id="partySearch_list" onclick="location.href='list.do'">
+			</li>
          </ul>
       </form>
       <div class="align_right">
