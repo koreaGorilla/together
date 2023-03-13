@@ -18,7 +18,7 @@ let result = '${result}';
 		});
 	});
 	</script>
-<div id="main_body">
+<div>
 	<c:if test="${!empty param.party_hobby  and (param.party_hobby>=1 and param.party_hobby<=4)}">
 		<c:if test="${param.party_hobby == 1}"> 운동</c:if>
 		<c:if test="${param.party_hobby == 2}"> 독서</c:if>

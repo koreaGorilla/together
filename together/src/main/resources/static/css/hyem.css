@@ -1954,6 +1954,9 @@ a#ui-active-item{
 
 .partyList{
 	margin-top: 10px;
+	margin-bottom: 10px;
+    height: auto;
+    display: inline-block;
 }
 
 .partyMain{
