@@ -2047,7 +2047,8 @@ a#ui-active-item{
 }
 
 .rev-keyfield{
-	padding: 9px 10px 27px 10px;
+	width: 95px;
+    height: 42px;
     border: 3px solid #09aa5c;
     margin-left: 50px;
 }
