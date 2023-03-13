@@ -42,9 +42,9 @@ $(function(){
 	function displayFav(param){
 		let output;
 		if(param.status == 'yesFav'){
-			output = '../images/fav_2.png';
+			output = '../image_bundle/fav_2.png';
 		}else{
-			output = '../images/fav_1.png';
+			output = '../image_bundle/fav_1.png';
 		}
 		
 		//문서 객체에 추가

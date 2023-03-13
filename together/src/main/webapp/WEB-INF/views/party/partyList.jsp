@@ -1,7 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>  
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/hapalpalpal.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/hyem.css">
 <script type="text/javascript">
 let result = '${result}';
 	if(!location.hash && result == 'success'){
@@ -10,10 +9,10 @@ let result = '${result}';
 	}
 	$(function(){
 		//검색 유효성 체크
-		$('#search_form').submit(function(){
-			if($('#keyword').val().trim()==''){
+		$('#partySearchform').submit(function(){
+			if($('#party_keyword').val().trim()==''){
 				alert('검색어를 입력하세요!');
-				$('#keyword').val('').focus();
+				$('#party_keyword').val('').focus();
 				return false;
 			}
 		});
@@ -21,45 +20,35 @@ let result = '${result}';
 	</script>
 <div id="main_body">
 	<c:if test="${!empty param.party_hobby  and (param.party_hobby>=1 and param.party_hobby<=4)}">
-		>
 		<c:if test="${param.party_hobby == 1}"> 운동</c:if>
 		<c:if test="${param.party_hobby == 2}"> 독서</c:if>
 		<c:if test="${param.party_hobby == 3}"> 음주</c:if>
 		<c:if test="${param.party_hobby == 4}"> 문화</c:if>
 	</c:if>
-	</h2>
 	<c:if test="${empty param.party_hobby  or (param.party_hobby<1 or param.party_hobby>4)}">
-	<form action="list.do" id="search_form" method="get">
-		<ul class="search">
+	<form action="list.do" id="partySearchform" method="get">
+		<ul>
 			<li>
-				<select name="keyfield" id="keyfield">
-					<option value="1" <c:if test="${param.keyfield == 1}">selected</c:if>>제목</option>
-					
-				</select>
+				<input type="search" name="keyword" id="party_keyword" value="${param.keyword}" autocomplete="off">
 			</li>
 			<li>
-				<input type="search" name="keyword" 
-				  id="keyword" value="${param.keyword}">
-			</li>
-			<li>
-				<input type="submit" value="찾기">
-				<input type="button" value="목록"
-				         onclick="location.href='list.do'">
+				<input type="submit" value="검색" id="partySearch_btn">
+				<input type="button" value="목록" id="partySearch_list" onclick="location.href='list.do'">
 			</li>
 		</ul>
 	</form>
 	</c:if>
 	<c:if test="${!empty user}">
 	<div class="align-right">
-		<input id="vkxltodtjd" type="button" value="파티 생성" 
-		    onclick="location.href='write.do'">
+		<input id="party_write" type="button" value="파티 생성" 
+		    onclick="location.href='write.do'" style="margin-right: 20px;">
 	</div>
 	</c:if>
 	<c:if test="${count == 0}">
 	<div class="result-display">표시할 파티 정보가 없습니다.</div>
 	</c:if>	
 	<c:if test="${count > 0}">
-	<div class="party-list">
+	<div class="partyList">
 		<c:forEach var="party" items="${list}">
 			<div class="party-list-item">
 				<a href="${pageContext.request.contextPath}/party/detail.do?party_num=${party.party_num}">
