@@ -10,7 +10,7 @@ let result = '${result}';
 	$(function(){
 		//검색 유효성 체크
 		$('#partySearchform').submit(function(){
-			if($('#party_keyword').val().trim()==''){
+			if($('#party_keyword').val().trim()==''){ 
 				alert('검색어를 입력하세요!');
 				$('#party_keyword').val('').focus();
 				return false;

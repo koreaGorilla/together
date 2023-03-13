@@ -19,7 +19,7 @@ $(function(){
 	//좋아요 등록
 	$('#output_fav').click(function(){
 		$.ajax({
-			url:'writeFav.do',
+			url:'writeFav.do', 
 			type:'post',
 			data:{party_num:$('#output_fav').attr('data-num')},
 			dataType:'json',
@@ -42,9 +42,9 @@ $(function(){
 	function displayFav(param){
 		let output;
 		if(param.status == 'yesFav'){
-			output = '../image_bundle/fav_2.png';
+			output = '../image_bundle/fav_02.png';
 		}else{
-			output = '../image_bundle/fav_1.png';
+			output = '../image_bundle/fav_01.png';
 		}
 		
 		//문서 객체에 추가

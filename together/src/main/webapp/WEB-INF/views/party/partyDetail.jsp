@@ -46,7 +46,7 @@
 				</c:forEach>
 			</div>
 			<div class="partyDetail-fav">
-				<img id="output_fav" data-num="${party.party_num}" src="${pageContext.request.contextPath}/image_bundle/fav_1.png" width="40">
+				<img id="output_fav" data-num="${party.party_num}" src="${pageContext.request.contextPath}/image_bundle/fav_01.png" width="40">
 			</div>
 		</div>
 		<div class="partyDetail-btn">

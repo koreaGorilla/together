@@ -278,7 +278,7 @@ li.paging-current{
     vertical-align: top;
     z-index: 1;
 }
-.side-bar ul{
+.side-bar ul{ 
 	margin:0;
 	padding:0;
 }
