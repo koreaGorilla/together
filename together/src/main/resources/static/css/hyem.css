@@ -1364,12 +1364,12 @@ a#ui-active-item{
 #login_btn{
 	width: 88%;
     margin: 5px 30px;
-    padding: 20px;
+    padding: 15px 20px;
     border: 0;
     background-color: #09aa5c;
     color: #fff;
     font-weight: bold;
-    font-size: 15px;
+    font-size: 20px;
     border-radius: 5px;
     cursor: pointer;
 }
@@ -1429,12 +1429,12 @@ a#ui-active-item{
 #register_btn{
 	width: 99%;
 	margin-top: 20px;
-    padding: 20px;
+    padding: 10px 20px;
     border: 0;
     background-color: #09aa5c;
     color: #fff;
     font-weight: bold;
-    font-size: 15px;
+    font-size: 20px;
     border-radius: 5px;
     cursor: pointer;
 	display: none;
@@ -1443,12 +1443,12 @@ a#ui-active-item{
 #home_btn{
 	width: 99%;
 	margin-top: 10px;
-	padding: 20px;
+	padding: 10px 20px;
 	border: 1px solid #09aa5c;
 	background-color: #fff;
 	color : #09aa5c;
 	font-weight: bold;
-	font-size: 15px;
+	font-size: 20px;
 	border-radius: 5px;
 	cursor: pointer;
 	text-align: center;
@@ -2014,4 +2014,11 @@ a#ui-active-item{
 #partysend:hover{
 	color: #09aa5c;
 	background-color: #fff;
+}
+
+.partyMem{
+	margin-left: 5px;
+    margin-top: -15px;
+    margin-bottom: 10px;
+    font-weight: bold;
 }

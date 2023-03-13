@@ -28,6 +28,7 @@
 			<div class="partyDetail-con">
 				<span>${party.party_content}</span>
 			</div>
+			<p class="partyMem">가입한 파티원</p>
 			<div class="partyDetail-member">
 				<c:forEach var="member" items="${list}">
 					<c:if test="${member.party_auth == 0}">
