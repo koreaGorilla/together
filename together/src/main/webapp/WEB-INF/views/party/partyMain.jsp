@@ -32,6 +32,9 @@
 			<li class="partyMain-content" style="min-height: 150px;">
 				<span>${party.party_content}</span>
 			</li>
+			<li>
+				<p class="partyMainMem">가입한 파티원</p>
+			</li>
 			<li style="margin-top: 20px;">
 				<div class="partyDetail-member">
 					<c:forEach var="member" items="${list}">
