@@ -95,26 +95,40 @@ form#mre_form{
 .rev_btn{
 	text-align: center;
 }
-
 .btn_css{
-	background-color: white;
-    border-radius: 9%;
-    color: #333333;
-    border: 1px solid #007580fc;
-    font-size: 15px;
+	
+   
+    
+    font-size: 12px;
     cursor: pointer;
     padding: 3px;
     height: 26px;
-    width:50px;
-    text-align: center;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    background-color: #03c75a;
+    font-weight: bold;
     
 }
 
 .btn_css:hover {
 
-  background: #2b9ca6fc;
-  color: white;
+  background-color: #fff;
+    color: #09aa5c;
+    font-weight: bold;
+    border:1px solid #03c75a;
 
 }
 
-
+/*댓글*/
+.modify-btnn, .delete-btnn,.content-reset{
+	 font-size: 12px;
+    cursor: pointer;
+    padding: 3px;
+    height: 26px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    background-color: #03c75a;
+    font-weight: bold;
+}
