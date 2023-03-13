@@ -202,10 +202,8 @@ h1{
     outline:none;
     width:100%;
 }
-input#userNum{
-	border: 0;
-	outline: none;
-	
+input.userNum2{
+	border:none;
 }
 .signup-at{
     color: rgb(150, 150, 150);
