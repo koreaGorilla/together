@@ -8,31 +8,31 @@
 	  <ul>
 	    <li class="item item1">
 		    <a href="${pageContext.request.contextPath}/party/detail.do?party_num=${recent_list[0].party_num}">
-		    	<img src="imageView.do?party_num=${recent_list[0].party_num}" width="800">
+		    	<img src="imageView.do?party_num=${recent_list[0].party_num}" width="800" height="100%">
 				<div class="txt">${recent_list[0].party_name}</div>
 			</a>
 	    </li>
 	    <li class="item item2">
 		    <a href="${pageContext.request.contextPath}/party/detail.do?party_num=${recent_list[1].party_num}">
-				<img src="imageView.do?party_num=${recent_list[1].party_num}" width="800">
+				<img src="imageView.do?party_num=${recent_list[1].party_num}" width="800" height="100%">
 				<div class="txt">${recent_list[1].party_name}</div>
 			</a>
 	    </li>
 	    <li class="item item3">
 		    <a href="${pageContext.request.contextPath}/party/detail.do?party_num=${recent_list[2].party_num}">
-				<img src="imageView.do?party_num=${recent_list[2].party_num}" width="800">
+				<img src="imageView.do?party_num=${recent_list[2].party_num}" width="800" height="100%">
 				<div class="txt">${recent_list[2].party_name}</div>
 			</a>
 	    </li>
 	    <li class="item item4">
 		    <a href="${pageContext.request.contextPath}/party/detail.do?party_num=${recent_list[3].party_num}">
-				<img src="imageView.do?party_num=${recent_list[3].party_num}" width="800">
+				<img src="imageView.do?party_num=${recent_list[3].party_num}" width="800" height="100%">
 				<div class="txt">${recent_list[3].party_name}</div>
 			</a>
 	    </li>
 	    <li class="item item5">
 		    <a href="${pageContext.request.contextPath}/party/detail.do?party_num=${recent_list[4].party_num}">
-				<img src="imageView.do?party_num=${recent_list[4].party_num}" width="800">
+				<img src="imageView.do?party_num=${recent_list[4].party_num}" width="800" height="100%">
 				<div class="txt">${recent_list[4].party_name}</div>
 			</a>
 	    </li>
