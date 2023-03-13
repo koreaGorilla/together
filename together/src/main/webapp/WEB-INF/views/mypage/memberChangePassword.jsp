@@ -5,6 +5,8 @@
 <head>
 <meta charset="UTF-8">
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/mypage.js"></script>
+
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/memberModify.css"> 
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/hyem.css">
 <title>로그인</title>
