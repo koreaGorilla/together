@@ -12,7 +12,7 @@
 				<div class="txt">${recent_list[0].party_name}</div>
 			</a>
 	    </li>
-	    <li class="item item2">
+	    <li class="item item2"> 
 		    <a href="${pageContext.request.contextPath}/party/detail.do?party_num=${recent_list[1].party_num}">
 				<img src="imageView.do?party_num=${recent_list[1].party_num}" width="800">
 				<div class="txt">${recent_list[1].party_name}</div>
