@@ -261,6 +261,8 @@
 	left: 25px;
 	z-index: 1;
 	background: #fff;
+	display: flex;
+    align-items: center;
 }
 
 .item2{
@@ -269,6 +271,8 @@
 	left: 65px;
 	z-index: 2;
 	background: #fff;
+	display: flex;
+    align-items: center;
 }
 
 .item3{
@@ -277,6 +281,8 @@
 	left: 107px;
 	z-index: 3;
 	background: #fff;
+	display: flex;
+    align-items: center;
 }
 
 .item4{
@@ -285,6 +291,8 @@
 	left: 149px;
 	z-index: 2;
 	background: #fff;
+	display: flex;
+    align-items: center;
 }
 
 .item5{
@@ -293,6 +301,8 @@
 	left: 189px;
 	z-index: 1;
 	background: #fff;
+	display: flex;
+    align-items: center;
 }
 
 .prev_btn{
