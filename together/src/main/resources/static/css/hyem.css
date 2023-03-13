@@ -2052,6 +2052,10 @@ a#ui-active-item{
     margin-left: 50px;
 }
 
+.rev-keyfield:focus{
+	outline: none;
+}
+
 #message_id{
 	margin: 5px 60px;
     display: block;
