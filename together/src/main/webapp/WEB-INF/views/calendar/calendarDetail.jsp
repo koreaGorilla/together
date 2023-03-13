@@ -15,7 +15,7 @@
 	<div id="detail_content">
 		<ul>
 			<li>${calendar.title}</li>
-			<li>${calendar.content}</li>
+			<li style="overflow:hidden;overflow-x:hidden;">${calendar.content}</li>
 			<li>${calendar.start_date} ${calendar.start_time} - ${calendar.end_date} ${calendar.end_time}</li>
 			<li>${calendar.location}<input type="button" id="find" value="길찾기" data-location="${calendar.location}"></li>
 			<c:if test="${!empty user && user.mem_num == calendar.mem_num}">
