@@ -64,7 +64,7 @@
 												alert('로그인 후 사용하세요');
 												location.href='../member/login.do';
 											}else if(param.result == 'success'){
-												alert('신청 완료되었습니다.');
+												alert('승인되었습니다.');
 												location.reload();
 											}
 										},
