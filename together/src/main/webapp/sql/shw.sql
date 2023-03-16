@@ -3,14 +3,12 @@ create table review(
  r_num number,
  r_date date default sysdate not null,
  r_modfiy_date date,
- party_num number not null,
  party_name varchar2(100) not null,
  r_content varchar2(4000) not null,
  r_photo blob,
  r_photoname varchar2(100),
  mem_num number not null,
  constraint review_pk primary key(r_num),
- constraint review_fk1 foreign key (party_num) references party(party_num),
  constraint review_fk2 foreign key (mem_num) references member(mem_num)
 );
 
