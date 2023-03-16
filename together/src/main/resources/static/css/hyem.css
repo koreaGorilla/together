@@ -1956,7 +1956,7 @@ a#ui-active-item{
 	float: left;
 }
 
-#party_keyword, #review_keyword{
+#party_keyword{
 	width: 300px;
 	padding: 10px 15px;
 	border: 3px solid #09aa5c;
@@ -2046,16 +2046,7 @@ a#ui-active-item{
 	margin-bottom: -10px;
 }
 
-.rev-keyfield{
-	width: 95px;
-    height: 42px;
-    border: 3px solid #09aa5c;
-    margin-left: 50px;
-}
 
-.rev-keyfield:focus{
-	outline: none;
-}
 
 #message_id{
 	margin: 5px 60px;

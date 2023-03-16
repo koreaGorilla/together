@@ -31,8 +31,8 @@
 				<input type="search" name="keyword" id="review_keyword" value="${param.keyword}" autocomplete="off" style="margin-left:-8px">
 			</li>
 			<li>
-				<input type="submit" value="검색" id="partySearch_btn">
-				<input type="button" value="목록" id="partySearch_list" onclick="location.href='list.do'">
+				<input type="submit" value="검색" id="reviewSearch_btn">
+				<input type="button" value="목록" id="reviewSearch_list" onclick="location.href='list.do'">
 			</li>
          </ul>
       </form>

@@ -7,12 +7,12 @@
 
 .page-main {
     margin: 0 auto;
-    padding: 35px;
+    padding: 45px;
     max-width: 750px;
-    background-color: #fff;
+    background-color: #f7f7f7;
     border-radius: 5px;
     box-shadow: 0px 0px 5px rgb(0 0 0 / 30%);
-    margin-top: 50px;
+    margin-top: 27px;
 }
 
 
@@ -106,6 +106,7 @@ span.letter-count{
 .review-table{
 	height:150px;
 	margin:10px 0;
+	
 }
 
 
@@ -131,7 +132,7 @@ span.letter-count{
 }
 
 .review-main{
-	width:85%;
+	width:95%;
 	margin:auto;
 	
 }
@@ -155,13 +156,13 @@ li{
 }
 
 ul.search_form{
-	padding-bottom: 15px;
+	padding-bottom: 35px;
 }
 
 .page-title{
 	text-align: center;
 	font-size: 25px;
-	padding:15px 0 20px 0;
+	padding:0 0 32px 0;
 }
 
 .review-date{
@@ -177,7 +178,7 @@ ul.search_form{
 	object-position:top;
 	border-radius:5%;
 }
-.modify-btnn, .delete-btnn{
+.modify-btnn, .delete-btnn, .content-reset{
 	height: 23px;
     width: 37px;
     float: right;
@@ -188,12 +189,10 @@ hr {
     background:#ededed;
     height:2px;
     border:0;
+    
 }
 
-#review-keyword{
-	height:25px;
-	width:200px;
-}
+
 
 /*리뷰 상세부분*/
 
@@ -303,7 +302,7 @@ ul.review-button{
     border: none;
     border-radius: 5px;
     color: white;
-    background-color: #03c75a;
+    background-color: #09aa5c;
     font-weight: bold;
 }
 .modify-btnn:hover,.delete-btnn:hover,.content-reset:hover {
@@ -347,29 +346,65 @@ tr.review_content td{
 }
 
 .btn_css{
-	
-   
-    
-    font-size: 12px;
+	font-size: 12px;
     cursor: pointer;
-    padding: 3px;
-    height: 26px;
-    border: none;
+    padding: 0 10px;
+    height: 35px;
+    border: 2px solid #09aa5c;
     border-radius: 5px;
-    color: white;
-    background-color: #03c75a;
+    color: #09aa5c;
+    background-color: white;
     font-weight: bold;
     
 }
 
 .btn_css:hover {
 
-  background-color: #fff;
-    color: #09aa5c;
+  background-color: #09aa5c;
+    color: white;
     font-weight: bold;
-    border:1px solid #03c75a;
+    border:1px solid #09aa5c;
 
 }
 .rev-keyfield{
-	height:25px;
+	width: 100px;
+    height: 35px;
+    border: 2px solid #09aa5c;
+    color: #09aa5c;
+	font-weight: bold;
+	
+}
+
+.rev-keyfield:focus{
+	outline: none;
+}
+
+#review_keyword{
+	
+	width: 218px;
+    height: 35px;
+    border: 2px solid #09aa5c;
+    margin-left: 50px;
+}
+
+#reviewSearch_btn{
+	padding: 0px 15px;
+	background-color: #09aa5c;
+	border: 0;
+	color: #fff;
+	font-weight: bold;
+	cursor: pointer;
+	margin-left: -5px;
+	height:35px;
+}
+
+#reviewSearch_list{
+	padding: 0px 15px;
+	background-color: #fff;
+	border: 2px solid #09aa5c;
+	color: #09aa5c;
+	font-weight: bold;
+	cursor: pointer;
+	margin-left: -5px;	
+	height:35px;
 }
