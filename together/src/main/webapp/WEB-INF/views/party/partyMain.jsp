@@ -94,7 +94,7 @@
        </div>
    </c:if>
 <script type="text/javascript">
-$('#send').click(function() {
+$('#partysend').click(function() {
    const to = $('#to').val();
    const partyName = $('#partyname').val();
    const partyNum = '${party.party_num}';
