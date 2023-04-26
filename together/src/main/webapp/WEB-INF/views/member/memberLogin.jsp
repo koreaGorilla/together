@@ -30,7 +30,7 @@
 	<section class="find-signup-wrap">
 		<div id="find-signup-wrap-ko">
 			<span class="find-id">
-				<a href="${pageContext.request.contextPath}/find/findId.do">아이디 찾기</a>
+				<a href="${pageContext.request.contextPath}/find/findId.do">아이디찾기</a>
 			</span>
 
 			<span class="find-pw">
@@ -47,7 +47,7 @@
     var check = <%= request.getAttribute("errorMessage") %>;
 
     if (check == 1) {
-        alert("아이디 또는 비밀번호가 틀립니다.");
+        alert("아이디 또는 비밀번호가 다릅니다.");
     }
 </script>
 </html>
